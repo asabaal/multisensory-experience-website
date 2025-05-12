@@ -1,20 +1,42 @@
-/* CSS Variables */
+/* 
+ * Asabaal Ventures Brand Colors and Variables
+ * Based on visual identity from provided brand assets
+ */
+
 :root {
-  /* Colors */
-  --color-primary: #1a1a4f; /* Deep blue */
-  --color-secondary: #4b0082; /* Deep purple */
-  --color-accent-1: #00b2b2; /* Teal */
-  --color-accent-2: #00bfff; /* Electric blue */
-  --color-text-dark: #222;
-  --color-text-light: #f9f9f9;
-  --color-text-muted: #777;
-  --color-background: #f9f9f9;
-  --color-background-alt: #f1f1f1;
-  --color-card-bg: #fff;
-  --color-card-shadow: rgba(0, 0, 0, 0.1);
-  --color-border: rgba(0, 0, 0, 0.1);
+  /* Primary Colors */
+  --color-primary: #e27a9e; /* Pink/Magenta from Asabaal logo */
+  --color-secondary: #008f8c; /* Deep Teal from RESPECT background */
+  --color-tertiary: #6e3a80; /* Cosmic Purple from nebula background */
   
-  /* Typography */
+  /* Secondary Colors */
+  --color-accent-1: #30d5f2; /* Electric Blue from holographic text */
+  --color-accent-2: #ff7d33; /* Sunset Orange from backgrounds */
+  --color-accent-3: #d9b642; /* Gold Accent from spiritual text */
+  
+  /* Neutral Colors */
+  --color-dark: #0a0f1c; /* Deep Space Black for backgrounds */
+  --color-light: #f2e6c2; /* Parchment for light elements */
+  
+  /* Text Colors */
+  --color-text: #ffffff; /* Text on dark backgrounds */
+  --color-text-dark: #18181b; /* Text on light backgrounds */
+  --color-text-muted: rgba(255, 255, 255, 0.7); /* Subdued text */
+  --color-text-highlight: var(--color-primary); /* Highlighted text */
+  
+  /* Gradient Combinations */
+  --gradient-primary: linear-gradient(90deg, var(--color-primary), var(--color-tertiary));
+  --gradient-accent: linear-gradient(90deg, var(--color-accent-1), var(--color-accent-2));
+  --gradient-cosmic: linear-gradient(135deg, var(--color-dark), var(--color-tertiary) 70%, var(--color-primary));
+  --gradient-futuristic: linear-gradient(90deg, var(--color-accent-1), var(--color-primary), var(--color-accent-1));
+  
+  /* Typography Settings - Font families to be updated with web-safe options */
+  --font-primary: 'Inter', 'Segoe UI', system-ui, sans-serif; /* Modern clean font for body text */
+  --font-secondary: 'Playfair Display', Georgia, serif; /* Elegant font for accents */
+  --font-futuristic: 'Space Grotesk', 'Arial', sans-serif; /* Futuristic font for headlines */
+  --font-creative: 'Dancing Script', 'Brush Script MT', cursive; /* Script font for spiritual elements */
+  
+  /* Font Sizes */
   --font-size-xs: 1.2rem;
   --font-size-sm: 1.4rem;
   --font-size-base: 1.6rem;
@@ -22,7 +44,7 @@
   --font-size-lg: 2.4rem;
   --font-size-xl: 3.2rem;
   --font-size-xxl: 4.8rem;
-  --font-size-huge: 6.4rem;
+  --font-size-jumbo: 6.4rem;
   
   /* Spacing */
   --spacing-xs: 0.4rem;
@@ -33,28 +55,36 @@
   --spacing-xxl: 6.4rem;
   
   /* Layout */
-  --container-width: 140rem;
+  --container-width: 120rem;
   --container-padding: 2rem;
-  --header-height: 8rem;
-  --footer-height: 24rem;
   
-  /* Borders & Shadows */
+  /* Effects */
+  --shadow-sm: 0 2px 4px rgba(10, 15, 28, 0.1);
+  --shadow-md: 0 4px 8px rgba(10, 15, 28, 0.12);
+  --shadow-lg: 0 8px 16px rgba(10, 15, 28, 0.16);
+  --shadow-cosmic: 0 8px 32px rgba(226, 122, 158, 0.3);
+  
+  /* Borders */
   --border-radius-sm: 0.4rem;
   --border-radius-md: 0.8rem;
   --border-radius-lg: 1.6rem;
-  --box-shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.1);
-  --box-shadow-md: 0 4px 16px rgba(0, 0, 0, 0.12);
-  --box-shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.15);
+  --border-radius-full: 9999px;
   
-  /* Animations */
-  --transition-fast: 150ms ease;
-  --transition-normal: 300ms ease;
-  --transition-slow: 500ms ease;
+  /* Transitions */
+  --transition-fast: 0.2s ease;
+  --transition-normal: 0.3s ease;
+  --transition-slow: 0.6s ease;
   
-  /* Z-index */
-  --z-index-dropdown: 100;
-  --z-index-sticky: 200;
-  --z-index-fixed: 300;
-  --z-index-modal: 400;
-  --z-index-tooltip: 500;
+  /* Z-index layers */
+  --z-background: -1;
+  --z-default: 1;
+  --z-header: 100;
+  --z-modal: 1000;
+}
+
+/* Dark mode adjustments if needed */
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* Already optimized for dark theme, no changes needed */
+  }
 }
