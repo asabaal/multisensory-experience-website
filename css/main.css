@@ -1,6 +1,7 @@
 /* Main CSS */
 @import 'reset.css';
 @import 'variables.css';
+@import 'typography.css';
 @import 'components/header.css';
 @import 'components/footer.css';
 @import 'components/buttons.css';
@@ -76,42 +77,29 @@
   text-align: center;
 }
 
-/* Typography */
-h1, .h1 {
-  font-size: var(--font-size-xxl);
-  line-height: 1.2;
-  margin-bottom: var(--spacing-lg);
-}
-
-h2, .h2 {
-  font-size: var(--font-size-xl);
-  line-height: 1.3;
-  margin-bottom: var(--spacing-md);
-}
-
-h3, .h3 {
-  font-size: var(--font-size-lg);
-  line-height: 1.4;
-  margin-bottom: var(--spacing-md);
-}
-
-h4, .h4 {
-  font-size: var(--font-size-md);
-  line-height: 1.5;
-  margin-bottom: var(--spacing-sm);
-}
-
+/* Typography Utility Classes */
 .text-gradient {
-  background: linear-gradient(90deg, var(--color-primary), var(--color-accent-1));
+  background: var(--gradient-primary);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
 }
 
-.lead {
-  font-size: var(--font-size-lg);
-  line-height: 1.5;
-  margin-bottom: var(--spacing-lg);
+.text-futuristic {
+  background: var(--gradient-futuristic);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: 0 0 5px rgba(48, 213, 242, 0.3);
+}
+
+.text-cosmic {
+  color: var(--color-tertiary);
+  text-shadow: 0 0 8px rgba(110, 58, 128, 0.4);
+}
+
+.text-gold {
+  color: var(--color-accent-3);
 }
 
 /* Utility Classes */
@@ -129,10 +117,14 @@ h4, .h4 {
 
 .current-phase-banner {
   background: linear-gradient(90deg, var(--color-accent-1), var(--color-accent-2));
-  color: var(--color-text-light);
+  color: var(--color-text);
   text-align: center;
   padding: var(--spacing-sm);
-  font-weight: bold;
+  font-weight: var(--font-weight-medium);
+  font-family: var(--font-display);
+  letter-spacing: var(--letter-spacing-wide);
+  text-transform: uppercase;
+  font-size: 1.4rem;
 }
 
 /* Page Transitions */
@@ -147,10 +139,38 @@ h4, .h4 {
   transition: opacity var(--transition-normal), transform var(--transition-normal);
 }
 
+/* Imagery & Media */
+.rounded-image {
+  border-radius: var(--border-radius-md);
+  overflow: hidden;
+}
+
+.cosmic-overlay {
+  position: relative;
+}
+
+.cosmic-overlay::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--gradient-cosmic);
+  opacity: 0.3;
+  pointer-events: none;
+  transition: opacity var(--transition-normal);
+}
+
+.cosmic-overlay:hover::after {
+  opacity: 0.5;
+}
+
 /* Media Queries */
 @media (max-width: 1200px) {
-  html {
-    font-size: 60%;
+  .grid {
+    grid-template-columns: repeat(12, 1fr);
+    gap: var(--spacing-md);
   }
 }
 
@@ -161,10 +181,6 @@ h4, .h4 {
 }
 
 @media (max-width: 768px) {
-  html {
-    font-size: 58%;
-  }
-  
   .section {
     padding: var(--spacing-lg) 0;
   }
@@ -175,15 +191,7 @@ h4, .h4 {
 }
 
 @media (max-width: 480px) {
-  html {
-    font-size: 55%;
-  }
-  
-  h1, .h1 {
-    font-size: var(--font-size-xl);
-  }
-  
-  h2, .h2 {
-    font-size: var(--font-size-lg);
+  .grid {
+    grid-template-columns: 1fr;
   }
 }
