@@ -1,0 +1,102 @@
+/* 
+ * Fixes for Visual Elements in Asabaal Ventures Website
+ * - Logo transparency fix
+ * - Font implementation fixes 
+ * - Color scheme adjustments
+ */
+
+/* 
+ * 1. Logo Transparency Fix
+ * The white logo background was not transparent due to how SVG is being rendered
+ */
+
+/* Use the fixed version of the logo with transparent background */
+.footer__logo-img {
+  /* Keep other styles from footer.css but ensure we're using the fixed SVG */
+  height: 5rem;
+  width: auto;
+  margin-bottom: var(--spacing-md);
+  filter: drop-shadow(0 0 8px rgba(226, 122, 158, 0.5));
+}
+
+/* 
+ * 2. Font implementation fixes 
+ * Ensure Google Fonts are properly loaded and applied
+ */
+
+/* Ensure font-display: swap for better loading performance */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&display=swap&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap&display=swap');
+
+/* Override font variables to ensure proper application */
+:root {
+  /* Update font variable definitions to match typography system */
+  --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-display: 'Space Grotesk', Arial, sans-serif;
+  --font-accent: 'Cinzel', Georgia, serif;
+  --font-creative: 'Playfair Display', 'Times New Roman', serif;
+}
+
+/* Add font-family declarations to key elements to ensure they take effect */
+body {
+  font-family: var(--font-primary);
+}
+
+h1, h2, h3, h4, h5, h6,
+.header__logo-text,
+.section__title,
+.nav__link,
+.btn {
+  font-family: var(--font-display);
+}
+
+.spiritual-concept,
+.footer__tagline,
+.quote {
+  font-family: var(--font-accent);
+}
+
+/*
+ * 3. Ensure Brand Colors are Applied Consistently
+ */
+
+/* Primary brand colors */
+:root {
+  /* Ensure brand colors are applied properly */
+  --color-primary: #e27a9e; /* Pink/Magenta */
+  --color-secondary: #008f8c; /* Deep Teal */
+  --color-tertiary: #6e3a80; /* Cosmic Purple */
+  
+  /* Accent colors */
+  --color-accent-1: #30d5f2; /* Electric Blue */
+  --color-accent-2: #ff7d33; /* Sunset Orange */
+  --color-accent-3: #d9b642; /* Gold Accent */
+}
+
+/* Apply brand colors to key elements for better visibility */
+.text-gradient {
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.text-highlight {
+  color: var(--color-primary);
+}
+
+.header__logo-text {
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Debugging Outline - uncomment to debug layout */
+/*
+* {
+  outline: 1px solid rgba(255, 0, 0, 0.2);
+}
+*/
