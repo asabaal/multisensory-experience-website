@@ -270,6 +270,15 @@
             border: 1px solid rgba(255, 215, 0, 0.3);
         }
 
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #ffd700;
+            white-space: nowrap; /* Prevent wrapping */
+            margin: 0 10px; /* Force spacing between items */
+        }
+
         @media (max-width: 768px) {
             .name {
                 font-size: 2.5em;
@@ -309,6 +318,27 @@
             }
         }
 
+        @media print {
+            * {
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+            
+            .container {
+                page-break-inside: avoid;
+                page-break-after: avoid;
+            }
+            
+            .section:last-child {
+                page-break-after: avoid;
+                margin-bottom: 0;
+            }
+            
+            body {
+                overflow: hidden;
+            }
+        }        
+
         /* Scrollbar styling */
         ::-webkit-scrollbar {
             width: 12px;
@@ -326,6 +356,10 @@
         ::-webkit-scrollbar-thumb:hover {
             background: #4ecdc4;
         }
+
+        @page { margin: 0; }
+        body { page-break-after: avoid; }
+        .container { page-break-after: avoid; }        
     </style>
 </head>
 <body>
@@ -353,6 +387,9 @@
                 <div class="contact-item">
                     <span>📧</span>
                     <a href="mailto:asabaal@asabaalventures.me">asabaal@asabaalventures.me</a>
+                </div>
+                <div class="contact-item">
+                    <span>📧</span>
                     <a href="mailto:asabaalhoran@gmail.com">asabaalhoran@gmail.com</a>
                 </div>
                 <div class="contact-item">
