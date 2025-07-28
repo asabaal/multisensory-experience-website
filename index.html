@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Asabaal Ventures - Building the Future of Purpose-Driven Creation</title>
-    <link rel="icon" type="image/svg+xml" href="favicon.svg">
-    <link rel="icon" type="image/png" href="favicon.svg">
-    <link rel="shortcut icon" href="favicon.svg">
+    <link rel="icon" type="image/svg+xml" href="assets/images/icons/favicon.svg">
+    <link rel="icon" type="image/png" href="assets/images/icons/favicon.svg">
+    <link rel="shortcut icon" href="assets/images/icons/favicon.svg">
     <style>
         * {
             margin: 0;
@@ -31,8 +31,8 @@
         /* Header */
         .header {
             padding: 20px 0;
-            background: rgba(0, 0, 0, 0.4);
-            backdrop-filter: blur(15px);
+            background: rgba(15, 15, 35, 0.95);
+            backdrop-filter: blur(10px);
             position: fixed;
             top: 0;
             left: 0;
@@ -63,6 +63,12 @@
             height: calc(100% - 10px);
             width: auto;
             max-height: 80px;
+        }
+
+        /* Ensure SVG text renders correctly */
+        .center-logo svg,
+        .center-logo svg text {
+            color: inherit;
         }
 
         .nav-right {
@@ -757,6 +763,12 @@
             border-left: 4px solid #fbbf24;
             margin-top: 30px;
         }
+
+        .founder-signature:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(251, 191, 36, 0.2);
+            background: rgba(255, 255, 255, 0.08);
+        }
         
         .signature-text {
             color: #e5e7eb;
@@ -1197,7 +1209,7 @@
             <nav class="nav">
                 <div class="nav-left">
                     <div class="logo-image">
-                        <img src="favicon.svg" alt="Asabaal Ventures Logo">
+                        <img src="assets/images/icons/favicon.svg" alt="Asabaal Ventures Logo">
                     </div>
                     <div class="logo-text">
                         <div class="company-name">Asabaal Ventures</div>
@@ -1206,7 +1218,7 @@
                 </div>
                 
                 <div class="nav-center">
-                    <img src="logo.svg" alt="Asabaal Ventures" class="center-logo">
+                    <img src="assets/images/logos/Asabaal Ventures.png" alt="Asabaal Ventures" class="center-logo">
                 </div>
                 
                 <div class="nav-right">
@@ -1228,7 +1240,7 @@
         <div class="container">
             <div class="hero-content">
                 <div class="vision-logo">
-                    <img src="vision-2054-logo.svg" alt="Vision 2054 Logo">
+                    <img src="assets/images/logos/vision-2054-logo.svg" alt="Vision 2054 Logo">
                 </div>                
                 <a href="vision_2054_page.html" class="hero-badge" style="text-decoration: none; display: inline-block;">🚀 VISION 2054 LAUNCHING</a>
                 <h1>Building the Future of Purpose-Driven Creation</h1>
@@ -1418,18 +1430,20 @@
                     <p>Asabaal Ventures represents the convergence of conscious business, transformational technology, and community-driven innovation. Our mission is to activate a global network of purpose-driven creators who are ready to build the future we all want to live in.</p>
                     <p>From AI-powered purpose coaching to revolutionary creator economics, from unity-focused content to the mobile app that will change how people discover and activate their calling - we're building the infrastructure for humanity's next evolutionary leap.</p>
                     
-                    <div class="founder-signature">
-                        <p class="signature-text">"True transformation starts with just one - one who says no to fighting, no to hiding, yes to guiding others and being guided...Becoming activated, passionate, excited. When power's distributed according Kingdom principles - yeah the enemey ain't about that. Asabaal Ventures exists as a beacon of hope, following Christ's example of servant leadership. When God led me to a business model which centers the marginalized and pushes back against the power dynamics of the world, I realized I had struck Kingdom gold."</p>
-                        <div class="founder-info">
-                            <div class="founder-avatar">
-                                <img src="founder-headshot.jpg" alt="Dr. Asabaal Horan" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
-                            </div>
-                            <div class="founder-details">
-                                <h4>Dr. Asabaal Horan</h4>
-                                <p>Co-Founder & Creative Visionary, Asabaal Ventures</p>
+                    <a href="resume_cv/asabaal_horan_cv_202507.html" style="text-decoration: none; color: inherit;">
+                        <div class="founder-signature" style="cursor: pointer; transition: transform 0.3s ease, box-shadow 0.3s ease;">
+                            <p class="signature-text">"True transformation starts with just one - one who says no to fighting, no to hiding, yes to guiding others and being guided...Becoming activated, passionate, excited. When power's distributed according Kingdom principles - yeah the enemey ain't about that. Asabaal Ventures exists as a beacon of hope, following Christ's example of servant leadership. When God led me to a business model which centers the marginalized and pushes back against the power dynamics of the world, I realized I had struck Kingdom gold."</p>
+                            <div class="founder-info">
+                                <div class="founder-avatar">
+                                    <img src="assets/images/profiles/founder-headshot.jpg" alt="Dr. Asabaal Horan" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
+                                </div>
+                                <div class="founder-details">
+                                    <h4>Dr. Asabaal Horan</h4>
+                                    <p>Co-Founder & Creative Visionary, Asabaal Ventures</p>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    </a>
                 </div>
                 <div class="about-visual" style="padding: 0; display: flex; align-items: center; justify-content: center; background: transparent;">
                     <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@asabaalhoran/video/7531936736314707230" data-video-id="7531936736314707230" style="max-width: 400px; min-width: 325px; border-radius: 20px; overflow: hidden;">
@@ -1486,7 +1500,7 @@
             <div class="footer-content">
                 <div class="footer-brand">
                     <div class="footer-logo">
-                        <img src="favicon.svg" alt="Asabaal Ventures Logo">
+                        <img src="assets/images/icons/favicon.svg" alt="Asabaal Ventures Logo">
                     </div>
                     <div class="footer-brand-text">
                         <h3>Asabaal Ventures</h3>
