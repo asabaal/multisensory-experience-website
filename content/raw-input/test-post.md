@@ -28,3 +28,4 @@ When composing "Electric Pulse," I wanted the music to complement and enhance th
 **Cover Image:** electric-pulse.jpg
 **Other Images:** in-love-and-unity.jpg
 **Videos:** https://www.youtube.com/watch?v=F-gcYLnx51A
+**Publish Date**: 20240805

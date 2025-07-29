@@ -29,6 +29,8 @@ class AutomatedClaudeProcessor:
             print("❌ CLAUDE_CODE_OAUTH_TOKEN environment variable not set!")
             print("   Please set it with: export CLAUDE_CODE_OAUTH_TOKEN='your-token-here'")
             sys.exit(1)
+        else:
+            print(f"🔑 OAUTH token found: {self.oauth_token[:20]}..." if len(self.oauth_token) > 20 else "🔑 OAUTH token found (short)")
     
     def extract_content_and_assets(self, file_path):
         """Extract main content and assets from markdown file"""
@@ -42,6 +44,7 @@ class AutomatedClaudeProcessor:
         # Extract assets section
         assets_match = re.search(r'## Assets\s*\n(.*?)(?:\n---|\n##|\Z)', content, re.DOTALL)
         assets = {}
+        publish_date = None
         
         if assets_match:
             assets_text = assets_match.group(1)
@@ -66,6 +69,24 @@ class AutomatedClaudeProcessor:
                 if videos_text and videos_text != "":
                     videos = [vid.strip() for vid in videos_text.split(',') if vid.strip()]
                     assets['videos'] = videos
+            
+            # Extract publish date
+            publish_date_match = re.search(r'\*\*Publish Date\*?\*?:?\s*(.+)', assets_text)
+            if publish_date_match:
+                date_str = publish_date_match.group(1).strip()
+                print(f"📅 Found publish date in raw input: '{date_str}'")
+                # Handle different date formats: YYYYMMDD, YYYY-MM-DD, etc.
+                if len(date_str) == 8 and date_str.isdigit():  # YYYYMMDD format
+                    publish_date = f"{date_str[:4]}-{date_str[4:6]}-{date_str[6:8]}"
+                    print(f"📅 Converted to: {publish_date}")
+                elif re.match(r'\d{4}-\d{2}-\d{2}', date_str):  # YYYY-MM-DD format
+                    publish_date = date_str
+                    print(f"📅 Using as-is: {publish_date}")
+                else:
+                    print(f"⚠️  Unrecognized date format: {date_str}, using today's date")
+                    publish_date = datetime.now().strftime('%Y-%m-%d')
+            else:
+                print("⚠️  No publish date found in assets section")
         
         # Extract main content (everything except title and assets)
         main_content = re.sub(r'^# .+$', '', content, flags=re.MULTILINE)  # Remove title
@@ -75,7 +96,8 @@ class AutomatedClaudeProcessor:
         return {
             'title': title,
             'main_content': main_content,
-            'assets': assets
+            'assets': assets,
+            'publish_date': publish_date or datetime.now().strftime('%Y-%m-%d')
         }
     
     def create_processing_prompt(self, extracted_data):
@@ -93,6 +115,7 @@ class AutomatedClaudeProcessor:
 {json.dumps(extracted_data['assets'], indent=2)}
 
 ## Task:
+IMPORTANT: If there are videos in the assets, create a featured video section as the FIRST section (order: 0) in the content.
 Generate a complete JSON blog post structure with:
 
 1. **Metadata** - title, slug, publishDate (today's date), tags (3-5 relevant), excerpt (1-2 sentences), coverImage, featured (false), status (published)
@@ -109,7 +132,7 @@ Generate a complete JSON blog post structure with:
   "metadata": {{
     "title": "Generated title",
     "slug": "url-friendly-slug-with-hyphens",
-    "publishDate": "{datetime.now().strftime('%Y-%m-%d')}",
+    "publishDate": "{extracted_data['publish_date']}",
     "tags": ["tag1", "tag2", "tag3"],
     "excerpt": "Compelling 1-2 sentence summary under 200 chars",
     "coverImage": "{extracted_data['assets'].get('cover_image', 'cover.jpg')}",
@@ -161,12 +184,13 @@ Please respond with ONLY the JSON structure, no additional text or formatting.""
         """Call Claude Code programmatically using OAUTH token"""
         try:
             print("🤖 Calling Claude Code API...")
+            print(f"📝 Prompt length: {len(prompt)} characters")
             
             # Use subprocess to call claude CLI with the prompt
-            result = subprocess.run([
-                'claude',
-                '-p', prompt
-            ], 
+            cmd = ['claude', '-p', prompt]
+            print(f"🚀 Executing command: {' '.join(cmd[:2])} [prompt...]")
+            
+            result = subprocess.run(cmd, 
             env={**os.environ, 'CLAUDE_CODE_OAUTH_TOKEN': self.oauth_token},
             capture_output=True, 
             text=True, 
@@ -174,11 +198,20 @@ Please respond with ONLY the JSON structure, no additional text or formatting.""
             )
             
             if result.returncode != 0:
-                print(f"❌ Claude Code call failed: {result.stderr}")
+                print(f"❌ Claude Code call failed (return code: {result.returncode})")
+                print(f"Error output: {result.stderr}")
                 return None
             
             response = result.stdout.strip()
             print("✅ Claude Code response received")
+            print(f"🔍 Response length: {len(response)} characters")
+            
+            if not response:
+                print("⚠️  Response is empty after stripping whitespace")
+                print(f"Raw stdout: '{result.stdout}'")
+                print(f"Raw stderr: '{result.stderr}'")
+                return None
+                
             return response
             
         except subprocess.TimeoutExpired:
@@ -253,6 +286,33 @@ Please respond with ONLY the JSON structure, no additional text or formatting.""
             tags_html = '\n'.join([f'                        <span class="tag">{tag}</span>' 
                                   for tag in metadata['tags']])
             
+            # Check if we need to add a featured video section at the top
+            featured_video_html = ""
+            if 'videos' in structured_data.get('assets', {}) and structured_data['assets']['videos']:
+                video_url = structured_data['assets']['videos'][0]  # Use first video as featured
+                # Convert YouTube URL to embed format
+                if 'youtube.com/watch?v=' in video_url:
+                    video_id = video_url.split('watch?v=')[1].split('&')[0]
+                    embed_url = f"https://www.youtube.com/embed/{video_id}"
+                elif 'youtu.be/' in video_url:
+                    video_id = video_url.split('youtu.be/')[1].split('?')[0]
+                    embed_url = f"https://www.youtube.com/embed/{video_id}"
+                else:
+                    embed_url = video_url
+                
+                featured_video_html = f"""
+                <!-- Featured Video -->
+                <section class="featured-video">
+                    <div class="container">
+                        <div class="video-container">
+                            <div class="video-embed">
+                                <iframe src="{embed_url}" frameborder="0" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+"""
+            
             # Generate content sections HTML
             sections_html = ""
             for section in content['sections']:
@@ -290,13 +350,50 @@ Please respond with ONLY the JSON structure, no additional text or formatting.""
                 </div>
 """
                 elif section['type'] == 'image':
-                    image_url = section['content']['url']
-                    alt_text = section['content'].get('alt', metadata['title'])
-                    sections_html += f"""
+                    # Handle both 'src' and 'url' fields for backward compatibility
+                    image_url = section['content'].get('src') or section['content'].get('url')
+                    if image_url:
+                        # Handle different image paths
+                        if not image_url.startswith(('http://', 'https://', '/')):
+                            # Check if it's the in-love-and-unity image (special case)
+                            if 'in-love-and-unity' in image_url:
+                                image_url = f"../assets/images/profiles/in-love-and-unity.png"
+                            else:
+                                image_url = f"../assets/images/blog/{image_url}"
+                        
+                        alt_text = section['content'].get('alt', metadata['title'])
+                        caption = section['content'].get('caption', '')
+                        
+                        sections_html += f"""
                 <div class="image-section">
                     <div class="content-image">
                         <img src="{image_url}" alt="{alt_text}" class="section-img">
+                        {f'<p class="image-caption">{caption}</p>' if caption else ''}
                     </div>
+                </div>
+"""
+                elif section['type'] == 'video':
+                    video_url = section['content'].get('url', '')
+                    video_title = section['content'].get('title', '')
+                    video_description = section['content'].get('description', '')
+                    
+                    # Convert YouTube URL to embed format
+                    if 'youtube.com/watch?v=' in video_url:
+                        video_id = video_url.split('watch?v=')[1].split('&')[0]
+                        embed_url = f"https://www.youtube.com/embed/{video_id}"
+                    elif 'youtu.be/' in video_url:
+                        video_id = video_url.split('youtu.be/')[1].split('?')[0]
+                        embed_url = f"https://www.youtube.com/embed/{video_id}"
+                    else:
+                        embed_url = video_url  # Use as-is for other video platforms
+                    
+                    sections_html += f"""
+                <div class="video-section">
+                    {f'<h3 class="video-title">{video_title}</h3>' if video_title else ''}
+                    <div class="video-embed">
+                        <iframe src="{embed_url}" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                    {f'<p class="video-description">{video_description}</p>' if video_description else ''}
                 </div>
 """
             
@@ -376,6 +473,7 @@ Please respond with ONLY the JSON structure, no additional text or formatting.""
             background: radial-gradient(circle at 50% 50%, rgba(251, 191, 36, 0.15) 0%, transparent 70%);
         }}
 
+
         .back-link {{
             position: absolute;
             top: 120px;
@@ -445,44 +543,73 @@ Please respond with ONLY the JSON structure, no additional text or formatting.""
             line-height: 1.6;
         }}
 
-        /* Featured Image */
-        .featured-image {{
+        /* Featured Video */
+        .featured-video {{
             padding: 60px 0;
             background: rgba(0, 0, 0, 0.2);
         }}
 
-        .image-container {{
-            max-width: 800px;
+        .video-container {{
+            max-width: 900px;
             margin: 0 auto;
+        }}
+
+        .featured-video .video-embed {{
+            position: relative;
+            width: 100%;
+            height: 0;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
             border-radius: 20px;
             overflow: hidden;
             box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
         }}
 
-        .featured-img {{
+        .featured-video .video-embed iframe {{
+            position: absolute;
+            top: 0;
+            left: 0;
             width: 100%;
-            height: 400px;
-            object-fit: cover;
+            height: 100%;
         }}
+
 
         /* Post Content */
         .post-content {{
             padding: 80px 0;
-            background: rgba(0, 0, 0, 0.3);
+            background: linear-gradient(rgba(15, 15, 35, 0.85), rgba(45, 27, 105, 0.9)), url('../assets/images/blog/{metadata['coverImage']}');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            position: relative;
+        }}
+
+        .post-content::before {{
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.4);
+            pointer-events: none;
         }}
 
         .content-wrapper {{
             max-width: 800px;
             margin: 0 auto;
+            position: relative;
+            z-index: 2;
         }}
 
         .intro-section {{
-            background: rgba(255, 255, 255, 0.05);
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
             border-left: 4px solid #fbbf24;
             padding: 30px;
             margin-bottom: 60px;
             border-radius: 10px;
             font-style: italic;
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }}
 
         .intro-text {{
@@ -493,6 +620,11 @@ Please respond with ONLY the JSON structure, no additional text or formatting.""
 
         .content-section {{
             margin-bottom: 60px;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            padding: 30px;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }}
 
         .section-title {{
@@ -514,12 +646,15 @@ Please respond with ONLY the JSON structure, no additional text or formatting.""
         }}
 
         .quote-section {{
-            background: rgba(255, 255, 255, 0.05);
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(15px);
             border-left: 4px solid #fbbf24;
-            padding: 30px;
+            padding: 40px;
             margin: 40px 0;
-            border-radius: 10px;
+            border-radius: 15px;
             font-style: italic;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.3);
         }}
 
         .quote-text {{
@@ -541,6 +676,57 @@ Please respond with ONLY the JSON structure, no additional text or formatting.""
             height: auto;
             border-radius: 15px;
             box-shadow: 0 15px 35px -10px rgba(139, 92, 246, 0.3);
+        }}
+
+        /* Special styling for in-love-and-unity image */
+        .section-img[src*="in-love-and-unity"] {{
+            max-width: 300px;
+            margin: 0 auto;
+            display: block;
+        }}
+
+        .image-caption {{
+            text-align: center;
+            color: #9ca3af;
+            font-size: 0.9rem;
+            margin-top: 15px;
+            font-style: italic;
+        }}
+
+        .video-section {{
+            margin: 40px 0;
+            text-align: center;
+        }}
+
+        .video-embed {{
+            position: relative;
+            width: 100%;
+            height: 0;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px -10px rgba(139, 92, 246, 0.3);
+        }}
+
+        .video-embed iframe {{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }}
+
+        .video-title {{
+            color: #fbbf24;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }}
+
+        .video-description {{
+            color: #9ca3af;
+            font-size: 0.9rem;
+            margin-top: 15px;
         }}
 
         /* Author Section */
@@ -595,6 +781,7 @@ Please respond with ONLY the JSON structure, no additional text or formatting.""
             .post-meta {{ flex-direction: column; gap: 15px; }}
             .nav-content {{ flex-direction: column; text-align: center; }}
             .nav-links {{ gap: 15px; font-size: 0.9rem; }}
+            .post-content {{ background-attachment: scroll; }}
         }}
     </style>
 </head>
@@ -631,16 +818,7 @@ Please respond with ONLY the JSON structure, no additional text or formatting.""
             </p>
         </div>
     </section>
-
-    <!-- Featured Image -->
-    <section class="featured-image">
-        <div class="container">
-            <div class="image-container">
-                <img src="../assets/images/blog/{metadata['coverImage']}" alt="{metadata['title']}" class="featured-img">
-            </div>
-        </div>
-    </section>
-
+{featured_video_html}
     <!-- Post Content -->
     <section class="post-content">
         <div class="container">
@@ -710,6 +888,136 @@ Please respond with ONLY the JSON structure, no additional text or formatting.""
             print(f"❌ Error saving HTML blog post: {e}")
             return None
     
+    def update_blog_data_js(self, structured_data):
+        """Update the blog-data.js file to include the new blog post"""
+        try:
+            blog_data_file = self.content_dir.parent / "assets" / "js" / "blog-data.js"
+            
+            # Read existing blog data
+            with open(blog_data_file, 'r', encoding='utf-8') as f:
+                content = f.read()
+            
+            # Extract existing blog posts array
+            import re
+            array_match = re.search(r'const blogPostsData = \[(.*?)\];', content, re.DOTALL)
+            if not array_match:
+                print("❌ Could not find blogPostsData array in blog-data.js")
+                return False
+            
+            # Create new blog post entry
+            metadata = structured_data['metadata']
+            
+            # Check for existing entries with same slug FIRST
+            existing_slug_pattern = f'slug: "{metadata["slug"]}"'
+            if existing_slug_pattern in content:
+                print(f"⚠️  Found existing entry with slug '{metadata['slug']}' in blog-data.js")
+                print("   Skipping blog-data.js update to avoid duplicates")
+                return True  # Return True since this isn't an error, just preventing duplicates
+            
+            # Get the highest existing ID
+            id_matches = re.findall(r'id:\s*(\d+)', content)
+            max_id = max([int(id_match) for id_match in id_matches]) if id_matches else 0
+            new_id = max_id + 1
+            
+            # Format tags for JavaScript
+            tags_js = ', '.join([f'"{tag}"' for tag in metadata['tags']])
+            
+            new_post_entry = f'''    {{
+        id: {new_id},
+        title: "{metadata['title']}",
+        excerpt: "{metadata['excerpt']}",
+        image: "assets/images/blog/{metadata['coverImage']}",
+        date: "{metadata['publishDate']}",
+        slug: "{metadata['slug']}",
+        tags: [{tags_js}],
+        content: {{
+            subtitle: "{metadata['excerpt']}",
+            intro: "{structured_data['content']['sections'][0]['content']['text'] if structured_data['content']['sections'] else ''}",
+            sections: []
+        }}
+    }},'''
+            
+            # Insert the new post at the beginning of the array (after the opening bracket)
+            array_start = content.find('const blogPostsData = [') + len('const blogPostsData = [')
+            new_content = (content[:array_start] + '\n' + new_post_entry + 
+                         content[array_start:])
+            
+            # Write back to file
+            with open(blog_data_file, 'w', encoding='utf-8') as f:
+                f.write(new_content)
+            
+            print(f"✅ Blog data updated: {blog_data_file}")
+            return True
+            
+        except Exception as e:
+            print(f"❌ Error updating blog-data.js: {e}")
+            return False
+    
+    def check_existing_post(self, slug, publish_date):
+        """Check if a blog post already exists based on slug or title similarity"""
+        try:
+            # Check for exact slug match in published directories
+            expected_dir_name = f"{publish_date}_{slug}"
+            expected_path = self.output_dir / expected_dir_name
+            
+            if expected_path.exists():
+                return {'exists': True, 'path': expected_path, 'type': 'exact_match'}
+            
+            # Check for similar slugs (in case of slight variations)
+            for dir_path in self.output_dir.iterdir():
+                if dir_path.is_dir():
+                    dir_name = dir_path.name
+                    # Extract slug from directory name (format: YYYY-MM-DD_slug)
+                    if '_' in dir_name:
+                        existing_slug = '_'.join(dir_name.split('_')[1:])
+                        # Check for similarity (same words, different formatting)
+                        if self._slugs_similar(slug, existing_slug):
+                            return {'exists': True, 'path': dir_path, 'type': 'similar_match'}
+            
+            # Check in blog-data.js for entries
+            blog_data_file = self.content_dir.parent / "assets" / "js" / "blog-data.js"
+            if blog_data_file.exists():
+                with open(blog_data_file, 'r', encoding='utf-8') as f:
+                    content = f.read()
+                    if f'slug: "{slug}"' in content:
+                        return {'exists': True, 'path': blog_data_file, 'type': 'blog_data_exact_match'}
+                    
+                    # Also check for similar slugs in blog data
+                    import re
+                    existing_slugs = re.findall(r'slug: "([^"]+)"', content)
+                    for existing_slug in existing_slugs:
+                        if self._slugs_similar(slug, existing_slug):
+                            return {'exists': True, 'path': blog_data_file, 'type': 'blog_data_similar_match'}
+            
+            return {'exists': False}
+            
+        except Exception as e:
+            print(f"❌ Error checking existing post: {e}")
+            return {'exists': False}
+    
+    def _slugs_similar(self, slug1, slug2):
+        """Check if two slugs are similar (same core words)"""
+        # Normalize slugs: remove extra hyphens, convert underscores
+        def normalize_slug(slug):
+            return slug.replace('_', '-').replace('--', '-').strip('-').lower()
+        
+        norm_slug1 = normalize_slug(slug1)
+        norm_slug2 = normalize_slug(slug2)
+        
+        # Check if they're the same after normalization
+        if norm_slug1 == norm_slug2:
+            return True
+        
+        # Check if the core words are the same (allowing for minor variations)
+        words1 = set(norm_slug1.split('-'))
+        words2 = set(norm_slug2.split('-'))
+        
+        # If more than 70% of words overlap, consider them similar
+        if len(words1.intersection(words2)) / max(len(words1), len(words2)) > 0.7:
+            return True
+        
+        return False
+    
     def process_file(self, filename):
         """Fully automated processing of a raw input file"""
         file_path = self.raw_input_dir / filename
@@ -748,6 +1056,32 @@ Please respond with ONLY the JSON structure, no additional text or formatting.""
             print("❌ Failed to extract valid JSON from response")
             return None
         
+        # Step 4.5: Check for existing posts (duplicate detection)
+        print("🔍 Step 4.5: Checking for existing posts...")
+        slug = structured_data['metadata']['slug']
+        publish_date = structured_data['metadata']['publishDate']
+        existing_check = self.check_existing_post(slug, publish_date)
+        
+        if existing_check['exists']:
+            print(f"📝 Found existing post: {existing_check['type']}")
+            print(f"📁 Location: {existing_check['path']}")
+            
+            # Ask user what to do
+            action = input("Choose action - (u)pdate existing, (s)kip, or (f)orce create new: ").lower().strip()
+            
+            if action == 's':
+                print("⏭️  Skipping - post already exists")
+                return {'action': 'skipped', 'existing_path': existing_check['path']}
+            elif action == 'u':
+                print("🔄 Updating existing post...")
+                # Continue with update process
+            elif action == 'f':
+                print("🚀 Force creating new post...")
+                # Continue with creation process
+            else:
+                print("❌ Invalid choice, skipping...")
+                return {'action': 'skipped', 'existing_path': existing_check['path']}
+        
         # Step 5: Save the structured post (JSON)
         print("💾 Step 5: Saving structured blog post JSON...")
         base_filename = filename.replace('.md', '')
@@ -761,18 +1095,27 @@ Please respond with ONLY the JSON structure, no additional text or formatting.""
         print("🎨 Step 6: Generating beautiful HTML blog post...")
         html_file = self.save_html_blog_post(structured_data, base_filename)
         
-        if html_file:
-            print("=" * 60)
-            print("🎉 SUCCESS! Complete blog automation pipeline finished!")
-            print(f"📁 JSON Location: {post_file}")
-            print(f"🌐 HTML Location: {html_file}")
-            print(f"📝 Title: {structured_data['metadata']['title']}")
-            print(f"🏷️  Tags: {', '.join(structured_data['metadata']['tags'])}")
-            print(f"🔗 Blog URL: blog/post-{structured_data['metadata']['slug']}.html")
-            return {'json': post_file, 'html': html_file}
-        else:
+        if not html_file:
             print("⚠️  JSON saved but HTML generation failed")
             return {'json': post_file, 'html': None}
+        
+        # Step 7: Update blog explorer data
+        print("📋 Step 7: Adding post to blog explorer...")
+        blog_data_updated = self.update_blog_data_js(structured_data)
+        
+        print("=" * 60)
+        print("🎉 SUCCESS! Complete blog automation pipeline finished!")
+        print(f"📁 JSON Location: {post_file}")
+        print(f"🌐 HTML Location: {html_file}")
+        print(f"📋 Blog Explorer: {'✅ Updated' if blog_data_updated else '❌ Failed'}")
+        print(f"📝 Title: {structured_data['metadata']['title']}")
+        print(f"🏷️  Tags: {', '.join(structured_data['metadata']['tags'])}")
+        print(f"🔗 Blog URL: blog/post-{structured_data['metadata']['slug']}.html")
+        return {
+            'json': post_file, 
+            'html': html_file, 
+            'blog_data_updated': blog_data_updated
+        }
         
         return None
 
