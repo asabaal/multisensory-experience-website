@@ -232,7 +232,7 @@ Please respond with ONLY the JSON structure, no additional text or formatting.""
             with open(post_file, 'w', encoding='utf-8') as f:
                 json.dump(structured_data, f, indent=2, ensure_ascii=False)
             
-            print(f"✅ Blog post saved: {post_file}")
+            print(f"✅ Blog post JSON saved: {post_file}")
             return post_file
             
         except KeyError as e:
@@ -240,6 +240,474 @@ Please respond with ONLY the JSON structure, no additional text or formatting.""
             return None
         except Exception as e:
             print(f"❌ Error saving blog post: {e}")
+            return None
+    
+    def generate_html_from_json(self, structured_data):
+        """Generate beautiful HTML blog post from JSON structure"""
+        try:
+            metadata = structured_data['metadata'] 
+            content = structured_data['content']
+            author = structured_data['author']
+            
+            # Generate tags HTML
+            tags_html = '\n'.join([f'                        <span class="tag">{tag}</span>' 
+                                  for tag in metadata['tags']])
+            
+            # Generate content sections HTML
+            sections_html = ""
+            for section in content['sections']:
+                if section['type'] == 'intro':
+                    sections_html += f"""
+                <div class="intro-section">
+                    <div class="intro-text">
+                        {section['content']['text']}
+                    </div>
+                </div>
+"""
+                elif section['type'] == 'text':
+                    title = section.get('title', '')
+                    title_html = f'<h2 class="section-title">{title}</h2>' if title else ''
+                    
+                    paragraphs = section['content']['paragraphs']
+                    paragraphs_html = '\n'.join([f'                        <p>{para}</p>' 
+                                               for para in paragraphs])
+                    
+                    sections_html += f"""
+                <div class="content-section">
+                    {title_html}
+                    <div class="content-text">
+{paragraphs_html}
+                    </div>
+                </div>
+"""
+                elif section['type'] == 'quote':
+                    quote_text = section['content']['text']
+                    sections_html += f"""
+                <div class="quote-section">
+                    <div class="quote-text">
+                        "{quote_text}"
+                    </div>
+                </div>
+"""
+                elif section['type'] == 'image':
+                    image_url = section['content']['url']
+                    alt_text = section['content'].get('alt', metadata['title'])
+                    sections_html += f"""
+                <div class="image-section">
+                    <div class="content-image">
+                        <img src="{image_url}" alt="{alt_text}" class="section-img">
+                    </div>
+                </div>
+"""
+            
+            # Generate HTML template
+            html_content = f"""<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{metadata['title']} | Asabaal Ventures Blog</title>
+    <meta name="description" content="{metadata['excerpt']}">
+    <style>
+        * {{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }}
+        
+        body {{
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #0f0f23 0%, #1a1a3e 25%, #2d1b69 50%, #4c1d95 75%, #6b21a8 100%);
+            color: #ffffff;
+            min-height: 100vh;
+            overflow-x: hidden;
+            padding-top: 70px;
+        }}
+        
+        .container {{
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }}
+
+        /* Header Styles */
+        .header {{
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(15, 15, 35, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 20px 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }}
+        
+        .nav {{
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+        }}
+        
+        .nav-links {{
+            display: flex;
+            gap: 30px;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }}
+        
+        .nav-links a {{
+            color: #e5e7eb;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-weight: 500;
+        }}
+        
+        .nav-links a:hover {{
+            color: #fbbf24;
+        }}
+
+        /* Post Header */
+        .post-header {{
+            padding: 100px 0 60px;
+            text-align: center;
+            position: relative;
+            background: radial-gradient(circle at 50% 50%, rgba(251, 191, 36, 0.15) 0%, transparent 70%);
+        }}
+
+        .back-link {{
+            position: absolute;
+            top: 120px;
+            left: 20px;
+            color: #06b6d4;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }}
+
+        .back-link:hover {{
+            color: #fbbf24;
+        }}
+
+        .post-title {{
+            font-size: 3.5rem;
+            font-weight: 900;
+            margin-bottom: 25px;
+            background: linear-gradient(45deg, #fbbf24, #f472b6, #8b5cf6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.1;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }}
+
+        .post-meta {{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }}
+
+        .post-date {{
+            background: linear-gradient(45deg, #8b5cf6, #ec4899);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 25px;
+            font-weight: bold;
+            font-size: 0.9rem;
+        }}
+
+        .post-tags {{
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }}
+
+        .tag {{
+            background: rgba(255, 255, 255, 0.1);
+            color: #d1d5db;
+            padding: 6px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }}
+
+        .post-subtitle {{
+            font-size: 1.3rem;
+            color: #d1d5db;
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }}
+
+        /* Featured Image */
+        .featured-image {{
+            padding: 60px 0;
+            background: rgba(0, 0, 0, 0.2);
+        }}
+
+        .image-container {{
+            max-width: 800px;
+            margin: 0 auto;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        }}
+
+        .featured-img {{
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+        }}
+
+        /* Post Content */
+        .post-content {{
+            padding: 80px 0;
+            background: rgba(0, 0, 0, 0.3);
+        }}
+
+        .content-wrapper {{
+            max-width: 800px;
+            margin: 0 auto;
+        }}
+
+        .intro-section {{
+            background: rgba(255, 255, 255, 0.05);
+            border-left: 4px solid #fbbf24;
+            padding: 30px;
+            margin-bottom: 60px;
+            border-radius: 10px;
+            font-style: italic;
+        }}
+
+        .intro-text {{
+            font-size: 1.3rem;
+            color: #e5e7eb;
+            line-height: 1.7;
+        }}
+
+        .content-section {{
+            margin-bottom: 60px;
+        }}
+
+        .section-title {{
+            font-size: 2rem;
+            color: #fbbf24;
+            margin-bottom: 25px;
+            font-weight: 700;
+        }}
+
+        .content-text {{
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: #e5e7eb;
+            margin-bottom: 30px;
+        }}
+
+        .content-text p {{
+            margin-bottom: 20px;
+        }}
+
+        .quote-section {{
+            background: rgba(255, 255, 255, 0.05);
+            border-left: 4px solid #fbbf24;
+            padding: 30px;
+            margin: 40px 0;
+            border-radius: 10px;
+            font-style: italic;
+        }}
+
+        .quote-text {{
+            font-size: 1.4rem;
+            color: #d1d5db;
+            margin-bottom: 15px;
+        }}
+
+        .image-section {{
+            margin: 40px 0;
+        }}
+
+        .content-image {{
+            text-align: center;
+        }}
+
+        .section-img {{
+            max-width: 100%;
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 0 15px 35px -10px rgba(139, 92, 246, 0.3);
+        }}
+
+        /* Author Section */
+        .author-section {{
+            padding: 60px 0;
+            background: rgba(0, 0, 0, 0.4);
+            text-align: center;
+        }}
+
+        .author-signature {{
+            font-size: 1.1rem;
+            color: #d1d5db;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }}
+
+        /* Navigation */
+        .post-navigation {{
+            padding: 60px 0;
+            background: rgba(0, 0, 0, 0.4);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }}
+
+        .nav-content {{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }}
+
+        .nav-button {{
+            background: linear-gradient(45deg, #8b5cf6, #06b6d4);
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 50px;
+            font-weight: bold;
+            text-decoration: none;
+            transition: transform 0.3s ease;
+        }}
+
+        .nav-button:hover {{
+            transform: scale(1.05);
+        }}
+
+        /* Responsive */
+        @media (max-width: 768px) {{
+            .post-title {{ font-size: 2.5rem; }}
+            .back-link {{ position: static; margin-bottom: 20px; display: inline-block; }}
+            .post-meta {{ flex-direction: column; gap: 15px; }}
+            .nav-content {{ flex-direction: column; text-align: center; }}
+            .nav-links {{ gap: 15px; font-size: 0.9rem; }}
+        }}
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                <ul class="nav-links">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../vision_2054_page.html">Vision 2054</a></li>
+                    <li><a href="../index.html#videos">Videos</a></li>
+                    <li><a href="../unity-remix-contest.html">Contest</a></li>
+                    <li><a href="../blog.html">Blog</a></li>
+                    <li><a href="#contact">Connect</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Post Header -->
+    <section class="post-header">
+        <div class="container">
+            <a href="../blog.html" class="back-link">← Back to Blog</a>
+            <h1 class="post-title">{metadata['title']}</h1>
+            <div class="post-meta">
+                <span class="post-date">{metadata['publishDate']}</span>
+                <div class="post-tags">
+{tags_html}
+                </div>
+            </div>
+            <p class="post-subtitle">
+                {metadata['excerpt']}
+            </p>
+        </div>
+    </section>
+
+    <!-- Featured Image -->
+    <section class="featured-image">
+        <div class="container">
+            <div class="image-container">
+                <img src="../assets/images/blog/{metadata['coverImage']}" alt="{metadata['title']}" class="featured-img">
+            </div>
+        </div>
+    </section>
+
+    <!-- Post Content -->
+    <section class="post-content">
+        <div class="container">
+            <div class="content-wrapper">
+{sections_html}
+            </div>
+        </div>
+    </section>
+
+    <!-- Author Section -->
+    <section class="author-section">
+        <div class="container">
+            <div class="author-signature">
+                {author['signature']}
+            </div>
+        </div>
+    </section>
+
+    <!-- Post Navigation -->
+    <section class="post-navigation">
+        <div class="container">
+            <div class="nav-content">
+                <div class="prev-post">
+                    <!-- Previous post link will be added dynamically -->
+                </div>
+                <a href="../blog.html" class="nav-button">All Posts</a>
+                <div class="next-post">
+                    <!-- Next post link will be added dynamically -->
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>"""
+            
+            return html_content
+            
+        except KeyError as e:
+            print(f"❌ Missing required field for HTML generation: {e}")
+            return None
+        except Exception as e:
+            print(f"❌ Error generating HTML: {e}")
+            return None
+    
+    def save_html_blog_post(self, structured_data, base_filename):
+        """Generate and save the HTML blog post"""
+        try:
+            # Generate HTML content
+            html_content = self.generate_html_from_json(structured_data)
+            if not html_content:
+                return None
+            
+            slug = structured_data['metadata']['slug']
+            
+            # Save HTML file directly in blog directory
+            blog_dir = self.content_dir.parent / "blog"
+            blog_dir.mkdir(exist_ok=True)
+            
+            html_file = blog_dir / f"post-{slug}.html"
+            with open(html_file, 'w', encoding='utf-8') as f:
+                f.write(html_content)
+            
+            print(f"✅ HTML blog post saved: {html_file}")
+            return html_file
+            
+        except Exception as e:
+            print(f"❌ Error saving HTML blog post: {e}")
             return None
     
     def process_file(self, filename):
@@ -280,18 +748,31 @@ Please respond with ONLY the JSON structure, no additional text or formatting.""
             print("❌ Failed to extract valid JSON from response")
             return None
         
-        # Step 5: Save the structured post
-        print("💾 Step 5: Saving structured blog post...")
+        # Step 5: Save the structured post (JSON)
+        print("💾 Step 5: Saving structured blog post JSON...")
         base_filename = filename.replace('.md', '')
         post_file = self.save_structured_post(structured_data, base_filename)
         
-        if post_file:
+        if not post_file:
+            print("❌ Failed to save JSON structure")
+            return None
+        
+        # Step 6: Generate and save HTML blog post
+        print("🎨 Step 6: Generating beautiful HTML blog post...")
+        html_file = self.save_html_blog_post(structured_data, base_filename)
+        
+        if html_file:
             print("=" * 60)
-            print("🎉 SUCCESS! Blog post fully automated and saved!")
-            print(f"📁 Location: {post_file}")
+            print("🎉 SUCCESS! Complete blog automation pipeline finished!")
+            print(f"📁 JSON Location: {post_file}")
+            print(f"🌐 HTML Location: {html_file}")
             print(f"📝 Title: {structured_data['metadata']['title']}")
             print(f"🏷️  Tags: {', '.join(structured_data['metadata']['tags'])}")
-            return post_file
+            print(f"🔗 Blog URL: blog/post-{structured_data['metadata']['slug']}.html")
+            return {'json': post_file, 'html': html_file}
+        else:
+            print("⚠️  JSON saved but HTML generation failed")
+            return {'json': post_file, 'html': None}
         
         return None
 
