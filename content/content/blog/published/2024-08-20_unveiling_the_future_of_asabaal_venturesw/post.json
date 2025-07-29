@@ -1,0 +1,30 @@
+{
+  "metadata": {
+    "title": "Unveiling The Future Of Asabaal Venturesw",
+    "slug": "unveiling-the-future-of-asabaal-venturesw",
+    "publishDate": "2024-08-20",
+    "tags": [
+      "General"
+    ],
+    "excerpt": "Add your post excerpt here...",
+    "coverImage": "cover.jpg",
+    "featured": false,
+    "status": "draft"
+  },
+  "content": {
+    "subtitle": "Add your subtitle here...",
+    "sections": [
+      {
+        "type": "intro",
+        "content": {
+          "text": "Add your introduction here..."
+        },
+        "order": 1
+      }
+    ]
+  },
+  "author": {
+    "name": "Asabaal Horan",
+    "signature": "In love and unity,<br><strong>Asabaal Horan</strong><br>Founder, Asabaal Ventures"
+  }
+}

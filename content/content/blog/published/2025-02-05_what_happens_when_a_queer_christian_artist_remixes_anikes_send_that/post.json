@@ -1,0 +1,30 @@
+{
+  "metadata": {
+    "title": "What Happens When A Queer Christian Artist Remixes Anikes Send That",
+    "slug": "what-happens-when-a-queer-christian-artist-remixes-anikes-send-that",
+    "publishDate": "2025-02-05",
+    "tags": [
+      "General"
+    ],
+    "excerpt": "Add your post excerpt here...",
+    "coverImage": "cover.jpg",
+    "featured": false,
+    "status": "draft"
+  },
+  "content": {
+    "subtitle": "Add your subtitle here...",
+    "sections": [
+      {
+        "type": "intro",
+        "content": {
+          "text": "Add your introduction here..."
+        },
+        "order": 1
+      }
+    ]
+  },
+  "author": {
+    "name": "Asabaal Horan",
+    "signature": "In love and unity,<br><strong>Asabaal Horan</strong><br>Founder, Asabaal Ventures"
+  }
+}

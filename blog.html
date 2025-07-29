@@ -248,10 +248,46 @@
         </div>
     </section>
 
+    <!-- Supabase CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    
+    <!-- Configuration and Data -->
+    <script src="config/supabase-config.js"></script>
+    <script src="assets/js/supabase-client.js"></script>
     <script src="assets/js/blog-data.js"></script>
     <script>
-        // Use the blog posts data from the external file
-        const blogPosts = blogPostsData || [];
+        // Use Supabase for blog posts or fallback to local data
+        let blogPosts = [];
+        let useSupabase = false;
+
+        // Check if Supabase is configured and available
+        async function initializeBlog() {
+            const postsGrid = document.getElementById('posts-grid');
+            postsGrid.innerHTML = '<div class="loading">Loading blog posts...</div>';
+
+            try {
+                // Try to use Supabase first
+                if (window.supabaseBlog && window.SUPABASE_URL !== 'your-supabase-url') {
+                    const result = await window.supabaseBlog.getBlogPosts();
+                    if (result.posts && result.posts.length > 0) {
+                        blogPosts = result.posts;
+                        useSupabase = true;
+                        console.log('Using Supabase for blog data');
+                    } else {
+                        throw new Error('No posts from Supabase');
+                    }
+                } else {
+                    throw new Error('Supabase not configured');
+                }
+            } catch (error) {
+                // Fallback to local data
+                console.log('Falling back to local blog data:', error.message);
+                blogPosts = blogPostsData || [];
+                useSupabase = false;
+            }
+
+            renderBlogPosts();
+        }
 
         // Function to render blog posts
         function renderBlogPosts() {
@@ -262,21 +298,27 @@
                 return;
             }
 
-            const postsHTML = blogPosts.map(post => `
+            const postsHTML = blogPosts.map(post => {
+                // Handle different data structures (Supabase vs local)
+                const imageUrl = useSupabase ? post.cover_image_url : post.image;
+                const publishDate = useSupabase ? post.published_at : post.date;
+                
+                return `
                 <article class="post-card" onclick="openPost('${post.slug}')">
                     <div class="post-image">
-                        <img src="${post.image}" alt="${post.title}" loading="lazy">
+                        <img src="${imageUrl}" alt="${post.title}" loading="lazy">
                     </div>
                     <div class="post-content">
                         <h2 class="post-title">${post.title}</h2>
                         <p class="post-excerpt">${post.excerpt}</p>
                         <div class="post-meta">
-                            <span class="post-date">${formatDate(post.date)}</span>
+                            <span class="post-date">${formatDate(publishDate)}</span>
                             <a href="#" class="read-more" onclick="event.stopPropagation(); openPost('${post.slug}')">Read More →</a>
                         </div>
                     </div>
                 </article>
-            `).join('');
+                `;
+            }).join('');
 
             postsGrid.innerHTML = postsHTML;
         }
@@ -295,7 +337,7 @@
 
         // Initialize the blog when page loads
         document.addEventListener('DOMContentLoaded', function() {
-            renderBlogPosts();
+            initializeBlog();
         });
     </script>
 </body>
