@@ -288,25 +288,53 @@ Please respond with ONLY the JSON structure, no additional text or formatting.""
             
             # Check if we need to add a featured video section at the top
             featured_video_html = ""
+            has_video = False
+            
+            # Check if there are videos in assets
             if 'videos' in structured_data.get('assets', {}) and structured_data['assets']['videos']:
-                video_url = structured_data['assets']['videos'][0]  # Use first video as featured
-                # Convert YouTube URL to embed format
-                if 'youtube.com/watch?v=' in video_url:
-                    video_id = video_url.split('watch?v=')[1].split('&')[0]
-                    embed_url = f"https://www.youtube.com/embed/{video_id}"
-                elif 'youtu.be/' in video_url:
-                    video_id = video_url.split('youtu.be/')[1].split('?')[0]
-                    embed_url = f"https://www.youtube.com/embed/{video_id}"
-                else:
-                    embed_url = video_url
+                video_list = structured_data['assets']['videos']
+                # Filter out empty or invalid video URLs
+                valid_videos = [v for v in video_list if v and v.strip() and not v.startswith('**')]
                 
-                featured_video_html = f"""
+                if valid_videos:
+                    has_video = True
+                    video_url = valid_videos[0]  # Use first valid video as featured
+                    # Convert YouTube URL to embed format
+                    if 'youtube.com/watch?v=' in video_url:
+                        video_id = video_url.split('watch?v=')[1].split('&')[0]
+                        embed_url = f"https://www.youtube.com/embed/{video_id}"
+                    elif 'youtu.be/' in video_url:
+                        video_id = video_url.split('youtu.be/')[1].split('?')[0]
+                        embed_url = f"https://www.youtube.com/embed/{video_id}"
+                    else:
+                        embed_url = video_url
+                    
+                    featured_video_html = f"""
                 <!-- Featured Video -->
                 <section class="featured-video">
                     <div class="container">
                         <div class="video-container">
                             <div class="video-embed">
                                 <iframe src="{embed_url}" frameborder="0" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+"""
+            
+            # If no video, add a placeholder
+            if not has_video:
+                featured_video_html = f"""
+                <!-- Featured Video Placeholder -->
+                <section class="featured-video">
+                    <div class="container">
+                        <div class="video-container">
+                            <div class="video-placeholder">
+                                <div class="placeholder-content">
+                                    <div class="placeholder-icon">🎬</div>
+                                    <h3 class="placeholder-title">Featured Video Coming Soon</h3>
+                                    <p class="placeholder-text">We're working on creating an engaging video for this post. Check back soon!</p>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -570,6 +598,41 @@ Please respond with ONLY the JSON structure, no additional text or formatting.""
             left: 0;
             width: 100%;
             height: 100%;
+        }}
+
+        /* Video Placeholder */
+        .video-placeholder {{
+            background: linear-gradient(135deg, rgba(15, 15, 35, 0.9), rgba(45, 27, 105, 0.8));
+            border: 2px dashed rgba(251, 191, 36, 0.3);
+            border-radius: 20px;
+            padding: 60px 40px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+        }}
+
+        .placeholder-content {{
+            max-width: 400px;
+            margin: 0 auto;
+        }}
+
+        .placeholder-icon {{
+            font-size: 4rem;
+            margin-bottom: 20px;
+            filter: grayscale(30%);
+        }}
+
+        .placeholder-title {{
+            color: #fbbf24;
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }}
+
+        .placeholder-text {{
+            color: #d1d5db;
+            font-size: 1.1rem;
+            line-height: 1.6;
+            opacity: 0.8;
         }}
 
 
