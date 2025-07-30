@@ -139,13 +139,16 @@
 
         .post-image {
             width: 100%;
-            height: 250px;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio (9/16 = 0.5625) */
             background: linear-gradient(45deg, #8b5cf6, #06b6d4);
             position: relative;
             overflow: hidden;
         }
 
         .post-image img {
+            position: absolute;
+            top: 0;
+            left: 0;
             width: 100%;
             height: 100%;
             object-fit: cover;

@@ -1,0 +1,106 @@
+{
+  "metadata": {
+    "title": "Power of Pain - You Already Feel It; Leverage It",
+    "slug": "power-of-pain-you-already-feel-it-leverage-it",
+    "publishDate": "2024-11-22",
+    "tags": [
+      "pain",
+      "resilience",
+      "collaboration",
+      "entrepreneurship",
+      "social-justice"
+    ],
+    "excerpt": "Transform your pain into power through collaboration. We've all been wronged - it's time to work together to rise above injustice.",
+    "coverImage": "power-of-pain.jpg",
+    "featured": false,
+    "status": "published"
+  },
+  "content": {
+    "subtitle": "Transforming Injustice Through Collaboration",
+    "sections": [
+      {
+        "type": "featured-video",
+        "content": {
+          "videoUrl": "https://youtu.be/Tar3HcQa-V4?si=gCV242-Dy7cSAwG5",
+          "title": "Power of Pain Discussion"
+        },
+        "order": 0
+      },
+      {
+        "type": "intro",
+        "content": {
+          "text": "You know exactly what I'm talking about when I say this. I'm sure of it. You have felt pain. Especially pain you didn't deserve. And it beats you down. It hurts you & destroys you. Pain is powerful."
+        },
+        "order": 1
+      },
+      {
+        "type": "text",
+        "title": "The Default Mode of Complaining",
+        "content": {
+          "paragraphs": [
+            "It's so painful that I've tried as long as I can to not write this post. No one really wants to talk about pain, do they?",
+            "Actually, maybe that's not true. Have you ever heard people complaining about their lives, and the hurt they are experiencing, the ways they've been mistreated? I know I have all the time.",
+            "I think complaining about our pain is our default mode. It's easier to do nothing now than to fight against it, but the problem with that is that we end up in a worse place than if we had done something."
+          ]
+        },
+        "order": 2
+      },
+      {
+        "type": "text",
+        "title": "The Prisoner's Dilemma of Injustice",
+        "content": {
+          "paragraphs": [
+            "There's a concept in game theory that I identify with very deeply - the prisoner's dilemma. I love the name of it too, because it suggests that deep down, we are all prisoners of the poor choices we make.",
+            "Imagine you and I both got screwed over by the same massive tech corporation. They stole our innovations, buried our patents in legal paperwork, and left us each with barely enough settlement money to survive - just $5 million each for a product easily worth billions!",
+            "Then we receive an encrypted message offering us a choice: collaborate to expose them for $100 million each, take sole credit for $20 million while the other gets nothing, or do nothing and keep our current settlements. If we both try to take credit independently, we'll discredit each other and lose everything."
+          ]
+        },
+        "order": 3
+      },
+      {
+        "type": "quote",
+        "content": {
+          "text": "Working together requires a lot more work than only caring about ourselves, but the ROI is massive.",
+          "attribution": ""
+        },
+        "order": 4
+      },
+      {
+        "type": "text",
+        "title": "Leveraging Pain for Collective Good",
+        "content": {
+          "paragraphs": [
+            "That's what my business is about. I see the entire world as a system full of injustices. We've all been wronged, and we've all received very little in return for these injustices. It's time that we see the prisoners' dilemmas all around us, and recognize that, instead of letting that pain keep us down, if we start collaborating, we can all get out of the mud.",
+            "There is so much money in the world that I refuse to believe that extreme poverty has to exist. In fact, I intend to prove that it doesn't need to, and demonstrate pathways to ending it."
+          ]
+        },
+        "order": 5
+      },
+      {
+        "type": "text",
+        "title": "My Personal Transformation",
+        "content": {
+          "paragraphs": [
+            "When I was wronged, that's what I decided to do. I believe it is a violation of human rights to be fired from your job. Why? Because, for most of us, that is our only source of income, and without that, we are a heartbeat away from losing everything.",
+            "I was fired from my job, and in return, I decided that it was time to pivot to full time focusing on my business. I decided to leverage my pain to make something great, and I will never back down, ever.",
+            "How have you been wronged? Have you found how you can leverage that pain to make something better? Let me know!"
+          ]
+        },
+        "order": 6
+      },
+      {
+        "type": "image",
+        "content": {
+          "src": "in-love-and-unity.jpg",
+          "alt": "In Love and Unity",
+          "caption": ""
+        },
+        "order": 7
+      }
+    ]
+  },
+  "author": {
+    "name": "Asabaal Horan",
+    "signature": "In love and unity,<br><strong>Asabaal Horan</strong><br>Founder, Asabaal Ventures"
+  }
+}

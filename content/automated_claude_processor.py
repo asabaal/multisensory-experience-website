@@ -9,12 +9,22 @@ import json
 import re
 import subprocess
 import sys
+import time
 from datetime import datetime
 from pathlib import Path
 
 class AutomatedClaudeProcessor:
-    def __init__(self):
-        """Initialize the automated processor"""
+    def __init__(self, verbose=True, auto_update=False):
+        """Initialize the automated processor
+        
+        Args:
+            verbose: Show detailed timing information
+            auto_update: Automatically update existing posts without prompting
+        """
+        self.verbose = verbose
+        self.auto_update = auto_update
+        self.max_iterations = 3  # Maximum iterations for Claude to get it right
+        self.start_time = time.time()
         self.content_dir = Path(__file__).parent
         self.raw_input_dir = self.content_dir / "raw-input"
         self.output_dir = self.content_dir / "blog" / "published"
@@ -31,6 +41,19 @@ class AutomatedClaudeProcessor:
             sys.exit(1)
         else:
             print(f"🔑 OAUTH token found: {self.oauth_token[:20]}..." if len(self.oauth_token) > 20 else "🔑 OAUTH token found (short)")
+    
+    def log_time(self, message, start_time=None):
+        """Log a message with timestamp and duration"""
+        if not self.verbose:
+            return
+        current_time = time.time()
+        timestamp = datetime.now().strftime('%H:%M:%S')
+        if start_time:
+            duration = current_time - start_time
+            print(f"[{timestamp}] {message} (took {duration:.1f}s)")
+        else:
+            print(f"[{timestamp}] {message}")
+        return current_time
     
     def extract_content_and_assets(self, file_path):
         """Extract main content and assets from markdown file"""
@@ -62,13 +85,24 @@ class AutomatedClaudeProcessor:
                     images = [img.strip() for img in images_text.split(',') if img.strip()]
                     assets['images'] = images
             
-            # Extract videos
-            videos_match = re.search(r'\*\*Videos:\*\*\s*(.+)', assets_text)
-            if videos_match:
-                videos_text = videos_match.group(1).strip()
-                if videos_text and videos_text != "":
-                    videos = [vid.strip() for vid in videos_text.split(',') if vid.strip()]
-                    assets['videos'] = videos
+            # Extract videos using line-by-line approach to avoid regex issues
+            videos_text = ""
+            for line in assets_text.split('\n'):
+                if line.strip().startswith('**Videos:**'):
+                    videos_text = line.replace('**Videos:**', '').strip()
+                    break
+            
+            if self.verbose:
+                print(f"   🎬 Raw videos text: '{videos_text}'")
+            
+            if videos_text and videos_text != "":
+                videos = [vid.strip() for vid in videos_text.split(',') if vid.strip()]
+                if self.verbose:
+                    print(f"   🎬 Parsed videos: {videos}")
+                assets['videos'] = videos
+            else:
+                if self.verbose:
+                    print(f"   🎬 No videos found - will show placeholder")
             
             # Extract publish date
             publish_date_match = re.search(r'\*\*Publish Date\*?\*?:?\s*(.+)', assets_text)
@@ -103,10 +137,32 @@ class AutomatedClaudeProcessor:
     def create_processing_prompt(self, extracted_data):
         """Create the prompt for Claude Code to process the blog content"""
         
+        # Format the video handling instructions
+        video_instructions = ""
+        if 'videos' in extracted_data['assets'] and extracted_data['assets']['videos']:
+            video_count = len(extracted_data['assets']['videos'])
+            if video_count == 1:
+                video_instructions = "IMPORTANT: Create a featured video section as the FIRST section (order: 0) using the provided video."
+            else:
+                video_instructions = f"""IMPORTANT: You have {video_count} videos to place strategically:
+- Use the FIRST video as a featured video section (order: 0) at the top
+- Place additional videos as inline video sections throughout the content where contextually appropriate
+- Consider video titles/context if available to determine best placement"""
+
+        # Format image handling instructions
+        image_instructions = ""
+        if 'images' in extracted_data['assets'] and extracted_data['assets']['images']:
+            images = extracted_data['assets']['images']
+            if 'in-love-and-unity.jpg' in images or 'in-love-and-unity.png' in images:
+                image_instructions = "CRITICAL: You MUST include the 'in-love-and-unity' image as the FINAL section before the conclusion. This is Asabaal's signature image that appears in every post as a sign-off."
+            else:
+                image_instructions = f"IMPORTANT: Include the provided images contextually within the content: {', '.join(images)}"
+        
         prompt = f"""Please analyze the following raw blog content and generate a structured blog post in JSON format.
 
 ## Raw Content:
 **Title:** {extracted_data['title']}
+**Publish Date:** {extracted_data['publish_date']} (USE THIS EXACT DATE - DO NOT USE TODAY'S DATE)
 
 **Main Content:**
 {extracted_data['main_content']}
@@ -115,14 +171,17 @@ class AutomatedClaudeProcessor:
 {json.dumps(extracted_data['assets'], indent=2)}
 
 ## Task:
-IMPORTANT: If there are videos in the assets, create a featured video section as the FIRST section (order: 0) in the content.
+{video_instructions}
+{image_instructions}
+
 Generate a complete JSON blog post structure with:
 
-1. **Metadata** - title, slug, publishDate (today's date), tags (3-5 relevant), excerpt (1-2 sentences), coverImage, featured (false), status (published)
+1. **Metadata** - title, slug, publishDate (USE THE PROVIDED DATE: {extracted_data['publish_date']}), tags (3-5 relevant), excerpt (1-2 sentences), coverImage, featured (false), status (published)
 2. **Content Structure** - Break the main content into logical sections:
    - "intro" section with opening paragraph
    - "text" sections with titles for main body paragraphs
    - "quote" sections for any notable quotes you find
+   - "video" sections for videos from assets (see video instructions above)
    - "image" sections for any images from assets
 3. **Author info** - Use standard Asabaal Horan signature
 
@@ -143,6 +202,14 @@ Generate a complete JSON blog post structure with:
     "subtitle": "Optional subtitle if appropriate",
     "sections": [
       {{
+        "type": "video",
+        "content": {{
+          "url": "https://youtube.com/watch?v=video-id",
+          "title": "Video Title (optional)"
+        }},
+        "order": 0
+      }},
+      {{
         "type": "intro",
         "content": {{
           "text": "Opening paragraph that hooks the reader"
@@ -156,6 +223,14 @@ Generate a complete JSON blog post structure with:
           "paragraphs": ["Paragraph 1", "Paragraph 2"]
         }},
         "order": 2
+      }},
+      {{
+        "type": "video",
+        "content": {{
+          "url": "https://youtube.com/watch?v=second-video",
+          "title": "Additional Video Title"
+        }},
+        "order": 3
       }}
     ]
   }},
@@ -167,6 +242,7 @@ Generate a complete JSON blog post structure with:
 ```
 
 ## Guidelines:
+- **CRITICAL: Use the exact publish date provided: {extracted_data['publish_date']} - DO NOT use today's date**
 - Create 2-4 main sections based on content length
 - Extract meaningful quotes if present in the text
 - Generate 3-5 relevant tags that match the content themes
@@ -174,6 +250,10 @@ Generate a complete JSON blog post structure with:
 - Keep excerpt compelling and under 200 characters
 - Use the cover image from assets if provided
 - Structure content with good logical flow
+- **Video Handling:**
+  - If 1 video: Place as featured video (order: 0)
+  - If multiple videos: First video featured (order: 0), others placed contextually throughout content
+  - Always include video title if you can infer it from context or URL
 - Break longer paragraphs into readable chunks
 
 Please respond with ONLY the JSON structure, no additional text or formatting."""
@@ -183,12 +263,14 @@ Please respond with ONLY the JSON structure, no additional text or formatting.""
     def call_claude_code(self, prompt):
         """Call Claude Code programmatically using OAUTH token"""
         try:
+            api_start = time.time()
             print("🤖 Calling Claude Code API...")
             print(f"📝 Prompt length: {len(prompt)} characters")
             
             # Use subprocess to call claude CLI with the prompt
             cmd = ['claude', '-p', prompt]
             print(f"🚀 Executing command: {' '.join(cmd[:2])} [prompt...]")
+            self.log_time("Claude API call started")
             
             result = subprocess.run(cmd, 
             env={**os.environ, 'CLAUDE_CODE_OAUTH_TOKEN': self.oauth_token},
@@ -203,7 +285,9 @@ Please respond with ONLY the JSON structure, no additional text or formatting.""
                 return None
             
             response = result.stdout.strip()
+            api_duration = time.time() - api_start
             print("✅ Claude Code response received")
+            self.log_time(f"Claude API call completed", api_start)
             print(f"🔍 Response length: {len(response)} characters")
             
             if not response:
@@ -215,7 +299,8 @@ Please respond with ONLY the JSON structure, no additional text or formatting.""
             return response
             
         except subprocess.TimeoutExpired:
-            print("❌ Claude Code call timed out")
+            api_duration = time.time() - api_start
+            print(f"❌ Claude Code call timed out after {api_duration:.1f} seconds")
             return None
         except FileNotFoundError:
             print("❌ Claude CLI not found. Please ensure Claude Code is installed and in PATH")
@@ -224,6 +309,67 @@ Please respond with ONLY the JSON structure, no additional text or formatting.""
             print(f"❌ Error calling Claude Code: {e}")
             return None
     
+    def validate_claude_response(self, structured_data, extracted_data):
+        """
+        Validate that Claude followed all instructions correctly
+        Returns: (is_valid: bool, issues: list[str])
+        """
+        issues = []
+        
+        # Check if in-love-and-unity image should be included
+        if 'images' in extracted_data['assets'] and extracted_data['assets']['images']:
+            images = extracted_data['assets']['images']
+            if self.verbose:
+                print(f"   🖼️  Other images found: {images}")
+            if 'in-love-and-unity.jpg' in images or 'in-love-and-unity.png' in images:
+                # Check if in-love-and-unity image is included in sections
+                has_unity_image = any(
+                    section.get('type') == 'image' and 
+                    section.get('content', {}).get('src', '').find('in-love-and-unity') != -1
+                    for section in structured_data.get('content', {}).get('sections', [])
+                )
+                if self.verbose:
+                    print(f"   ✨ In-love-and-unity image included: {has_unity_image}")
+                if not has_unity_image:
+                    issues.append("Missing required 'in-love-and-unity' signature image")
+        
+        # Check if videos were included when provided
+        if 'videos' in extracted_data['assets'] and extracted_data['assets']['videos']:
+            video_sections = [section for section in structured_data.get('content', {}).get('sections', []) 
+                            if section.get('type') == 'video']
+            if not video_sections:
+                issues.append("Missing required video sections from provided assets")
+        
+        # Check if publish date was used correctly
+        expected_date = extracted_data['publish_date']
+        actual_date = structured_data.get('metadata', {}).get('publishDate')
+        if actual_date != expected_date:
+            issues.append(f"Incorrect publish date: expected {expected_date}, got {actual_date}")
+        
+        return len(issues) == 0, issues
+
+    def create_iteration_prompt(self, original_response, issues, extracted_data):
+        """Create a prompt for Claude to fix identified issues"""
+        issues_text = '\n'.join([f"- {issue}" for issue in issues])
+        
+        return f"""Please review and fix the following issues in your previous blog post JSON response:
+
+## Issues Found:
+{issues_text}
+
+## Original Response:
+{original_response}
+
+## Available Assets (for reference):
+{json.dumps(extracted_data['assets'], indent=2)}
+
+Please provide the corrected JSON blog post structure, ensuring all issues are addressed. Make sure to:
+1. Include ALL required elements from the assets
+2. Use the correct publish date: {extracted_data['publish_date']}
+3. Follow the original content structure and requirements
+
+Return only the corrected JSON response."""
+
     def extract_json_from_response(self, response):
         """Extract JSON from Claude's response"""
         try:
@@ -290,26 +436,30 @@ Please respond with ONLY the JSON structure, no additional text or formatting.""
             featured_video_html = ""
             has_video = False
             
-            # Check if there are videos in assets
-            if 'videos' in structured_data.get('assets', {}) and structured_data['assets']['videos']:
-                video_list = structured_data['assets']['videos']
-                # Filter out empty or invalid video URLs
-                valid_videos = [v for v in video_list if v and v.strip() and not v.startswith('**')]
+            # Check if there are video sections in the content (Claude creates these now)
+            video_sections = [section for section in content.get('sections', []) 
+                            if section.get('type') == 'video' and 
+                            section.get('content', {}).get('url') and 
+                            section['content']['url'].strip() and 
+                            not section['content']['url'].startswith('**')]
+            
+            if video_sections:
+                has_video = True
+                # Find the featured video (should be order: 0 or the first one)
+                featured_video = min(video_sections, key=lambda x: x.get('order', 999))
+                video_url = featured_video['content']['url']
                 
-                if valid_videos:
-                    has_video = True
-                    video_url = valid_videos[0]  # Use first valid video as featured
-                    # Convert YouTube URL to embed format
-                    if 'youtube.com/watch?v=' in video_url:
-                        video_id = video_url.split('watch?v=')[1].split('&')[0]
-                        embed_url = f"https://www.youtube.com/embed/{video_id}"
-                    elif 'youtu.be/' in video_url:
-                        video_id = video_url.split('youtu.be/')[1].split('?')[0]
-                        embed_url = f"https://www.youtube.com/embed/{video_id}"
-                    else:
-                        embed_url = video_url
-                    
-                    featured_video_html = f"""
+                # Convert YouTube URL to embed format
+                if 'youtube.com/watch?v=' in video_url:
+                    video_id = video_url.split('watch?v=')[1].split('&')[0]
+                    embed_url = f"https://www.youtube.com/embed/{video_id}"
+                elif 'youtu.be/' in video_url:
+                    video_id = video_url.split('youtu.be/')[1].split('?')[0]
+                    embed_url = f"https://www.youtube.com/embed/{video_id}"
+                else:
+                    embed_url = video_url
+                
+                featured_video_html = f"""
                 <!-- Featured Video -->
                 <section class="featured-video">
                     <div class="container">
@@ -321,6 +471,11 @@ Please respond with ONLY the JSON structure, no additional text or formatting.""
                     </div>
                 </section>
 """
+                
+                # Remove the featured video from content sections to avoid duplication
+                content['sections'] = [section for section in content.get('sections', []) 
+                                     if not (section.get('type') == 'video' and 
+                                           section.get('content', {}).get('url') == video_url)]
             
             # If no video, add a placeholder
             if not has_video:
@@ -1081,62 +1236,123 @@ Please respond with ONLY the JSON structure, no additional text or formatting.""
         
         return False
     
-    def process_file(self, filename):
+    def process_file(self, filename_or_path):
         """Fully automated processing of a raw input file"""
-        file_path = self.raw_input_dir / filename
+        process_start = time.time()
+        
+        # Handle both relative filenames and absolute/relative paths
+        file_path = Path(filename_or_path)
+        if not file_path.is_absolute():
+            # If it's just a filename without path separators, use raw_input_dir
+            if '/' not in str(filename_or_path) and '\\' not in str(filename_or_path):
+                file_path = self.raw_input_dir / filename_or_path
+            # Otherwise, treat it as a relative path from current directory
         
         if not file_path.exists():
             print(f"❌ File not found: {file_path}")
             return None
         
-        print(f"🔄 Processing: {filename}")
+        print(f"\n🔄 Processing: {file_path.name}")
+        self.log_time(f"Starting processing for {file_path.name}")
         print("=" * 60)
         
         # Step 1: Extract content and assets
-        print("📖 Step 1: Extracting content and assets...")
+        print("\n📖 Step 1: Extracting content and assets...")
+        step_start = time.time()
         extracted_data = self.extract_content_and_assets(file_path)
+        self.log_time("Content extraction complete", step_start)
         print(f"   Title: {extracted_data['title']}")
         print(f"   Assets: {len(extracted_data.get('assets', {}))}")
         print(f"   Content length: {len(extracted_data['main_content'])} chars")
         
         # Step 2: Create processing prompt
-        print("📝 Step 2: Creating processing prompt...")
+        print("\n📝 Step 2: Creating processing prompt...")
+        step_start = time.time()
         prompt = self.create_processing_prompt(extracted_data)
+        self.log_time("Prompt creation complete", step_start)
         
-        # Step 3: Call Claude Code
-        print("🤖 Step 3: Calling Claude Code for processing...")
-        response = self.call_claude_code(prompt)
+        # Step 3: Call Claude Code with iteration
+        print("\n🤖 Step 3: Calling Claude Code for processing...")
+        print("   ⏳ This may take 30-120 seconds depending on content complexity...")
+        step_start = time.time()
         
-        if not response:
-            print("❌ Failed to get response from Claude Code")
-            return None
+        structured_data = None
+        current_prompt = prompt
         
-        # Step 4: Extract JSON from response
-        print("🔍 Step 4: Extracting JSON from response...")
-        structured_data = self.extract_json_from_response(response)
+        for iteration in range(1, self.max_iterations + 1):
+            if iteration > 1:
+                print(f"\n🔄 Iteration {iteration}: Fixing identified issues...")
+            
+            response = self.call_claude_code(current_prompt)
+            if not response:
+                print("❌ Failed to get response from Claude Code")
+                return None
+            
+            # Step 4: Extract JSON from response
+            if iteration == 1:
+                print("\n🔍 Step 4: Extracting JSON from response...")
+            structured_data = self.extract_json_from_response(response)
+            
+            if not structured_data:
+                print("❌ Failed to extract valid JSON from response")
+                if iteration == self.max_iterations:
+                    return None
+                continue
+            
+            # Step 4.5: Validate response
+            if self.verbose:
+                print(f"   🔍 Validating Claude response (iteration {iteration})...")
+                print(f"   📋 Available assets: {extracted_data['assets']}")
+            is_valid, issues = self.validate_claude_response(structured_data, extracted_data)
+            
+            if is_valid:
+                if iteration > 1:
+                    print(f"✅ Issues resolved after {iteration} iterations")
+                break
+            else:
+                print(f"⚠️  Validation issues found (iteration {iteration}):")
+                for issue in issues:
+                    print(f"   - {issue}")
+                
+                if iteration == self.max_iterations:
+                    print(f"⚠️  Max iterations ({self.max_iterations}) reached. Proceeding with current result.")
+                    break
+                
+                # Create iteration prompt for next attempt
+                current_prompt = self.create_iteration_prompt(response, issues, extracted_data)
+        
+        self.log_time("Claude Code processing complete", step_start)
         
         if not structured_data:
             print("❌ Failed to extract valid JSON from response")
             return None
         
-        # Step 4.5: Check for existing posts (duplicate detection)
-        print("🔍 Step 4.5: Checking for existing posts...")
+        # Step 5: Check for existing posts (duplicate detection)
+        print("\n🔍 Step 5: Checking for existing posts...")
+        step_start = time.time()
         slug = structured_data['metadata']['slug']
         publish_date = structured_data['metadata']['publishDate']
         existing_check = self.check_existing_post(slug, publish_date)
+        self.log_time("Duplicate check complete", step_start)
         
         if existing_check['exists']:
             print(f"📝 Found existing post: {existing_check['type']}")
             print(f"📁 Location: {existing_check['path']}")
             
-            # Ask user what to do
-            action = input("Choose action - (u)pdate existing, (s)kip, or (f)orce create new: ").lower().strip()
+            # Check if auto-update is enabled
+            if self.auto_update:
+                print("🔄 Auto-update enabled - updating existing post...")
+                action = 'u'
+            else:
+                # Ask user what to do
+                action = input("Choose action - (u)pdate existing, (s)kip, or (f)orce create new: ").lower().strip()
             
             if action == 's':
                 print("⏭️  Skipping - post already exists")
                 return {'action': 'skipped', 'existing_path': existing_check['path']}
             elif action == 'u':
-                print("🔄 Updating existing post...")
+                if not self.auto_update:
+                    print("🔄 Updating existing post...")
                 # Continue with update process
             elif action == 'f':
                 print("🚀 Force creating new post...")
@@ -1145,29 +1361,37 @@ Please respond with ONLY the JSON structure, no additional text or formatting.""
                 print("❌ Invalid choice, skipping...")
                 return {'action': 'skipped', 'existing_path': existing_check['path']}
         
-        # Step 5: Save the structured post (JSON)
-        print("💾 Step 5: Saving structured blog post JSON...")
-        base_filename = filename.replace('.md', '')
+        # Step 6: Save the structured post (JSON)
+        print("\n💾 Step 6: Saving structured blog post JSON...")
+        step_start = time.time()
+        base_filename = file_path.stem
         post_file = self.save_structured_post(structured_data, base_filename)
+        self.log_time("JSON save complete", step_start)
         
         if not post_file:
             print("❌ Failed to save JSON structure")
             return None
         
-        # Step 6: Generate and save HTML blog post
-        print("🎨 Step 6: Generating beautiful HTML blog post...")
+        # Step 7: Generate and save HTML blog post
+        print("\n🎨 Step 7: Generating beautiful HTML blog post...")
+        step_start = time.time()
         html_file = self.save_html_blog_post(structured_data, base_filename)
+        self.log_time("HTML generation complete", step_start)
         
         if not html_file:
             print("⚠️  JSON saved but HTML generation failed")
             return {'json': post_file, 'html': None}
         
-        # Step 7: Update blog explorer data
-        print("📋 Step 7: Adding post to blog explorer...")
+        # Step 8: Update blog explorer data
+        print("\n📋 Step 8: Adding post to blog explorer...")
+        step_start = time.time()
         blog_data_updated = self.update_blog_data_js(structured_data)
+        self.log_time("Blog explorer update complete", step_start)
         
-        print("=" * 60)
+        print("\n" + "=" * 60)
+        total_time = time.time() - process_start
         print("🎉 SUCCESS! Complete blog automation pipeline finished!")
+        print(f"⏱️  Total processing time: {total_time:.1f} seconds")
         print(f"📁 JSON Location: {post_file}")
         print(f"🌐 HTML Location: {html_file}")
         print(f"📋 Blog Explorer: {'✅ Updated' if blog_data_updated else '❌ Failed'}")
@@ -1181,6 +1405,102 @@ Please respond with ONLY the JSON structure, no additional text or formatting.""
         }
         
         return None
+    
+    def refresh_blog_explorer(self):
+        """Rebuild the entire blog-data.js from all published posts"""
+        try:
+            print("🔄 Refreshing blog explorer from all published posts...")
+            
+            # Find all published post directories
+            published_posts = []
+            if self.output_dir.exists():
+                for post_dir in self.output_dir.iterdir():
+                    if post_dir.is_dir() and (post_dir / "post.json").exists():
+                        try:
+                            with open(post_dir / "post.json", 'r', encoding='utf-8') as f:
+                                post_data = json.loads(f.read())
+                                published_posts.append(post_data)
+                                print(f"   📄 Found: {post_data['metadata']['title']}")
+                        except Exception as e:
+                            print(f"   ⚠️  Error reading {post_dir}/post.json: {e}")
+            
+            if not published_posts:
+                print("❌ No published posts found!")
+                return False
+            
+            # Sort posts by date (newest first)
+            published_posts.sort(key=lambda x: x['metadata']['publishDate'], reverse=True)
+            
+            # Generate blog data entries
+            blog_entries = []
+            for i, post_data in enumerate(published_posts, 1):
+                metadata = post_data['metadata']
+                content = post_data.get('content', {})
+                
+                # Get first section intro or first paragraph
+                intro = ""
+                if 'sections' in content and content['sections']:
+                    first_section = content['sections'][0]
+                    if first_section.get('type') == 'intro':
+                        intro = first_section['content']['text']
+                    elif first_section.get('type') == 'text' and 'paragraphs' in first_section.get('content', {}):
+                        intro = first_section['content']['paragraphs'][0]
+                
+                # Format tags for JavaScript
+                tags_js = ', '.join([f'"{tag}"' for tag in metadata['tags']])
+                
+                # Escape quotes and newlines for JavaScript
+                def js_escape(text):
+                    if not text:
+                        return ""
+                    return text.replace('"', '\\"').replace('\n', '\\n').replace('\r', '\\r')
+                
+                title_escaped = js_escape(metadata['title'])
+                excerpt_escaped = js_escape(metadata['excerpt'])
+                intro_escaped = js_escape(intro[:200] + ('...' if len(intro) > 200 else ''))
+                
+                entry = f'''    {{
+        id: {i},
+        title: "{title_escaped}",
+        excerpt: "{excerpt_escaped}",
+        image: "assets/images/blog/{metadata['coverImage']}",
+        date: "{metadata['publishDate']}",
+        slug: "{metadata['slug']}",
+        tags: [{tags_js}],
+        content: {{
+            subtitle: "{excerpt_escaped}",
+            intro: "{intro_escaped}",
+            sections: []
+        }}
+    }}'''
+                blog_entries.append(entry)
+            
+            # Create the complete blog-data.js content
+            entries_joined = ',\n'.join(blog_entries)
+            blog_data_content = f'''// Blog Posts Data Structure
+// This file contains blog posts data for the multisensory blog experience
+// Updated automatically by the Claude Blog Processor
+
+const blogPostsData = [
+{entries_joined}
+];
+
+// Export for use in other files
+if (typeof module !== 'undefined' && module.exports) {{
+    module.exports = blogPostsData;
+}}'''
+            
+            # Write the new blog-data.js file
+            blog_data_file = self.content_dir.parent / "assets" / "js" / "blog-data.js"
+            with open(blog_data_file, 'w', encoding='utf-8') as f:
+                f.write(blog_data_content)
+            
+            print(f"✅ Blog explorer refreshed with {len(published_posts)} posts!")
+            return True
+            
+        except Exception as e:
+            print(f"❌ Error refreshing blog explorer: {e}")
+            return False
 
 def main():
     """Main execution function"""
@@ -1189,13 +1509,34 @@ def main():
     
     if len(sys.argv) < 2:
         print("Usage:")
-        print("  python automated_claude_processor.py filename.md")
-        print("\nExample:")
-        print("  python automated_claude_processor.py test-post.md")
+        print("  python automated_claude_processor.py <path-to-file.md> [--auto-update]")
+        print("  python automated_claude_processor.py --refresh-blog-explorer")
+        print("\nExamples:")
+        print("  python automated_claude_processor.py why.md                    # File in raw-input/")
+        print("  python automated_claude_processor.py raw-input/why.md         # Relative path")
+        print("  python automated_claude_processor.py /full/path/to/post.md    # Absolute path")
+        print("  python automated_claude_processor.py test-post.md --auto-update")
+        print("  python automated_claude_processor.py --refresh-blog-explorer")
+        print("\nFlags:")
+        print("  --auto-update           Automatically update existing posts without prompting")
+        print("  --refresh-blog-explorer Rebuild blog-data.js from all published posts")
         print("\nMake sure CLAUDE_CODE_OAUTH_TOKEN environment variable is set!")
         return
     
-    processor = AutomatedClaudeProcessor()
+    # Check for special modes
+    if '--refresh-blog-explorer' in sys.argv:
+        processor = AutomatedClaudeProcessor(verbose=True, auto_update=False)
+        success = processor.refresh_blog_explorer()
+        if success:
+            print("\n✅ Blog explorer refresh complete!")
+        else:
+            print("\n❌ Blog explorer refresh failed!")
+        return
+    
+    # Check for auto-update flag
+    auto_update = '--auto-update' in sys.argv
+    
+    processor = AutomatedClaudeProcessor(verbose=True, auto_update=auto_update)
     filename = sys.argv[1]
     
     result = processor.process_file(filename)
