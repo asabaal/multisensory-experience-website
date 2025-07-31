@@ -1,12 +1,19 @@
-// Supabase Client Configuration
-// This file handles the connection to Supabase and provides blog-related functions
+// Supabase Client Configuration for Asabaal Ventures Website
+// This file handles all backend API interactions including blog, contact, and subscriptions
 
-class SupabaseBlogClient {
+class SupabaseClient {
     constructor() {
-        // Initialize Supabase client
-        // You'll need to replace these with your actual Supabase URL and anon key
-        this.supabaseUrl = window.SUPABASE_URL || 'your-supabase-url';
-        this.supabaseAnonKey = window.SUPABASE_ANON_KEY || 'your-supabase-anon-key';
+        // Get environment variables
+        this.supabaseUrl = this.getEnvVar('VITE_SUPABASE_URL') || window.SUPABASE_URL || 'your-supabase-url';
+        this.supabaseAnonKey = this.getEnvVar('VITE_SUPABASE_ANON_KEY') || window.SUPABASE_ANON_KEY || 'your-supabase-anon-key';
+        
+        // Validate configuration
+        if (!this.supabaseUrl || !this.supabaseAnonKey || 
+            this.supabaseUrl === 'your-supabase-url' || 
+            this.supabaseAnonKey === 'your-supabase-anon-key') {
+            console.error('Supabase configuration missing. Please check your environment variables.');
+            return;
+        }
         
         // Check if Supabase is available
         if (typeof supabase === 'undefined') {
@@ -15,6 +22,43 @@ class SupabaseBlogClient {
         }
         
         this.client = supabase.createClient(this.supabaseUrl, this.supabaseAnonKey);
+        
+        // API endpoints for direct REST calls
+        this.endpoints = {
+            messages: `${this.supabaseUrl}/rest/v1/contact_messages`,
+            subscribers: `${this.supabaseUrl}/rest/v1/email_subscribers`,
+            unreadCount: `${this.supabaseUrl}/rest/v1/unread_messages_count`,
+            subscriberCount: `${this.supabaseUrl}/rest/v1/active_subscribers_count`
+        };
+        
+        // Common headers
+        this.headers = {
+            'apikey': this.supabaseAnonKey,
+            'Authorization': `Bearer ${this.supabaseAnonKey}`,
+            'Content-Type': 'application/json',
+            'Prefer': 'return=minimal'
+        };
+    }
+    
+    // Get environment variable with fallback options
+    getEnvVar(name) {
+        // First try process.env (if using build tools)
+        if (typeof process !== 'undefined' && process.env && process.env[name]) {
+            return process.env[name];
+        }
+        
+        // Then try window (if set globally)
+        if (typeof window !== 'undefined' && window[name]) {
+            return window[name];
+        }
+        
+        // Finally try meta tags
+        const meta = document.querySelector(`meta[name="${name}"]`);
+        if (meta) {
+            return meta.getAttribute('content');
+        }
+        
+        return null;
     }
 
     // Get all published blog posts with pagination
@@ -188,12 +232,203 @@ class SupabaseBlogClient {
     getPostUrl(slug) {
         return `blog/post-${slug}.html`;
     }
+    
+    // =====================================================
+    // CONTACT MESSAGES API
+    // =====================================================
+    
+    /**
+     * Submit a contact form message
+     * @param {Object} messageData - The message data
+     * @param {string} messageData.name - Sender's name
+     * @param {string} messageData.email - Sender's email
+     * @param {string} messageData.subject - Message subject (optional)
+     * @param {string} messageData.message - Message content
+     * @param {string} messageData.source - Source of message (default: 'website')
+     * @returns {Promise<Object>} Response object
+     */
+    async submitContactMessage(messageData) {
+        try {
+            // Validate required fields
+            const required = ['name', 'email', 'message'];
+            for (const field of required) {
+                if (!messageData[field] || messageData[field].trim() === '') {
+                    throw new Error(`${field} is required`);
+                }
+            }
+            
+            // Validate email format
+            if (!this.isValidEmail(messageData.email)) {
+                throw new Error('Please enter a valid email address');
+            }
+            
+            // Use Supabase client for insertion
+            const { data, error } = await this.client
+                .from('contact_messages')
+                .insert([{
+                    name: messageData.name.trim(),
+                    email: messageData.email.trim().toLowerCase(),
+                    subject: messageData.subject ? messageData.subject.trim() : null,
+                    message: messageData.message.trim(),
+                    source: messageData.source || 'website'
+                }]);
+            
+            if (error) {
+                throw new Error(error.message);
+            }
+            
+            return {
+                success: true,
+                message: 'Message sent successfully! We\'ll get back to you soon.'
+            };
+            
+        } catch (error) {
+            console.error('Error submitting contact message:', error);
+            return {
+                success: false,
+                message: error.message || 'Failed to send message. Please try again.'
+            };
+        }
+    }
+    
+    // =====================================================
+    // EMAIL SUBSCRIPTION API
+    // =====================================================
+    
+    /**
+     * Subscribe an email to the mailing list
+     * @param {Object} subscriptionData - The subscription data
+     * @param {string} subscriptionData.email - Subscriber's email
+     * @param {string} subscriptionData.name - Subscriber's name (optional)
+     * @param {string} subscriptionData.source - Source of subscription (default: 'website')
+     * @returns {Promise<Object>} Response object
+     */
+    async subscribeEmail(subscriptionData) {
+        try {
+            // Validate email
+            if (!subscriptionData.email || !this.isValidEmail(subscriptionData.email)) {
+                throw new Error('Please enter a valid email address');
+            }
+            
+            // Use Supabase client for insertion
+            const { data, error } = await this.client
+                .from('email_subscribers')
+                .insert([{
+                    email: subscriptionData.email.trim().toLowerCase(),
+                    name: subscriptionData.name ? subscriptionData.name.trim() : null,
+                    subscription_source: subscriptionData.source || 'website'
+                }]);
+            
+            if (error) {
+                // Handle duplicate subscription
+                if (error.message.includes('Email already subscribed') || 
+                    error.message.includes('duplicate key')) {
+                    return {
+                        success: false,
+                        message: 'This email is already subscribed to our newsletter.'
+                    };
+                }
+                throw new Error(error.message);
+            }
+            
+            return {
+                success: true,
+                message: 'Successfully subscribed! Welcome to the Asabaal Ventures community.'
+            };
+            
+        } catch (error) {
+            console.error('Error subscribing email:', error);
+            return {
+                success: false,
+                message: error.message || 'Failed to subscribe. Please try again.'
+            };
+        }
+    }
+    
+    /**
+     * Unsubscribe an email from the mailing list
+     * @param {string} email - Email to unsubscribe
+     * @returns {Promise<Object>} Response object
+     */
+    async unsubscribeEmail(email) {
+        try {
+            if (!email || !this.isValidEmail(email)) {
+                throw new Error('Please enter a valid email address');
+            }
+            
+            const { data, error } = await this.client
+                .from('email_subscribers')
+                .update({
+                    status: 'unsubscribed',
+                    unsubscribed_at: new Date().toISOString()
+                })
+                .eq('email', email.trim().toLowerCase());
+            
+            if (error) {
+                throw new Error(error.message);
+            }
+            
+            return {
+                success: true,
+                message: 'Successfully unsubscribed from our newsletter.'
+            };
+            
+        } catch (error) {
+            console.error('Error unsubscribing email:', error);
+            return {
+                success: false,
+                message: error.message || 'Failed to unsubscribe. Please try again.'
+            };
+        }
+    }
+    
+    // =====================================================
+    // UTILITY METHODS
+    // =====================================================
+    
+    /**
+     * Validate email format
+     * @param {string} email - Email to validate
+     * @returns {boolean} Whether email is valid
+     */
+    isValidEmail(email) {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailRegex.test(email);
+    }
+    
+    /**
+     * Get analytics data (for admin use)
+     * @returns {Promise<Object>} Analytics data
+     */
+    async getAnalytics() {
+        try {
+            // Use Supabase views for analytics
+            const [unreadResult, subscriberResult] = await Promise.all([
+                this.client.from('unread_messages_count').select('count').single(),
+                this.client.from('active_subscribers_count').select('count').single()
+            ]);
+            
+            return {
+                unreadMessages: unreadResult.data?.count || 0,
+                activeSubscribers: subscriberResult.data?.count || 0
+            };
+            
+        } catch (error) {
+            console.error('Error fetching analytics:', error);
+            return {
+                unreadMessages: 0,
+                activeSubscribers: 0
+            };
+        }
+    }
 }
 
 // Create global instance
-window.supabaseBlog = new SupabaseBlogClient();
+window.SupabaseAPI = new SupabaseClient();
+// Maintain backward compatibility
+window.supabaseBlog = window.SupabaseAPI;
 
 // Export for module systems
 if (typeof module !== 'undefined' && module.exports) {
-    module.exports = SupabaseBlogClient;
+    module.exports = SupabaseClient;
 }

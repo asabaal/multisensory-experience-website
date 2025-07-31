@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Testing - Asabaal Ventures</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #0f172a;
+            color: white;
+            padding: 40px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .form-section {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            margin: 30px 0;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+        }
+        
+        h1, h2 {
+            color: #fbbf24;
+            margin-bottom: 20px;
+        }
+        
+        .form-group {
+            margin-bottom: 15px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #d1d5db;
+        }
+        
+        input, textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #374151;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            font-size: 16px;
+        }
+        
+        input::placeholder, textarea::placeholder {
+            color: #9ca3af;
+        }
+        
+        button {
+            background: linear-gradient(45deg, #8b5cf6, #06b6d4);
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            margin-top: 10px;
+            transition: transform 0.3s ease;
+        }
+        
+        button:hover {
+            transform: scale(1.05);
+        }
+        
+        button:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+        
+        .form-message {
+            margin-top: 15px;
+            padding: 12px;
+            border-radius: 8px;
+            font-weight: 500;
+        }
+        
+        .form-message--success {
+            background: #10b981;
+            color: white;
+        }
+        
+        .form-message--error {
+            background: #ef4444;
+            color: white;
+        }
+        
+        .loading {
+            opacity: 0.6;
+        }
+        
+        .config-section {
+            background: rgba(239, 68, 68, 0.1);
+            border: 1px solid #ef4444;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+        }
+        
+        .config-section h3 {
+            color: #ef4444;
+            margin-bottom: 15px;
+        }
+        
+        .config-section pre {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 15px;
+            border-radius: 8px;
+            overflow-x: auto;
+        }
+        
+        .status {
+            padding: 10px;
+            border-radius: 8px;
+            margin: 10px 0;
+        }
+        
+        .status.success {
+            background: rgba(16, 185, 129, 0.2);
+            border: 1px solid #10b981;
+            color: #10b981;
+        }
+        
+        .status.error {
+            background: rgba(239, 68, 68, 0.2);
+            border: 1px solid #ef4444;
+            color: #ef4444;
+        }
+    </style>
+</head>
+<body>
+    <h1>Supabase Integration Test</h1>
+    
+    <div class="config-section">
+        <h3>⚠️ Configuration Required</h3>
+        <p>Before testing, make sure you have:</p>
+        <ol>
+            <li>Set up your Supabase project using <code>supabase-setup.sql</code></li>
+            <li>Configure your environment variables:</li>
+        </ol>
+        <pre><code>&lt;script&gt;
+// Add these to the page or your environment
+window.VITE_SUPABASE_URL = 'https://your-project.supabase.co';
+window.VITE_SUPABASE_ANON_KEY = 'your-anon-key-here';
+&lt;/script&gt;</code></pre>
+    </div>
+
+    <div class="status" id="connection-status">
+        <strong>Connection Status:</strong> <span id="status-text">Checking...</span>
+    </div>
+
+    <!-- Contact Form Test -->
+    <div class="form-section">
+        <h2>Contact Form Test</h2>
+        <form class="contact-form" data-form-type="contact">
+            <input type="hidden" name="source" value="test-page">
+            
+            <div class="form-group">
+                <label for="name">Name *</label>
+                <input type="text" id="name" name="name" required placeholder="Your name">
+            </div>
+            
+            <div class="form-group">
+                <label for="email">Email *</label>
+                <input type="email" id="email" name="email" required placeholder="your.email@example.com">
+            </div>
+            
+            <div class="form-group">
+                <label for="subject">Subject</label>
+                <input type="text" id="subject" name="subject" placeholder="Optional subject">
+            </div>
+            
+            <div class="form-group">
+                <label for="message">Message *</label>
+                <textarea id="message" name="message" rows="4" required placeholder="Your message here..."></textarea>
+            </div>
+            
+            <button type="submit">Send Test Message</button>
+        </form>
+    </div>
+
+    <!-- Email Subscription Test -->
+    <div class="form-section">
+        <h2>Email Subscription Test</h2>
+        <form class="subscription-form" data-form-type="subscription">
+            <input type="hidden" name="source" value="test-page">
+            
+            <div class="form-group">
+                <label for="sub-email">Email *</label>
+                <input type="email" id="sub-email" name="email" required placeholder="subscriber@example.com">
+            </div>
+            
+            <div class="form-group">
+                <label for="sub-name">Name (Optional)</label>
+                <input type="text" id="sub-name" name="name" placeholder="Your name">
+            </div>
+            
+            <button type="submit">Test Subscription</button>
+        </form>
+    </div>
+
+    <!-- Email Unsubscribe Test -->
+    <div class="form-section">
+        <h2>Email Unsubscribe Test</h2>
+        <form class="unsubscribe-form" data-form-type="unsubscribe">
+            <div class="form-group">
+                <label for="unsub-email">Email *</label>
+                <input type="email" id="unsub-email" name="email" required placeholder="subscriber@example.com">
+            </div>
+            
+            <button type="submit">Test Unsubscribe</button>
+        </form>
+    </div>
+
+    <!-- Analytics Test -->
+    <div class="form-section">
+        <h2>Analytics Test</h2>
+        <button onclick="testAnalytics()">Get Analytics Data</button>
+        <div id="analytics-result" style="margin-top: 15px;"></div>
+    </div>
+
+    <!-- Debug Console -->
+    <div class="form-section">
+        <h2>Debug Console</h2>
+        <button onclick="clearDebug()">Clear</button>
+        <div id="debug-console" style="background: rgba(0,0,0,0.5); padding: 15px; border-radius: 8px; margin-top: 10px; font-family: monospace; white-space: pre-wrap; min-height: 100px; max-height: 300px; overflow-y: auto;"></div>
+    </div>
+
+    <!-- Include required scripts -->
+    <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+    <!-- Load your actual Supabase configuration -->
+    <script src="config/supabase-keys.js"></script>
+    <script src="assets/js/contact-forms.js"></script>
+
+    <script>
+        // Debug console functionality
+        const debugConsole = document.getElementById('debug-console');
+        const originalConsole = {
+            log: console.log,
+            error: console.error,
+            warn: console.warn
+        };
+
+        function logToDebug(type, ...args) {
+            const timestamp = new Date().toLocaleTimeString();
+            const message = `[${timestamp}] ${type.toUpperCase()}: ${args.map(arg => 
+                typeof arg === 'object' ? JSON.stringify(arg, null, 2) : arg
+            ).join(' ')}\n`;
+            debugConsole.textContent += message;
+            debugConsole.scrollTop = debugConsole.scrollHeight;
+        }
+
+        // Override console methods
+        console.log = (...args) => {
+            originalConsole.log(...args);
+            logToDebug('log', ...args);
+        };
+
+        console.error = (...args) => {
+            originalConsole.error(...args);
+            logToDebug('error', ...args);
+        };
+
+        console.warn = (...args) => {
+            originalConsole.warn(...args);
+            logToDebug('warn', ...args);
+        };
+
+        function clearDebug() {
+            debugConsole.textContent = '';
+        }
+
+        // Test connection status
+        function checkConnectionStatus() {
+            const statusEl = document.getElementById('connection-status');
+            const statusText = document.getElementById('status-text');
+            
+            if (!window.contactAPI) {
+                statusEl.className = 'status error';
+                statusText.textContent = 'ContactAPI not loaded';
+                return;
+            }
+
+            try {
+                const hasConfig = window.VITE_SUPABASE_URL && 
+                                 window.VITE_SUPABASE_ANON_KEY &&
+                                 window.VITE_SUPABASE_URL !== 'https://your-project-id.supabase.co' &&
+                                 window.VITE_SUPABASE_ANON_KEY !== 'your-anon-key-here';
+                
+                if (hasConfig) {
+                    statusEl.className = 'status success';
+                    statusText.textContent = `Configuration found - Ready to test! Connected to: ${window.VITE_SUPABASE_URL}`;
+                } else {
+                    statusEl.className = 'status error';
+                    statusText.textContent = 'Missing Supabase configuration - check config/supabase-keys.js';
+                }
+            } catch (error) {
+                statusEl.className = 'status error';
+                statusText.textContent = 'Error checking configuration: ' + error.message;
+            }
+        }
+
+        // Test analytics
+        async function testAnalytics() {
+            const resultEl = document.getElementById('analytics-result');
+            resultEl.innerHTML = '<em>Loading...</em>';
+            
+            try {
+                if (!window.contactAPI || !window.contactAPI.client) {
+                    throw new Error('Supabase client not available');
+                }
+
+                // Get counts directly from tables
+                const [messagesResult, subscribersResult] = await Promise.all([
+                    window.contactAPI.client.from('contact_messages').select('*', { count: 'exact', head: true }),
+                    window.contactAPI.client.from('email_subscribers').select('*', { count: 'exact', head: true }).eq('status', 'active')
+                ]);
+                
+                resultEl.innerHTML = `
+                    <strong>Analytics Data:</strong><br>
+                    Total Messages: ${messagesResult.count || 0}<br>
+                    Active Subscribers: ${subscribersResult.count || 0}
+                `;
+                console.log('Analytics test successful');
+            } catch (error) {
+                resultEl.innerHTML = `<span style="color: #ef4444;">Error: ${error.message}</span>`;
+                console.error('Analytics test failed:', error);
+            }
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Test page loaded');
+            setTimeout(checkConnectionStatus, 1000);
+        });
+    </script>
+</body>
+</html>

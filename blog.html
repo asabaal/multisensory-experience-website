@@ -251,44 +251,49 @@
         </div>
     </section>
 
+    <!-- Newsletter Subscription -->
+    <section class="newsletter-section" style="padding: 80px 0; background: rgba(0, 0, 0, 0.4); text-align: center;">
+        <div class="container">
+            <h2 style="color: #fbbf24; font-size: 2.5rem; margin-bottom: 20px;">Stay Connected</h2>
+            <p style="color: #d1d5db; font-size: 1.2rem; margin-bottom: 40px; max-width: 600px; margin-left: auto; margin-right: auto;">
+                Get the latest posts, updates on Vision 2054, and exclusive insights delivered straight to your inbox.
+            </p>
+            
+            <form class="subscription-form" data-form-type="subscription" style="max-width: 500px; margin: 0 auto; display: flex; gap: 15px; align-items: center;">
+                <input type="hidden" name="source" value="blog-page">
+                <input type="email" name="email" placeholder="Enter your email address" required
+                       style="flex: 1; padding: 15px 20px; border: none; border-radius: 10px; background: rgba(255, 255, 255, 0.1); color: #ffffff; font-size: 1rem; backdrop-filter: blur(10px);">
+                <button type="submit" 
+                        style="padding: 15px 30px; background: linear-gradient(45deg, #8b5cf6, #06b6d4); color: white; border: none; border-radius: 10px; font-weight: bold; cursor: pointer; font-size: 1rem; transition: transform 0.3s ease;">
+                    Subscribe
+                </button>
+            </form>
+            
+            <p style="color: #9ca3af; font-size: 0.9rem; margin-top: 20px;">
+                We respect your privacy. Unsubscribe at any time.
+            </p>
+        </div>
+    </section>
+
     <!-- Supabase CDN -->
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     
-    <!-- Configuration and Data -->
-    <script src="config/supabase-config.js"></script>
-    <script src="assets/js/supabase-client.js"></script>
+    <!-- Local Supabase Configuration -->
+    <script src="config/supabase-keys.js"></script>
+    
+    <!-- Blog Data and Contact Forms -->
     <script src="assets/js/blog-data.js"></script>
+    <script src="assets/js/contact-forms.js"></script>
     <script>
-        // Use Supabase for blog posts or fallback to local data
+        // Simple blog display using static data
         let blogPosts = [];
-        let useSupabase = false;
 
-        // Check if Supabase is configured and available
-        async function initializeBlog() {
+        function initializeBlog() {
             const postsGrid = document.getElementById('posts-grid');
             postsGrid.innerHTML = '<div class="loading">Loading blog posts...</div>';
 
-            try {
-                // Try to use Supabase first
-                if (window.supabaseBlog && window.SUPABASE_URL !== 'your-supabase-url') {
-                    const result = await window.supabaseBlog.getBlogPosts();
-                    if (result.posts && result.posts.length > 0) {
-                        blogPosts = result.posts;
-                        useSupabase = true;
-                        console.log('Using Supabase for blog data');
-                    } else {
-                        throw new Error('No posts from Supabase');
-                    }
-                } else {
-                    throw new Error('Supabase not configured');
-                }
-            } catch (error) {
-                // Fallback to local data
-                console.log('Falling back to local blog data:', error.message);
-                blogPosts = blogPostsData || [];
-                useSupabase = false;
-            }
-
+            // Use the static blog data
+            blogPosts = blogPostsData || [];
             renderBlogPosts();
         }
 
@@ -302,20 +307,16 @@
             }
 
             const postsHTML = blogPosts.map(post => {
-                // Handle different data structures (Supabase vs local)
-                const imageUrl = useSupabase ? post.cover_image_url : post.image;
-                const publishDate = useSupabase ? post.published_at : post.date;
-                
                 return `
                 <article class="post-card" onclick="openPost('${post.slug}')">
                     <div class="post-image">
-                        <img src="${imageUrl}" alt="${post.title}" loading="lazy">
+                        <img src="${post.image}" alt="${post.title}" loading="lazy">
                     </div>
                     <div class="post-content">
                         <h2 class="post-title">${post.title}</h2>
                         <p class="post-excerpt">${post.excerpt}</p>
                         <div class="post-meta">
-                            <span class="post-date">${formatDate(publishDate)}</span>
+                            <span class="post-date">${formatDate(post.date)}</span>
                             <a href="#" class="read-more" onclick="event.stopPropagation(); openPost('${post.slug}')">Read More →</a>
                         </div>
                     </div>

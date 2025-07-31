@@ -1466,13 +1466,14 @@
                 <p>Ready to activate your purpose and join the Vision 2054 movement? Let's start the conversation.</p>
             </div>
             
-            <form class="contact-form">
+            <form class="contact-form" data-form-type="contact">
+                <input type="hidden" name="source" value="homepage">
                 <div class="form-group">
-                    <input type="text" class="contact-input" placeholder="Your Name" required>
-                    <input type="email" class="contact-input" placeholder="Your Email" required>
+                    <input type="text" name="name" class="contact-input" placeholder="Your Name" required>
+                    <input type="email" name="email" class="contact-input" placeholder="Your Email" required>
                 </div>
-                <input type="text" class="contact-input" placeholder="Subject">
-                <textarea class="contact-textarea" placeholder="Tell us about your vision, questions, or how you'd like to collaborate..." required></textarea>
+                <input type="text" name="subject" class="contact-input" placeholder="Subject">
+                <textarea name="message" class="contact-textarea" placeholder="Tell us about your vision, questions, or how you'd like to collaborate..." required></textarea>
                 <button type="submit" class="contact-submit">Send Message</button>
             </form>
         </div>
@@ -1485,8 +1486,9 @@
                 <h2>Join the Transformation</h2>
                 <p>Be part of the community building Vision 2054. Get early access to the Unity Remix Contest, purpose-driven insights, and the revolutionary platform that's changing how humanity creates together.</p>
                 
-                <form class="email-form">
-                    <input type="email" class="email-input" placeholder="Enter your email address" required>
+                <form class="email-form subscription-form" data-form-type="subscription">
+                    <input type="hidden" name="source" value="homepage-join">
+                    <input type="email" name="email" class="email-input" placeholder="Enter your email address" required>
                     <button type="submit" class="email-submit">Join the Movement</button>
                 </form>
                 
@@ -1555,5 +1557,14 @@
             </div>
         </div>
     </footer>
+    
+    <!-- Supabase Client Library -->
+    <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+    
+    <!-- Local Supabase Configuration -->
+    <script src="config/supabase-keys.js"></script>
+    
+    <!-- Contact Forms (Simple!) -->
+    <script src="assets/js/contact-forms.js"></script>
 </body>
 </html>
