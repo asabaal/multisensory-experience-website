@@ -1,0 +1,11 @@
+{
+  "agent_name": "merge_readiness",
+  "result_type": "success",
+  "response_length": 2242,
+  "error_message": "",
+  "call_duration_ms": 19881.662845611572,
+  "prompt_length": 960,
+  "return_code": 0,
+  "response_preview": "Based on my analysis of the PR data, here's my merge readiness assessment:\n\n```json\n{\n  \"merge_readiness_score\": 65,\n  \"status\": \"REVIEW_NEEDED\",\n  \"blocking_issues\": 2,\n  \"warning_issues\": 4,\n  \"recommendation\": \"Significant organizational issues and excessive scope require attention before merge\",\n  \"key_concerns\": [\n    \"Massive scope with 257 files and 48K+ line additions\",\n    \"Mixed concerns - contains experimental phase documents, zone identifiers, and production code\",\n    \"Multiple deployment guides suggesting incomplete decision-making\",\n    \"Zone.Identifier files indicate Windows development artifacts that shouldn't be committed\"\n  ],\n  \"detailed_assessment\": {\n    \"completeness\": {\n      \"score\": 70,\n      \"issues\": [\n        \"Multiple deployment guides (VERCEL-DEPLOY.md, VERCEL-DEPLOY-SIMPLE.md, DEPLOY-READY.md) suggest uncertainty about final approach\",\n        \"Extensive documentation may indicate unfinished implementation decisions\"\n      ]\n    },\n    \"code_quality\": {\n",
+  "stderr_preview": ""
+}

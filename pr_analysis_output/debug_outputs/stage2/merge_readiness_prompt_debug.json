@@ -1,0 +1,25 @@
+{
+  "agent": "merge_readiness",
+  "prompt_stats": {
+    "total_length": 13658,
+    "total_lines": 494,
+    "categories_section_length": 1737,
+    "files_section_length": 9959,
+    "commit_messages_count": 0,
+    "estimated_tokens": 2161.9,
+    "performance_ms": 0.118255615234375
+  },
+  "validation_errors": [],
+  "expected_outcomes": {
+    "score_range": "60-80 (REVIEW_NEEDED)",
+    "key_issues": [
+      "Large PR size",
+      "Mixed concerns",
+      "Configuration redundancy"
+    ],
+    "should_flag": [
+      "Incomplete refactoring",
+      "Multiple similar files"
+    ]
+  }
+}

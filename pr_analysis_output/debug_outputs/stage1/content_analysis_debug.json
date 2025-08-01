@@ -1,0 +1,166 @@
+{
+  "files_analyzed": 257,
+  "files_with_content": 198,
+  "files_too_large": 45,
+  "files_missing": 14,
+  "content_errors": [],
+  "category_content_samples": {
+    "CONFIGURATION": [
+      {
+        "file": ".env.example",
+        "sample": "# Supabase Configuration for Asabaal Ventures Website\n# Copy this file to .env and fill in your actual values\n# Get these from your Supabase project dashboard -> Settings -> API\n\n# Your Supabase proje",
+        "has_functions": false,
+        "has_classes": false
+      },
+      {
+        "file": "config/supabase-config.js",
+        "sample": "// Supabase Configuration\n// This file manages environment variables and configuration for Supabase\n\n// Development/Production Configuration\nconst SupabaseConfig = {\n    // Replace these with your act",
+        "has_functions": false,
+        "has_classes": false
+      },
+      {
+        "file": "config/supabase-keys.prod.js",
+        "sample": "// Production Supabase Configuration for Vercel\n// This file should be renamed to supabase-keys.js for production deployment\n// Replace these values with your actual Supabase credentials\n\nwindow.VITE_",
+        "has_functions": false,
+        "has_classes": false
+      }
+    ],
+    "UNCATEGORIZED": [
+      {
+        "file": ".gitignore",
+        "sample": "**/.claude/settings.local.json\n*.pdf\n\n# Environment variables\n.env\n.env.local\n.env.production\n\n# Local Supabase configuration (keep your keys private!)\nconfig/supabase-keys.js\n\n# Content Management\n# ",
+        "has_functions": false,
+        "has_classes": false
+      },
+      {
+        "file": "Initial Phases Concepts/Pitch Deck Updated 20250714.html:Zone.Identifier",
+        "sample": "[ZoneTransfer]\nZoneId=3\nHostUrl=https://claude.ai/\n",
+        "has_functions": false,
+        "has_classes": false
+      },
+      {
+        "file": "Initial Phases Concepts/phase-2.html",
+        "sample": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <title>Phase 2: Content Foundation</title>\n    <style>",
+        "has_functions": false,
+        "has_classes": false
+      }
+    ],
+    "DOCUMENTATION": [
+      {
+        "file": "DEPLOY-READY.md",
+        "sample": "# \ud83d\ude80 Ready to Deploy Guide\n\nYour website is ready to deploy! Here's the minimal setup to get contact forms and email subscriptions working.\n\n## \u2705 What Works Right Now (No Database Needed)\n- \u2705 Blog syst",
+        "has_functions": false,
+        "has_classes": false
+      },
+      {
+        "file": "README-SUPABASE.md",
+        "sample": "# Supabase Blog Backend Setup\n\nThis document explains how to set up the Supabase backend for your multisensory blog.\n\n## Quick Start\n\n1. **Create a Supabase Project**\n   - Go to [supabase.com](https:/",
+        "has_functions": false,
+        "has_classes": false
+      },
+      {
+        "file": "SUPABASE_SETUP.md",
+        "sample": "# Supabase Backend Setup Guide\n\nThis guide will help you set up the backend infrastructure for the Asabaal Ventures website using Supabase.\n\n## \ud83d\ude80 Quick Start\n\n### Step 1: Create Supabase Project\n\n1. G",
+        "has_functions": false,
+        "has_classes": false
+      }
+    ],
+    "ASSETS_MEDIA": [
+      {
+        "file": "Founder Quote Image.jpg:Zone.Identifier",
+        "sample": "[ZoneTransfer]\nZoneId=3\nReferrerUrl=https://www.canva.com/\nHostUrl=https://export-download.canva.com/dWing/DAGufJdWing/2/0/0001-6715340367104364665.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credentia",
+        "has_functions": false,
+        "has_classes": false
+      },
+      {
+        "file": "asabaalventures_57333_3D_text_UNITY_REMIX_made_of_flowing_music_c45e4314-7d56-4f83-b248-3c0ca0e2a93f.png:Zone.Identifier",
+        "sample": "[ZoneTransfer]\nZoneId=3\nHostUrl=https://www.midjourney.com/\n",
+        "has_functions": false,
+        "has_classes": false
+      },
+      {
+        "file": "assets/images/logos/Asabaal Ventures.png:Zone.Identifier",
+        "sample": "[ZoneTransfer]\nZoneId=3\nReferrerUrl=https://www.canva.com/\nHostUrl=https://export-download.canva.com/hz4c4/DAGD2Dhz4c4/12/0/0001-7121744241397985622.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credenti",
+        "has_functions": false,
+        "has_classes": false
+      }
+    ],
+    "BLOG_CONTENT": [
+      {
+        "file": "blog/20250514-cover-image.jpg:Zone.Identifier",
+        "sample": "[ZoneTransfer]\nZoneId=3\nReferrerUrl=https://www.canva.com/\nHostUrl=https://export-download.canva.com/5TBvg/DAGLrI5TBvg/6/0/0001-3925360402408348848.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credentia",
+        "has_functions": false,
+        "has_classes": false
+      },
+      {
+        "file": "blog/embracing_the_age_of_creativity_20240512.txt",
+        "sample": "Hello, World!\n\nI find myself in a challenging season of life - recently fired from my job, selling one of my homes, going through a divorce, and living far from my family. It's a time filled with anxi",
+        "has_functions": false,
+        "has_classes": false
+      },
+      {
+        "file": "blog/post-asabaal-ventures-dawn-new-era.html",
+        "sample": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <title>Asabaal Ventures: The Dawn of a New Era | Asaba",
+        "has_functions": false,
+        "has_classes": false
+      }
+    ],
+    "USER_INTERFACE": [
+      {
+        "file": "content/templates/post-template.json",
+        "sample": "{\n  \"metadata\": {\n    \"title\": \"Your Post Title Here\",\n    \"slug\": \"your-post-slug-here\",\n    \"publishDate\": \"2024-MM-DD\",\n    \"tags\": [\"tag1\", \"tag2\", \"tag3\"],\n    \"excerpt\": \"A compelling summary of",
+        "has_functions": false,
+        "has_classes": false
+      }
+    ],
+    "SCRIPTS_AUTOMATION": [
+      {
+        "file": "start-server.sh",
+        "sample": "#!/bin/bash\n\n# Simple script to start a local server for testing the blog\necho \"Starting local server for Multisensory Blog...\"\necho \"Navigate to http://localhost:8000 to view the site\"\necho \"Visit ht",
+        "has_functions": false,
+        "has_classes": false
+      }
+    ],
+    "DATABASE": [
+      {
+        "file": "supabase-community-migration.sql",
+        "sample": "-- Supabase Community Migration for Asabaal Ventures Discord Integration\n-- This replaces the email_subscribers table with a community_members system\n\n-- ==============================================",
+        "has_functions": false,
+        "has_classes": false
+      },
+      {
+        "file": "supabase-minimal-setup.sql",
+        "sample": "-- Minimal Supabase Setup for Asabaal Ventures\n-- Only includes contact forms and email subscriptions (no blog database needed!)\n\n-- =====================================================\n-- CONTACT ME",
+        "has_functions": false,
+        "has_classes": false
+      },
+      {
+        "file": "supabase-setup.sql",
+        "sample": "-- Supabase Database Setup for Asabaal Ventures Website\n-- Execute these SQL commands in your Supabase SQL Editor\n\n-- =====================================================\n-- TABLES SETUP\n-- =========",
+        "has_functions": false,
+        "has_classes": false
+      }
+    ],
+    "VISUALIZATIONS": [
+      {
+        "file": "visualizations/complete-implementation-timeline.html",
+        "sample": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <title>Complete Implementation Timeline - Music + Gami",
+        "has_functions": false,
+        "has_classes": false
+      },
+      {
+        "file": "visualizations/cooperative-kingdom-ecosystem-fixed.html",
+        "sample": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <title>Kingdom Cooperative Ecosystem - Engineering Glo",
+        "has_functions": true,
+        "has_classes": false
+      },
+      {
+        "file": "visualizations/enhanced-ecosystem-with-finance.html",
+        "sample": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <title>Asabaal Ventures Complete Ecosystem - Music + G",
+        "has_functions": true,
+        "has_classes": false
+      }
+    ]
+  },
+  "performance_ms": 1162.7652645111084
+}

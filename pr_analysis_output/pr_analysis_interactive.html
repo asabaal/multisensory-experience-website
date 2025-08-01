@@ -1,0 +1,972 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PR Analysis Dashboard</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-primary: #0f0f23;
+            --bg-secondary: #1a1a3a;
+            --bg-tertiary: #2a2a4a;
+            --text-primary: #e0e0e0;
+            --text-secondary: #b0b0b0;
+            --accent-blue: #4a9eff;
+            --accent-green: #4ade80;
+            --accent-yellow: #fbbf24;
+            --accent-red: #ef4444;
+            --border-color: #404040;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        .header {
+            background: var(--bg-secondary);
+            padding: 2rem;
+            box-shadow: var(--shadow);
+            border-bottom: 2px solid var(--border-color);
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--accent-blue);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .header-meta {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .meta-item {
+            background: var(--bg-tertiary);
+            padding: 1rem;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+
+        .meta-label {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-bottom: 0.5rem;
+        }
+
+        .meta-value {
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        .search-container {
+            background: var(--bg-secondary);
+            padding: 1rem 2rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .search-input {
+            width: 100%;
+            max-width: 400px;
+            padding: 0.75rem;
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            color: var(--text-primary);
+            font-size: 1rem;
+        }
+
+        .search-input::placeholder {
+            color: var(--text-secondary);
+        }
+
+        .tabs {
+            display: flex;
+            background: var(--bg-secondary);
+            border-bottom: 1px solid var(--border-color);
+            overflow-x: auto;
+        }
+
+        .tab {
+            padding: 1rem 2rem;
+            cursor: pointer;
+            border: none;
+            background: transparent;
+            color: var(--text-secondary);
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+            border-bottom: 3px solid transparent;
+        }
+
+        .tab:hover {
+            background: var(--bg-tertiary);
+            color: var(--text-primary);
+        }
+
+        .tab.active {
+            background: var(--bg-tertiary);
+            color: var(--accent-blue);
+            border-bottom-color: var(--accent-blue);
+        }
+
+        .tab-content {
+            display: none;
+            padding: 2rem;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .summary-card {
+            background: var(--bg-secondary);
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow);
+        }
+
+        .summary-card h3 {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+        }
+
+        .summary-value {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .status-blocked { color: var(--accent-red); }
+        .status-warning { color: var(--accent-yellow); }
+        .status-good { color: var(--accent-green); }
+
+        .quality-issues {
+            margin-bottom: 2rem;
+        }
+
+        .issue-card {
+            background: var(--bg-secondary);
+            border-radius: 12px;
+            margin-bottom: 1.5rem;
+            border: 1px solid var(--border-color);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .issue-card:hover {
+            box-shadow: var(--shadow);
+        }
+
+        .issue-header {
+            padding: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            background: var(--bg-tertiary);
+        }
+
+        .priority-badge {
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .priority-critical {
+            background: var(--accent-red);
+            color: white;
+        }
+
+        .priority-high {
+            background: var(--accent-yellow);
+            color: var(--bg-primary);
+        }
+
+        .priority-medium {
+            background: var(--accent-blue);
+            color: white;
+        }
+
+        .issue-title {
+            flex: 1;
+            font-size: 1.1rem;
+            font-weight: bold;
+        }
+
+        .impact-score {
+            background: var(--bg-primary);
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            font-weight: bold;
+        }
+
+        .issue-content {
+            display: none;
+            padding: 0 1.5rem 1.5rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .issue-content.expanded {
+            display: block;
+        }
+
+        .issue-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+
+        .detail-item {
+            background: var(--bg-primary);
+            padding: 1rem;
+            border-radius: 6px;
+        }
+
+        .detail-label {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-bottom: 0.5rem;
+        }
+
+        .duplicate-section {
+            margin-bottom: 2rem;
+        }
+
+        .duplicate-category {
+            background: var(--bg-secondary);
+            border-radius: 12px;
+            margin-bottom: 1.5rem;
+            border: 1px solid var(--border-color);
+            overflow: hidden;
+        }
+
+        .duplicate-header {
+            padding: 1.5rem;
+            background: var(--bg-tertiary);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .severity-badge {
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .severity-critical { background: var(--accent-red); color: white; }
+        .severity-high { background: var(--accent-yellow); color: var(--bg-primary); }
+        .severity-medium { background: var(--accent-blue); color: white; }
+
+        .duplicate-content {
+            display: none;
+            padding: 1.5rem;
+        }
+
+        .duplicate-content.expanded {
+            display: block;
+        }
+
+        .duplicate-files {
+            display: grid;
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+
+        .file-item {
+            background: var(--bg-primary);
+            padding: 1rem;
+            border-radius: 6px;
+            border-left: 4px solid var(--accent-blue);
+        }
+
+        .file-name {
+            font-family: 'Courier New', monospace;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .file-stats {
+            display: flex;
+            gap: 1rem;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        .recommendations-list {
+            list-style: none;
+        }
+
+        .recommendations-list li {
+            background: var(--bg-secondary);
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--accent-green);
+            position: relative;
+        }
+
+        .recommendation-priority {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+        .expand-icon {
+            transition: transform 0.3s ease;
+        }
+
+        .expanded .expand-icon {
+            transform: rotate(180deg);
+        }
+
+        .progress-bar {
+            background: var(--bg-primary);
+            height: 8px;
+            border-radius: 4px;
+            overflow: hidden;
+            margin-top: 0.5rem;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--accent-red), var(--accent-yellow), var(--accent-green));
+            transition: width 0.3s ease;
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .summary-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .tabs {
+                font-size: 0.9rem;
+            }
+            
+            .tab {
+                padding: 0.75rem 1rem;
+            }
+            
+            .tab-content {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>
+            🔍 PR Analysis Dashboard
+        </h1>
+        <div class="header-meta">
+            <div class="meta-item">
+                <div class="meta-label">Branch</div>
+                <div class="meta-value">brand-integration → main</div>
+            </div>
+            <div class="meta-item">
+                <div class="meta-label">Files Changed</div>
+                <div class="meta-value">257</div>
+            </div>
+            <div class="meta-item">
+                <div class="meta-label">Lines Changed</div>
+                <div class="meta-value">51,684</div>
+            </div>
+            <div class="meta-item">
+                <div class="meta-label">Generated</div>
+                <div class="meta-value">2025-08-01</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="search-container">
+        <input type="text" class="search-input" placeholder="Search issues, files, or recommendations..." id="searchInput">
+    </div>
+
+    <div class="tabs">
+        <button class="tab active" onclick="showTab('summary')">📊 Executive Summary</button>
+        <button class="tab" onclick="showTab('issues')">🚨 Quality Issues</button>
+        <button class="tab" onclick="showTab('duplicates')">📁 Duplicate Files</button>
+        <button class="tab" onclick="showTab('recommendations')">💡 Recommendations</button>
+    </div>
+
+    <div id="summary" class="tab-content active">
+        <div class="summary-grid">
+            <div class="summary-card">
+                <h3>Overall Quality Score</h3>
+                <div class="summary-value status-warning">6.9/10</div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 69%"></div>
+                </div>
+            </div>
+            <div class="summary-card">
+                <h3>Merge Status</h3>
+                <div class="summary-value status-blocked">BLOCKED</div>
+                <p style="margin-top: 0.5rem; color: var(--text-secondary);">Review needed</p>
+            </div>
+            <div class="summary-card">
+                <h3>Total Issues</h3>
+                <div class="summary-value">5</div>
+                <p style="margin-top: 0.5rem; color: var(--accent-red);">1 Critical</p>
+            </div>
+            <div class="summary-card">
+                <h3>Analysis Confidence</h3>
+                <div class="summary-value status-good">74%</div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 74%"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="summary-card">
+            <h3>📊 Technical Metrics</h3>
+            <div class="issue-details" style="margin-top: 1rem;">
+                <div class="detail-item">
+                    <div class="detail-label">Files Analyzed</div>
+                    <div style="font-weight: bold; font-size: 1.2rem;">257</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Lines Added</div>
+                    <div style="font-weight: bold; font-size: 1.2rem; color: var(--accent-green);">+48,145</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Lines Removed</div>
+                    <div style="font-weight: bold; font-size: 1.2rem; color: var(--accent-red);">-3,539</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Complexity Score</div>
+                    <div style="font-weight: bold; font-size: 1.2rem;">5.2/10</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Issues per File</div>
+                    <div style="font-weight: bold; font-size: 1.2rem;">0.02</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Categories Analyzed</div>
+                    <div style="font-weight: bold; font-size: 1.2rem;">9</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="issues" class="tab-content">
+        <div class="quality-issues">
+            <div class="issue-card" data-priority="critical">
+                <div class="issue-header" onclick="toggleIssue(this)">
+                    <span class="priority-badge priority-critical">Critical</span>
+                    <div class="issue-title">Merge Readiness: REVIEW_NEEDED (Score: 65/100)</div>
+                    <div class="impact-score">Impact: 10.0/10</div>
+                    <span class="expand-icon">▼</span>
+                </div>
+                <div class="issue-content">
+                    <p><strong>Description:</strong> Significant organizational issues and excessive scope require attention before merge</p>
+                    <div class="issue-details">
+                        <div class="detail-item">
+                            <div class="detail-label">Category</div>
+                            <div>Merge Readiness</div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-label">Severity</div>
+                            <div>Critical</div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-label">Confidence</div>
+                            <div>90%</div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-label">Estimated Effort</div>
+                            <div>Review (15-30 minutes)</div>
+                        </div>
+                    </div>
+                    <p><strong>Recommendation:</strong> Significant organizational issues and excessive scope require attention before merge</p>
+                </div>
+            </div>
+
+            <div class="issue-card" data-priority="medium">
+                <div class="issue-header" onclick="toggleIssue(this)">
+                    <span class="priority-badge priority-medium">Medium</span>
+                    <div class="issue-title">Massive scope with 257 files and 48K+ line additions</div>
+                    <div class="impact-score">Impact: 5.1/10</div>
+                    <span class="expand-icon">▼</span>
+                </div>
+                <div class="issue-content">
+                    <p><strong>Description:</strong> Extremely large changeset increases deployment risk and review complexity</p>
+                    <div class="issue-details">
+                        <div class="detail-item">
+                            <div class="detail-label">Category</div>
+                            <div>Merge Readiness</div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-label">Severity</div>
+                            <div>Medium</div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-label">Confidence</div>
+                            <div>70%</div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-label">Estimated Effort</div>
+                            <div>Review (15-30 minutes)</div>
+                        </div>
+                    </div>
+                    <p><strong>Recommendation:</strong> Consider splitting into smaller, focused PRs by feature area</p>
+                </div>
+            </div>
+
+            <div class="issue-card" data-priority="medium">
+                <div class="issue-header" onclick="toggleIssue(this)">
+                    <span class="priority-badge priority-medium">Medium</span>
+                    <div class="issue-title">Mixed concerns - experimental docs, zone identifiers, and production code</div>
+                    <div class="impact-score">Impact: 5.1/10</div>
+                    <span class="expand-icon">▼</span>
+                </div>
+                <div class="issue-content">
+                    <p><strong>Description:</strong> Contains experimental phase documents, zone identifiers, and production code mixed together</p>
+                    <div class="issue-details">
+                        <div class="detail-item">
+                            <div class="detail-label">Category</div>
+                            <div>Merge Readiness</div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-label">Severity</div>
+                            <div>Medium</div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-label">Confidence</div>
+                            <div>70%</div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-label">Estimated Effort</div>
+                            <div>Review (15-30 minutes)</div>
+                        </div>
+                    </div>
+                    <p><strong>Recommendation:</strong> Move planning documents to separate documentation branch</p>
+                </div>
+            </div>
+
+            <div class="issue-card" data-priority="medium">
+                <div class="issue-header" onclick="toggleIssue(this)">
+                    <span class="priority-badge priority-medium">Medium</span>
+                    <div class="issue-title">Multiple deployment guides suggesting incomplete decision-making</div>
+                    <div class="impact-score">Impact: 5.1/10</div>
+                    <span class="expand-icon">▼</span>
+                </div>
+                <div class="issue-content">
+                    <p><strong>Description:</strong> Multiple deployment guides create confusion for new developers</p>
+                    <div class="issue-details">
+                        <div class="detail-item">
+                            <div class="detail-label">Category</div>
+                            <div>Merge Readiness</div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-label">Severity</div>
+                            <div>Medium</div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-label">Confidence</div>
+                            <div>70%</div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-label">Estimated Effort</div>
+                            <div>Review (15-30 minutes)</div>
+                        </div>
+                    </div>
+                    <p><strong>Recommendation:</strong> Consolidate deployment documentation into single source of truth</p>
+                </div>
+            </div>
+
+            <div class="issue-card" data-priority="medium">
+                <div class="issue-header" onclick="toggleIssue(this)">
+                    <span class="priority-badge priority-medium">Medium</span>
+                    <div class="issue-title">Zone.Identifier files - Windows development artifacts</div>
+                    <div class="impact-score">Impact: 5.1/10</div>
+                    <span class="expand-icon">▼</span>
+                </div>
+                <div class="issue-content">
+                    <p><strong>Description:</strong> Zone.Identifier files indicate Windows development artifacts that shouldn't be committed</p>
+                    <div class="issue-details">
+                        <div class="detail-item">
+                            <div class="detail-label">Category</div>
+                            <div>Merge Readiness</div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-label">Severity</div>
+                            <div>Medium</div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-label">Confidence</div>
+                            <div>70%</div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-label">Estimated Effort</div>
+                            <div>Review (15-30 minutes)</div>
+                        </div>
+                    </div>
+                    <p><strong>Recommendation:</strong> Remove development artifacts and update .gitignore</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="duplicates" class="tab-content">
+        <div class="duplicate-section">
+            <div class="duplicate-category">
+                <div class="duplicate-header" onclick="toggleDuplicate(this)">
+                    <span class="severity-badge severity-critical">Critical</span>
+                    <div style="flex: 1;">
+                        <h3>Exact/Near-Exact Duplicates</h3>
+                        <p style="color: var(--text-secondary); margin-top: 0.5rem;">Identical or nearly identical files that should be consolidated</p>
+                    </div>
+                    <span class="expand-icon">▼</span>
+                </div>
+                <div class="duplicate-content">
+                    <h4>Database Setup Files (HIGH PRIORITY)</h4>
+                    <div class="duplicate-files">
+                        <div class="file-item">
+                            <div class="file-name">supabase-setup.sql</div>
+                            <div class="file-stats">
+                                <span>Lines: 228</span>
+                                <span>Size: 7,707 bytes</span>
+                            </div>
+                        </div>
+                        <div class="file-item">
+                            <div class="file-name">supabase-minimal-setup.sql</div>
+                            <div class="file-stats">
+                                <span>Lines: 55</span>
+                                <span>Size: 1,845 bytes</span>
+                            </div>
+                        </div>
+                        <div class="file-item">
+                            <div class="file-name">supabase-community-migration.sql</div>
+                            <div class="file-stats">
+                                <span>Lines: 246</span>
+                                <span>Size: 8,276 bytes</span>
+                            </div>
+                        </div>
+                    </div>
+                    <p><strong>Evidence:</strong> All three serve the same core purpose of setting up Supabase database tables. The minimal version appears to be a streamlined subset, while the community migration adds Discord integration features to the base setup.</p>
+                    
+                    <h4 style="margin-top: 2rem;">Deployment Guides (CRITICAL)</h4>
+                    <div class="duplicate-files">
+                        <div class="file-item">
+                            <div class="file-name">VERCEL-DEPLOY.md</div>
+                            <div class="file-stats">
+                                <span>Lines: 159</span>
+                                <span>Size: 4,597 bytes</span>
+                            </div>
+                        </div>
+                        <div class="file-item">
+                            <div class="file-name">VERCEL-DEPLOY-SIMPLE.md</div>
+                            <div class="file-stats">
+                                <span>Lines: 98</span>
+                                <span>Size: 3,071 bytes</span>
+                            </div>
+                        </div>
+                        <div class="file-item">
+                            <div class="file-name">DEPLOY-READY.md</div>
+                            <div class="file-stats">
+                                <span>Lines: 102</span>
+                                <span>Size: 3,193 bytes</span>
+                            </div>
+                        </div>
+                    </div>
+                    <p><strong>Evidence:</strong> All three documents contain nearly identical Vercel deployment instructions with slight variations in organization and detail level.</p>
+                </div>
+            </div>
+
+            <div class="duplicate-category">
+                <div class="duplicate-header" onclick="toggleDuplicate(this)">
+                    <span class="severity-badge severity-high">High</span>
+                    <div style="flex: 1;">
+                        <h3>Functional Duplicates with Different Implementations</h3>
+                        <p style="color: var(--text-secondary); margin-top: 0.5rem;">Same functionality implemented differently</p>
+                    </div>
+                    <span class="expand-icon">▼</span>
+                </div>
+                <div class="duplicate-content">
+                    <h4>Database Schema Files</h4>
+                    <div class="duplicate-files">
+                        <div class="file-item">
+                            <div class="file-name">supabase/schema.sql</div>
+                            <div class="file-stats">
+                                <span>Lines: 192</span>
+                                <span>Size: 6,700 bytes</span>
+                            </div>
+                        </div>
+                        <div class="file-item">
+                            <div class="file-name">supabase/migrations/001_initial_setup.sql</div>
+                            <div class="file-stats">
+                                <span>Lines: 95</span>
+                                <span>Size: 3,274 bytes</span>
+                            </div>
+                        </div>
+                    </div>
+                    <p><strong>Evidence:</strong> Both create the same blog database structure but using different approaches - one as a complete schema, the other as an incremental migration.</p>
+
+                    <h4 style="margin-top: 2rem;">Configuration Files</h4>
+                    <div class="duplicate-files">
+                        <div class="file-item">
+                            <div class="file-name">config/supabase-config.js</div>
+                            <div class="file-stats">
+                                <span>Lines: 62</span>
+                                <span>Size: 1,736 bytes</span>
+                            </div>
+                        </div>
+                        <div class="file-item">
+                            <div class="file-name">config/supabase-keys.prod.js</div>
+                            <div class="file-stats">
+                                <span>Lines: 13</span>
+                                <span>Size: 589 bytes</span>
+                            </div>
+                        </div>
+                        <div class="file-item">
+                            <div class="file-name">.env.example</div>
+                            <div class="file-stats">
+                                <span>Lines: 14</span>
+                                <span>Size: 974 bytes</span>
+                            </div>
+                        </div>
+                    </div>
+                    <p><strong>Evidence:</strong> All three handle Supabase configuration but in different formats - JavaScript object, production keys file, and environment variables template.</p>
+                </div>
+            </div>
+
+            <div class="duplicate-category">
+                <div class="duplicate-header" onclick="toggleDuplicate(this)">
+                    <span class="severity-badge severity-medium">Medium</span>
+                    <div style="flex: 1;">
+                        <h3>Similar Purpose, Potentially Consolidatable</h3>
+                        <p style="color: var(--text-secondary); margin-top: 0.5rem;">Files that could be consolidated or better organized</p>
+                    </div>
+                    <span class="expand-icon">▼</span>
+                </div>
+                <div class="duplicate-content">
+                    <h4>Documentation Files</h4>
+                    <div class="duplicate-files">
+                        <div class="file-item">
+                            <div class="file-name">README-SUPABASE.md</div>
+                            <div class="file-stats">
+                                <span>Lines: 89</span>
+                                <span>Size: 3,111 bytes</span>
+                            </div>
+                        </div>
+                        <div class="file-item">
+                            <div class="file-name">SUPABASE_SETUP.md</div>
+                            <div class="file-stats">
+                                <span>Lines: 232</span>
+                                <span>Size: 6,360 bytes</span>
+                            </div>
+                        </div>
+                        <div class="file-item">
+                            <div class="file-name">TECHNICAL_SPECIFICATION.md</div>
+                            <div class="file-stats">
+                                <span>Lines: 309</span>
+                                <span>Size: 9,752 bytes</span>
+                            </div>
+                        </div>
+                    </div>
+                    <p><strong>Evidence:</strong> Overlapping content about Supabase setup and technical architecture, but serving different audiences/detail levels.</p>
+
+                    <h4 style="margin-top: 2rem;">Visualization Files</h4>
+                    <div class="duplicate-files">
+                        <div class="file-item">
+                            <div class="file-name">visualizations/enhanced-ecosystem-with-finance.html</div>
+                        </div>
+                        <div class="file-item">
+                            <div class="file-name">visualizations/enhanced-ecosystem-with-gaming.html</div>
+                        </div>
+                        <div class="file-item">
+                            <div class="file-name">visualizations/cooperative-kingdom-ecosystem-fixed.html</div>
+                        </div>
+                    </div>
+                    <p><strong>Evidence:</strong> Multiple HTML visualizations of the same ecosystem concept with incremental feature additions.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="recommendations" class="tab-content">
+        <ul class="recommendations-list">
+            <li>
+                <span class="recommendation-priority priority-critical">Critical</span>
+                <strong>🔴 CRITICAL: Address 1 critical issues before merging</strong>
+                <p>• Merge Readiness: REVIEW_NEEDED (Score: 65/100)</p>
+            </li>
+            <li>
+                <span class="recommendation-priority priority-critical">Critical</span>
+                <strong>Consolidate the 3 deployment guides into one canonical DEPLOYMENT.md</strong>
+                <p>Multiple deployment guides create confusion for new developers trying to set up the project.</p>
+            </li>
+            <li>
+                <span class="recommendation-priority priority-critical">Critical</span>
+                <strong>Choose one primary database setup file and archive others</strong>
+                <p>Having multiple database setup files with overlapping functionality leads to maintenance issues.</p>
+            </li>
+            <li>
+                <span class="recommendation-priority priority-high">High</span>
+                <strong>🚀 DEPLOYMENT: Review merge readiness concerns before deployment</strong>
+                <p>Large changeset requires careful deployment planning and testing.</p>
+            </li>
+            <li>
+                <span class="recommendation-priority priority-high">High</span>
+                <strong>Merge Supabase configuration approaches into a single pattern</strong>
+                <p>Standardize configuration management to reduce complexity.</p>
+            </li>
+            <li>
+                <span class="recommendation-priority priority-medium">Medium</span>
+                <strong>⚠️ OVERALL: PR needs attention but is manageable</strong>
+                <p>Issues identified can be resolved with focused effort.</p>
+            </li>
+            <li>
+                <span class="recommendation-priority priority-medium">Medium</span>
+                <strong>Archive old phase concept prototypes in a /prototypes folder</strong>
+                <p>Keep planning artifacts separate from production code.</p>
+            </li>
+            <li>
+                <span class="recommendation-priority priority-medium">Medium</span>
+                <strong>Create a single comprehensive visualization with all features integrated</strong>
+                <p>Consolidate multiple visualization files into one comprehensive version.</p>
+            </li>
+            <li>
+                <span class="recommendation-priority priority-medium">Medium</span>
+                <strong>⏱️ ESTIMATED EFFORT: ~100 minutes hours to address all issues</strong>
+                <p>Based on analysis of identified issues and their complexity.</p>
+            </li>
+        </ul>
+    </div>
+
+    <script>
+        function showTab(tabName) {
+            // Hide all tab contents
+            const contents = document.querySelectorAll('.tab-content');
+            contents.forEach(content => content.classList.remove('active'));
+            
+            // Remove active class from all tabs
+            const tabs = document.querySelectorAll('.tab');
+            tabs.forEach(tab => tab.classList.remove('active'));
+            
+            // Show selected tab content
+            document.getElementById(tabName).classList.add('active');
+            
+            // Add active class to clicked tab
+            event.target.classList.add('active');
+        }
+
+        function toggleIssue(header) {
+            const content = header.nextElementSibling;
+            const card = header.parentElement;
+            
+            content.classList.toggle('expanded');
+            card.classList.toggle('expanded');
+        }
+
+        function toggleDuplicate(header) {
+            const content = header.nextElementSibling;
+            const category = header.parentElement;
+            
+            content.classList.toggle('expanded');
+            category.classList.toggle('expanded');
+        }
+
+        // Search functionality
+        document.getElementById('searchInput').addEventListener('input', function(e) {
+            const searchTerm = e.target.value.toLowerCase();
+            
+            // Search in issues
+            const issueCards = document.querySelectorAll('.issue-card');
+            issueCards.forEach(card => {
+                const title = card.querySelector('.issue-title').textContent.toLowerCase();
+                const content = card.querySelector('.issue-content').textContent.toLowerCase();
+                
+                if (title.includes(searchTerm) || content.includes(searchTerm)) {
+                    card.classList.remove('hidden');
+                } else {
+                    card.classList.add('hidden');
+                }
+            });
+            
+            // Search in duplicates
+            const duplicateCategories = document.querySelectorAll('.duplicate-category');
+            duplicateCategories.forEach(category => {
+                const title = category.querySelector('h3').textContent.toLowerCase();
+                const content = category.querySelector('.duplicate-content').textContent.toLowerCase();
+                
+                if (title.includes(searchTerm) || content.includes(searchTerm)) {
+                    category.classList.remove('hidden');
+                } else {
+                    category.classList.add('hidden');
+                }
+            });
+            
+            // Search in recommendations
+            const recommendations = document.querySelectorAll('.recommendations-list li');
+            recommendations.forEach(rec => {
+                const text = rec.textContent.toLowerCase();
+                
+                if (text.includes(searchTerm)) {
+                    rec.classList.remove('hidden');
+                } else {
+                    rec.classList.add('hidden');
+                }
+            });
+        });
+
+        // Initialize expand/collapse for duplicates
+        document.addEventListener('DOMContentLoaded', function() {
+            // Auto-expand critical duplicates
+            const criticalDuplicates = document.querySelector('.severity-critical').closest('.duplicate-category');
+            if (criticalDuplicates) {
+                criticalDuplicates.classList.add('expanded');
+                criticalDuplicates.querySelector('.duplicate-content').classList.add('expanded');
+            }
+        });
+    </script>
+</body>
+</html>

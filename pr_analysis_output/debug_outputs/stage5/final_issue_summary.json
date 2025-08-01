@@ -1,0 +1,53 @@
+{
+  "total_actionable_issues": 5,
+  "issues_by_type": {
+    "merge_blocker": 1,
+    "merge_warning": 4
+  },
+  "business_impact_distribution": {
+    "10-11": 1,
+    "5-6": 4
+  },
+  "top_5_issues": [
+    {
+      "id": "merge_readiness_main",
+      "title": "Merge Readiness: REVIEW_NEEDED (Score: 65/100)",
+      "type": "merge_blocker",
+      "priority": "CRITICAL",
+      "business_impact": 10.0,
+      "files_count": 0
+    },
+    {
+      "id": "merge_concern_1",
+      "title": "Merge Concern: Massive scope with 257 files and 48K+ line additions",
+      "type": "merge_warning",
+      "priority": "MEDIUM",
+      "business_impact": 5.1,
+      "files_count": 0
+    },
+    {
+      "id": "merge_concern_2",
+      "title": "Merge Concern: Mixed concerns - contains experimental phase documents, zone identifiers, and production code",
+      "type": "merge_warning",
+      "priority": "MEDIUM",
+      "business_impact": 5.1,
+      "files_count": 0
+    },
+    {
+      "id": "merge_concern_3",
+      "title": "Merge Concern: Multiple deployment guides suggesting incomplete decision-making",
+      "type": "merge_warning",
+      "priority": "MEDIUM",
+      "business_impact": 5.1,
+      "files_count": 0
+    },
+    {
+      "id": "merge_concern_4",
+      "title": "Merge Concern: Zone.Identifier files indicate Windows development artifacts that shouldn't be committed",
+      "type": "merge_warning",
+      "priority": "MEDIUM",
+      "business_impact": 5.1,
+      "files_count": 0
+    }
+  ]
+}

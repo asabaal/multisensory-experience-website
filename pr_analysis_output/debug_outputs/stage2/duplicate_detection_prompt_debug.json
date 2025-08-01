@@ -1,0 +1,33 @@
+{
+  "agent": "duplicate_detection",
+  "prompt_stats": {
+    "total_length": 49625,
+    "total_lines": 1732,
+    "context_section_length": 46725,
+    "file_samples_included": 70,
+    "categories_included": 9,
+    "estimated_tokens": 7234.5,
+    "performance_ms": 0.12826919555664062
+  },
+  "validation_errors": [],
+  "context_summary": {
+    "total_files": 257,
+    "files_with_content": 257,
+    "categories": [
+      "CONFIGURATION",
+      "UNCATEGORIZED",
+      "DOCUMENTATION",
+      "ASSETS_MEDIA",
+      "BLOG_CONTENT",
+      "USER_INTERFACE",
+      "SCRIPTS_AUTOMATION",
+      "DATABASE",
+      "VISUALIZATIONS"
+    ]
+  },
+  "expected_discoveries": [
+    "Should find blog processing script duplicates",
+    "Should find database setup redundancy",
+    "Should find nested content directories"
+  ]
+}

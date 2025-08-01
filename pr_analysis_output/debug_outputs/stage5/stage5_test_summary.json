@@ -1,0 +1,72 @@
+{
+  "stage": "Issue Extraction with Validation",
+  "success": true,
+  "original_issues": 5,
+  "final_actionable_issues": 5,
+  "filtering_efficiency": 1.0,
+  "average_business_impact": 6.08,
+  "validation_results": {
+    "total_issues": 5,
+    "validation_counts": {
+      "valid": 5
+    },
+    "sample_validations": [
+      {
+        "issue_id": "merge_readiness_main",
+        "validation_result": "valid",
+        "business_impact": 10.0,
+        "action_required": true,
+        "notes": "Confidence 0.90 acceptable | Sufficient detail provided | No false positive patterns detected | Busi"
+      },
+      {
+        "issue_id": "merge_concern_1",
+        "validation_result": "valid",
+        "business_impact": 5.1,
+        "action_required": true,
+        "notes": "Confidence 0.70 acceptable | Sufficient detail provided | No false positive patterns detected | Busi"
+      },
+      {
+        "issue_id": "merge_concern_2",
+        "validation_result": "valid",
+        "business_impact": 5.1,
+        "action_required": true,
+        "notes": "Confidence 0.70 acceptable | Sufficient detail provided | No false positive patterns detected | Busi"
+      },
+      {
+        "issue_id": "merge_concern_3",
+        "validation_result": "valid",
+        "business_impact": 5.1,
+        "action_required": true,
+        "notes": "Confidence 0.70 acceptable | Sufficient detail provided | No false positive patterns detected | Busi"
+      },
+      {
+        "issue_id": "merge_concern_4",
+        "validation_result": "valid",
+        "business_impact": 5.1,
+        "action_required": true,
+        "notes": "Confidence 0.70 acceptable | Sufficient detail provided | No false positive patterns detected | Busi"
+      }
+    ],
+    "business_impact_distribution": {
+      "10-11": 1,
+      "5-6": 4
+    },
+    "action_required_count": 5
+  },
+  "analysis": {
+    "stage5_success": true,
+    "original_issues_count": 5,
+    "validated_issues_count": 5,
+    "final_actionable_count": 5,
+    "filtering_efficiency": 1.0,
+    "validation_breakdown": {
+      "valid": 5
+    },
+    "average_business_impact": 6.08,
+    "recommendations": [
+      "\u2705 5 actionable issues identified",
+      "\ud83d\udd25 High average business impact - prioritize these issues"
+    ]
+  },
+  "ready_for_stage6": true
+}

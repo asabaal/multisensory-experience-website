@@ -1,0 +1,71 @@
+{
+  "from_branch": "brand-integration",
+  "to_branch": "main",
+  "total_files_changed": 257,
+  "total_lines_added": 48145,
+  "total_lines_removed": 3539,
+  "file_changes_sample": [
+    {
+      "file_path": ".env.example",
+      "change_type": "A",
+      "lines_added": 14,
+      "lines_removed": 0
+    },
+    {
+      "file_path": ".gitignore",
+      "change_type": "A",
+      "lines_added": 34,
+      "lines_removed": 0
+    },
+    {
+      "file_path": "DEPLOY-READY.md",
+      "change_type": "A",
+      "lines_added": 102,
+      "lines_removed": 0
+    },
+    {
+      "file_path": "Founder Quote Image.jpg:Zone.Identifier",
+      "change_type": "A",
+      "lines_added": 4,
+      "lines_removed": 0
+    },
+    {
+      "file_path": "Initial Phases Concepts/Pitch Deck Updated 20250714.html",
+      "change_type": "A",
+      "lines_added": 1545,
+      "lines_removed": 0
+    },
+    {
+      "file_path": "Initial Phases Concepts/Pitch Deck Updated 20250714.html:Zone.Identifier",
+      "change_type": "A",
+      "lines_added": 3,
+      "lines_removed": 0
+    },
+    {
+      "file_path": "Initial Phases Concepts/phase-1.html",
+      "change_type": "A",
+      "lines_added": 1659,
+      "lines_removed": 0
+    },
+    {
+      "file_path": "Initial Phases Concepts/phase-2.html",
+      "change_type": "A",
+      "lines_added": 631,
+      "lines_removed": 0
+    },
+    {
+      "file_path": "Initial Phases Concepts/phase-3.html",
+      "change_type": "A",
+      "lines_added": 791,
+      "lines_removed": 0
+    },
+    {
+      "file_path": "Initial Phases Concepts/phase-4.html",
+      "change_type": "A",
+      "lines_added": 922,
+      "lines_removed": 0
+    }
+  ],
+  "commit_messages_sample": [],
+  "performance_ms": 1570.0709819793701
+}

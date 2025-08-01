@@ -1,0 +1,228 @@
+{
+  "file_categories": [
+    "CONFIGURATION",
+    "UNCATEGORIZED",
+    "DOCUMENTATION",
+    "ASSETS_MEDIA",
+    "BLOG_CONTENT",
+    "USER_INTERFACE",
+    "SCRIPTS_AUTOMATION",
+    "DATABASE",
+    "VISUALIZATIONS"
+  ],
+  "sample_files_by_category": {
+    "CONFIGURATION": [
+      {
+        "path": ".env.example",
+        "change_type": "A",
+        "content_preview": "# Supabase Configuration for Asabaal Ventures Website\n# Copy this file to .env and fill in your actual values\n# Get these from your Supabase project dashboard -> Settings -> API\n\n# Your Supabase project URL (required)\nVITE_SUPABASE_URL=https://your-project-id.supabase.co\nSUPABASE_URL=https://your-pr"
+      },
+      {
+        "path": "config/supabase-config.js",
+        "change_type": "A",
+        "content_preview": "// Supabase Configuration\n// This file manages environment variables and configuration for Supabase\n\n// Development/Production Configuration\nconst SupabaseConfig = {\n    // Replace these with your actual Supabase project details\n    url: 'https://your-project-id.supabase.co',\n    anonKey: 'your-anon"
+      },
+      {
+        "path": "config/supabase-keys.prod.js",
+        "change_type": "A",
+        "content_preview": "// Production Supabase Configuration for Vercel\n// This file should be renamed to supabase-keys.js for production deployment\n// Replace these values with your actual Supabase credentials\n\nwindow.VITE_SUPABASE_URL = 'https://your-actual-project-id.supabase.co';\nwindow.VITE_SUPABASE_ANON_KEY = 'your-a"
+      }
+    ],
+    "UNCATEGORIZED": [
+      {
+        "path": ".gitignore",
+        "change_type": "A",
+        "content_preview": "**/.claude/settings.local.json\n*.pdf\n\n# Environment variables\n.env\n.env.local\n.env.production\n\n# Local Supabase configuration (keep your keys private!)\nconfig/supabase-keys.js\n\n# Content Management\n# Note: You can choose to track or ignore blog content\n# Option 1: Track everything (recommended for b"
+      },
+      {
+        "path": "Initial Phases Concepts/Pitch Deck Updated 20250714.html",
+        "change_type": "A",
+        "content_preview": "[File too large]"
+      },
+      {
+        "path": "Initial Phases Concepts/Pitch Deck Updated 20250714.html:Zone.Identifier",
+        "change_type": "A",
+        "content_preview": "[ZoneTransfer]\nZoneId=3\nHostUrl=https://claude.ai/\n"
+      },
+      {
+        "path": "Initial Phases Concepts/phase-1.html",
+        "change_type": "A",
+        "content_preview": "[File too large]"
+      },
+      {
+        "path": "Initial Phases Concepts/phase-2.html",
+        "change_type": "A",
+        "content_preview": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <title>Phase 2: Content Foundation</title>\n    <style>\n        * {\n            margin: 0;\n            padding: 0;\n            box-sizing: border-box;\n    "
+      }
+    ],
+    "DOCUMENTATION": [
+      {
+        "path": "DEPLOY-READY.md",
+        "change_type": "A",
+        "content_preview": "# \ud83d\ude80 Ready to Deploy Guide\n\nYour website is ready to deploy! Here's the minimal setup to get contact forms and email subscriptions working.\n\n## \u2705 What Works Right Now (No Database Needed)\n- \u2705 Blog system (static files in `/blog/` + `blog-data.js`)\n- \u2705 All website pages and navigation\n- \u2705 All styling "
+      },
+      {
+        "path": "README-SUPABASE.md",
+        "change_type": "A",
+        "content_preview": "# Supabase Blog Backend Setup\n\nThis document explains how to set up the Supabase backend for your multisensory blog.\n\n## Quick Start\n\n1. **Create a Supabase Project**\n   - Go to [supabase.com](https://supabase.com)\n   - Create a new project\n   - Note your project URL and anon key\n\n2. **Run Database "
+      },
+      {
+        "path": "SUPABASE_SETUP.md",
+        "change_type": "A",
+        "content_preview": "# Supabase Backend Setup Guide\n\nThis guide will help you set up the backend infrastructure for the Asabaal Ventures website using Supabase.\n\n## \ud83d\ude80 Quick Start\n\n### Step 1: Create Supabase Project\n\n1. Go to [supabase.com](https://supabase.com)\n2. Sign up/Login with your account\n3. Click \"New Project\"\n"
+      },
+      {
+        "path": "TECHNICAL_SPECIFICATION.md",
+        "change_type": "A",
+        "content_preview": "# Asabaal Ventures Multimedia Ecosystem - Technical Specification\n\n## \ud83c\udfaf Project Overview\n\n**Goal**: Build a revolutionary multimedia ecosystem combining Discord community management, tiered content access, live events, gaming integration, and music experience platform.\n\n**Timeline**: \n- Soft Launch:"
+      },
+      {
+        "path": "VERCEL-DEPLOY-SIMPLE.md",
+        "change_type": "A",
+        "content_preview": "# \ud83d\ude80 Simple Vercel Deployment Guide\n\nThe easiest way to deploy your website with working contact forms!\n\n## \u2705 What's Ready\n- \u2705 Blog system (static files, no database needed)\n- \u2705 All pages, styling, and responsive design\n- \u2705 Contact forms and email subscription ready for backend\n\n## \ud83d\udd27 Step 1: Setup Su"
+      }
+    ],
+    "ASSETS_MEDIA": [
+      {
+        "path": "Founder Quote Image.jpg:Zone.Identifier",
+        "change_type": "A",
+        "content_preview": "[ZoneTransfer]\nZoneId=3\nReferrerUrl=https://www.canva.com/\nHostUrl=https://export-download.canva.com/dWing/DAGufJdWing/2/0/0001-6715340367104364665.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQYCGKMUH5AO7UJ26%2F20250728%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20250728T135716Z&X-Amz-"
+      },
+      {
+        "path": "asabaalventures_57333_3D_text_UNITY_REMIX_made_of_flowing_music_c45e4314-7d56-4f83-b248-3c0ca0e2a93f.png:Zone.Identifier",
+        "change_type": "A",
+        "content_preview": "[ZoneTransfer]\nZoneId=3\nHostUrl=https://www.midjourney.com/\n"
+      },
+      {
+        "path": "assets/images/icons/cosmic_nebula.svg",
+        "change_type": "A",
+        "content_preview": "[File too large]"
+      },
+      {
+        "path": "assets/images/icons/favicon.svg",
+        "change_type": "A",
+        "content_preview": "[File too large]"
+      },
+      {
+        "path": "assets/images/logos/Asabaal Ventures.png",
+        "change_type": "A",
+        "content_preview": "[File too large]"
+      }
+    ],
+    "BLOG_CONTENT": [
+      {
+        "path": "assets/images/blog/20250512-cover-image.jpg",
+        "change_type": "A",
+        "content_preview": "[File too large]"
+      },
+      {
+        "path": "assets/images/blog/asabaal-ventures.jpg",
+        "change_type": "A",
+        "content_preview": "[File too large]"
+      },
+      {
+        "path": "assets/images/blog/by-my-hand.jpg",
+        "change_type": "A",
+        "content_preview": "[File too large]"
+      },
+      {
+        "path": "assets/images/blog/charting-a-course.jpg",
+        "change_type": "A",
+        "content_preview": "[File too large]"
+      },
+      {
+        "path": "assets/images/blog/collaborative-business-models.jpg",
+        "change_type": "A",
+        "content_preview": "[File too large]"
+      }
+    ],
+    "USER_INTERFACE": [
+      {
+        "path": "content/templates/post-template.json",
+        "change_type": "A",
+        "content_preview": "{\n  \"metadata\": {\n    \"title\": \"Your Post Title Here\",\n    \"slug\": \"your-post-slug-here\",\n    \"publishDate\": \"2024-MM-DD\",\n    \"tags\": [\"tag1\", \"tag2\", \"tag3\"],\n    \"excerpt\": \"A compelling summary of your post that draws readers in...\",\n    \"coverImage\": \"cover.jpg\",\n    \"featured\": false,\n    \"sta"
+      },
+      {
+        "path": "css/components/buttons.css",
+        "change_type": "D",
+        "content_preview": "[File missing]"
+      },
+      {
+        "path": "css/components/cards.css",
+        "change_type": "D",
+        "content_preview": "[File missing]"
+      },
+      {
+        "path": "css/components/footer.css",
+        "change_type": "D",
+        "content_preview": "[File missing]"
+      },
+      {
+        "path": "css/components/forms.css",
+        "change_type": "D",
+        "content_preview": "[File missing]"
+      }
+    ],
+    "SCRIPTS_AUTOMATION": [
+      {
+        "path": "start-server.sh",
+        "change_type": "A",
+        "content_preview": "#!/bin/bash\n\n# Simple script to start a local server for testing the blog\necho \"Starting local server for Multisensory Blog...\"\necho \"Navigate to http://localhost:8000 to view the site\"\necho \"Visit http://localhost:8000/blog.html to see the blog\"\necho \"\"\necho \"Press Ctrl+C to stop the server\"\n\n# Sta"
+      }
+    ],
+    "DATABASE": [
+      {
+        "path": "supabase-community-migration.sql",
+        "change_type": "A",
+        "content_preview": "-- Supabase Community Migration for Asabaal Ventures Discord Integration\n-- This replaces the email_subscribers table with a community_members system\n\n-- =====================================================\n-- BACKUP AND DROP OLD TABLE\n-- =====================================================\n\n-- Fi"
+      },
+      {
+        "path": "supabase-minimal-setup.sql",
+        "change_type": "A",
+        "content_preview": "-- Minimal Supabase Setup for Asabaal Ventures\n-- Only includes contact forms and email subscriptions (no blog database needed!)\n\n-- =====================================================\n-- CONTACT MESSAGES TABLE\n-- =====================================================\nCREATE TABLE IF NOT EXISTS con"
+      },
+      {
+        "path": "supabase-setup.sql",
+        "change_type": "A",
+        "content_preview": "-- Supabase Database Setup for Asabaal Ventures Website\n-- Execute these SQL commands in your Supabase SQL Editor\n\n-- =====================================================\n-- TABLES SETUP\n-- =====================================================\n\n-- 1. Contact Messages Table\nCREATE TABLE IF NOT EXIST"
+      },
+      {
+        "path": "supabase/migrations/001_initial_setup.sql",
+        "change_type": "A",
+        "content_preview": "-- Initial Blog Setup Migration\n-- Run this in your Supabase SQL editor to set up the blog infrastructure\n\n-- First, ensure UUID extension is enabled\nCREATE EXTENSION IF NOT EXISTS \"uuid-ossp\";\n\n-- Create authors table first (referenced by blog_posts)\nCREATE TABLE IF NOT EXISTS authors (\n    id UUID"
+      },
+      {
+        "path": "supabase/migrations/002_rls_policies.sql",
+        "change_type": "A",
+        "content_preview": "-- Row Level Security Policies Migration\n-- Run this after the initial setup to configure security\n\n-- Enable RLS on all tables\nALTER TABLE blog_posts ENABLE ROW LEVEL SECURITY;\nALTER TABLE tags ENABLE ROW LEVEL SECURITY;\nALTER TABLE blog_post_tags ENABLE ROW LEVEL SECURITY;\nALTER TABLE authors ENAB"
+      }
+    ],
+    "VISUALIZATIONS": [
+      {
+        "path": "visualizations/complete-implementation-timeline.html",
+        "change_type": "A",
+        "content_preview": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <title>Complete Implementation Timeline - Music + Gaming + Finance Integration</title>\n    <style>\n        * {\n            margin: 0;\n            padding:"
+      },
+      {
+        "path": "visualizations/cooperative-kingdom-ecosystem-fixed.html",
+        "change_type": "A",
+        "content_preview": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <title>Kingdom Cooperative Ecosystem - Engineering Global Peace Through Distributed Power</title>\n    <style>\n        * {\n            margin: 0;\n         "
+      },
+      {
+        "path": "visualizations/enhanced-ecosystem-with-finance.html",
+        "change_type": "A",
+        "content_preview": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <title>Asabaal Ventures Complete Ecosystem - Music + Gaming + Finance Integration</title>\n    <style>\n        * {\n            margin: 0;\n            paddi"
+      },
+      {
+        "path": "visualizations/enhanced-ecosystem-with-gaming.html",
+        "change_type": "A",
+        "content_preview": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <title>Asabaal Ventures Enhanced Multimedia Ecosystem - With Gaming Integration</title>\n    <style>\n        * {\n            margin: 0;\n            padding"
+      },
+      {
+        "path": "visualizations/implementation-timeline.html",
+        "change_type": "A",
+        "content_preview": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <title>Enhanced Implementation Timeline - Music + Gaming Integration</title>\n    <style>\n        * {\n            margin: 0;\n            padding: 0;\n      "
+      }
+    ]
+  }
+}

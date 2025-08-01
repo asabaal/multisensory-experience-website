@@ -1,0 +1,13 @@
+{
+  "loaded_agents": [
+    "duplicate_detection",
+    "merge_readiness",
+    "pattern_analysis"
+  ],
+  "response_lengths": {
+    "duplicate_detection": 3637,
+    "merge_readiness": 2242,
+    "pattern_analysis": 380
+  },
+  "total_content": 6259
+}

@@ -1,0 +1,17 @@
+{
+  "total_files_in_context": 257,
+  "categories_found": 9,
+  "category_breakdown": {
+    "CONFIGURATION": 3,
+    "UNCATEGORIZED": 20,
+    "DOCUMENTATION": 11,
+    "ASSETS_MEDIA": 40,
+    "BLOG_CONTENT": 158,
+    "USER_INTERFACE": 10,
+    "SCRIPTS_AUTOMATION": 1,
+    "DATABASE": 8,
+    "VISUALIZATIONS": 6
+  },
+  "context_size_kb": 606.814453125,
+  "performance_ms": 0.11110305786132812
+}

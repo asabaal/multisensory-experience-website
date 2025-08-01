@@ -1,0 +1,102 @@
+[
+  {
+    "issue": {
+      "id": "merge_readiness_main",
+      "type": "merge_blocker",
+      "priority": "CRITICAL",
+      "title": "Merge Readiness: REVIEW_NEEDED (Score: 65/100)",
+      "description": "Significant organizational issues and excessive scope require attention before merge",
+      "files_affected": [],
+      "recommendation": "Significant organizational issues and excessive scope require attention before merge",
+      "source_agent": "merge_readiness",
+      "raw_text": "```json\n{\n  \"merge_readiness_score\": 65,\n  \"status\": \"REVIEW_NEEDED\",\n  \"blocking_issues\": 2,\n  \"warning_issues\": 4,\n  \"recommendation\": \"Significant organizational issues and excessive scope require attention before merge\",\n  \"key_concerns\": [\n    \"Massive scope with 257 files and 48K+ line additions\",\n    \"Mixed concerns - contains experimental phase documents, zone identifiers, and production code\",\n    \"Multiple deployment guides suggesting incomplete decision-making\",\n    \"Zone.Identifier files indicate Windows development artifacts that shouldn't be committed\"\n  ],\n  \"detailed_assessment\": {\n    \"completeness\": {\n      \"score\": 70,\n      \"issues\": [\n        \"Multiple deployment guides (VERCEL-DEPLOY.md, VERCEL-DEPLOY-SIMPLE.md, DEPLOY-READY.md) suggest uncertainty about final approach\",\n        \"Extensive documentation may indicate unfinished implementation decisions\"\n      ]\n    },\n    \"code_quality\": {\n      \"score\": 75,\n      \"issues\": [\n        \"Zone.Identifier files from Windows should be gitignored, not committed\",\n        \"Large HTML files (1500+ lines) in 'Initial Phases Concepts' appear to be experimental/planning artifacts\"\n      ]\n    },\n    \"risk_assessment\": {\n      \"score\": 45,\n      \"issues\": [\n        \"Extremely large changeset (48K+ additions) increases deployment risk\",\n        \"158 blog content files suggest this may combine multiple features/phases\",\n        \"Mixing of production code with planning documents creates confusion\"\n      ]\n    },\n    \"organization\": {\n      \"score\": 50,\n      \"issues\": [\n        \"Contains planning/pitch deck materials that shouldn't be in production branch\",\n        \"Mixed file types suggest this PR combines multiple distinct workstreams\",\n        \"Development artifacts (Zone.Identifier files) committed to repository\"\n      ]\n    }\n  },\n  \"recommended_actions\": [\n    \"Split into smaller, focused PRs by feature area\",\n    \"Remove development artifacts (Zone.Identifier files)\",\n    \"Move planning documents to separate documentation branch\",\n    \"Consolidate deployment documentation into single source of truth\",\n    \"Consider staging deployment for such large changes\"\n  ]\n}\n```",
+      "confidence": 0.9
+    },
+    "validation": {
+      "result": "valid",
+      "notes": "Confidence 0.90 acceptable | Sufficient detail provided | No false positive patterns detected | Business impact: 10.0/10.0 | Action required: True",
+      "business_impact_score": 10.0,
+      "action_required": true
+    }
+  },
+  {
+    "issue": {
+      "id": "merge_concern_1",
+      "type": "merge_warning",
+      "priority": "MEDIUM",
+      "title": "Merge Concern: Massive scope with 257 files and 48K+ line additions",
+      "description": "Identified concern from merge readiness analysis: Massive scope with 257 files and 48K+ line additions",
+      "files_affected": [],
+      "recommendation": "Review and address this concern",
+      "source_agent": "merge_readiness",
+      "raw_text": "Massive scope with 257 files and 48K+ line additions",
+      "confidence": 0.7
+    },
+    "validation": {
+      "result": "valid",
+      "notes": "Confidence 0.70 acceptable | Sufficient detail provided | No false positive patterns detected | Business impact: 5.1/10.0 | Action required: True",
+      "business_impact_score": 5.1,
+      "action_required": true
+    }
+  },
+  {
+    "issue": {
+      "id": "merge_concern_2",
+      "type": "merge_warning",
+      "priority": "MEDIUM",
+      "title": "Merge Concern: Mixed concerns - contains experimental phase documents, zone identifiers, and production code",
+      "description": "Identified concern from merge readiness analysis: Mixed concerns - contains experimental phase documents, zone identifiers, and production code",
+      "files_affected": [],
+      "recommendation": "Review and address this concern",
+      "source_agent": "merge_readiness",
+      "raw_text": "Mixed concerns - contains experimental phase documents, zone identifiers, and production code",
+      "confidence": 0.7
+    },
+    "validation": {
+      "result": "valid",
+      "notes": "Confidence 0.70 acceptable | Sufficient detail provided | No false positive patterns detected | Business impact: 5.1/10.0 | Action required: True",
+      "business_impact_score": 5.1,
+      "action_required": true
+    }
+  },
+  {
+    "issue": {
+      "id": "merge_concern_3",
+      "type": "merge_warning",
+      "priority": "MEDIUM",
+      "title": "Merge Concern: Multiple deployment guides suggesting incomplete decision-making",
+      "description": "Identified concern from merge readiness analysis: Multiple deployment guides suggesting incomplete decision-making",
+      "files_affected": [],
+      "recommendation": "Review and address this concern",
+      "source_agent": "merge_readiness",
+      "raw_text": "Multiple deployment guides suggesting incomplete decision-making",
+      "confidence": 0.7
+    },
+    "validation": {
+      "result": "valid",
+      "notes": "Confidence 0.70 acceptable | Sufficient detail provided | No false positive patterns detected | Business impact: 5.1/10.0 | Action required: True",
+      "business_impact_score": 5.1,
+      "action_required": true
+    }
+  },
+  {
+    "issue": {
+      "id": "merge_concern_4",
+      "type": "merge_warning",
+      "priority": "MEDIUM",
+      "title": "Merge Concern: Zone.Identifier files indicate Windows development artifacts that shouldn't be committed",
+      "description": "Identified concern from merge readiness analysis: Zone.Identifier files indicate Windows development artifacts that shouldn't be committed",
+      "files_affected": [],
+      "recommendation": "Review and address this concern",
+      "source_agent": "merge_readiness",
+      "raw_text": "Zone.Identifier files indicate Windows development artifacts that shouldn't be committed",
+      "confidence": 0.7
+    },
+    "validation": {
+      "result": "valid",
+      "notes": "Confidence 0.70 acceptable | Sufficient detail provided | No false positive patterns detected | Business impact: 5.1/10.0 | Action required: True",
+      "business_impact_score": 5.1,
+      "action_required": true
+    }
+  }
+]

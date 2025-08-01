@@ -1,0 +1,22 @@
+{
+  "input_length": 2242,
+  "issues_extracted": 5,
+  "json_found": true,
+  "sample_issues": [
+    {
+      "id": "merge_readiness_main",
+      "type": "merge_blocker",
+      "title": "Merge Readiness: REVIEW_NEEDED (Score: 65/100)"
+    },
+    {
+      "id": "merge_concern_1",
+      "type": "merge_warning",
+      "title": "Merge Concern: Massive scope with 257 files and 48K+ line additions"
+    },
+    {
+      "id": "merge_concern_2",
+      "type": "merge_warning",
+      "title": "Merge Concern: Mixed concerns - contains experimental phase documents, zone identifiers, and production code"
+    }
+  ]
+}

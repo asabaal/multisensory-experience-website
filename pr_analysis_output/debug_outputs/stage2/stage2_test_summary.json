@@ -1,0 +1,26 @@
+{
+  "stage": "Agent Prompt Generation",
+  "agents_tested": 3,
+  "successful_prompts": 3,
+  "total_prompt_size": 69270,
+  "total_validation_errors": 0,
+  "total_performance_ms": 0.26988983154296875,
+  "results_by_agent": {
+    "duplicate_detection": {
+      "success": true,
+      "prompt_length": 49625,
+      "validation_errors": 0
+    },
+    "merge_readiness": {
+      "success": true,
+      "prompt_length": 13658,
+      "validation_errors": 0
+    },
+    "pattern_analysis": {
+      "success": true,
+      "prompt_length": 5987,
+      "validation_errors": 0
+    }
+  },
+  "ready_for_stage3": true
+}

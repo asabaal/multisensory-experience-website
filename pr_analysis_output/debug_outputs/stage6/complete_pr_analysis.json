@@ -1,0 +1,168 @@
+{
+  "pr_summary": {
+    "branch_info": "brand-integration \u2192 main",
+    "files_changed": 257,
+    "lines_added": 48145,
+    "lines_removed": 3539,
+    "total_lines_changed": 51684
+  },
+  "overall_assessment": {
+    "overall_score": 6.9,
+    "business_impact_score": 6.1,
+    "technical_quality_score": 8.0,
+    "risk_score": 7.0,
+    "recommendation": "REQUIRES_ATTENTION",
+    "status_color": "orange",
+    "total_issues": 5,
+    "critical_issues": 1,
+    "high_priority_issues": 0,
+    "files_analyzed": 257
+  },
+  "quality_issues": [
+    {
+      "id": "merge_readiness_main",
+      "type": "merge_blocker",
+      "priority": "CRITICAL",
+      "title": "Merge Readiness: REVIEW_NEEDED (Score: 65/100)",
+      "description": "Significant organizational issues and excessive scope require attention before merge",
+      "files_affected": [],
+      "files_count": 0,
+      "recommendation": "Significant organizational issues and excessive scope require attention before merge",
+      "business_impact_score": 10.0,
+      "confidence": 0.9,
+      "source_agent": "merge_readiness",
+      "category": "Merge Readiness",
+      "severity": "Critical",
+      "estimated_effort": "Review (15-30 minutes)"
+    },
+    {
+      "id": "merge_concern_1",
+      "type": "merge_warning",
+      "priority": "MEDIUM",
+      "title": "Merge Concern: Massive scope with 257 files and 48K+ line additions",
+      "description": "Identified concern from merge readiness analysis: Massive scope with 257 files and 48K+ line additions",
+      "files_affected": [],
+      "files_count": 0,
+      "recommendation": "Review and address this concern",
+      "business_impact_score": 5.1,
+      "confidence": 0.7,
+      "source_agent": "merge_readiness",
+      "category": "Merge Readiness",
+      "severity": "Medium",
+      "estimated_effort": "Review (15-30 minutes)"
+    },
+    {
+      "id": "merge_concern_2",
+      "type": "merge_warning",
+      "priority": "MEDIUM",
+      "title": "Merge Concern: Mixed concerns - contains experimental phase documents, zone identifiers, and production code",
+      "description": "Identified concern from merge readiness analysis: Mixed concerns - contains experimental phase documents, zone identifiers, and production code",
+      "files_affected": [],
+      "files_count": 0,
+      "recommendation": "Review and address this concern",
+      "business_impact_score": 5.1,
+      "confidence": 0.7,
+      "source_agent": "merge_readiness",
+      "category": "Merge Readiness",
+      "severity": "Medium",
+      "estimated_effort": "Review (15-30 minutes)"
+    },
+    {
+      "id": "merge_concern_3",
+      "type": "merge_warning",
+      "priority": "MEDIUM",
+      "title": "Merge Concern: Multiple deployment guides suggesting incomplete decision-making",
+      "description": "Identified concern from merge readiness analysis: Multiple deployment guides suggesting incomplete decision-making",
+      "files_affected": [],
+      "files_count": 0,
+      "recommendation": "Review and address this concern",
+      "business_impact_score": 5.1,
+      "confidence": 0.7,
+      "source_agent": "merge_readiness",
+      "category": "Merge Readiness",
+      "severity": "Medium",
+      "estimated_effort": "Review (15-30 minutes)"
+    },
+    {
+      "id": "merge_concern_4",
+      "type": "merge_warning",
+      "priority": "MEDIUM",
+      "title": "Merge Concern: Zone.Identifier files indicate Windows development artifacts that shouldn't be committed",
+      "description": "Identified concern from merge readiness analysis: Zone.Identifier files indicate Windows development artifacts that shouldn't be committed",
+      "files_affected": [],
+      "files_count": 0,
+      "recommendation": "Review and address this concern",
+      "business_impact_score": 5.1,
+      "confidence": 0.7,
+      "source_agent": "merge_readiness",
+      "category": "Merge Readiness",
+      "severity": "Medium",
+      "estimated_effort": "Review (15-30 minutes)"
+    }
+  ],
+  "recommendations": [
+    "\ud83d\udd34 **CRITICAL**: Address 1 critical issues before merging",
+    "   \u2022 Merge Readiness: REVIEW_NEEDED (Score: 65/100)",
+    "\ud83d\ude80 **DEPLOYMENT**: Review merge readiness concerns before deployment",
+    "\u26a0\ufe0f **OVERALL**: PR needs attention but is manageable",
+    "\u23f1\ufe0f **ESTIMATED EFFORT**: ~100 minutes hours to address all issues"
+  ],
+  "merge_readiness": {
+    "status": "BLOCKED",
+    "status_color": "red",
+    "overall_score": 6.9,
+    "blocking_issues_count": 1,
+    "warning_issues_count": 4,
+    "blocking_issues": [
+      {
+        "title": "Merge Readiness: REVIEW_NEEDED (Score: 65/100)",
+        "impact": 10.0
+      }
+    ],
+    "warning_issues": [
+      {
+        "title": "Merge Concern: Massive scope with 257 files and 48K+ line additions",
+        "impact": 5.1
+      },
+      {
+        "title": "Merge Concern: Mixed concerns - contains experimental phase documents, zone identifiers, and production code",
+        "impact": 5.1
+      },
+      {
+        "title": "Merge Concern: Multiple deployment guides suggesting incomplete decision-making",
+        "impact": 5.1
+      },
+      {
+        "title": "Merge Concern: Zone.Identifier files indicate Windows development artifacts that shouldn't be committed",
+        "impact": 5.1
+      }
+    ],
+    "recommendation": "Do not merge until blocking issues are resolved"
+  },
+  "technical_metrics": {
+    "files_analyzed": 257,
+    "total_lines_changed": 51684,
+    "lines_added": 48145,
+    "lines_removed": 3539,
+    "issues_identified": 5,
+    "issues_per_file_ratio": 0.02,
+    "complexity_score": 5.2,
+    "categories_analyzed": 9,
+    "agents_used": 3,
+    "analysis_confidence": 0.74
+  },
+  "generated_at": "2025-08-01T13:10:20.768399",
+  "analysis_metadata": {
+    "analyzer_version": "1.0.0",
+    "stages_completed": [
+      "context_prep",
+      "agent_prompts",
+      "agent_communication",
+      "response_parsing",
+      "issue_extraction",
+      "result_combination"
+    ],
+    "total_analysis_time": "N/A",
+    "confidence_level": "high"
+  }
+}

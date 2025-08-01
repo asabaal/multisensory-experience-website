@@ -1,0 +1,183 @@
+{
+  "pr_summary": {
+    "from_branch": "brand-integration",
+    "to_branch": "main",
+    "total_files_changed": 257,
+    "total_lines_added": 48145,
+    "total_lines_removed": 3539,
+    "commit_messages": []
+  },
+  "category_breakdown": {
+    "CONFIGURATION": 3,
+    "UNCATEGORIZED": 20,
+    "DOCUMENTATION": 11,
+    "ASSETS_MEDIA": 40,
+    "BLOG_CONTENT": 158,
+    "USER_INTERFACE": 10,
+    "SCRIPTS_AUTOMATION": 1,
+    "DATABASE": 8,
+    "VISUALIZATIONS": 6
+  },
+  "sample_files": [
+    {
+      "path": ".env.example",
+      "category": "CONFIGURATION",
+      "change_type": "A",
+      "lines_added": 14,
+      "lines_removed": 0,
+      "content_preview": "# Supabase Configuration for Asabaal Ventures Website\n# Copy this file to .env and fill in your actual values\n# Get these from your Supabase project dashboard -> Settings -> API\n\n# Your Supabase proje"
+    },
+    {
+      "path": ".gitignore",
+      "category": "UNCATEGORIZED",
+      "change_type": "A",
+      "lines_added": 34,
+      "lines_removed": 0,
+      "content_preview": "**/.claude/settings.local.json\n*.pdf\n\n# Environment variables\n.env\n.env.local\n.env.production\n\n# Local Supabase configuration (keep your keys private!)\nconfig/supabase-keys.js\n\n# Content Management\n# "
+    },
+    {
+      "path": "DEPLOY-READY.md",
+      "category": "DOCUMENTATION",
+      "change_type": "A",
+      "lines_added": 102,
+      "lines_removed": 0,
+      "content_preview": "# \ud83d\ude80 Ready to Deploy Guide\n\nYour website is ready to deploy! Here's the minimal setup to get contact forms and email subscriptions working.\n\n## \u2705 What Works Right Now (No Database Needed)\n- \u2705 Blog syst"
+    },
+    {
+      "path": "Founder Quote Image.jpg:Zone.Identifier",
+      "category": "ASSETS_MEDIA",
+      "change_type": "A",
+      "lines_added": 4,
+      "lines_removed": 0,
+      "content_preview": "[ZoneTransfer]\nZoneId=3\nReferrerUrl=https://www.canva.com/\nHostUrl=https://export-download.canva.com/dWing/DAGufJdWing/2/0/0001-6715340367104364665.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credentia"
+    },
+    {
+      "path": "Initial Phases Concepts/Pitch Deck Updated 20250714.html",
+      "category": "UNCATEGORIZED",
+      "change_type": "A",
+      "lines_added": 1545,
+      "lines_removed": 0,
+      "content_preview": "[File too large]"
+    },
+    {
+      "path": "Initial Phases Concepts/Pitch Deck Updated 20250714.html:Zone.Identifier",
+      "category": "UNCATEGORIZED",
+      "change_type": "A",
+      "lines_added": 3,
+      "lines_removed": 0,
+      "content_preview": "[ZoneTransfer]\nZoneId=3\nHostUrl=https://claude.ai/\n"
+    },
+    {
+      "path": "Initial Phases Concepts/phase-1.html",
+      "category": "UNCATEGORIZED",
+      "change_type": "A",
+      "lines_added": 1659,
+      "lines_removed": 0,
+      "content_preview": "[File too large]"
+    },
+    {
+      "path": "Initial Phases Concepts/phase-2.html",
+      "category": "UNCATEGORIZED",
+      "change_type": "A",
+      "lines_added": 631,
+      "lines_removed": 0,
+      "content_preview": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <title>Phase 2: Content Foundation</title>\n    <style>"
+    },
+    {
+      "path": "Initial Phases Concepts/phase-3.html",
+      "category": "UNCATEGORIZED",
+      "change_type": "A",
+      "lines_added": 791,
+      "lines_removed": 0,
+      "content_preview": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <title>Phase 3: Contest + Community Beta</title>\n    <"
+    },
+    {
+      "path": "Initial Phases Concepts/phase-4.html",
+      "category": "UNCATEGORIZED",
+      "change_type": "A",
+      "lines_added": 922,
+      "lines_removed": 0,
+      "content_preview": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <title>Phase 4: Activation Economy Mechanics</title>\n "
+    },
+    {
+      "path": "Initial Phases Concepts/phase-5.html",
+      "category": "UNCATEGORIZED",
+      "change_type": "A",
+      "lines_added": 1100,
+      "lines_removed": 0,
+      "content_preview": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <title>Phase 5: Full Platform Integration</title>\n    "
+    },
+    {
+      "path": "README-SUPABASE.md",
+      "category": "DOCUMENTATION",
+      "change_type": "A",
+      "lines_added": 89,
+      "lines_removed": 0,
+      "content_preview": "# Supabase Blog Backend Setup\n\nThis document explains how to set up the Supabase backend for your multisensory blog.\n\n## Quick Start\n\n1. **Create a Supabase Project**\n   - Go to [supabase.com](https:/"
+    },
+    {
+      "path": "SUPABASE_SETUP.md",
+      "category": "DOCUMENTATION",
+      "change_type": "A",
+      "lines_added": 232,
+      "lines_removed": 0,
+      "content_preview": "# Supabase Backend Setup Guide\n\nThis guide will help you set up the backend infrastructure for the Asabaal Ventures website using Supabase.\n\n## \ud83d\ude80 Quick Start\n\n### Step 1: Create Supabase Project\n\n1. G"
+    },
+    {
+      "path": "TECHNICAL_SPECIFICATION.md",
+      "category": "DOCUMENTATION",
+      "change_type": "A",
+      "lines_added": 309,
+      "lines_removed": 0,
+      "content_preview": "# Asabaal Ventures Multimedia Ecosystem - Technical Specification\n\n## \ud83c\udfaf Project Overview\n\n**Goal**: Build a revolutionary multimedia ecosystem combining Discord community management, tiered content ac"
+    },
+    {
+      "path": "VERCEL-DEPLOY-SIMPLE.md",
+      "category": "DOCUMENTATION",
+      "change_type": "A",
+      "lines_added": 98,
+      "lines_removed": 0,
+      "content_preview": "# \ud83d\ude80 Simple Vercel Deployment Guide\n\nThe easiest way to deploy your website with working contact forms!\n\n## \u2705 What's Ready\n- \u2705 Blog system (static files, no database needed)\n- \u2705 All pages, styling, and"
+    },
+    {
+      "path": "VERCEL-DEPLOY.md",
+      "category": "DOCUMENTATION",
+      "change_type": "A",
+      "lines_added": 159,
+      "lines_removed": 0,
+      "content_preview": "# \ud83d\ude80 Vercel Deployment Guide\n\nYour website is ready to deploy with Vercel! Here's the complete setup.\n\n## \u2705 What's Already Ready\n- \u2705 Blog system (static files)\n- \u2705 All website pages and styling\n- \u2705 Con"
+    },
+    {
+      "path": "asabaalventures_57333_3D_text_UNITY_REMIX_made_of_flowing_music_c45e4314-7d56-4f83-b248-3c0ca0e2a93f.png:Zone.Identifier",
+      "category": "ASSETS_MEDIA",
+      "change_type": "A",
+      "lines_added": 3,
+      "lines_removed": 0,
+      "content_preview": "[ZoneTransfer]\nZoneId=3\nHostUrl=https://www.midjourney.com/\n"
+    },
+    {
+      "path": "assets/images/blog/20250512-cover-image.jpg",
+      "category": "BLOG_CONTENT",
+      "change_type": "A",
+      "lines_added": 0,
+      "lines_removed": 0,
+      "content_preview": "[File too large]"
+    },
+    {
+      "path": "assets/images/blog/asabaal-ventures.jpg",
+      "category": "BLOG_CONTENT",
+      "change_type": "A",
+      "lines_added": 0,
+      "lines_removed": 0,
+      "content_preview": "[File too large]"
+    },
+    {
+      "path": "assets/images/blog/by-my-hand.jpg",
+      "category": "BLOG_CONTENT",
+      "change_type": "A",
+      "lines_added": 0,
+      "lines_removed": 0,
+      "content_preview": "[File too large]"
+    }
+  ]
+}
