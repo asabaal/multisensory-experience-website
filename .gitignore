@@ -6,6 +6,9 @@
 .env.local
 .env.production
 
+# Local Supabase configuration (keep your keys private!)
+config/supabase-keys.js
+
 # Content Management
 # Note: You can choose to track or ignore blog content
 # Option 1: Track everything (recommended for backup)
@@ -32,3 +35,6 @@ content/migrate-posts.log
 .Trashes
 ehthumbs.db
 Thumbs.db
+
+# Windows development artifacts
+*:Zone.Identifier

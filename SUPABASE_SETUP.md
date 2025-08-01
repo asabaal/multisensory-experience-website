@@ -20,7 +20,7 @@ This guide will help you set up the backend infrastructure for the Asabaal Ventu
 
 1. Wait for your project to be ready (2-3 minutes)
 2. Go to the **SQL Editor** in your Supabase dashboard
-3. Copy the entire contents of `supabase-setup.sql`
+3. Copy the entire contents of `supabase-minimal-setup.sql`
 4. Paste it into the SQL Editor
 5. Click **Run** to execute all commands
 
