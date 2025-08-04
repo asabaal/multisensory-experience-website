@@ -251,26 +251,53 @@
         </div>
     </section>
 
-    <!-- Newsletter Subscription -->
+    <!-- Discord Community Signup -->
     <section class="newsletter-section" style="padding: 80px 0; background: rgba(0, 0, 0, 0.4); text-align: center;">
         <div class="container">
-            <h2 style="color: #fbbf24; font-size: 2.5rem; margin-bottom: 20px;">Stay Connected</h2>
-            <p style="color: #d1d5db; font-size: 1.2rem; margin-bottom: 40px; max-width: 600px; margin-left: auto; margin-right: auto;">
-                Get the latest posts, updates on Vision 2054, and exclusive insights delivered straight to your inbox.
+            <h2 style="color: #fbbf24; font-size: 2.5rem; margin-bottom: 20px;">🎮 Join Our Discord Community</h2>
+            <p style="color: #d1d5db; font-size: 1.2rem; margin-bottom: 30px; max-width: 600px; margin-left: auto; margin-right: auto;">
+                Connect with our Discord community for blog discussions, Vision 2054 updates, and exclusive insights. Join the conversation!
             </p>
             
-            <form class="subscription-form" data-form-type="subscription" style="max-width: 500px; margin: 0 auto; display: flex; gap: 15px; align-items: center;">
-                <input type="hidden" name="source" value="blog-page">
-                <input type="email" name="email" placeholder="Enter your email address" required
-                       style="flex: 1; padding: 15px 20px; border: none; border-radius: 10px; background: rgba(255, 255, 255, 0.1); color: #ffffff; font-size: 1rem; backdrop-filter: blur(10px);">
+            <div style="background: rgba(88, 101, 242, 0.1); border: 1px solid rgba(88, 101, 242, 0.3); border-radius: 15px; padding: 25px; margin: 30px auto; max-width: 500px;">
+                <ul style="list-style: none; padding: 0; margin: 0; color: #e5e7eb;">
+                    <li style="margin-bottom: 10px;">💬 Discuss blog posts with other readers</li>
+                    <li style="margin-bottom: 10px;">🚀 Get early access to new content</li>
+                    <li style="margin-bottom: 10px;">📚 Access exclusive resources</li>
+                    <li>🌟 Connect with purpose-driven creators</li>
+                </ul>
+            </div>
+            
+            <form class="discord-signup-form" data-form-type="discord" style="max-width: 500px; margin: 0 auto; display: flex; flex-direction: column; gap: 15px;">
+                <input type="hidden" name="source" value="blog-page-discord">
+                
+                <div style="display: flex; gap: 15px;">
+                    <input type="text" name="name" placeholder="Your name" required
+                           style="flex: 1; padding: 15px 20px; border: none; border-radius: 50px; background: rgba(255, 255, 255, 0.1); color: #ffffff; font-size: 1rem; backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.2);">
+                    <input type="email" name="email" placeholder="Email (optional)"
+                           style="flex: 1; padding: 15px 20px; border: none; border-radius: 50px; background: rgba(255, 255, 255, 0.1); color: #ffffff; font-size: 1rem; backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.2);">
+                </div>
+                
+                <input type="text" name="discord_username" placeholder="Discord username" required
+                       style="padding: 15px 20px; border: none; border-radius: 50px; background: rgba(255, 255, 255, 0.1); color: #ffffff; font-size: 1rem; backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.2);">
+                
+                <div style="text-align: left; padding: 0 20px;">
+                    <label style="display: flex; align-items: flex-start; gap: 10px; color: #d1d5db; font-size: 0.9rem; line-height: 1.4; cursor: pointer;">
+                        <input type="checkbox" name="discord_consent" required style="margin-top: 2px; accent-color: #5865f2;">
+                        I agree to join the Discord community and consent to data sharing as described in our 
+                        <a href="privacy.html" target="_blank" style="color: #60a5fa; text-decoration: none; border-bottom: 1px solid rgba(96, 165, 250, 0.3);">Privacy Policy</a> and 
+                        <a href="terms.html" target="_blank" style="color: #60a5fa; text-decoration: none; border-bottom: 1px solid rgba(96, 165, 250, 0.3);">Terms of Service</a>
+                    </label>
+                </div>
+                
                 <button type="submit" 
-                        style="padding: 15px 30px; background: linear-gradient(45deg, #8b5cf6, #06b6d4); color: white; border: none; border-radius: 10px; font-weight: bold; cursor: pointer; font-size: 1rem; transition: transform 0.3s ease;">
-                    Subscribe
+                        style="padding: 15px 30px; background: linear-gradient(45deg, #5865f2, #4752c4); color: white; border: none; border-radius: 50px; font-weight: bold; cursor: pointer; font-size: 1.1rem; transition: all 0.3s ease;">
+                    Join Discord Community
                 </button>
             </form>
             
             <p style="color: #9ca3af; font-size: 0.9rem; margin-top: 20px;">
-                We respect your privacy. Unsubscribe at any time.
+                🔒 Your data is protected. You control your Discord notifications and can leave anytime.
             </p>
         </div>
     </section>

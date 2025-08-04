@@ -5,9 +5,9 @@
     "pattern_analysis"
   ],
   "response_lengths": {
-    "duplicate_detection": 3637,
-    "merge_readiness": 2242,
-    "pattern_analysis": 380
+    "duplicate_detection": 3660,
+    "merge_readiness": 1808,
+    "pattern_analysis": 3112
   },
-  "total_content": 6259
+  "total_content": 8580
 }

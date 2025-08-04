@@ -2,7 +2,7 @@
   "stage": "Agent Communication",
   "environment_setup": {
     "claude_cli_available": true,
-    "claude_cli_version": "1.0.65 (Claude Code)",
+    "claude_cli_version": "1.0.67 (Claude Code)",
     "oauth_token_present": true,
     "oauth_token_format_valid": true,
     "environment_ready": true,
@@ -12,7 +12,7 @@
     "total_agents": 3,
     "successful_calls": 3,
     "failed_calls": 0,
-    "average_response_time_ms": 36988.24254671732,
+    "average_response_time_ms": 23508.467117945354,
     "failure_types": {},
     "recommendations": [
       "\u2705 All agent communications successful",
@@ -22,22 +22,22 @@
       "duplicate_detection": {
         "success": true,
         "result_type": "success",
-        "response_length": 3637,
-        "call_duration_ms": 31743.342638015747,
+        "response_length": 3660,
+        "call_duration_ms": 28959.712266921997,
         "error_summary": ""
       },
       "merge_readiness": {
         "success": true,
         "result_type": "success",
-        "response_length": 2242,
-        "call_duration_ms": 19881.662845611572,
+        "response_length": 1808,
+        "call_duration_ms": 16212.88537979126,
         "error_summary": ""
       },
       "pattern_analysis": {
         "success": true,
         "result_type": "success",
-        "response_length": 380,
-        "call_duration_ms": 59339.72215652466,
+        "response_length": 3112,
+        "call_duration_ms": 25352.803707122803,
         "error_summary": ""
       }
     },
@@ -47,19 +47,19 @@
     "duplicate_detection": {
       "success": true,
       "result_type": "success",
-      "response_preview": "Based on my analysis of the duplicate analysis data, I've identified several types of duplicates in your codebase. Here's my comprehensive duplicate file report:\n\n## **CRITICAL: Exact/Near-Exact Dupli",
+      "response_preview": "Based on my analysis of the detailed file data, here's my duplicate file detection report:\n\n## Duplicate File Analysis Report\n\n### CRITICAL: Exact Duplicates or Abandoned Implementations\n\n1. **Databas",
       "error_message": ""
     },
     "merge_readiness": {
       "success": true,
       "result_type": "success",
-      "response_preview": "Based on my analysis of the PR data, here's my merge readiness assessment:\n\n```json\n{\n  \"merge_readiness_score\": 65,\n  \"status\": \"REVIEW_NEEDED\",\n  \"blocking_issues\": 2,\n  \"warning_issues\": 4,\n  \"reco",
+      "response_preview": "Based on my analysis of the PR data, here's my merge readiness assessment:\n\n```json\n{\n  \"merge_readiness_score\": 68,\n  \"status\": \"REVIEW_NEEDED\",\n  \"blocking_issues\": 2,\n  \"warning_issues\": 4,\n  \"reco",
       "error_message": ""
     },
     "pattern_analysis": {
       "success": true,
       "result_type": "success",
-      "response_preview": "The analysis reveals significant pattern inconsistencies across file organization, naming conventions, and architectural approaches. The main issues center around scattered configuration approaches, m",
+      "response_preview": "Based on my analysis of the pattern data, I've identified several consistency issues across the codebase:\n\n## **Naming Convention Inconsistencies**\n\n### File Naming Patterns\n- **Mixed case styles**: `",
       "error_message": ""
     }
   },

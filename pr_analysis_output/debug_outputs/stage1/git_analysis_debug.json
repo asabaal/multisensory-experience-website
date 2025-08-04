@@ -1,71 +1,142 @@
 {
   "from_branch": "brand-integration",
   "to_branch": "main",
-  "total_files_changed": 257,
-  "total_lines_added": 48145,
+  "total_files_changed": 318,
+  "total_lines_added": 79209,
   "total_lines_removed": 3539,
+  "total_files_changed_excluding_analysis": 259,
+  "total_lines_added_excluding_analysis": 49761,
+  "total_lines_removed_excluding_analysis": 3539,
   "file_changes_sample": [
     {
       "file_path": ".env.example",
       "change_type": "A",
-      "lines_added": 14,
+      "lines_added": 26,
       "lines_removed": 0
     },
     {
       "file_path": ".gitignore",
       "change_type": "A",
-      "lines_added": 34,
+      "lines_added": 40,
       "lines_removed": 0
     },
     {
-      "file_path": "DEPLOY-READY.md",
+      "file_path": "AGENTIC_SYSTEM_TECHNICAL_WALKTHROUGH.md",
       "change_type": "A",
-      "lines_added": 102,
+      "lines_added": 345,
       "lines_removed": 0
     },
     {
-      "file_path": "Founder Quote Image.jpg:Zone.Identifier",
+      "file_path": "DEPLOYMENT.md",
       "change_type": "A",
-      "lines_added": 4,
+      "lines_added": 233,
       "lines_removed": 0
     },
     {
-      "file_path": "Initial Phases Concepts/Pitch Deck Updated 20250714.html",
+      "file_path": "SUPABASE_SETUP.md",
       "change_type": "A",
-      "lines_added": 1545,
+      "lines_added": 232,
       "lines_removed": 0
     },
     {
-      "file_path": "Initial Phases Concepts/Pitch Deck Updated 20250714.html:Zone.Identifier",
+      "file_path": "TECHNICAL_SPECIFICATION.md",
       "change_type": "A",
-      "lines_added": 3,
+      "lines_added": 309,
       "lines_removed": 0
     },
     {
-      "file_path": "Initial Phases Concepts/phase-1.html",
+      "file_path": "assets/images/blog/20250512-cover-image.jpg",
       "change_type": "A",
-      "lines_added": 1659,
+      "lines_added": 0,
       "lines_removed": 0
     },
     {
-      "file_path": "Initial Phases Concepts/phase-2.html",
+      "file_path": "assets/images/blog/asabaal-ventures.jpg",
       "change_type": "A",
-      "lines_added": 631,
+      "lines_added": 0,
       "lines_removed": 0
     },
     {
-      "file_path": "Initial Phases Concepts/phase-3.html",
+      "file_path": "assets/images/blog/by-my-hand.jpg",
       "change_type": "A",
-      "lines_added": 791,
+      "lines_added": 0,
       "lines_removed": 0
     },
     {
-      "file_path": "Initial Phases Concepts/phase-4.html",
+      "file_path": "assets/images/blog/charting-a-course.jpg",
       "change_type": "A",
-      "lines_added": 922,
+      "lines_added": 0,
       "lines_removed": 0
     }
   ],
-  "commit_messages_sample": [],
-  "performance_ms": 1570.0709819793701
+  "analysis_files_sample": [
+    {
+      "file_path": ".env.example",
+      "change_type": "A",
+      "lines_added": 26,
+      "lines_removed": 0
+    },
+    {
+      "file_path": ".gitignore",
+      "change_type": "A",
+      "lines_added": 40,
+      "lines_removed": 0
+    },
+    {
+      "file_path": "AGENTIC_SYSTEM_TECHNICAL_WALKTHROUGH.md",
+      "change_type": "A",
+      "lines_added": 345,
+      "lines_removed": 0
+    },
+    {
+      "file_path": "DEPLOYMENT.md",
+      "change_type": "A",
+      "lines_added": 233,
+      "lines_removed": 0
+    },
+    {
+      "file_path": "SUPABASE_SETUP.md",
+      "change_type": "A",
+      "lines_added": 232,
+      "lines_removed": 0
+    },
+    {
+      "file_path": "TECHNICAL_SPECIFICATION.md",
+      "change_type": "A",
+      "lines_added": 309,
+      "lines_removed": 0
+    },
+    {
+      "file_path": "assets/images/blog/20250512-cover-image.jpg",
+      "change_type": "A",
+      "lines_added": 0,
+      "lines_removed": 0
+    },
+    {
+      "file_path": "assets/images/blog/asabaal-ventures.jpg",
+      "change_type": "A",
+      "lines_added": 0,
+      "lines_removed": 0
+    },
+    {
+      "file_path": "assets/images/blog/by-my-hand.jpg",
+      "change_type": "A",
+      "lines_added": 0,
+      "lines_removed": 0
+    },
+    {
+      "file_path": "assets/images/blog/charting-a-course.jpg",
+      "change_type": "A",
+      "lines_added": 0,
+      "lines_removed": 0
+    }
+  ],
+  "commit_messages_sample": [
+    "Consolidate project structure and resolve PR quality issues",
+    "added pr analysis output for convenience",
+    "prep for deployment!",
+    "added some vision session work",
+    "Standardize navigation order across all website pages"
+  ],
+  "performance_ms": 1926.481008529663
 }

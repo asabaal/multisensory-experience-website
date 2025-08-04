@@ -42,6 +42,16 @@ class ContactAPI {
         document.querySelectorAll('.unsubscribe-form, [data-form-type="unsubscribe"]').forEach(form => {
             form.addEventListener('submit', (e) => this.handleUnsubscribe(e));
         });
+        
+        // Setup Discord signup forms
+        document.querySelectorAll('.discord-signup-form, [data-form-type="discord"]').forEach(form => {
+            form.addEventListener('submit', (e) => this.handleDiscordSignup(e));
+        });
+    }
+    
+    isValidEmail(email) {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailRegex.test(email);
     }
     
     async handleContact(event) {
@@ -207,6 +217,113 @@ class ContactAPI {
         }
     }
     
+    async handleDiscordSignup(event) {
+        event.preventDefault();
+        const form = event.target;
+        const button = form.querySelector('button[type="submit"]');
+        const originalText = button.textContent;
+        
+        // Show loading
+        button.disabled = true;
+        button.textContent = 'Joining Discord...';
+        
+        try {
+            const formData = new FormData(form);
+            const email = formData.get('email');
+            const name = formData.get('name') || 'Discord Member';
+            const discordUsername = formData.get('discord_username') || '';
+            
+            if (!discordUsername) {
+                throw new Error('Please enter your Discord username');
+            }
+            
+            // Validate email format only if email is provided
+            if (email && !this.isValidEmail(email)) {
+                throw new Error('Please enter a valid email address');
+            }
+            
+            const cleanEmail = email ? email.toLowerCase().trim() : null;
+            
+            // Check if already signed up for Discord (by email if provided, otherwise by Discord username)
+            let existingRecord = null;
+            if (cleanEmail) {
+                const { data } = await this.client
+                    .from('email_subscribers')
+                    .select('*')
+                    .eq('email', cleanEmail)
+                    .eq('discord_signup', true)
+                    .single();
+                existingRecord = data;
+            } else {
+                // Check by Discord username if no email provided
+                const { data } = await this.client
+                    .from('email_subscribers')
+                    .select('*')
+                    .eq('discord_username', discordUsername)
+                    .eq('discord_signup', true)
+                    .single();
+                existingRecord = data;
+            }
+            
+            if (existingRecord) {
+                throw new Error('You\'re already signed up for our Discord community!');
+            }
+            
+            // Insert/update subscriber record with Discord signup flag
+            const recordData = {
+                name: name,
+                discord_username: discordUsername,
+                discord_signup: true,
+                subscribed_at: new Date().toISOString(),
+                source: 'discord_signup'
+            };
+            
+            // Only include email if provided
+            if (cleanEmail) {
+                recordData.email = cleanEmail;
+            }
+            
+            const { error: insertError } = await this.client
+                .from('email_subscribers')
+                .upsert(recordData);
+            
+            if (insertError) throw insertError;
+            
+            // Send Discord notification
+            await this.sendDiscordNotification('discord_signup', {
+                name: name,
+                email: cleanEmail || 'Not provided',
+                discord_username: discordUsername
+            });
+            
+            // Generate Discord invite link
+            const discordInviteLink = window.DISCORD_INVITE_URL || 'https://discord.gg/YourInviteCode';
+            
+            // Show success message with clear next steps
+            this.showMessage(form, 
+                `✅ Success! Your Discord signup is complete.<br><br>
+                <strong>Next Step:</strong> Click here to join the server: <br>
+                <a href="${discordInviteLink}" target="_blank" style="color: #ffffff; text-decoration: underline; font-size: 1.1em; font-weight: bold; background: rgba(255,255,255,0.1); padding: 8px 16px; border-radius: 6px; display: inline-block; margin-top: 8px;">🎮 Join Discord Server</a><br><br>
+                <small>We've saved your Discord username (${discordUsername}) to help identify you in the server.</small>`, 
+                'success'
+            );
+            
+            form.reset();
+            
+            // Auto-open Discord invite after a short delay for better UX
+            setTimeout(() => {
+                window.open(discordInviteLink, '_blank');
+            }, 1500);
+            
+        } catch (error) {
+            console.error('Discord signup error:', error);
+            this.showMessage(form, error.message || 'Failed to join Discord community. Please try again.', 'error');
+        } finally {
+            button.disabled = false;
+            button.textContent = originalText;
+        }
+    }
+    
     showMessage(form, message, type) {
         // Remove existing messages
         form.querySelectorAll('.form-message').forEach(msg => msg.remove());
@@ -214,7 +331,7 @@ class ContactAPI {
         // Create new message
         const messageEl = document.createElement('div');
         messageEl.className = 'form-message';
-        messageEl.textContent = message;
+        messageEl.innerHTML = message;
         messageEl.style.cssText = `
             margin-top: 15px;
             padding: 10px 15px;
@@ -234,9 +351,11 @@ class ContactAPI {
     
     async sendDiscordNotification(type, data) {
         if (!window.DISCORD_WEBHOOK_URL) {
-            console.log('Discord webhook not configured');
+            console.log('Discord webhook not configured - skipping notification');
             return;
         }
+        
+        console.log('Sending Discord notification:', { type, data });
         
         try {
             let embed;
@@ -267,6 +386,18 @@ class ContactAPI {
                     timestamp: new Date().toISOString(),
                     footer: { text: "Asabaal Ventures Website" }
                 };
+            } else if (type === 'discord_signup') {
+                embed = {
+                    title: "🎮 New Discord Community Signup",
+                    color: 0x5865f2, // Discord brand color
+                    fields: [
+                        { name: "Name", value: data.name, inline: true },
+                        { name: "Email", value: data.email, inline: true },
+                        { name: "Discord Username", value: data.discord_username || "Not provided", inline: true }
+                    ],
+                    timestamp: new Date().toISOString(),
+                    footer: { text: "Asabaal Ventures Discord Community" }
+                };
             }
             
             const response = await fetch(window.DISCORD_WEBHOOK_URL, {
@@ -280,9 +411,14 @@ class ContactAPI {
             });
             
             if (response.ok) {
-                console.log('Discord notification sent successfully');
+                console.log('✅ Discord notification sent successfully');
             } else {
-                console.error('Failed to send Discord notification:', response.status);
+                const errorText = await response.text();
+                console.error('❌ Failed to send Discord notification:', {
+                    status: response.status,
+                    statusText: response.statusText,
+                    error: errorText
+                });
             }
         } catch (error) {
             console.error('Error sending Discord notification:', error);

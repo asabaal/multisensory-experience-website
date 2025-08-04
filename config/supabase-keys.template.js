@@ -5,6 +5,12 @@
 window.VITE_SUPABASE_URL = 'https://your-project-id.supabase.co';
 window.VITE_SUPABASE_ANON_KEY = 'your-anon-key-here';
 
+// Discord webhook for notifications (optional)
+window.DISCORD_WEBHOOK_URL = 'https://discord.com/api/webhooks/your-webhook-url';
+
+// Discord invite link for community signups (optional)
+window.DISCORD_INVITE_URL = 'https://discord.gg/YourInviteCode';
+
 // Instructions:
 // 1. Go to your Supabase project dashboard
 // 2. Navigate to Settings → API  

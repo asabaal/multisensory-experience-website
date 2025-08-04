@@ -1,0 +1,74 @@
+You are generating HTML file tree sections for an interactive dashboard.
+
+TASK: Create interactive HTML dashboard for PR analysis results with hierarchical file-level visualization
+
+REQUIREMENTS:
+- Dark theme (#0f0f23 background, light text) 
+- Show ALL specific findings from agent responses
+- Interactive features: tabs, collapsible sections, search, hierarchical tree views
+- Professional layout with modern CSS/JS
+- Hierarchical file analysis with expandable tree structure (File → Class → Function levels)
+
+DATA FILES TO READ:
+- debug_outputs/stage3/duplicate_detection_full_response.txt
+- debug_outputs/stage3/merge_readiness_full_response.txt  
+- debug_outputs/stage6/PR_ANALYSIS_REPORT.md
+- debug_outputs/stage6/combined_results.json
+- detailed_analysis_results.json (Stage 7 hierarchical file analysis)
+- detailed_analysis_summary.txt (Stage 7 summary)
+
+SECTIONS TO INCLUDE:
+1. Executive Summary (metrics, merge status, issue counts)
+2. Hierarchical File Analysis (NEW - interactive tree view of files/classes/functions with merge readiness)
+3. Quality Issues (all issues with impact scores, recommendations)
+4. Duplicate Files (specific files found with evidence)
+5. Recommendations (prioritized action items)
+
+HIERARCHICAL VISUALIZATION REQUIREMENTS:
+- Interactive tree structure showing File → Class → Function hierarchy
+- Color-coded merge readiness indicators (🟢 ready, 🟡 conditional, 🔴 not ready)
+- Expandable/collapsible nodes for each level
+- Show detailed feedback for conditional and not-ready items
+- Filter by merge readiness status
+- Search functionality across all levels
+
+OUTPUT: Single HTML file with embedded CSS/JS
+Format: Complete HTML from <!DOCTYPE html> to </html>
+
+BATCH DATA: Read from /home/asabaal/asabaal_ventures/repos/multisensory-experience-website/pr_analysis_output/batch_data_1754251340.json
+
+FILES IN THIS BATCH (25):
+- assets/images/logos/Lehigh-University-logo.png
+- assets/images/logos/argus_logo.svg
+- assets/images/logos/fixed-logo-white.svg
+- assets/images/logos/logo-white.svg
+- assets/images/logos/plu_logo.png
+- assets/images/logos/sift_logo.png
+- assets/images/logos/springboard.png
+- assets/images/logos/tgr-logo.svg
+- assets/images/logos/tgr-plus-logo.svg
+- assets/images/logos/unity-remix-3d-text.png
+- assets/images/logos/unity-remix-logo.png
+- assets/images/logos/vision-2054-logo.svg
+- assets/images/profiles/founder-headshot.jpg
+- assets/images/profiles/in-love-and-unity.png
+- assets/images/qr/TikTok.jpg
+- assets/images/qr/applemusic.png
+- assets/images/qr/facebook.png
+- assets/images/qr/homepage_qr_code.png
+- assets/images/qr/instagram.png
+- assets/images/qr/linkedin.png
+- assets/images/qr/spotify.png
+- assets/images/qr/suno.png
+- assets/images/qr/x.png
+- assets/images/qr/youtube.png
+- assets/js/blog-data.js
+
+REQUIREMENTS:
+1. Generate HTML sections for EVERY file in the batch
+2. Use the file tree structure specified in instructions
+3. Include all file analysis data (purpose, business impact, risk assessment)
+4. Return ONLY the HTML sections (no explanations)
+5. Each file should be a complete <div class="file-item"> section
+
+Return the HTML sections for all 25 files.

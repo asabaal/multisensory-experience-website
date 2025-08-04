@@ -1,26 +1,20 @@
 {
-  "files_analyzed": 257,
+  "files_analyzed": 245,
   "files_with_content": 198,
   "files_too_large": 45,
-  "files_missing": 14,
+  "files_missing": 2,
   "content_errors": [],
   "category_content_samples": {
     "CONFIGURATION": [
       {
         "file": ".env.example",
-        "sample": "# Supabase Configuration for Asabaal Ventures Website\n# Copy this file to .env and fill in your actual values\n# Get these from your Supabase project dashboard -> Settings -> API\n\n# Your Supabase proje",
+        "sample": "# Environment Configuration for Asabaal Ventures Website\n# Copy this file to .env and fill in your actual values\n# Get Supabase values from your project dashboard -> Settings -> API\n\n# Supabase Config",
         "has_functions": false,
         "has_classes": false
       },
       {
-        "file": "config/supabase-config.js",
-        "sample": "// Supabase Configuration\n// This file manages environment variables and configuration for Supabase\n\n// Development/Production Configuration\nconst SupabaseConfig = {\n    // Replace these with your act",
-        "has_functions": false,
-        "has_classes": false
-      },
-      {
-        "file": "config/supabase-keys.prod.js",
-        "sample": "// Production Supabase Configuration for Vercel\n// This file should be renamed to supabase-keys.js for production deployment\n// Replace these values with your actual Supabase credentials\n\nwindow.VITE_",
+        "file": "config/supabase-keys.template.js",
+        "sample": "// Supabase Configuration Template\n// Copy this to 'supabase-keys.js' and add your actual credentials\n// This file should NOT be committed to git - it's in .gitignore\n\nwindow.VITE_SUPABASE_URL = 'http",
         "has_functions": false,
         "has_classes": false
       }
@@ -33,28 +27,28 @@
         "has_classes": false
       },
       {
-        "file": "Initial Phases Concepts/Pitch Deck Updated 20250714.html:Zone.Identifier",
-        "sample": "[ZoneTransfer]\nZoneId=3\nHostUrl=https://claude.ai/\n",
-        "has_functions": false,
+        "file": "blog.html",
+        "sample": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <title>Blog | Asabaal Ventures</title>\n    <style>\n   ",
+        "has_functions": true,
         "has_classes": false
       },
       {
-        "file": "Initial Phases Concepts/phase-2.html",
-        "sample": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <title>Phase 2: Content Foundation</title>\n    <style>",
-        "has_functions": false,
+        "file": "development-archive/test-forms.html",
+        "sample": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <title>Form Testing - Asabaal Ventures</title>\n    <st",
+        "has_functions": true,
         "has_classes": false
       }
     ],
     "DOCUMENTATION": [
       {
-        "file": "DEPLOY-READY.md",
-        "sample": "# \ud83d\ude80 Ready to Deploy Guide\n\nYour website is ready to deploy! Here's the minimal setup to get contact forms and email subscriptions working.\n\n## \u2705 What Works Right Now (No Database Needed)\n- \u2705 Blog syst",
-        "has_functions": false,
+        "file": "AGENTIC_SYSTEM_TECHNICAL_WALKTHROUGH.md",
+        "sample": "# Agentic PR Analysis System - Technical Walkthrough\n\n*Visual guide to how the agent-calling-agents architecture works*\n\n---\n\n## System Architecture Overview\n\n```\n\u250c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500",
+        "has_functions": true,
         "has_classes": false
       },
       {
-        "file": "README-SUPABASE.md",
-        "sample": "# Supabase Blog Backend Setup\n\nThis document explains how to set up the Supabase backend for your multisensory blog.\n\n## Quick Start\n\n1. **Create a Supabase Project**\n   - Go to [supabase.com](https:/",
+        "file": "DEPLOYMENT.md",
+        "sample": "# \ud83d\ude80 Deployment Guide\n\nYour website is ready to deploy! This guide covers deployment to multiple platforms with full backend functionality.\n\n## \u2705 What's Already Ready\n- \u2705 Blog system (static files, no ",
         "has_functions": false,
         "has_classes": false
       },
@@ -67,31 +61,25 @@
     ],
     "ASSETS_MEDIA": [
       {
-        "file": "Founder Quote Image.jpg:Zone.Identifier",
-        "sample": "[ZoneTransfer]\nZoneId=3\nReferrerUrl=https://www.canva.com/\nHostUrl=https://export-download.canva.com/dWing/DAGufJdWing/2/0/0001-6715340367104364665.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credentia",
+        "file": "assets/images/logos/Lehigh-University-logo.png",
+        "sample": "PNG\n\u001a\n\nIHDR\u0002]\u0004\u0003UE'PLTEV V V V V M\u001a8\u057fV \u0141D\u007fR2d.\bN\u0005tRNS\u02c5\u001eF\u000f.\u0010IDATx?oH\u00168\n+(\n-b\u060d+DRF\u001f@8NM rC\u0016\u000b^!N`l]n-,-3$\u001f\u000f)\n9C\u001cLD\"\u0019\u079b7o\f+*\u0005J\u0018(^x)^(^x)^*x)^*x)^f\u0017sZT\u0017\u0007W\u000eX,O^JU-P\u25c8\u001d\u06ae\u0538Z*J\u0002\u06d5<V\u000f)\u06c9<a~8V!\fSqV\u0016)\u0005fW\u001ccx9\u02d0mT+yoj|]P\u0006",
         "has_functions": false,
         "has_classes": false
       },
       {
-        "file": "asabaalventures_57333_3D_text_UNITY_REMIX_made_of_flowing_music_c45e4314-7d56-4f83-b248-3c0ca0e2a93f.png:Zone.Identifier",
-        "sample": "[ZoneTransfer]\nZoneId=3\nHostUrl=https://www.midjourney.com/\n",
+        "file": "assets/images/logos/argus_logo.svg",
+        "sample": "<?xml version=\"1.0\" encoding=\"UTF-8\"?><svg id=\"a\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1113.62 245.98\"><defs><style>.b{fill:#006ba6;}.c{fill:#707070;}</style></defs><g><path class=\"b\" d=\"M6",
         "has_functions": false,
         "has_classes": false
       },
       {
-        "file": "assets/images/logos/Asabaal Ventures.png:Zone.Identifier",
-        "sample": "[ZoneTransfer]\nZoneId=3\nReferrerUrl=https://www.canva.com/\nHostUrl=https://export-download.canva.com/hz4c4/DAGD2Dhz4c4/12/0/0001-7121744241397985622.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credenti",
+        "file": "assets/images/logos/fixed-logo-white.svg",
+        "sample": "<svg width=\"40\" height=\"40\" viewBox=\"0 0 40 40\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n  <rect width=\"40\" height=\"40\" rx=\"8\" fill=\"rgba(255,255,255,0.0)\" />\n  <path d=\"M20 7C13.925 7 9 11.925",
         "has_functions": false,
         "has_classes": false
       }
     ],
     "BLOG_CONTENT": [
-      {
-        "file": "blog/20250514-cover-image.jpg:Zone.Identifier",
-        "sample": "[ZoneTransfer]\nZoneId=3\nReferrerUrl=https://www.canva.com/\nHostUrl=https://export-download.canva.com/5TBvg/DAGLrI5TBvg/6/0/0001-3925360402408348848.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credentia",
-        "has_functions": false,
-        "has_classes": false
-      },
       {
         "file": "blog/embracing_the_age_of_creativity_20240512.txt",
         "sample": "Hello, World!\n\nI find myself in a challenging season of life - recently fired from my job, selling one of my homes, going through a divorce, and living far from my family. It's a time filled with anxi",
@@ -101,6 +89,12 @@
       {
         "file": "blog/post-asabaal-ventures-dawn-new-era.html",
         "sample": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <title>Asabaal Ventures: The Dawn of a New Era | Asaba",
+        "has_functions": false,
+        "has_classes": false
+      },
+      {
+        "file": "blog/post-by-my-hand-discarding-hurt-for-unity.html",
+        "sample": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <title>By My Hand: Discarding Hurt for Unity | Asabaal",
         "has_functions": false,
         "has_classes": false
       }
@@ -113,30 +107,30 @@
         "has_classes": false
       }
     ],
-    "SCRIPTS_AUTOMATION": [
+    "DATABASE": [
       {
-        "file": "start-server.sh",
-        "sample": "#!/bin/bash\n\n# Simple script to start a local server for testing the blog\necho \"Starting local server for Multisensory Blog...\"\necho \"Navigate to http://localhost:8000 to view the site\"\necho \"Visit ht",
+        "file": "database-archive/blog-database/README-SUPABASE.md",
+        "sample": "# Supabase Blog Backend Setup\n\nThis document explains how to set up the Supabase backend for your multisensory blog.\n\n## Quick Start\n\n1. **Create a Supabase Project**\n   - Go to [supabase.com](https:/",
+        "has_functions": false,
+        "has_classes": false
+      },
+      {
+        "file": "database-archive/blog-database/supabase-config.js",
+        "sample": "// Supabase Configuration\n// This file manages environment variables and configuration for Supabase\n\n// Development/Production Configuration\nconst SupabaseConfig = {\n    // Replace these with your act",
+        "has_functions": false,
+        "has_classes": false
+      },
+      {
+        "file": "database-archive/blog-database/supabase/migrations/001_initial_setup.sql",
+        "sample": "-- Initial Blog Setup Migration\n-- Run this in your Supabase SQL editor to set up the blog infrastructure\n\n-- First, ensure UUID extension is enabled\nCREATE EXTENSION IF NOT EXISTS \"uuid-ossp\";\n\n-- Cr",
         "has_functions": false,
         "has_classes": false
       }
     ],
-    "DATABASE": [
+    "SCRIPTS_AUTOMATION": [
       {
-        "file": "supabase-community-migration.sql",
-        "sample": "-- Supabase Community Migration for Asabaal Ventures Discord Integration\n-- This replaces the email_subscribers table with a community_members system\n\n-- ==============================================",
-        "has_functions": false,
-        "has_classes": false
-      },
-      {
-        "file": "supabase-minimal-setup.sql",
-        "sample": "-- Minimal Supabase Setup for Asabaal Ventures\n-- Only includes contact forms and email subscriptions (no blog database needed!)\n\n-- =====================================================\n-- CONTACT ME",
-        "has_functions": false,
-        "has_classes": false
-      },
-      {
-        "file": "supabase-setup.sql",
-        "sample": "-- Supabase Database Setup for Asabaal Ventures Website\n-- Execute these SQL commands in your Supabase SQL Editor\n\n-- =====================================================\n-- TABLES SETUP\n-- =========",
+        "file": "start-server.sh",
+        "sample": "#!/bin/bash\n\n# Simple script to start a local server for testing the blog\necho \"Starting local server for Multisensory Blog...\"\necho \"Navigate to http://localhost:8000 to view the site\"\necho \"Visit ht",
         "has_functions": false,
         "has_classes": false
       }
@@ -155,12 +149,12 @@
         "has_classes": false
       },
       {
-        "file": "visualizations/enhanced-ecosystem-with-finance.html",
-        "sample": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <title>Asabaal Ventures Complete Ecosystem - Music + G",
-        "has_functions": true,
+        "file": "visualizations/implementation-timeline.html",
+        "sample": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <title>Enhanced Implementation Timeline - Music + Gami",
+        "has_functions": false,
         "has_classes": false
       }
     ]
   },
-  "performance_ms": 1162.7652645111084
+  "performance_ms": 1109.6017360687256
 }

@@ -1,69 +1,78 @@
 {
   "categories": {
-    "CONFIGURATION": 3,
-    "UNCATEGORIZED": 20,
-    "DOCUMENTATION": 11,
-    "ASSETS_MEDIA": 40,
-    "BLOG_CONTENT": 158,
-    "USER_INTERFACE": 10,
+    "CONFIGURATION": 2,
+    "UNCATEGORIZED": 21,
+    "DOCUMENTATION": 19,
+    "BLOG_CONTENT": 156,
+    "ASSETS_MEDIA": 31,
+    "USER_INTERFACE": 1,
+    "DATABASE": 10,
     "SCRIPTS_AUTOMATION": 1,
-    "DATABASE": 8,
-    "VISUALIZATIONS": 6
+    "VISUALIZATIONS": 4
   },
   "classification_errors": [],
-  "performance_ms": 79.3609619140625,
-  "total_files_classified": 257,
+  "deleted_files_filtered": 14,
+  "performance_ms": 72.35145568847656,
+  "total_files_classified": 245,
   "category_summary": {
     "CONFIGURATION": {
-      "count": 3,
+      "count": 2,
       "files": [
         ".env.example",
-        "config/supabase-config.js",
-        "config/supabase-keys.prod.js"
+        "config/supabase-keys.template.js"
       ],
       "importance": "MEDIUM",
       "description": "Application and deployment configuration",
       "icon": "\u2699\ufe0f"
     },
     "UNCATEGORIZED": {
-      "count": 20,
+      "count": 21,
       "files": [
         ".gitignore",
-        "Initial Phases Concepts/Pitch Deck Updated 20250714.html",
-        "Initial Phases Concepts/Pitch Deck Updated 20250714.html:Zone.Identifier",
-        "Initial Phases Concepts/phase-1.html",
-        "Initial Phases Concepts/phase-2.html",
-        "Initial Phases Concepts/phase-3.html",
-        "Initial Phases Concepts/phase-4.html",
-        "Initial Phases Concepts/phase-5.html",
         "blog.html",
-        "ecosystem-diagram.html",
-        "full-co-creator-platform-vision-concept.html",
+        "database-archive/supabase-keys.prod.js",
+        "development-archive/test-forms.html",
+        "development-archive/test_site.html",
         "index.html",
         "links.html",
         "open-source-model.html",
+        "prototypes/Pitch Deck Updated 20250714.html",
+        "prototypes/ecosystem-diagram.html",
+        "prototypes/full-co-creator-platform-vision-concept.html",
+        "prototypes/phase-1.html",
+        "prototypes/phase-2.html",
+        "prototypes/phase-3.html",
+        "prototypes/phase-4.html",
+        "prototypes/phase-5.html",
         "resume_cv/asabaal_horan_cv_202507.html",
-        "test-forms.html",
-        "test_site.html",
         "unity-remix-contest.html",
-        "unity-remix-contest.html:Zone.Identifier",
-        "vision_2054_page.html"
+        "vision_2054_page.html",
+        "visualizations-archive/enhanced-ecosystem-with-finance.html",
+        "visualizations-archive/enhanced-ecosystem-with-gaming.html"
       ],
       "importance": "MEDIUM",
       "description": "Uncategorized file",
       "icon": "\u2753"
     },
     "DOCUMENTATION": {
-      "count": 11,
+      "count": 19,
       "files": [
-        "DEPLOY-READY.md",
-        "README-SUPABASE.md",
+        "AGENTIC_SYSTEM_TECHNICAL_WALKTHROUGH.md",
+        "DEPLOYMENT.md",
         "SUPABASE_SETUP.md",
         "TECHNICAL_SPECIFICATION.md",
-        "VERCEL-DEPLOY-SIMPLE.md",
-        "VERCEL-DEPLOY.md",
+        "database-archive/README.md",
         "database-design.md",
+        "deployment-archive/DEPLOY-READY.md",
+        "deployment-archive/README.md",
+        "deployment-archive/VERCEL-DEPLOY-SIMPLE.md",
+        "deployment-archive/VERCEL-DEPLOY.md",
+        "development-archive/COMPREHENSIVE_PR_ANALYSIS_EXAMPLE.md",
+        "development-archive/PR_ANALYZER_PROJECT_PLAN.md",
+        "development-archive/README.md",
+        "development-archive/TRANSFORMATION_ANALYSIS.md",
         "visual-er-diagram.md",
+        "visualizations-archive/README.md",
         "visualizations/cooperative-business-model.md",
         "visualizations/enhanced-phase-strategy-with-finance.md",
         "visualizations/enhanced-phase-strategy.md"
@@ -72,56 +81,8 @@
       "description": "Project documentation and guides",
       "icon": "\ud83d\udcda"
     },
-    "ASSETS_MEDIA": {
-      "count": 40,
-      "files": [
-        "Founder Quote Image.jpg:Zone.Identifier",
-        "asabaalventures_57333_3D_text_UNITY_REMIX_made_of_flowing_music_c45e4314-7d56-4f83-b248-3c0ca0e2a93f.png:Zone.Identifier",
-        "assets/images/icons/cosmic_nebula.svg",
-        "assets/images/icons/favicon.svg",
-        "assets/images/logos/Asabaal Ventures.png",
-        "assets/images/logos/Asabaal Ventures.png:Zone.Identifier",
-        "assets/images/logos/Lehigh-University-logo.png",
-        "assets/images/logos/argus_logo.svg",
-        "assets/images/logos/fixed-logo-white.svg",
-        "assets/images/logos/logo-white.svg",
-        "assets/images/logos/plu_logo.png",
-        "assets/images/logos/sift_logo.png",
-        "assets/images/logos/springboard.png",
-        "assets/images/logos/tgr-logo.svg",
-        "assets/images/logos/tgr-plus-logo.svg",
-        "assets/images/logos/unity-remix-3d-text.png",
-        "assets/images/logos/unity-remix-logo.png",
-        "assets/images/logos/vision-2054-logo.svg",
-        "assets/images/profiles/founder-headshot.jpg",
-        "assets/images/profiles/in-love-and-unity.png",
-        "assets/images/qr/TikTok.jpg",
-        "assets/images/qr/applemusic.png",
-        "assets/images/qr/facebook.png",
-        "assets/images/qr/homepage_qr_code.png",
-        "assets/images/qr/instagram.png",
-        "assets/images/qr/linkedin.png",
-        "assets/images/qr/spotify.png",
-        "assets/images/qr/suno.png",
-        "assets/images/qr/x.png",
-        "assets/images/qr/youtube.png",
-        "assets/js/blog-data.js",
-        "assets/js/contact-forms.js",
-        "assets/js/forms.js",
-        "assets/js/supabase-client.js",
-        "css/main.css",
-        "css/reset.css",
-        "css/variables.css",
-        "images/logo.svg",
-        "js/main.js",
-        "unity-remix-logo.png:Zone.Identifier"
-      ],
-      "importance": "LOW",
-      "description": "Static assets and media files",
-      "icon": "\ud83d\uddbc\ufe0f"
-    },
     "BLOG_CONTENT": {
-      "count": 158,
+      "count": 156,
       "files": [
         "assets/images/blog/20250512-cover-image.jpg",
         "assets/images/blog/asabaal-ventures.jpg",
@@ -151,7 +112,6 @@
         "assets/images/blog/unveiling-the-future-of-asabaal-ventures.jpg",
         "assets/images/blog/why.jpg",
         "assets/images/blog/your-nature.jpg",
-        "blog/20250514-cover-image.jpg:Zone.Identifier",
         "blog/embracing_the_age_of_creativity_20240512.txt",
         "blog/post-asabaal-ventures-dawn-new-era.html",
         "blog/post-by-my-hand-discarding-hurt-for-unity.html",
@@ -179,7 +139,6 @@
         "blog/post-why-a-plea-for-change.html",
         "blog/post-why-i-entered-the-ai-remix-competition.html",
         "blog/post-your-nature-starting-conversation-intuitive-understanding-god.html",
-        "blog/the-age-of-creativity-imagery.jpg:Zone.Identifier",
         "content/BLOG_PIPELINE_GUIDE.md",
         "content/MIGRATION-GUIDE.md",
         "content/PROCESS_POSTS_COMMANDS.md",
@@ -286,23 +245,71 @@
       "description": "Blog posts and content files",
       "icon": "\ud83d\udcdd"
     },
-    "USER_INTERFACE": {
-      "count": 10,
+    "ASSETS_MEDIA": {
+      "count": 31,
       "files": [
-        "content/templates/post-template.json",
-        "css/components/buttons.css",
-        "css/components/cards.css",
-        "css/components/footer.css",
-        "css/components/forms.css",
-        "css/components/header.css",
-        "css/pages/blog.css",
-        "css/pages/home.css",
-        "js/pages/blog.js",
-        "templates/template.html"
+        "assets/images/icons/cosmic_nebula.svg",
+        "assets/images/icons/favicon.svg",
+        "assets/images/logos/Asabaal Ventures.png",
+        "assets/images/logos/Lehigh-University-logo.png",
+        "assets/images/logos/argus_logo.svg",
+        "assets/images/logos/fixed-logo-white.svg",
+        "assets/images/logos/logo-white.svg",
+        "assets/images/logos/plu_logo.png",
+        "assets/images/logos/sift_logo.png",
+        "assets/images/logos/springboard.png",
+        "assets/images/logos/tgr-logo.svg",
+        "assets/images/logos/tgr-plus-logo.svg",
+        "assets/images/logos/unity-remix-3d-text.png",
+        "assets/images/logos/unity-remix-logo.png",
+        "assets/images/logos/vision-2054-logo.svg",
+        "assets/images/profiles/founder-headshot.jpg",
+        "assets/images/profiles/in-love-and-unity.png",
+        "assets/images/qr/TikTok.jpg",
+        "assets/images/qr/applemusic.png",
+        "assets/images/qr/facebook.png",
+        "assets/images/qr/homepage_qr_code.png",
+        "assets/images/qr/instagram.png",
+        "assets/images/qr/linkedin.png",
+        "assets/images/qr/spotify.png",
+        "assets/images/qr/suno.png",
+        "assets/images/qr/x.png",
+        "assets/images/qr/youtube.png",
+        "assets/js/blog-data.js",
+        "assets/js/contact-forms.js",
+        "assets/js/forms.js",
+        "assets/js/supabase-client.js"
+      ],
+      "importance": "LOW",
+      "description": "Static assets and media files",
+      "icon": "\ud83d\uddbc\ufe0f"
+    },
+    "USER_INTERFACE": {
+      "count": 1,
+      "files": [
+        "content/templates/post-template.json"
       ],
       "importance": "HIGH",
       "description": "User-facing interface components",
       "icon": "\ud83c\udfa8"
+    },
+    "DATABASE": {
+      "count": 10,
+      "files": [
+        "database-archive/blog-database/README-SUPABASE.md",
+        "database-archive/blog-database/supabase-config.js",
+        "database-archive/blog-database/supabase/migrations/001_initial_setup.sql",
+        "database-archive/blog-database/supabase/migrations/002_rls_policies.sql",
+        "database-archive/blog-database/supabase/migrations/003_views_functions.sql",
+        "database-archive/blog-database/supabase/schema.sql",
+        "database-archive/blog-database/supabase/seed_data.sql",
+        "database-archive/supabase-community-migration.sql",
+        "database-archive/supabase-setup.sql",
+        "supabase-minimal-setup.sql"
+      ],
+      "importance": "HIGH",
+      "description": "Database structure and data access",
+      "icon": "\ud83d\uddc4\ufe0f"
     },
     "SCRIPTS_AUTOMATION": {
       "count": 1,
@@ -313,29 +320,11 @@
       "description": "Automation scripts and utilities",
       "icon": "\ud83e\udd16"
     },
-    "DATABASE": {
-      "count": 8,
-      "files": [
-        "supabase-community-migration.sql",
-        "supabase-minimal-setup.sql",
-        "supabase-setup.sql",
-        "supabase/migrations/001_initial_setup.sql",
-        "supabase/migrations/002_rls_policies.sql",
-        "supabase/migrations/003_views_functions.sql",
-        "supabase/schema.sql",
-        "supabase/seed_data.sql"
-      ],
-      "importance": "HIGH",
-      "description": "Database structure and data access",
-      "icon": "\ud83d\uddc4\ufe0f"
-    },
     "VISUALIZATIONS": {
-      "count": 6,
+      "count": 4,
       "files": [
         "visualizations/complete-implementation-timeline.html",
         "visualizations/cooperative-kingdom-ecosystem-fixed.html",
-        "visualizations/enhanced-ecosystem-with-finance.html",
-        "visualizations/enhanced-ecosystem-with-gaming.html",
         "visualizations/implementation-timeline.html",
         "visualizations/kingdom-power-distribution-model.html"
       ],
@@ -360,70 +349,14 @@
       "description": "Uncategorized file"
     },
     {
-      "file_path": "DEPLOY-READY.md",
+      "file_path": "AGENTIC_SYSTEM_TECHNICAL_WALKTHROUGH.md",
       "category": "DOCUMENTATION",
       "importance": "MEDIUM",
       "icon": "\ud83d\udcda",
       "description": "Project documentation and guides"
     },
     {
-      "file_path": "Founder Quote Image.jpg:Zone.Identifier",
-      "category": "ASSETS_MEDIA",
-      "importance": "LOW",
-      "icon": "\ud83d\uddbc\ufe0f",
-      "description": "Static assets and media files"
-    },
-    {
-      "file_path": "Initial Phases Concepts/Pitch Deck Updated 20250714.html",
-      "category": "UNCATEGORIZED",
-      "importance": "MEDIUM",
-      "icon": "\u2753",
-      "description": "Uncategorized file"
-    },
-    {
-      "file_path": "Initial Phases Concepts/Pitch Deck Updated 20250714.html:Zone.Identifier",
-      "category": "UNCATEGORIZED",
-      "importance": "MEDIUM",
-      "icon": "\u2753",
-      "description": "Uncategorized file"
-    },
-    {
-      "file_path": "Initial Phases Concepts/phase-1.html",
-      "category": "UNCATEGORIZED",
-      "importance": "MEDIUM",
-      "icon": "\u2753",
-      "description": "Uncategorized file"
-    },
-    {
-      "file_path": "Initial Phases Concepts/phase-2.html",
-      "category": "UNCATEGORIZED",
-      "importance": "MEDIUM",
-      "icon": "\u2753",
-      "description": "Uncategorized file"
-    },
-    {
-      "file_path": "Initial Phases Concepts/phase-3.html",
-      "category": "UNCATEGORIZED",
-      "importance": "MEDIUM",
-      "icon": "\u2753",
-      "description": "Uncategorized file"
-    },
-    {
-      "file_path": "Initial Phases Concepts/phase-4.html",
-      "category": "UNCATEGORIZED",
-      "importance": "MEDIUM",
-      "icon": "\u2753",
-      "description": "Uncategorized file"
-    },
-    {
-      "file_path": "Initial Phases Concepts/phase-5.html",
-      "category": "UNCATEGORIZED",
-      "importance": "MEDIUM",
-      "icon": "\u2753",
-      "description": "Uncategorized file"
-    },
-    {
-      "file_path": "README-SUPABASE.md",
+      "file_path": "DEPLOYMENT.md",
       "category": "DOCUMENTATION",
       "importance": "MEDIUM",
       "icon": "\ud83d\udcda",
@@ -444,11 +377,67 @@
       "description": "Project documentation and guides"
     },
     {
-      "file_path": "VERCEL-DEPLOY-SIMPLE.md",
-      "category": "DOCUMENTATION",
+      "file_path": "assets/images/blog/20250512-cover-image.jpg",
+      "category": "BLOG_CONTENT",
       "importance": "MEDIUM",
-      "icon": "\ud83d\udcda",
-      "description": "Project documentation and guides"
+      "icon": "\ud83d\udcdd",
+      "description": "Blog posts and content files"
+    },
+    {
+      "file_path": "assets/images/blog/asabaal-ventures.jpg",
+      "category": "BLOG_CONTENT",
+      "importance": "MEDIUM",
+      "icon": "\ud83d\udcdd",
+      "description": "Blog posts and content files"
+    },
+    {
+      "file_path": "assets/images/blog/by-my-hand.jpg",
+      "category": "BLOG_CONTENT",
+      "importance": "MEDIUM",
+      "icon": "\ud83d\udcdd",
+      "description": "Blog posts and content files"
+    },
+    {
+      "file_path": "assets/images/blog/charting-a-course.jpg",
+      "category": "BLOG_CONTENT",
+      "importance": "MEDIUM",
+      "icon": "\ud83d\udcdd",
+      "description": "Blog posts and content files"
+    },
+    {
+      "file_path": "assets/images/blog/collaborative-business-models.jpg",
+      "category": "BLOG_CONTENT",
+      "importance": "MEDIUM",
+      "icon": "\ud83d\udcdd",
+      "description": "Blog posts and content files"
+    },
+    {
+      "file_path": "assets/images/blog/electric-pulse.jpg",
+      "category": "BLOG_CONTENT",
+      "importance": "MEDIUM",
+      "icon": "\ud83d\udcdd",
+      "description": "Blog posts and content files"
+    },
+    {
+      "file_path": "assets/images/blog/ethical-advocacy.jpg",
+      "category": "BLOG_CONTENT",
+      "importance": "MEDIUM",
+      "icon": "\ud83d\udcdd",
+      "description": "Blog posts and content files"
+    },
+    {
+      "file_path": "assets/images/blog/free-as-a-bird.jpg",
+      "category": "BLOG_CONTENT",
+      "importance": "MEDIUM",
+      "icon": "\ud83d\udcdd",
+      "description": "Blog posts and content files"
+    },
+    {
+      "file_path": "assets/images/blog/human-creativity.jpg",
+      "category": "BLOG_CONTENT",
+      "importance": "MEDIUM",
+      "icon": "\ud83d\udcdd",
+      "description": "Blog posts and content files"
     }
   ]
 }

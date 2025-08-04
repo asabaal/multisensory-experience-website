@@ -1,27 +1,27 @@
 {
   "agent": "duplicate_detection",
   "prompt_stats": {
-    "total_length": 49625,
-    "total_lines": 1732,
-    "context_section_length": 46725,
-    "file_samples_included": 70,
+    "total_length": 47419,
+    "total_lines": 1660,
+    "context_section_length": 44519,
+    "file_samples_included": 69,
     "categories_included": 9,
-    "estimated_tokens": 7234.5,
-    "performance_ms": 0.12826919555664062
+    "estimated_tokens": 7078.5,
+    "performance_ms": 0.13875961303710938
   },
   "validation_errors": [],
   "context_summary": {
-    "total_files": 257,
-    "files_with_content": 257,
+    "total_files": 259,
+    "files_with_content": 259,
     "categories": [
       "CONFIGURATION",
       "UNCATEGORIZED",
       "DOCUMENTATION",
-      "ASSETS_MEDIA",
       "BLOG_CONTENT",
+      "ASSETS_MEDIA",
       "USER_INTERFACE",
-      "SCRIPTS_AUTOMATION",
       "DATABASE",
+      "SCRIPTS_AUTOMATION",
       "VISUALIZATIONS"
     ]
   },

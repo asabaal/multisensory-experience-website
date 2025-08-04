@@ -1,20 +1,20 @@
 {
   "stage": "Context Preparation",
   "success": true,
-  "total_files": 257,
-  "files_with_content": 257,
+  "total_files": 245,
+  "files_with_content": 245,
   "files_by_category": {
-    "CONFIGURATION": 3,
-    "UNCATEGORIZED": 20,
-    "DOCUMENTATION": 11,
-    "ASSETS_MEDIA": 40,
-    "BLOG_CONTENT": 158,
-    "USER_INTERFACE": 10,
+    "CONFIGURATION": 2,
+    "UNCATEGORIZED": 21,
+    "DOCUMENTATION": 19,
+    "BLOG_CONTENT": 156,
+    "ASSETS_MEDIA": 31,
+    "USER_INTERFACE": 1,
+    "DATABASE": 10,
     "SCRIPTS_AUTOMATION": 1,
-    "DATABASE": 8,
-    "VISUALIZATIONS": 6
+    "VISUALIZATIONS": 4
   },
-  "performance_ms": 2860.863447189331,
+  "performance_ms": 3123.2664585113525,
   "comparison_with_manual": {
     "expected_blog_processors": [
       "content/auto_blog_processor.py",

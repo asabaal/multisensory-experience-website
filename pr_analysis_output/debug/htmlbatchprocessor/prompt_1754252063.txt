@@ -1,0 +1,82 @@
+You are generating HTML file tree sections from Stage 7 detailed analysis results.
+
+TASK: Create interactive HTML dashboard for PR analysis results with hierarchical file-level visualization
+
+REQUIREMENTS:
+- Dark theme (#0f0f23 background, light text) 
+- Show ALL specific findings from agent responses
+- Interactive features: tabs, collapsible sections, search, hierarchical tree views
+- Professional layout with modern CSS/JS
+- Hierarchical file analysis with expandable tree structure (File → Class → Function levels)
+
+DATA FILES TO READ:
+- debug_outputs/stage3/duplicate_detection_full_response.txt
+- debug_outputs/stage3/merge_readiness_full_response.txt  
+- debug_outputs/stage6/PR_ANALYSIS_REPORT.md
+- debug_outputs/stage6/combined_results.json
+- detailed_analysis_results.json (Stage 7 hierarchical file analysis)
+- detailed_analysis_summary.txt (Stage 7 summary)
+
+SECTIONS TO INCLUDE:
+1. Executive Summary (metrics, merge status, issue counts)
+2. Hierarchical File Analysis (NEW - interactive tree view of files/classes/functions with merge readiness)
+3. Quality Issues (all issues with impact scores, recommendations)
+4. Duplicate Files (specific files found with evidence)
+5. Recommendations (prioritized action items)
+
+HIERARCHICAL VISUALIZATION REQUIREMENTS:
+- Interactive tree structure showing File → Class → Function hierarchy
+- Color-coded merge readiness indicators (🟢 ready, 🟡 conditional, 🔴 not ready)
+- Expandable/collapsible nodes for each level
+- Show detailed feedback for conditional and not-ready items
+- Filter by merge readiness status
+- Search functionality across all levels
+
+OUTPUT: Single HTML file with embedded CSS/JS
+Format: Complete HTML from <!DOCTYPE html> to </html>
+
+IMPORTANT: You are processing ANALYSIS RESULTS, not raw files. Each item contains:
+- file_path: The file path
+- merge_readiness: "ready" | "conditional" | "not_ready"  
+- overall_assessment: {purpose, business_impact, risk_assessment}
+- feedback: Detailed feedback (only if conditional/not_ready)
+- code_elements: {classes: [...], functions: [...]}
+
+BATCH DATA: Read analysis results from /home/asabaal/asabaal_ventures/repos/multisensory-experience-website/pr_analysis_output/analysis_batch_data_1754252063.json
+
+ANALYSIS RESULTS IN THIS BATCH (25):
+- assets/js/contact-forms.js: conditional - Contact form handling with Supabase integration and Discord notifications
+- assets/js/forms.js: conditional - Generic form handler with Supabase API integration
+- assets/js/supabase-client.js: conditional - Supabase client wrapper for blog, contact, and subscription operations
+- blog.html: ready - Blog listing page with Discord community signup
+- blog/embracing_the_age_of_creativity_20240512.txt: ready - Blog post content about embracing creativity and AI transformation
+- blog/post-asabaal-ventures-dawn-new-era.html: ready - Individual blog post page with consistent styling and navigation
+- blog/post-by-my-hand-discarding-hurt-for-unity.html: ready - Individual blog post page about faith and unity
+- blog/post-charting-the-course-for-a-more-fulfilling-future.html: ready - Individual blog post page about future business practices
+- blog/post-collaborative-business-models-ethical-advertising.html: ready - Individual blog post page about ethical business collaboration
+- blog/post-electric-pulse-journey-self-discovery-transformation.html: ready - Individual blog post page about AI music and transformation
+- blog/post-respect-the-fundamental-human-right.html: ready - Blog post HTML page about workplace rights and human dignity with glassmorphism design
+- blog/post-special-we-are-all-special-this-is-a-special-time-in-history-lets-get-moving.html: ready - Blog post HTML about AI music evolution and community building with embedded YouTube video
+- blog/post-the-future-of-work-and-personal-growth-cultivating-fulfillment-in-the-changing-landscape-of-work.html: ready - Blog post exploring future of work and personal growth concepts
+- blog/post-unity-of-truth-global-peace-inevitable-superintelligence.html: ready - Blog post exploring philosophical concepts of truth, unity, and AI superintelligence
+- blog/post-unveiling-the-future-of-asabaal-ventures.html: ready - Blog post introducing Asabaal Ventures business model and vision
+- blog/post-what-happens-when-queer-christian-remixes-anikes-send-that.html: ready - Blog post about personal faith journey and music remix challenge
+- blog/post-why-a-plea-for-change.html: ready - Blog post exploring mental health themes through music
+- blog/post-why-i-entered-the-ai-remix-competition.html: ready - Blog post about AI music creation and personal struggles
+- blog/post-your-nature-starting-conversation-intuitive-understanding-god.html: ready - Blog post bridging faith and academia through geometric models
+- config/supabase-keys.template.js: ready - Template file for Supabase configuration with clear instructions
+- content/BLOG_PIPELINE_GUIDE.md: ready - Comprehensive documentation for automated blog creation pipeline
+- content/MIGRATION-GUIDE.md: ready - Documentation for migrating blog content to new organized structure
+- content/PROCESS_POSTS_COMMANDS.md: ready - Documentation providing step-by-step commands for processing blog posts using the automated Claude p
+- content/README-CLAUDE-NATIVE.md: ready - Documentation explaining the Claude Code native blog processing workflow without API keys
+- content/README.md: ready - Main documentation for the blog content management system structure
+
+REQUIREMENTS:
+1. Generate HTML sections for EVERY analysis result in the batch
+2. Use the file tree structure specified in instructions
+3. Display the ANALYSIS DATA (merge readiness, assessments, feedback)
+4. Show code elements (classes/functions) if available
+5. Return ONLY the HTML sections (no explanations)
+6. Each result should be a complete <div class="file-item"> section
+
+Return the HTML sections for all 25 analysis results.
