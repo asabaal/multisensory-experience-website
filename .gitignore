@@ -1,6 +1,9 @@
 **/.claude/settings.local.json
 *.pdf
 
+# Codebase experimentation tool
+.codebase_ref
+
 # Environment variables
 .env
 .env.local
