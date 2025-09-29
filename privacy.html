@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - Asabaal Ventures</title>
+    <link rel="icon" type="image/svg+xml" href="assets/images/icons/favicon.svg">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #0f0f23 0%, #1a1a3e 25%, #2d1b69 50%, #4c1d95 75%, #6b21a8 100%);
+            color: #ffffff;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        .header {
+            padding: 20px 0;
+            background: rgba(15, 15, 35, 0.95);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #fbbf24;
+            text-decoration: none;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            color: #fbbf24;
+        }
+        
+        /* Main Content */
+        .main {
+            margin-top: 100px;
+            padding: 40px 0;
+        }
+        
+        .legal-document {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .document-header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .document-title {
+            font-size: 2.5rem;
+            color: #fbbf24;
+            margin-bottom: 15px;
+        }
+        
+        .document-meta {
+            color: #d1d5db;
+            font-size: 1rem;
+        }
+        
+        .document-content h2 {
+            color: #8b5cf6;
+            font-size: 1.8rem;
+            margin: 30px 0 15px 0;
+            padding-bottom: 10px;
+            border-bottom: 1px solid rgba(139, 92, 246, 0.3);
+        }
+        
+        .document-content h3 {
+            color: #a78bfa;
+            font-size: 1.4rem;
+            margin: 25px 0 10px 0;
+        }
+        
+        .document-content h4 {
+            color: #c4b5fd;
+            font-size: 1.2rem;
+            margin: 20px 0 8px 0;
+        }
+        
+        .document-content p {
+            line-height: 1.7;
+            margin-bottom: 15px;
+            color: #e5e7eb;
+        }
+        
+        .document-content ul, .document-content ol {
+            margin: 15px 0;
+            padding-left: 25px;
+        }
+        
+        .document-content li {
+            line-height: 1.6;
+            margin-bottom: 8px;
+            color: #e5e7eb;
+        }
+        
+        .document-content a {
+            color: #60a5fa;
+            text-decoration: none;
+            border-bottom: 1px solid rgba(96, 165, 250, 0.3);
+            transition: all 0.3s ease;
+        }
+        
+        .document-content a:hover {
+            color: #93c5fd;
+            border-bottom-color: #93c5fd;
+        }
+        
+        .document-content strong {
+            color: #f9fafb;
+            font-weight: 600;
+        }
+        
+        .highlight-box {
+            background: rgba(139, 92, 246, 0.15);
+            border: 1px solid rgba(139, 92, 246, 0.3);
+            border-radius: 12px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        
+        .contact-section {
+            background: rgba(251, 191, 36, 0.1);
+            border: 1px solid rgba(251, 191, 36, 0.3);
+            border-radius: 12px;
+            padding: 25px;
+            margin: 30px 0;
+        }
+        
+        .contact-section h3 {
+            color: #fbbf24;
+            margin-bottom: 15px;
+        }
+        
+        /* Footer */
+        .footer {
+            background: rgba(15, 15, 35, 0.95);
+            backdrop-filter: blur(10px);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 30px 0;
+            margin-top: 60px;
+        }
+        
+        .footer-content {
+            text-align: center;
+            color: #9ca3af;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .footer-links a {
+            color: #d1d5db;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: #fbbf24;
+        }
+        
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: linear-gradient(45deg, #8b5cf6, #7c3aed);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+        
+        .back-to-top:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(139, 92, 246, 0.3);
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .legal-document {
+                padding: 25px;
+                margin: 20px 10px;
+            }
+            
+            .document-title {
+                font-size: 2rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                <a href="index.html" class="logo">Asabaal Ventures</a>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="discord-signup-example.html">Join Discord</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="container">
+            <div class="legal-document">
+                <div class="document-header">
+                    <h1 class="document-title">Privacy Policy</h1>
+                    <div class="document-meta">
+                        <strong>Effective Date:</strong> August 2, 2025<br>
+                        <strong>Last Updated:</strong> August 2, 2025
+                    </div>
+                </div>
+
+                <div class="document-content">
+                    <h2>Introduction</h2>
+                    <p>Asabaal Ventures ("we," "our," or "us") respects your privacy and is committed to protecting your personal information. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website and use our services.</p>
+
+                    <h2>Information We Collect</h2>
+                    
+                    <h3>Information You Provide Directly</h3>
+                    <ul>
+                        <li><strong>Contact Forms:</strong> Name, email address, subject, and message content</li>
+                        <li><strong>Discord Community Signups:</strong> Name, email address, and optionally your Discord username</li>
+                    </ul>
+
+                    <h3>Information Collected Automatically</h3>
+                    <ul>
+                        <li><strong>Website Analytics:</strong> We may use analytics tools to understand how visitors interact with our website</li>
+                        <li><strong>Technical Information:</strong> IP address, browser type, device information, and pages visited</li>
+                    </ul>
+
+                    <h2>How We Use Your Information</h2>
+                    <p>We use the information we collect to:</p>
+                    <ul>
+                        <li>Respond to your inquiries and provide customer support</li>
+                        <li>Facilitate Discord community participation and send community updates</li>
+                        <li>Improve our website and services</li>
+                        <li>Comply with legal obligations</li>
+                    </ul>
+
+                    <h2>Data Storage and Security</h2>
+                    
+                    <h3>Storage</h3>
+                    <ul>
+                        <li>Your data is stored securely using Supabase (a secure cloud database service)</li>
+                        <li>All data transmission is encrypted using industry-standard SSL/TLS protocols</li>
+                        <li>We implement appropriate technical and organizational measures to protect your data</li>
+                    </ul>
+
+                    <h3>Retention</h3>
+                    <ul>
+                        <li><strong>Contact form data:</strong> Retained until the inquiry is resolved, then archived</li>
+                        <li><strong>Discord community signups:</strong> Retained while you remain a community member</li>
+                    </ul>
+
+                    <h2>Third-Party Services</h2>
+                    <p>We use the following third-party services that may collect information:</p>
+
+                    <div class="highlight-box">
+                        <h4>Supabase</h4>
+                        <ul>
+                            <li><strong>Purpose:</strong> Secure data storage and management</li>
+                            <li><strong>Data Shared:</strong> Contact form submissions and Discord community signups</li>
+                            <li><strong>Privacy Policy:</strong> <a href="https://supabase.com/privacy" target="_blank">Supabase Privacy Policy</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="highlight-box">
+                        <h4>Discord</h4>
+                        <ul>
+                            <li><strong>Purpose:</strong> Community management and notifications</li>
+                            <li><strong>Data Shared:</strong> Discord signup notifications (name, email, Discord username)</li>
+                            <li><strong>Privacy Policy:</strong> <a href="https://discord.com/privacy" target="_blank">Discord Privacy Policy</a></li>
+                        </ul>
+                    </div>
+
+                    <h2>Your Rights and Choices</h2>
+                    <p>You have the right to:</p>
+                    <ul>
+                        <li><strong>Access:</strong> Request a copy of the personal information we hold about you</li>
+                        <li><strong>Correction:</strong> Request correction of inaccurate or incomplete information</li>
+                        <li><strong>Deletion:</strong> Request deletion of your personal information</li>
+                        <li><strong>Opt-out:</strong> Leave the Discord community at any time</li>
+                        <li><strong>Portability:</strong> Request transfer of your data in a structured format</li>
+                    </ul>
+
+                    <h3>How to Exercise Your Rights</h3>
+                    <p>Contact us at <a href="mailto:asabaal@asabaalventures.me">asabaal@asabaalventures.me</a> with your request, and we will respond within 30 days.</p>
+
+                    <h2>Community Updates</h2>
+                    
+                    <h3>Discord Community Notifications</h3>
+                    <ul>
+                        <li>Updates and announcements are shared within our Discord community</li>
+                        <li>Participation is voluntary and requires your explicit consent</li>
+                        <li>No separate email confirmations are sent - your Discord invite serves as confirmation</li>
+                    </ul>
+
+                    <h3>Leaving the Community</h3>
+                    <ul>
+                        <li>You can leave the Discord server at any time</li>
+                        <li>You can also contact us directly to request data removal</li>
+                        <li>Community departure requests are processed immediately</li>
+                    </ul>
+
+                    <h2>Discord Community</h2>
+                    
+                    <h3>Participation</h3>
+                    <ul>
+                        <li>Joining our Discord community requires providing your email and name</li>
+                        <li>Discord username is optional but helps us connect with you on the platform</li>
+                        <li>By joining, you agree to follow Discord's Terms of Service and Community Guidelines</li>
+                    </ul>
+
+                    <h3>Data Sharing</h3>
+                    <ul>
+                        <li>We send notifications to our private Discord channel when you sign up</li>
+                        <li>We do not share your information with other community members unless you choose to share it yourself</li>
+                    </ul>
+
+                    <h2>Legal Basis for Processing (GDPR)</h2>
+                    <p>If you are in the European Union, our legal basis for processing your personal information includes:</p>
+                    <ul>
+                        <li><strong>Consent:</strong> For Discord community participation and updates</li>
+                        <li><strong>Legitimate Interest:</strong> For responding to inquiries and improving our services</li>
+                        <li><strong>Compliance:</strong> For meeting legal and regulatory requirements</li>
+                    </ul>
+
+                    <div class="contact-section">
+                        <h3>Contact Information</h3>
+                        <p>If you have questions about this Privacy Policy or our privacy practices, please contact us:</p>
+                        <p>
+                            <strong>Asabaal Ventures</strong><br>
+                            Email: <a href="mailto:asabaal@asabaalventures.me">asabaal@asabaalventures.me</a><br>
+                            Website: <a href="https://asabaalventures.me">asabaalventures.me</a>
+                        </p>
+                        <p>For data protection inquiries specifically, please include "Privacy Policy" in your subject line.</p>
+                    </div>
+
+                    <p><em>This Privacy Policy is designed to be comprehensive and compliant with major privacy regulations including GDPR, CCPA, and other applicable laws. However, it should be reviewed by a qualified attorney to ensure full compliance with your specific jurisdiction and business needs.</em></p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-links">
+                    <a href="index.html">Home</a>
+                    <a href="blog.html">Blog</a>
+                    <a href="contact.html">Contact</a>
+                    <a href="privacy.html">Privacy Policy</a>
+                    <a href="terms.html">Terms of Service</a>
+                    <a href="discord-signup-example.html">Join Discord</a>
+                </div>
+                <p>&copy; 2025 Asabaal Ventures. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <button class="back-to-top" onclick="scrollToTop()" title="Back to top">↑</button>
+
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Show/hide back to top button
+        window.addEventListener('scroll', function() {
+            const backToTop = document.querySelector('.back-to-top');
+            if (window.pageYOffset > 300) {
+                backToTop.style.display = 'block';
+            } else {
+                backToTop.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>

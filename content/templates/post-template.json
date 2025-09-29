@@ -1,0 +1,69 @@
+{
+  "metadata": {
+    "title": "Your Post Title Here",
+    "slug": "your-post-slug-here",
+    "publishDate": "2024-MM-DD",
+    "tags": ["tag1", "tag2", "tag3"],
+    "excerpt": "A compelling summary of your post that draws readers in...",
+    "coverImage": "cover.jpg",
+    "featured": false,
+    "status": "draft"
+  },
+  "content": {
+    "subtitle": "An optional subtitle that expands on the title",
+    "sections": [
+      {
+        "type": "intro",
+        "content": {
+          "text": "Your introductory paragraph that hooks the reader..."
+        },
+        "order": 1
+      },
+      {
+        "type": "text",
+        "title": "Section Title",
+        "content": {
+          "paragraphs": [
+            "First paragraph of this section...",
+            "Second paragraph continuing the thought..."
+          ]
+        },
+        "order": 2
+      },
+      {
+        "type": "quote",
+        "content": {
+          "text": "An inspiring or thought-provoking quote",
+          "author": "Attribution (optional)"
+        },
+        "order": 3
+      },
+      {
+        "type": "list",
+        "title": "List Section Title",
+        "content": {
+          "intro": "Optional introduction to the list:",
+          "items": [
+            "First list item",
+            "Second list item",
+            "Third list item"
+          ]
+        },
+        "order": 4
+      },
+      {
+        "type": "image",
+        "content": {
+          "src": "assets/image-name.jpg",
+          "alt": "Descriptive alt text",
+          "caption": "Optional image caption"
+        },
+        "order": 5
+      }
+    ]
+  },
+  "author": {
+    "name": "Asabaal Horan",
+    "signature": "In love and unity,<br><strong>Asabaal Horan</strong><br>Founder, Asabaal Ventures"
+  }
+}

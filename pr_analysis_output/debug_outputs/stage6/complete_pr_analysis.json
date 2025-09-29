@@ -1,0 +1,188 @@
+{
+  "pr_summary": {
+    "branch_info": "brand-integration \u2192 main",
+    "files_changed": 259,
+    "lines_added": 49761,
+    "lines_removed": 3539,
+    "total_lines_changed": 53300
+  },
+  "overall_assessment": {
+    "overall_score": 6.9,
+    "business_impact_score": 5.9,
+    "technical_quality_score": 8.0,
+    "risk_score": 7.0,
+    "recommendation": "REQUIRES_ATTENTION",
+    "status_color": "orange",
+    "total_issues": 6,
+    "critical_issues": 1,
+    "high_priority_issues": 0,
+    "files_analyzed": 245
+  },
+  "quality_issues": [
+    {
+      "id": "merge_readiness_main",
+      "type": "merge_blocker",
+      "priority": "CRITICAL",
+      "title": "Merge Readiness: REVIEW_NEEDED (Score: 68/100)",
+      "description": "Large-scale PR with significant concerns requiring careful review before merge",
+      "files_affected": [],
+      "files_count": 0,
+      "recommendation": "Large-scale PR with significant concerns requiring careful review before merge",
+      "business_impact_score": 10.0,
+      "confidence": 0.9,
+      "source_agent": "merge_readiness",
+      "category": "Merge Readiness",
+      "severity": "Critical",
+      "estimated_effort": "Review (15-30 minutes)"
+    },
+    {
+      "id": "merge_concern_1",
+      "type": "merge_warning",
+      "priority": "MEDIUM",
+      "title": "Merge Concern: Massive scope with 259 files and 49,761 lines added",
+      "description": "Identified concern from merge readiness analysis: Massive scope with 259 files and 49,761 lines added",
+      "files_affected": [],
+      "files_count": 0,
+      "recommendation": "Review and address this concern",
+      "business_impact_score": 5.1,
+      "confidence": 0.7,
+      "source_agent": "merge_readiness",
+      "category": "Merge Readiness",
+      "severity": "Medium",
+      "estimated_effort": "Review (15-30 minutes)"
+    },
+    {
+      "id": "merge_concern_3",
+      "type": "merge_warning",
+      "priority": "MEDIUM",
+      "title": "Merge Concern: Blog content dominates changes (156 of 259 files)",
+      "description": "Identified concern from merge readiness analysis: Blog content dominates changes (156 of 259 files)",
+      "files_affected": [],
+      "files_count": 0,
+      "recommendation": "Review and address this concern",
+      "business_impact_score": 5.1,
+      "confidence": 0.7,
+      "source_agent": "merge_readiness",
+      "category": "Merge Readiness",
+      "severity": "Medium",
+      "estimated_effort": "Review (15-30 minutes)"
+    },
+    {
+      "id": "merge_concern_4",
+      "type": "merge_warning",
+      "priority": "MEDIUM",
+      "title": "Merge Concern: Mixed technical and content changes in single PR",
+      "description": "Identified concern from merge readiness analysis: Mixed technical and content changes in single PR",
+      "files_affected": [],
+      "files_count": 0,
+      "recommendation": "Review and address this concern",
+      "business_impact_score": 5.1,
+      "confidence": 0.7,
+      "source_agent": "merge_readiness",
+      "category": "Merge Readiness",
+      "severity": "Medium",
+      "estimated_effort": "Review (15-30 minutes)"
+    },
+    {
+      "id": "merge_concern_5",
+      "type": "merge_warning",
+      "priority": "MEDIUM",
+      "title": "Merge Concern: High deployment risk due to scale",
+      "description": "Identified concern from merge readiness analysis: High deployment risk due to scale",
+      "files_affected": [],
+      "files_count": 0,
+      "recommendation": "Review and address this concern",
+      "business_impact_score": 5.1,
+      "confidence": 0.7,
+      "source_agent": "merge_readiness",
+      "category": "Merge Readiness",
+      "severity": "Medium",
+      "estimated_effort": "Review (15-30 minutes)"
+    },
+    {
+      "id": "merge_concern_6",
+      "type": "merge_warning",
+      "priority": "MEDIUM",
+      "title": "Merge Concern: Incomplete categorization (21 uncategorized files)",
+      "description": "Identified concern from merge readiness analysis: Incomplete categorization (21 uncategorized files)",
+      "files_affected": [],
+      "files_count": 0,
+      "recommendation": "Review and address this concern",
+      "business_impact_score": 5.1,
+      "confidence": 0.7,
+      "source_agent": "merge_readiness",
+      "category": "Merge Readiness",
+      "severity": "Medium",
+      "estimated_effort": "Review (15-30 minutes)"
+    }
+  ],
+  "recommendations": [
+    "\ud83d\udd34 **CRITICAL**: Address 1 critical issues before merging",
+    "   \u2022 Merge Readiness: REVIEW_NEEDED (Score: 68/100)",
+    "\ud83d\ude80 **DEPLOYMENT**: Review merge readiness concerns before deployment",
+    "\u26a0\ufe0f **OVERALL**: PR needs attention but is manageable",
+    "\u23f1\ufe0f **ESTIMATED EFFORT**: ~2.0 hours hours to address all issues"
+  ],
+  "merge_readiness": {
+    "status": "BLOCKED",
+    "status_color": "red",
+    "overall_score": 6.9,
+    "blocking_issues_count": 1,
+    "warning_issues_count": 5,
+    "blocking_issues": [
+      {
+        "title": "Merge Readiness: REVIEW_NEEDED (Score: 68/100)",
+        "impact": 10.0
+      }
+    ],
+    "warning_issues": [
+      {
+        "title": "Merge Concern: Massive scope with 259 files and 49,761 lines added",
+        "impact": 5.1
+      },
+      {
+        "title": "Merge Concern: Blog content dominates changes (156 of 259 files)",
+        "impact": 5.1
+      },
+      {
+        "title": "Merge Concern: Mixed technical and content changes in single PR",
+        "impact": 5.1
+      },
+      {
+        "title": "Merge Concern: High deployment risk due to scale",
+        "impact": 5.1
+      },
+      {
+        "title": "Merge Concern: Incomplete categorization (21 uncategorized files)",
+        "impact": 5.1
+      }
+    ],
+    "recommendation": "Do not merge until blocking issues are resolved"
+  },
+  "technical_metrics": {
+    "files_analyzed": 245,
+    "total_lines_changed": 53300,
+    "lines_added": 49761,
+    "lines_removed": 3539,
+    "issues_identified": 6,
+    "issues_per_file_ratio": 0.02,
+    "complexity_score": 5.3,
+    "categories_analyzed": 9,
+    "agents_used": 3,
+    "analysis_confidence": 0.73
+  },
+  "generated_at": "2025-08-03T13:24:23.185427",
+  "analysis_metadata": {
+    "analyzer_version": "1.0.0",
+    "stages_completed": [
+      "context_prep",
+      "agent_prompts",
+      "agent_communication",
+      "response_parsing",
+      "issue_extraction",
+      "result_combination"
+    ],
+    "total_analysis_time": "N/A",
+    "confidence_level": "high"
+  }
+}

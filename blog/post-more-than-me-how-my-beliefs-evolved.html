@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>"More Than Me": How My Beliefs Evolved | Asabaal Ventures Blog</title>
+    <meta name="description" content="A deeply personal story of transformation from conservative beliefs to embracing love and unity through faith.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #0f0f23 0%, #1a1a3e 25%, #2d1b69 50%, #4c1d95 75%, #6b21a8 100%);
+            color: #ffffff;
+            min-height: 100vh;
+            overflow-x: hidden;
+            padding-top: 70px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(15, 15, 35, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 20px 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .nav {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .nav-links a {
+            color: #e5e7eb;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-weight: 500;
+        }
+        
+        .nav-links a:hover {
+            color: #fbbf24;
+        }
+
+        /* Post Header */
+        .post-header {
+            padding: 100px 0 60px;
+            text-align: center;
+            position: relative;
+            background: radial-gradient(circle at 50% 50%, rgba(251, 191, 36, 0.15) 0%, transparent 70%);
+        }
+
+
+        .back-link {
+            position: absolute;
+            top: 120px;
+            left: 20px;
+            color: #06b6d4;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .back-link:hover {
+            color: #fbbf24;
+        }
+
+        .post-title {
+            font-size: 3.5rem;
+            font-weight: 900;
+            margin-bottom: 25px;
+            background: linear-gradient(45deg, #fbbf24, #f472b6, #8b5cf6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.1;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .post-meta {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .post-date {
+            background: linear-gradient(45deg, #8b5cf6, #ec4899);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 25px;
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+
+        .post-tags {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            background: rgba(255, 255, 255, 0.1);
+            color: #d1d5db;
+            padding: 6px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .post-subtitle {
+            font-size: 1.3rem;
+            color: #d1d5db;
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        /* Featured Video */
+        .featured-video {
+            padding: 60px 0;
+            background: rgba(0, 0, 0, 0.2);
+        }
+
+        .video-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .featured-video .video-embed {
+            position: relative;
+            width: 100%;
+            height: 0;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        }
+
+        .featured-video .video-embed iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Video Placeholder */
+        .video-placeholder {
+            background: linear-gradient(135deg, rgba(15, 15, 35, 0.9), rgba(45, 27, 105, 0.8));
+            border: 2px dashed rgba(251, 191, 36, 0.3);
+            border-radius: 20px;
+            padding: 60px 40px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+        }
+
+        .placeholder-content {
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        .placeholder-icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            filter: grayscale(30%);
+        }
+
+        .placeholder-title {
+            color: #fbbf24;
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .placeholder-text {
+            color: #d1d5db;
+            font-size: 1.1rem;
+            line-height: 1.6;
+            opacity: 0.8;
+        }
+
+
+        /* Post Content */
+        .post-content {
+            padding: 80px 0;
+            background: linear-gradient(rgba(15, 15, 35, 0.85), rgba(45, 27, 105, 0.9)), url('../assets/images/blog/more-than-me.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            position: relative;
+        }
+
+        .post-content::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.4);
+            pointer-events: none;
+        }
+
+        .content-wrapper {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .intro-section {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-left: 4px solid #fbbf24;
+            padding: 30px;
+            margin-bottom: 60px;
+            border-radius: 10px;
+            font-style: italic;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .intro-text {
+            font-size: 1.3rem;
+            color: #e5e7eb;
+            line-height: 1.7;
+        }
+
+        .content-section {
+            margin-bottom: 60px;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            padding: 30px;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .section-title {
+            font-size: 2rem;
+            color: #fbbf24;
+            margin-bottom: 25px;
+            font-weight: 700;
+        }
+
+        .content-text {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: #e5e7eb;
+            margin-bottom: 30px;
+        }
+
+        .content-text p {
+            margin-bottom: 20px;
+        }
+
+        .quote-section {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(15px);
+            border-left: 4px solid #fbbf24;
+            padding: 40px;
+            margin: 40px 0;
+            border-radius: 15px;
+            font-style: italic;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.3);
+        }
+
+        .quote-text {
+            font-size: 1.4rem;
+            color: #d1d5db;
+            margin-bottom: 15px;
+        }
+
+        .image-section {
+            margin: 40px 0;
+        }
+
+        .content-image {
+            text-align: center;
+        }
+
+        .section-img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 0 15px 35px -10px rgba(139, 92, 246, 0.3);
+        }
+
+        /* Special styling for in-love-and-unity image */
+        .section-img[src*="in-love-and-unity"] {
+            max-width: 300px;
+            margin: 0 auto;
+            display: block;
+        }
+
+        .image-caption {
+            text-align: center;
+            color: #9ca3af;
+            font-size: 0.9rem;
+            margin-top: 15px;
+            font-style: italic;
+        }
+
+        .video-section {
+            margin: 40px 0;
+            text-align: center;
+        }
+
+        .video-embed {
+            position: relative;
+            width: 100%;
+            height: 0;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px -10px rgba(139, 92, 246, 0.3);
+        }
+
+        .video-embed iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .video-title {
+            color: #fbbf24;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .video-description {
+            color: #9ca3af;
+            font-size: 0.9rem;
+            margin-top: 15px;
+        }
+
+        /* Author Section */
+        .author-section {
+            padding: 60px 0;
+            background: rgba(0, 0, 0, 0.4);
+            text-align: center;
+        }
+
+        .author-signature {
+            font-size: 1.1rem;
+            color: #d1d5db;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        .post-navigation {
+            padding: 60px 0;
+            background: rgba(0, 0, 0, 0.4);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .nav-button {
+            background: linear-gradient(45deg, #8b5cf6, #06b6d4);
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 50px;
+            font-weight: bold;
+            text-decoration: none;
+            transition: transform 0.3s ease;
+        }
+
+        .nav-button:hover {
+            transform: scale(1.05);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .post-title { font-size: 2.5rem; }
+            .back-link { position: static; margin-bottom: 20px; display: inline-block; }
+            .post-meta { flex-direction: column; gap: 15px; }
+            .nav-content { flex-direction: column; text-align: center; }
+            .nav-links { gap: 15px; font-size: 0.9rem; }
+            .post-content { background-attachment: scroll; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                <ul class="nav-links">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../vision_2054_page.html">Vision 2054</a></li>
+                    <li><a href="../index.html#videos">Videos</a></li>
+                    <li><a href="../unity-remix-contest.html">Contest</a></li>
+                    <li><a href="../blog.html">Blog</a></li>
+                    <li><a href="#contact">Connect</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Post Header -->
+    <section class="post-header">
+        <div class="container">
+            <a href="../blog.html" class="back-link">← Back to Blog</a>
+            <h1 class="post-title">"More Than Me": How My Beliefs Evolved</h1>
+            <div class="post-meta">
+                <span class="post-date">2024-08-19</span>
+                <div class="post-tags">
+                        <span class="tag">faith</span>
+                        <span class="tag">personal-growth</span>
+                        <span class="tag">LGBTQ</span>
+                        <span class="tag">Christianity</span>
+                        <span class="tag">transformation</span>
+                </div>
+            </div>
+            <p class="post-subtitle">
+                A deeply personal story of transformation from conservative beliefs to embracing love and unity through faith.
+            </p>
+        </div>
+    </section>
+
+                <!-- Featured Video -->
+                <section class="featured-video">
+                    <div class="container">
+                        <div class="video-container">
+                            <div class="video-embed">
+                                <iframe src="https://www.youtube.com/embed/Opmn9jJO7Gw" frameborder="0" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+    <!-- Post Content -->
+    <section class="post-content">
+        <div class="container">
+            <div class="content-wrapper">
+
+                <div class="intro-section">
+                    <div class="intro-text">
+                        Hello World! Oof. I gotta say, I really postponed writing this post because it's such a difficult one to face for me. My song "More Than Me" is a deeply personal story of transformation in my life. I was raised in a conservative Christian environment, and this song shares the story of how I came to recognize that simply being gay didn't make one evil.
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <h2 class="section-title">The Foundation of Faith</h2>
+                    <div class="content-text">
+                        <p>One of my favorite Bible verses was a major inspiration for this song. I've rephrased the verse to make it a little more relatable in my marketing, and it goes like this, "Your love for each other proves your discipleship." (John 13:35). I've always known deep down that this was at the core of the Christian message. There's a reason Jesus tells his followers that the entirety of God's message was to love God and love people (Mat. 22:37-40).</p>
+                        <p>This brings me to the hook of the song. If Christians are supposed to "love God" then it would help to have an idea of what exactly God is. Fortunately, for the believer, this information is readily available! Christians are told that God is love (1 John 4:8) and God is truth (John 14:6). So at the end of the day, there is one thing that is the ultimate foundation of my understanding of God in my faith, and it's this:</p>
+                    </div>
+                </div>
+
+                <div class="quote-section">
+                    <div class="quote-text">
+                        "If God is love & God is truth, then that's the life that I must choose"
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <h2 class="section-title">Challenging My Beliefs</h2>
+                    <div class="content-text">
+                        <p>The next most important part of this song is the pre-chorus. It was traditional in my religious upbringing to be taught that we were right and everyone else was simply just wrong and would ultimately face punishment for it (John 3:18). This is why I wrote "I believed that I knew best". I thought highly of myself and my way of thinking, even though now I look back and see how hateful much of it was.</p>
+                        <p>The pre-chorus finishes by setting up the premise of how I was taught to navigate an understanding of my beliefs and how to grow and change if it was necessary. Recognizing that even if what I thought was best got proved wrong somehow, I needed to have a foundation to rely on to help me cope with that and reframe what I thought was true.</p>
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <h2 class="section-title">The Moment of Truth</h2>
+                    <div class="content-text">
+                        <p>At the end of the experience which motivated this song, I still believed that homosexuality was a sin (don't hate on me, this was my thinking way back in 2011; I've evolved a lot since then, but the specifics of that evolution don't matter here), so ultimately I didn't really "lose" anything I believed to be true. I actually gained something new that I believed to be true. And that new thing was "Someone being gay is not a sufficient condition to call them evil".</p>
+                        <p>There's a phrase from an artist I love: "All is true". As of today, I'm not prepared to share all of the details of this story, but I want you to know that every phrase of this song reflects something true of my experience. I really did have a hateful viewpoint, thinking things like "evil little devil's friend" for people who actively engaged in activities which I labeled as sin. I really did lose my closest friends, and my actions were a major contributor to that happening.</p>
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <h2 class="section-title">Love Changed Everything</h2>
+                    <div class="content-text">
+                        <p>And I really felt uncomfortable being in the presence of queer folk, and it really was a queer person who comforted me in my distress. I realized I wouldn't have done the same for this person at that time in my life. That messed me up inside. I knew at that point that I must be wrong about something if "gay loves more than me", because it all comes back to that deep root of what I knew was true about Christianity, that God is love, God is truth, and that loving each other is the proof of our discipleship.</p>
+                        <p>So if I wasn't prepared to love someone at least at the same level as someone who I viewed as wrong, then clearly I wasn't doing my job as a Christian.</p>
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <h2 class="section-title">The Mission Forward</h2>
+                    <div class="content-text">
+                        <p>This is why "More Than Me" is part of my debut. I want the world to know that if any group of people is going to be the most relentlessly loving people, that I need to be in that group, because that's what I was raised to believe. This same concept drives the entirety of my mission at Asabaal Ventures. My goal isn't to gain some fans or make some money. It's about reaching people with love and unity. And that is at the core of the message of Christianity.</p>
+                        <p>At Asabaal Ventures, I'm not proselytizing because I don't want that to be part of my business. I do want to share my perspective about what it means to be Christian because I think it's so much more than a message about how to achieve paradise and avoid punishment. Jesus prayed for God's will to be done "on earth, as it is in heaven" (Mat 6:10). On earth as it is in heaven. That is a powerful concept. Heaven is supposed to be this place without suffering (Rev 21:4). If we can have that on earth, then I want to be a part of making that happen. I want to be a part of something greater, something more than me.</p>
+                    </div>
+                </div>
+
+                <div class="image-section">
+                    <div class="content-image">
+                        <img src="../assets/images/profiles/in-love-and-unity.png" alt="Asabaal Ventures signature - In Love and Unity" class="section-img">
+                        
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Author Section -->
+    <section class="author-section">
+        <div class="container">
+            <div class="author-signature">
+                In love and unity,<br><strong>Asabaal Horan</strong><br>Founder, Asabaal Ventures
+            </div>
+        </div>
+    </section>
+
+    <!-- Post Navigation -->
+    <section class="post-navigation">
+        <div class="container">
+            <div class="nav-content">
+                <div class="prev-post">
+                    <!-- Previous post link will be added dynamically -->
+                </div>
+                <a href="../blog.html" class="nav-button">All Posts</a>
+                <div class="next-post">
+                    <!-- Next post link will be added dynamically -->
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

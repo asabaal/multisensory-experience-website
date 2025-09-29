@@ -1,0 +1,90 @@
+{
+  "metadata": {
+    "title": "Keep It Simple - Simple Indeed",
+    "slug": "keep-it-simple-simple-indeed",
+    "publishDate": "2024-11-15",
+    "tags": [
+      "simplicity",
+      "personal-growth",
+      "storytelling",
+      "life-lessons",
+      "self-discovery"
+    ],
+    "excerpt": "A simple rule to live by that helps you accomplish everything you've ever wanted: Keep It Simple.",
+    "coverImage": "keep-it-simple.jpg",
+    "featured": false,
+    "status": "published"
+  },
+  "content": {
+    "subtitle": "A Life Rule That Changes Everything",
+    "sections": [
+      {
+        "type": "featured_video",
+        "content": {
+          "url": "https://youtu.be/UnomCu3Pyxc?si=Fw2ySWKBYgBClgzU",
+          "title": "Keep It Simple - Simple Indeed"
+        },
+        "order": 0
+      },
+      {
+        "type": "intro",
+        "content": {
+          "text": "Do you want a simple rule to live your life by that helps you accomplish everything you've ever wanted? Here's the rule: \"Keep It Simple\". Ok, post done, right? That certainly would be a simple post, but let's dive in a little bit to this rule and what it really means, and how this song both embodies that rule and the secret sauce to success."
+        },
+        "order": 1
+      },
+      {
+        "type": "text",
+        "title": "The Graduate School Principle",
+        "content": {
+          "paragraphs": [
+            "In grad school, I learned that a simple model that explains the data is always better than a more complicated model which does similarly well at explaining the data. I believe that principle can be applied to life in general as well. Don't over-complicate things that don't need the complication.",
+            "Not only did I say \"Keep it simple\", I also said \"keep it short\". Short is indeed simpler to understand than long."
+          ]
+        },
+        "order": 2
+      },
+      {
+        "type": "quote",
+        "content": {
+          "text": "Tell a story, start with yours. You have value for exactly who you are, and your unique story holds that value within it.",
+          "context": "The power of personal storytelling"
+        },
+        "order": 3
+      },
+      {
+        "type": "text",
+        "title": "Your Story Has Value",
+        "content": {
+          "paragraphs": [
+            "Share that story with people, and you will bring them value. All you need to do is find the people that find your story most valuable.",
+            "I told my story, or at least a huge part of my story, in this song as well. In the first verse I criticize my path, and in the second I tell you some details of this path. The key line here for me is \"To think I wanted suffering. Lost my grip on reality\". I didn't know at the time, but what I told myself I wanted was actually a miserable life of suffering. What a fool I was!"
+          ]
+        },
+        "order": 4
+      },
+      {
+        "type": "image",
+        "content": {
+          "src": "in-love-and-unity.jpg",
+          "alt": "In Love and Unity - Personal reflection and growth"
+        },
+        "order": 5
+      },
+      {
+        "type": "text",
+        "title": "Moving Forward",
+        "content": {
+          "paragraphs": [
+            "My past doesn't impact my ability to move forward and tell my story or to empower you to tell yours. You are loved. Tell your story. See what happens. That's what I'm doing."
+          ]
+        },
+        "order": 6
+      }
+    ]
+  },
+  "author": {
+    "name": "Asabaal Horan",
+    "signature": "In love and unity,<br><strong>Asabaal Horan</strong><br>Founder, Asabaal Ventures"
+  }
+}

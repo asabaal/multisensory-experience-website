@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Probably Right: You're Probably Right, And So Am I, Even When It Hurts | Asabaal Ventures Blog</title>
+    <meta name="description" content="A raw reflection on accepting criticism with humility and the hard truth that critics are often right, even when it hurts.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #0f0f23 0%, #1a1a3e 25%, #2d1b69 50%, #4c1d95 75%, #6b21a8 100%);
+            color: #ffffff;
+            min-height: 100vh;
+            overflow-x: hidden;
+            padding-top: 70px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(15, 15, 35, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 20px 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .nav {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .nav-links a {
+            color: #e5e7eb;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-weight: 500;
+        }
+        
+        .nav-links a:hover {
+            color: #fbbf24;
+        }
+
+        /* Post Header */
+        .post-header {
+            padding: 100px 0 60px;
+            text-align: center;
+            position: relative;
+            background: radial-gradient(circle at 50% 50%, rgba(251, 191, 36, 0.15) 0%, transparent 70%);
+        }
+
+
+        .back-link {
+            position: absolute;
+            top: 120px;
+            left: 20px;
+            color: #06b6d4;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .back-link:hover {
+            color: #fbbf24;
+        }
+
+        .post-title {
+            font-size: 3.5rem;
+            font-weight: 900;
+            margin-bottom: 25px;
+            background: linear-gradient(45deg, #fbbf24, #f472b6, #8b5cf6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.1;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .post-meta {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .post-date {
+            background: linear-gradient(45deg, #8b5cf6, #ec4899);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 25px;
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+
+        .post-tags {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            background: rgba(255, 255, 255, 0.1);
+            color: #d1d5db;
+            padding: 6px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .post-subtitle {
+            font-size: 1.3rem;
+            color: #d1d5db;
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        /* Featured Video */
+        .featured-video {
+            padding: 60px 0;
+            background: rgba(0, 0, 0, 0.2);
+        }
+
+        .video-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .featured-video .video-embed {
+            position: relative;
+            width: 100%;
+            height: 0;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        }
+
+        .featured-video .video-embed iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Video Placeholder */
+        .video-placeholder {
+            background: linear-gradient(135deg, rgba(15, 15, 35, 0.9), rgba(45, 27, 105, 0.8));
+            border: 2px dashed rgba(251, 191, 36, 0.3);
+            border-radius: 20px;
+            padding: 60px 40px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+        }
+
+        .placeholder-content {
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        .placeholder-icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            filter: grayscale(30%);
+        }
+
+        .placeholder-title {
+            color: #fbbf24;
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .placeholder-text {
+            color: #d1d5db;
+            font-size: 1.1rem;
+            line-height: 1.6;
+            opacity: 0.8;
+        }
+
+
+        /* Post Content */
+        .post-content {
+            padding: 80px 0;
+            background: linear-gradient(rgba(15, 15, 35, 0.85), rgba(45, 27, 105, 0.9)), url('../assets/images/blog/probably-right.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            position: relative;
+        }
+
+        .post-content::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.4);
+            pointer-events: none;
+        }
+
+        .content-wrapper {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .intro-section {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-left: 4px solid #fbbf24;
+            padding: 30px;
+            margin-bottom: 60px;
+            border-radius: 10px;
+            font-style: italic;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .intro-text {
+            font-size: 1.3rem;
+            color: #e5e7eb;
+            line-height: 1.7;
+        }
+
+        .content-section {
+            margin-bottom: 60px;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            padding: 30px;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .section-title {
+            font-size: 2rem;
+            color: #fbbf24;
+            margin-bottom: 25px;
+            font-weight: 700;
+        }
+
+        .content-text {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: #e5e7eb;
+            margin-bottom: 30px;
+        }
+
+        .content-text p {
+            margin-bottom: 20px;
+        }
+
+        .quote-section {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(15px);
+            border-left: 4px solid #fbbf24;
+            padding: 40px;
+            margin: 40px 0;
+            border-radius: 15px;
+            font-style: italic;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.3);
+        }
+
+        .quote-text {
+            font-size: 1.4rem;
+            color: #d1d5db;
+            margin-bottom: 15px;
+        }
+
+        .image-section {
+            margin: 40px 0;
+        }
+
+        .content-image {
+            text-align: center;
+        }
+
+        .section-img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 0 15px 35px -10px rgba(139, 92, 246, 0.3);
+        }
+
+        /* Special styling for in-love-and-unity image */
+        .section-img[src*="in-love-and-unity"] {
+            max-width: 300px;
+            margin: 0 auto;
+            display: block;
+        }
+
+        .image-caption {
+            text-align: center;
+            color: #9ca3af;
+            font-size: 0.9rem;
+            margin-top: 15px;
+            font-style: italic;
+        }
+
+        .video-section {
+            margin: 40px 0;
+            text-align: center;
+        }
+
+        .video-embed {
+            position: relative;
+            width: 100%;
+            height: 0;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px -10px rgba(139, 92, 246, 0.3);
+        }
+
+        .video-embed iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .video-title {
+            color: #fbbf24;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .video-description {
+            color: #9ca3af;
+            font-size: 0.9rem;
+            margin-top: 15px;
+        }
+
+        /* Author Section */
+        .author-section {
+            padding: 60px 0;
+            background: rgba(0, 0, 0, 0.4);
+            text-align: center;
+        }
+
+        .author-signature {
+            font-size: 1.1rem;
+            color: #d1d5db;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        .post-navigation {
+            padding: 60px 0;
+            background: rgba(0, 0, 0, 0.4);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .nav-button {
+            background: linear-gradient(45deg, #8b5cf6, #06b6d4);
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 50px;
+            font-weight: bold;
+            text-decoration: none;
+            transition: transform 0.3s ease;
+        }
+
+        .nav-button:hover {
+            transform: scale(1.05);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .post-title { font-size: 2.5rem; }
+            .back-link { position: static; margin-bottom: 20px; display: inline-block; }
+            .post-meta { flex-direction: column; gap: 15px; }
+            .nav-content { flex-direction: column; text-align: center; }
+            .nav-links { gap: 15px; font-size: 0.9rem; }
+            .post-content { background-attachment: scroll; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                <ul class="nav-links">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../vision_2054_page.html">Vision 2054</a></li>
+                    <li><a href="../index.html#videos">Videos</a></li>
+                    <li><a href="../unity-remix-contest.html">Contest</a></li>
+                    <li><a href="../blog.html">Blog</a></li>
+                    <li><a href="#contact">Connect</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Post Header -->
+    <section class="post-header">
+        <div class="container">
+            <a href="../blog.html" class="back-link">← Back to Blog</a>
+            <h1 class="post-title">Probably Right: You're Probably Right, And So Am I, Even When It Hurts</h1>
+            <div class="post-meta">
+                <span class="post-date">2024-12-27</span>
+                <div class="post-tags">
+                        <span class="tag">personal-growth</span>
+                        <span class="tag">business-reflection</span>
+                        <span class="tag">humility</span>
+                        <span class="tag">criticism</span>
+                        <span class="tag">christian-values</span>
+                </div>
+            </div>
+            <p class="post-subtitle">
+                A raw reflection on accepting criticism with humility and the hard truth that critics are often right, even when it hurts.
+            </p>
+        </div>
+    </section>
+
+                <!-- Featured Video -->
+                <section class="featured-video">
+                    <div class="container">
+                        <div class="video-container">
+                            <div class="video-embed">
+                                <iframe src="https://www.youtube.com/embed/e6umF8X_93Q" frameborder="0" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+    <!-- Post Content -->
+    <section class="post-content">
+        <div class="container">
+            <div class="content-wrapper">
+
+                <div class="intro-section">
+                    <div class="intro-text">
+                        Hey everyone! It's been a few weeks, and I'm totally sorry for the delay! Asabaal Ventures is experiencing growing pains! It definitely hurts, but I'm so excited about what it's becoming so I can bring you all so much more value! Something I have struggled with is understanding why I am where I am at, both in life and with my business. Whether it's self-critique or negative words from others, it's so easy, at least for me personally, to feel like what I'm doing has no or very little value.
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <h2 class="section-title">The Hard Truth About Critics</h2>
+                    <div class="content-text">
+                        <p>You may be wondering what any of this has to do with this song. Well, it's quite simple - the critics are "Probably Right". And this is a hard pill to swallow. And it doesn't mean that the music sucks or that my ideas aren't powerful. More practically, it's about the execution strategy. I'm being completely transparent about my own personal reflections on my business as part of the next evolution of Asabaal Ventures.</p>
+                        <p>I'm working on launching a new series called "My Business Story"! I want to share my journey as I'm taking it, both to document the pathways which do and do not lead to successful achievements of my goals, and to share these pathways with you. This has always been part of the plan, but I'm beginning to think that for the near-term foreseeable future, this is one of the primary outlets that will bring more value.</p>
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <h2 class="section-title">A Different Kind of Song</h2>
+                    <div class="content-text">
+                        <p>When I wrote this song, I felt that it was different somehow from the songs I had written previously to it. I'll admit, after having had it in my playlist for a while now, I do think the bridge is kinda cheesy. But I can always make a better version of the song for the future, and I think the message of this song is powerful, and sets a standard of the type of messaging I want to have with Asabaal Ventures.</p>
+                        <p>People are so diverse in their backgrounds and subsequent perspectives, and throughout my years, I've had far too many people tell me how terrible either my actions are or even I am as a person. But I never really thought I was that bad of a person. I am a Christian after all, and Christianity is supposed to be about love & goodness over hate & evil first & foremost. But you know what? I've also said the same criticisms about many people myself, and I felt strongly that I was right in critiquing their behaviors and/or personalities.</p>
+                    </div>
+                </div>
+
+                <div class="quote-section">
+                    <div class="quote-text">
+                        "We've all got flaws & demons hidden underneath our disguise"
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <h2 class="section-title">The Mirror of Self-Reflection</h2>
+                    <div class="content-text">
+                        <p>So, how am I supposed to reconcile these seemingly contradictory notions? Am I or am I not a bad person? And what about other people? I came to realize something that, while very obvious, also hit very deep for me. And what hurts even more is that the more I grow, the more I see my own flaws and how I've mistreated others in the past and in the present. This means that I was acting poorly and I couldn't see it in myself.</p>
+                        <p>So I decided that maybe it didn't really matter anymore what I thought. If someone tells me I did something wrong, they're probably right, even if I disagree on what exactly it was. In fact, I made them feel like I behaved in whatever way they accused me of, so it might as well be real. They might as well be right. Maybe they are right. I suppose they're probably right. And that takes a lot of humility to admit.</p>
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <h2 class="section-title">Taking the Plank Out of Your Own Eye</h2>
+                    <div class="content-text">
+                        <p>It makes me realize how deeply sick I am, how deeply sick we all are. And this is exactly what I learned from church - that we are all full of sin, always falling short of righteousness. So yeah, whenever you have something to say that critiques me, I bet there is something in there that is probably right. But what makes it harder is that means when I critique someone else, I'm probably right too.</p>
+                        <p>Are you willing to humble yourself in the ways I've been talking about humbling myself? Have you gone through the exercise of allowing others' opinions of you to shape your understanding of yourself, even if it hurts? I'd love to hear your stories! This is what it looks like to take the plank out of your own eye. So no longer will I assume I mostly have it together. In fact, I probably mostly don't have it together. But together we can identify ways in which we each can become better.</p>
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <h2 class="section-title">Moving Forward Together</h2>
+                    <div class="content-text">
+                        <p>So, in closing, I don't know what the timelines for Asabaal Ventures look like right now because I need to make some changes. But I want you to know that I am giving this my all every day and I'm going to share as many things as I am able to as quickly as I am able to, and while my first best case scenario didn't pan out exactly the way I wanted it to, that's completely ok because that means I have more opportunities to learn, grow, and acknowledge my own shortcomings so that I can overcome them.</p>
+                        <p>We leveling up! Let's goooooo!</p>
+                    </div>
+                </div>
+
+                <div class="image-section">
+                    <div class="content-image">
+                        <img src="../assets/images/profiles/in-love-and-unity.png" alt="In Love and Unity signature image" class="section-img">
+                        
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Author Section -->
+    <section class="author-section">
+        <div class="container">
+            <div class="author-signature">
+                In love and unity,<br><strong>Asabaal Horan</strong><br>Founder, Asabaal Ventures
+            </div>
+        </div>
+    </section>
+
+    <!-- Post Navigation -->
+    <section class="post-navigation">
+        <div class="container">
+            <div class="nav-content">
+                <div class="prev-post">
+                    <!-- Previous post link will be added dynamically -->
+                </div>
+                <a href="../blog.html" class="nav-button">All Posts</a>
+                <div class="next-post">
+                    <!-- Next post link will be added dynamically -->
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

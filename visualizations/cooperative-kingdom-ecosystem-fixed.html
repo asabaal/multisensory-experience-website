@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kingdom Cooperative Ecosystem - Engineering Global Peace Through Distributed Power</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0c0c2e 0%, #1a1a4a 25%, #2d1b89 50%, #4c1d95 75%, #6b21a8 100%);
+            min-height: 100vh;
+            color: white;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1600px;
+            margin: 0 auto;
+        }
+
+        .title {
+            text-align: center;
+            font-size: 3.2rem;
+            font-weight: 900;
+            margin-bottom: 15px;
+            background: linear-gradient(45deg, #fff, #ffd700, #10b981, #ff6b6b, #8b5cf6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 0 40px rgba(255, 255, 255, 0.4);
+        }
+
+        .subtitle {
+            text-align: center;
+            font-size: 1.3rem;
+            margin-bottom: 25px;
+            opacity: 0.95;
+        }
+
+        .kingdom-manifesto {
+            text-align: center;
+            background: linear-gradient(45deg, rgba(255, 215, 0, 0.15), rgba(139, 92, 246, 0.15));
+            padding: 25px 35px;
+            border-radius: 25px;
+            margin-bottom: 40px;
+            border: 3px solid rgba(255, 215, 0, 0.4);
+            backdrop-filter: blur(10px);
+        }
+
+        .kingdom-manifesto h2 {
+            color: #ffd700;
+            margin-bottom: 15px;
+            font-size: 1.6rem;
+        }
+
+        .kingdom-quote {
+            font-size: 1.2rem;
+            font-style: italic;
+            color: #e5e7eb;
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+
+        .kingdom-principles {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .principle {
+            background: rgba(255, 255, 255, 0.08);
+            padding: 15px;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 215, 0, 0.3);
+        }
+
+        .principle h4 {
+            color: #ffd700;
+            margin-bottom: 8px;
+        }
+
+        /* New Grid-Based Layout for Network */
+        .cooperative-network {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            margin: 60px 0;
+            position: relative;
+        }
+
+        /* SVG Background for connections */
+        .network-connections {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .node {
+            position: relative;
+            padding: 25px;
+            border-radius: 25px;
+            backdrop-filter: blur(15px);
+            border: 3px solid rgba(255, 255, 255, 0.4);
+            cursor: pointer;
+            transition: all 0.4s ease;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            z-index: 2;
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .node:hover {
+            transform: scale(1.08) translateY(-10px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+            border-color: rgba(255, 215, 0, 0.8);
+            z-index: 10;
+        }
+
+        .node h3 {
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+            color: #fff;
+        }
+
+        .node p {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            line-height: 1.4;
+        }
+
+        .node .icon {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        /* Central Cooperative Hub - Spans full width in middle row */
+        .cooperative-hub {
+            grid-column: 1 / -1;
+            max-width: 600px;
+            margin: 0 auto;
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.9), rgba(255, 193, 7, 0.9));
+            border: 4px solid rgba(255, 215, 0, 0.8);
+        }
+
+        .cooperative-hub h3 {
+            color: #1a1a1a;
+        }
+
+        .cooperative-hub p {
+            color: #2d2d2d;
+        }
+
+        /* Community Nodes - Different backgrounds */
+        .open-source-node {
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.85), rgba(59, 130, 246, 0.85));
+        }
+
+        .values-alignment {
+            background: linear-gradient(135deg, rgba(245, 87, 108, 0.85), rgba(251, 191, 36, 0.85));
+        }
+
+        .power-distribution {
+            background: linear-gradient(135deg, rgba(168, 85, 247, 0.85), rgba(236, 72, 153, 0.85));
+        }
+
+        .creative-commons {
+            background: linear-gradient(135deg, rgba(34, 197, 94, 0.85), rgba(59, 130, 246, 0.85));
+        }
+
+        .cooperative-governance {
+            background: linear-gradient(135deg, rgba(251, 191, 36, 0.85), rgba(245, 158, 11, 0.85));
+        }
+
+        .global-peace-engine {
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.85), rgba(139, 92, 246, 0.85));
+        }
+
+        .media-programming {
+            background: linear-gradient(135deg, rgba(239, 68, 68, 0.85), rgba(220, 38, 127, 0.85));
+        }
+
+        .premium-cooperative {
+            background: linear-gradient(135deg, rgba(6, 182, 212, 0.85), rgba(8, 145, 178, 0.85));
+        }
+
+        .kingdom-economics {
+            background: linear-gradient(135deg, rgba(245, 158, 11, 0.85), rgba(217, 119, 6, 0.85));
+        }
+
+        /* Side Panels */
+        .side-panels {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin: 40px 0;
+        }
+
+        /* Power Distribution Visualization */
+        .power-flow {
+            background: rgba(0, 0, 0, 0.4);
+            padding: 20px;
+            border-radius: 20px;
+            backdrop-filter: blur(15px);
+            border: 2px solid rgba(16, 185, 129, 0.4);
+        }
+
+        .power-flow h4 {
+            color: #10b981;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .power-indicator {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 8px 0;
+            font-size: 0.9rem;
+        }
+
+        .power-bar {
+            width: 60%;
+            height: 6px;
+            background: rgba(16, 185, 129, 0.3);
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        .power-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #10b981, #34d399);
+            border-radius: 3px;
+        }
+
+        /* Open Source Manifesto */
+        .open-source-manifesto {
+            background: rgba(0, 0, 0, 0.4);
+            padding: 20px;
+            border-radius: 20px;
+            backdrop-filter: blur(15px);
+            border: 2px solid rgba(139, 92, 246, 0.4);
+        }
+
+        .open-source-manifesto h4 {
+            color: #8b5cf6;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .open-source-manifesto ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .open-source-manifesto li {
+            padding: 6px 0;
+            padding-left: 25px;
+            position: relative;
+            font-size: 0.85rem;
+        }
+
+        .open-source-manifesto li:before {
+            content: "🔓";
+            position: absolute;
+            left: 0;
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+
+        .modal-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: linear-gradient(135deg, rgba(30, 30, 60, 0.95), rgba(60, 30, 90, 0.95));
+            padding: 40px;
+            border-radius: 25px;
+            max-width: 800px;
+            width: 90%;
+            max-height: 85vh;
+            overflow-y: auto;
+            border: 3px solid rgba(255, 215, 0, 0.4);
+            backdrop-filter: blur(25px);
+        }
+
+        .close {
+            position: absolute;
+            top: 15px;
+            right: 25px;
+            font-size: 2rem;
+            cursor: pointer;
+            color: #ffd700;
+        }
+
+        .features-list {
+            margin-top: 25px;
+        }
+
+        .features-list ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .features-list li {
+            padding: 8px 0;
+            padding-left: 30px;
+            position: relative;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        .features-list li:before {
+            content: "🤝";
+            position: absolute;
+            left: 0;
+        }
+
+        .cooperative-feature li:before {
+            content: "👑";
+        }
+
+        .kingdom-feature li:before {
+            content: "🌍";
+        }
+
+        .peace-feature li:before {
+            content: "☮️";
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .cooperative-network {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 30px;
+            }
+
+            .cooperative-hub {
+                grid-column: 1 / -1;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .title {
+                font-size: 2.5rem;
+            }
+            
+            .cooperative-network {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+            
+            .side-panels {
+                grid-template-columns: 1fr;
+            }
+            
+            .kingdom-manifesto {
+                padding: 20px 25px;
+            }
+
+            .node {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">Kingdom Cooperative Ecosystem</h1>
+        <p class="subtitle">Engineering Global Peace Through Distributed Power & Open Source Cooperation</p>
+        
+        <div class="kingdom-manifesto">
+            <h2>🤴 The Kingdom Principle Foundation</h2>
+            <p class="kingdom-quote">"When power's distributed according to Kingdom principles...yeah the enemy ain't about that!"</p>
+            
+            <div class="kingdom-principles">
+                <div class="principle">
+                    <h4>🔓 Open Source Everything</h4>
+                    <p>All tools completely free - we charge for community access, not software</p>
+                </div>
+                <div class="principle">
+                    <h4>🤝 Cooperative Dominance</h4>
+                    <p>Ditching hierarchical models for cooperative power distribution</p>
+                </div>
+                <div class="principle">
+                    <h4>🌍 Media for Good</h4>
+                    <p>Using media programming to engineer global peace, not division</p>
+                </div>
+                <div class="principle">
+                    <h4>⚖️ Values Alignment</h4>
+                    <p>Graphical models ensuring power flows according to Kingdom values</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Side Panels -->
+        <div class="side-panels">
+            <!-- Power Distribution Tracker -->
+            <div class="power-flow">
+                <h4>⚡ Distributed Power Flow</h4>
+                <div class="power-indicator">
+                    <span>Community</span>
+                    <div class="power-bar"><div class="power-fill" style="width: 85%;"></div></div>
+                </div>
+                <div class="power-indicator">
+                    <span>Creators</span>
+                    <div class="power-bar"><div class="power-fill" style="width: 75%;"></div></div>
+                </div>
+                <div class="power-indicator">
+                    <span>Contributors</span>
+                    <div class="power-bar"><div class="power-fill" style="width: 70%;"></div></div>
+                </div>
+                <div class="power-indicator">
+                    <span>Leadership</span>
+                    <div class="power-bar"><div class="power-fill" style="width: 40%;"></div></div>
+                </div>
+            </div>
+
+            <!-- Open Source Manifesto -->
+            <div class="open-source-manifesto">
+                <h4>🔓 Open Source Manifesto</h4>
+                <ul>
+                    <li>AI makes software development near-zero cost</li>
+                    <li>No reason to charge for tools anymore</li>
+                    <li>Value is in community & intelligent access</li>
+                    <li>Premium tiers for cooperative experiences</li>
+                    <li>Global peace through shared resources</li>
+                    <li>Kingdom principles over profit extraction</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Grid-Based Network Layout -->
+        <div class="cooperative-network">
+            <!-- SVG Background for connections -->
+            <svg class="network-connections" viewBox="0 0 1200 800" preserveAspectRatio="none">
+                <!-- Connection lines -->
+                <line x1="200" y1="100" x2="600" y2="400" stroke="rgba(255, 215, 0, 0.3)" stroke-width="2" stroke-dasharray="5,5">
+                    <animate attributeName="stroke-dashoffset" from="0" to="10" dur="2s" repeatCount="indefinite"/>
+                </line>
+                <line x1="600" y1="100" x2="600" y2="400" stroke="rgba(255, 215, 0, 0.3)" stroke-width="2" stroke-dasharray="5,5">
+                    <animate attributeName="stroke-dashoffset" from="0" to="10" dur="2s" repeatCount="indefinite"/>
+                </line>
+                <line x1="1000" y1="100" x2="600" y2="400" stroke="rgba(255, 215, 0, 0.3)" stroke-width="2" stroke-dasharray="5,5">
+                    <animate attributeName="stroke-dashoffset" from="0" to="10" dur="2s" repeatCount="indefinite"/>
+                </line>
+                <line x1="200" y1="700" x2="600" y2="400" stroke="rgba(16, 185, 129, 0.3)" stroke-width="2" stroke-dasharray="5,5">
+                    <animate attributeName="stroke-dashoffset" from="0" to="10" dur="2s" repeatCount="indefinite"/>
+                </line>
+                <line x1="600" y1="700" x2="600" y2="400" stroke="rgba(16, 185, 129, 0.3)" stroke-width="2" stroke-dasharray="5,5">
+                    <animate attributeName="stroke-dashoffset" from="0" to="10" dur="2s" repeatCount="indefinite"/>
+                </line>
+                <line x1="1000" y1="700" x2="600" y2="400" stroke="rgba(16, 185, 129, 0.3)" stroke-width="2" stroke-dasharray="5,5">
+                    <animate attributeName="stroke-dashoffset" from="0" to="10" dur="2s" repeatCount="indefinite"/>
+                </line>
+            </svg>
+
+            <!-- Top Row -->
+            <div class="node open-source-node" onclick="showModal('opensource')">
+                <div class="icon">🔓</div>
+                <h3>Open Source Foundation</h3>
+                <p>All tools free and open - charging only for community access and intelligent model interactions</p>
+            </div>
+
+            <div class="node values-alignment" onclick="showModal('values')">
+                <div class="icon">⚖️</div>
+                <h3>Values Alignment Engine</h3>
+                <p>Graphical models ensuring power distribution follows Kingdom principles and cooperative values</p>
+            </div>
+
+            <div class="node power-distribution" onclick="showModal('power')">
+                <div class="icon">⚡</div>
+                <h3>Power Distribution System</h3>
+                <p>Engineering cooperative governance - replacing hierarchies with distributed decision-making networks</p>
+            </div>
+
+            <!-- Central Hub -->
+            <div class="node cooperative-hub" onclick="showModal('cooperative')">
+                <div class="icon">👑</div>
+                <h3>Kingdom Cooperative Hub</h3>
+                <p>Distributed power according to Kingdom principles - community-owned, values-aligned, peace-engineering core</p>
+            </div>
+
+            <!-- Middle Row -->
+            <div class="node creative-commons" onclick="showModal('creative')">
+                <div class="icon">🎨</div>
+                <h3>Creative Commons</h3>
+                <p>Shared music, games, algorithms - all creative work available for community collaboration and growth</p>
+            </div>
+
+            <div class="node cooperative-governance" onclick="showModal('governance')">
+                <div class="icon">🏛️</div>
+                <h3>Cooperative Governance</h3>
+                <p>Community-driven decision making with transparent voting and values-based consensus mechanisms</p>
+            </div>
+
+            <div class="node global-peace-engine" onclick="showModal('peace')">
+                <div class="icon">🌍</div>
+                <h3>Global Peace Engine</h3>
+                <p>Engineering global peace through cooperative media programming and values alignment systems</p>
+            </div>
+
+            <!-- Bottom Row -->
+            <div class="node media-programming" onclick="showModal('media')">
+                <div class="icon">📺</div>
+                <h3>Conscious Media Programming</h3>
+                <p>Using media's brain-programming power for good - creating content that builds unity and understanding</p>
+            </div>
+
+            <div class="node premium-cooperative" onclick="showModal('premium')">
+                <div class="icon">💎</div>
+                <h3>Premium Cooperative Tiers</h3>
+                <p>High-value community experiences - mentorship, collaboration, and direct participation in peace engineering</p>
+            </div>
+
+            <div class="node kingdom-economics" onclick="showModal('economics')">
+                <div class="icon">💰</div>
+                <h3>Kingdom Economics</h3>
+                <p>Post-scarcity economic model - abundance through cooperation, sharing, and community-owned value creation</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <div id="modal-body"></div>
+        </div>
+    </div>
+
+    <script>
+        const modalContent = {
+            cooperative: {
+                title: "👑 Kingdom Cooperative Hub",
+                description: "The central organizing principle: power distributed according to Kingdom values, engineering global peace through cooperative community ownership.",
+                features: [
+                    "Community-owned platform with transparent governance",
+                    "Values-based decision making using Kingdom principles",
+                    "Distributed power structure replacing traditional hierarchies",
+                    "Cooperative ownership of all creative and technical assets",
+                    "Peace engineering through media and community programming",
+                    "Open-source everything with premium community experiences",
+                    "Global network of local cooperative communities",
+                    "Values alignment systems ensuring Kingdom principle adherence",
+                    "Conflict resolution through cooperative dialogue and consensus",
+                    "Resource sharing networks for mutual aid and support",
+                    "Educational programs on cooperative principles and peace engineering",
+                    "Integration of all platform elements under cooperative governance"
+                ]
+            },
+            opensource: {
+                title: "🔓 Open Source Foundation",
+                description: "Revolutionary approach: all tools free and open because AI makes software near-zero cost. Value is in community access and intelligent interactions.",
+                features: [
+                    "All music production tools completely free and open source",
+                    "Gaming development frameworks available to everyone",
+                    "GR-based trading algorithms open for community improvement",
+                    "Educational content freely accessible to all humanity",
+                    "Source code transparency for trust and collaboration",
+                    "Community-driven development with cooperative contributions",
+                    "Premium charging only for compute resources and AI access",
+                    "No artificial scarcity or proprietary lock-in",
+                    "Global knowledge sharing for accelerated innovation",
+                    "Cooperative licensing ensuring continued openness",
+                    "Democratic decision-making on platform development",
+                    "Open research publications advancing all three domains"
+                ]
+            },
+            values: {
+                title: "⚖️ Values Alignment Engine",
+                description: "Graphical models and systems ensuring all power distribution and decision-making aligns with Kingdom principles and cooperative values.",
+                features: [
+                    "Visual mapping of power flows and decision pathways",
+                    "Automated values alignment checking for all major decisions",
+                    "Community feedback loops ensuring Kingdom principle adherence",
+                    "Graphical interfaces for transparent governance participation",
+                    "Conflict detection and resolution through values analysis",
+                    "Real-time monitoring of cooperative principle implementation",
+                    "Educational visualization of Kingdom economics in action",
+                    "Community voting systems weighted by values alignment",
+                    "Transparent reporting on power distribution effectiveness",
+                    "Integration with all platform decisions and resource allocation",
+                    "AI-assisted values assessment and recommendation systems",
+                    "Global peace metrics tracking and optimization"
+                ]
+            },
+            power: {
+                title: "⚡ Power Distribution System",
+                description: "Engineering the end of hierarchical oppression through cooperative power distribution mechanisms and community-owned governance.",
+                features: [
+                    "Democratic decision-making replacing top-down control",
+                    "Community ownership of all platform assets and resources",
+                    "Transparent power flow visualization and accountability",
+                    "Rotating leadership roles to prevent power concentration",
+                    "Consensus-building tools for large-scale decision making",
+                    "Economic power sharing through cooperative ownership",
+                    "Educational power through open access to all knowledge",
+                    "Creative power through shared tools and collaborative spaces",
+                    "Technical power through open-source development participation",
+                    "Conflict resolution power through community mediation",
+                    "Resource allocation power through cooperative planning",
+                    "Global influence power through network effect cooperation"
+                ]
+            },
+            creative: {
+                title: "🎨 Creative Commons",
+                description: "All creative work - music, games, algorithms, educational content - freely shared for community collaboration and global benefit.",
+                features: [
+                    "All music tracks available for remixing and collaboration",
+                    "Game assets and code freely shareable and modifiable",
+                    "Educational content open for translation and adaptation",
+                    "Algorithm improvements contributed back to community",
+                    "Creative collaboration tools for global participation",
+                    "Attribution systems recognizing all contributors",
+                    "Revenue sharing for commercialization of shared works",
+                    "Cultural preservation through open creative archives",
+                    "Cross-pollination between music, gaming, and education",
+                    "Community curation and quality enhancement",
+                    "Global accessibility through open licensing",
+                    "Innovation acceleration through shared knowledge"
+                ]
+            },
+            governance: {
+                title: "🏛️ Cooperative Governance",
+                description: "Community-driven decision making with transparent voting, values-based consensus, and distributed authority replacing traditional corporate hierarchy.",
+                features: [
+                    "One-member-one-vote on major platform decisions",
+                    "Values-weighted voting for Kingdom principle alignment",
+                    "Transparent proposal and discussion processes",
+                    "Community councils for different domains (music/gaming/finance)",
+                    "Rotating facilitator roles preventing power concentration",
+                    "Consensus-building workshops and conflict resolution",
+                    "Open budget planning and resource allocation",
+                    "Community auditing of all financial and operational decisions",
+                    "Global representation ensuring diverse voices",
+                    "Apprenticeship programs for governance skill development",
+                    "Regular community assemblies for major direction setting",
+                    "Integration with values alignment systems for decision validation"
+                ]
+            },
+            peace: {
+                title: "🌍 Global Peace Engine",
+                description: "This isn't a joke: engineering global peace through cooperative media programming, values alignment, and distributed power systems.",
+                features: [
+                    "Media content designed to promote unity and understanding",
+                    "Educational programs on conflict resolution and cooperation",
+                    "Global network of local peace-building communities",
+                    "Cross-cultural collaboration through shared creative projects",
+                    "Economic cooperation models reducing resource-based conflict",
+                    "Values alignment systems preventing divisive content",
+                    "Community-owned media replacing corporate propaganda",
+                    "Interfaith and intercultural dialogue facilitation",
+                    "Nonviolent communication training and practice",
+                    "Restorative justice integration in community governance",
+                    "Environmental cooperation through shared sustainability projects",
+                    "Global peace metrics tracking and optimization strategies"
+                ]
+            },
+            media: {
+                title: "📺 Conscious Media Programming",
+                description: "Media literally programs your brain - fundamental law of environmental interaction. We use this power for unity, education, and peace.",
+                features: [
+                    "Music content promoting cooperation and understanding",
+                    "Games teaching conflict resolution and empathy",
+                    "Educational content on Kingdom principles and peace engineering",
+                    "Algorithms designed to promote constructive engagement",
+                    "Community-created content with values alignment filtering",
+                    "Positive psychology integration in all media experiences",
+                    "Cultural bridge-building through shared stories and experiences",
+                    "Mental health and community well-being focus",
+                    "Democratic control over algorithmic content recommendation",
+                    "Transparency in media influence and brain programming effects",
+                    "Community education on media literacy and conscious consumption",
+                    "Global narrative coordination for peace and cooperation"
+                ]
+            },
+            premium: {
+                title: "💎 Premium Cooperative Tiers",
+                description: "High-value community experiences focused on mentorship, collaboration, and direct participation in peace engineering - not hierarchical exclusion.",
+                features: [
+                    "🤝 Cooperative Contributor ($25/mo): Direct participation in platform governance and development decisions",
+                    "👥 Community Facilitator ($50/mo): Training and resources for local community organizing and conflict resolution",
+                    "🌟 Peace Engineer ($100/mo): Advanced training in values alignment systems and global peace strategy development",
+                    "🧠 Wisdom Council ($200/mo): Monthly direct collaboration with founders on Kingdom principle implementation",
+                    "🌍 Global Ambassador ($500/mo): Resources and support for establishing cooperative communities worldwide",
+                    "Personal mentorship in cooperative leadership and peace engineering",
+                    "Access to advanced AI models for community-building projects",
+                    "Priority compute resources for developing open-source tools",
+                    "Exclusive workshops on Kingdom economics and cooperative governance",
+                    "Direct participation in global peace strategy development",
+                    "Network access to other cooperative leaders worldwide",
+                    "All tiers include profit sharing and democratic ownership rights"
+                ]
+            },
+            economics: {
+                title: "💰 Kingdom Economics",
+                description: "Post-scarcity economic model based on abundance through cooperation, sharing, and community-owned value creation rather than artificial scarcity.",
+                features: [
+                    "Open-source everything eliminates artificial software scarcity",
+                    "Community ownership of all platform assets and intellectual property",
+                    "Profit sharing based on contribution rather than capital ownership",
+                    "Cooperative decision-making on resource allocation and investment",
+                    "Gift economy integration for creative and educational contributions",
+                    "Mutual aid networks for community member support and resilience",
+                    "Time banking systems for equitable service exchange",
+                    "Transparent financial reporting and democratic budget planning",
+                    "Investment in global peace infrastructure and cooperation systems",
+                    "Revenue streams focused on community value rather than extraction",
+                    "Economic power distribution preventing wealth concentration",
+                    "Sustainable resource use through cooperative planning and sharing"
+                ]
+            }
+        };
+
+        function showModal(type) {
+            const modal = document.getElementById('modal');
+            const modalBody = document.getElementById('modal-body');
+            const content = modalContent[type];
+            
+            const featureClass = type === 'cooperative' || type === 'power' || type === 'governance' ? 'cooperative-feature' : 
+                                type === 'peace' || type === 'media' ? 'peace-feature' :
+                                type === 'values' || type === 'economics' ? 'kingdom-feature' : '';
+            
+            modalBody.innerHTML = `
+                <h2>${content.title}</h2>
+                <p style="font-size: 1.15rem; margin: 25px 0; opacity: 0.95; line-height: 1.6;">${content.description}</p>
+                <div class="features-list ${featureClass}">
+                    <h3>Key Features & Principles:</h3>
+                    <ul>
+                        ${content.features.map(feature => `<li>${feature}</li>`).join('')}
+                    </ul>
+                </div>
+            `;
+            
+            modal.style.display = 'block';
+        }
+
+        function closeModal() {
+            document.getElementById('modal').style.display = 'none';
+        }
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const modal = document.getElementById('modal');
+            if (event.target === modal) {
+                modal.style.display = 'none';
+            }
+        }
+
+        // Enhanced animations
+        document.addEventListener('DOMContentLoaded', function() {
+            const nodes = document.querySelectorAll('.node');
+            nodes.forEach((node, index) => {
+                node.style.animationDelay = `${index * 0.15}s`;
+                node.style.animation = 'fadeInUp 0.8s ease forwards';
+                node.style.opacity = '0';
+            });
+        });
+
+        // Add CSS animation keyframes
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes fadeInUp {
+                from {
+                    opacity: 0;
+                    transform: translateY(40px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>

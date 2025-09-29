@@ -1,0 +1,77 @@
+{
+  "analysis_summary": {
+    "total_files_analyzed": 0,
+    "merge_ready_files": 0,
+    "conditional_files": 0,
+    "not_ready_files": 0,
+    "overall_merge_readiness": "ready|conditional|not_ready",
+    "analysis_timestamp": "ISO timestamp"
+  },
+  "file_analyses": [
+    {
+      "file_path": "path/to/file.ext",
+      "file_type": "html|python|javascript|css|json|markdown|other",
+      "file_classification": "core|ui|config|documentation|test",
+      "merge_readiness": "ready|conditional|not_ready",
+      "overall_assessment": {
+        "purpose": "Clear description of what this file does",
+        "business_impact": "How this file contributes to project goals",
+        "architecture_notes": "Design patterns and architectural considerations",
+        "integration_points": "How this connects to other parts of the system",
+        "risk_assessment": "Potential risks or concerns"
+      },
+      "feedback": "Only present if merge_readiness is conditional or not_ready",
+      "code_elements": {
+        "classes": [
+          {
+            "name": "ClassName",
+            "line_range": "start-end",
+            "purpose": "What this class does",
+            "merge_readiness": "ready|conditional|not_ready",
+            "design_assessment": "Design quality and patterns used",
+            "feedback": "Only if conditional or not_ready",
+            "methods": [
+              {
+                "name": "methodName",
+                "line_range": "start-end", 
+                "purpose": "What this method does",
+                "merge_readiness": "ready|conditional|not_ready",
+                "complexity_level": "low|medium|high",
+                "feedback": "Only if conditional or not_ready"
+              }
+            ]
+          }
+        ],
+        "functions": [
+          {
+            "name": "functionName",
+            "line_range": "start-end",
+            "purpose": "What this function does", 
+            "merge_readiness": "ready|conditional|not_ready",
+            "complexity_level": "low|medium|high",
+            "logic_assessment": "Quality of implementation",
+            "feedback": "Only if conditional or not_ready"
+          }
+        ],
+        "global_variables": [
+          {
+            "name": "variableName",
+            "purpose": "What this variable represents",
+            "merge_readiness": "ready|conditional|not_ready",
+            "feedback": "Only if conditional or not_ready"
+          }
+        ]
+      }
+    }
+  ],
+  "recommendations": [
+    "List of overall recommendations for the entire PR",
+    "Focus on patterns seen across multiple files",
+    "Architectural improvements",
+    "Security considerations"
+  ],
+  "blocking_issues": [
+    "Critical issues that prevent merge",
+    "Must be addressed before approval"
+  ]
+}

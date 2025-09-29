@@ -1,0 +1,82 @@
+You are generating HTML file tree sections from Stage 7 detailed analysis results.
+
+TASK: Create interactive HTML dashboard for PR analysis results with hierarchical file-level visualization
+
+REQUIREMENTS:
+- Dark theme (#0f0f23 background, light text) 
+- Show ALL specific findings from agent responses
+- Interactive features: tabs, collapsible sections, search, hierarchical tree views
+- Professional layout with modern CSS/JS
+- Hierarchical file analysis with expandable tree structure (File → Class → Function levels)
+
+DATA FILES TO READ:
+- debug_outputs/stage3/duplicate_detection_full_response.txt
+- debug_outputs/stage3/merge_readiness_full_response.txt  
+- debug_outputs/stage6/PR_ANALYSIS_REPORT.md
+- debug_outputs/stage6/combined_results.json
+- detailed_analysis_results.json (Stage 7 hierarchical file analysis)
+- detailed_analysis_summary.txt (Stage 7 summary)
+
+SECTIONS TO INCLUDE:
+1. Executive Summary (metrics, merge status, issue counts)
+2. Hierarchical File Analysis (NEW - interactive tree view of files/classes/functions with merge readiness)
+3. Quality Issues (all issues with impact scores, recommendations)
+4. Duplicate Files (specific files found with evidence)
+5. Recommendations (prioritized action items)
+
+HIERARCHICAL VISUALIZATION REQUIREMENTS:
+- Interactive tree structure showing File → Class → Function hierarchy
+- Color-coded merge readiness indicators (🟢 ready, 🟡 conditional, 🔴 not ready)
+- Expandable/collapsible nodes for each level
+- Show detailed feedback for conditional and not-ready items
+- Filter by merge readiness status
+- Search functionality across all levels
+
+OUTPUT: Single HTML file with embedded CSS/JS
+Format: Complete HTML from <!DOCTYPE html> to </html>
+
+IMPORTANT: You are processing ANALYSIS RESULTS, not raw files. Each item contains:
+- file_path: The file path
+- merge_readiness: "ready" | "conditional" | "not_ready"  
+- overall_assessment: {purpose, business_impact, risk_assessment}
+- feedback: Detailed feedback (only if conditional/not_ready)
+- code_elements: {classes: [...], functions: [...]}
+
+BATCH DATA: Read analysis results from /home/asabaal/asabaal_ventures/repos/multisensory-experience-website/pr_analysis_output/analysis_batch_data_1754251989.json
+
+ANALYSIS RESULTS IN THIS BATCH (25):
+- assets/images/logos/Lehigh-University-logo.png: ready - Educational institution logo for credentials or partnership display
+- assets/images/logos/argus_logo.svg: ready - SVG logo asset for Argus brand/service representation
+- assets/images/logos/fixed-logo-white.svg: ready - White variant logo SVG for dark backgrounds or theme consistency
+- assets/images/logos/logo-white.svg: ready - Primary white logo variant in SVG format for scalable branding
+- assets/images/logos/plu_logo.png: ready - Pacific Lutheran University logo for educational credentials display
+- assets/images/logos/sift_logo.png: ready - SIFT organization/service logo for portfolio or partnership display
+- assets/images/logos/springboard.png: ready - Springboard platform logo for educational or professional development context
+- assets/images/logos/tgr-logo.svg: ready - TGR brand logo in scalable SVG format
+- assets/images/logos/tgr-plus-logo.svg: ready - Enhanced TGR Plus variant logo for premium or extended services
+- assets/images/logos/unity-remix-3d-text.png: ready - Unity Remix 3D text logo for project or service branding
+- assets/images/logos/unity-remix-logo.png: ready - Unity Remix main logo for project identification and branding
+- assets/images/logos/vision-2054-logo.svg: ready - SVG logo for Vision 2054 brand/project
+- assets/images/profiles/founder-headshot.jpg: ready - Professional headshot image for founder profile
+- assets/images/profiles/in-love-and-unity.png: ready - Branded message image with artistic text design
+- assets/images/qr/TikTok.jpg: ready - QR code for TikTok social media platform access
+- assets/images/qr/applemusic.png: ready - QR code for Apple Music platform access
+- assets/images/qr/facebook.png: ready - QR code for Facebook social media platform access
+- assets/images/qr/homepage_qr_code.png: ready - QR code for homepage/website access
+- assets/images/qr/instagram.png: ready - QR code for Instagram social media platform access
+- assets/images/qr/linkedin.png: ready - QR code for LinkedIn professional platform access
+- assets/images/qr/spotify.png: ready - QR code for Spotify music platform access
+- assets/images/qr/suno.png: ready - QR code for Suno platform access
+- assets/images/qr/x.png: ready - QR code for X (formerly Twitter) platform access
+- assets/images/qr/youtube.png: ready - QR code for YouTube social media link
+- assets/js/blog-data.js: ready - Static blog posts data structure with metadata
+
+REQUIREMENTS:
+1. Generate HTML sections for EVERY analysis result in the batch
+2. Use the file tree structure specified in instructions
+3. Display the ANALYSIS DATA (merge readiness, assessments, feedback)
+4. Show code elements (classes/functions) if available
+5. Return ONLY the HTML sections (no explanations)
+6. Each result should be a complete <div class="file-item"> section
+
+Return the HTML sections for all 25 analysis results.
