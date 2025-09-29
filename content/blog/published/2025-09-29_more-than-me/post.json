@@ -1,0 +1,60 @@
+{
+  "metadata": {
+    "title": "More Than Me: How My Beliefs Evolved",
+    "slug": "more-than-me-how-my-beliefs-evolved",
+    "publishDate": "2024-08-19",
+    "tags": [
+      "personal-growth",
+      "beliefs",
+      "evolution"
+    ],
+    "excerpt": "A journey from conservative Christian upbringing to embracing love and truth as the foundation of faith, exploring how the author's beliefs about identity and acceptance evolved through music and scripture.",
+    "coverImage": "cover.jpg",
+    "featured": false,
+    "status": "published"
+  },
+  "content": {
+    "subtitle": "A journey of personal transformation",
+    "sections": [
+      {
+        "type": "intro",
+        "content": {
+          "text": "Hello World!\n\nOof. I gotta say, I really postponed writing this post because it’s such a difficult one to face for me. My song “More Than Me” is a deeply personal story of transformation in my life. I was raised in a conservative Christian environment, and this song shares the story of how I came to recognize that simply being gay didn’t make one evil."
+        },
+        "order": 1
+      },
+      {
+        "type": "verse-inspiration",
+        "content": {
+          "text": "One of my favorite Bible verses was a major inspiration for this song. I’ve rephrased the verse to make it a little more relatable in my marketing, and it goes like this, “Your love for each other proves your discipleship.” (John 13:35). I’ve always known deep down that this was at the core of the Christian message. There’s a reason Jesus tells his followers that the entirety of God’s message was to love God and love people (Mat. 22:37-40)."
+        },
+        "order": 2
+      },
+      {
+        "type": "hook-explanation",
+        "content": {
+          "text": "This brings me to the hook of the song. If Christians are supposed to “love God” then it would help to have an idea of what exactly God is. Fortunately, for the believer, this information is readily available! Christians are told that God is love (1 John 4:8) and God is truth (John 14:6). So at the end of the day, there is one thing that is the ultimate foundation of my understanding of God in my faith, and it’s this: “If God is love & God is truth, then that’s the life that I must choose”."
+        },
+        "order": 3
+      },
+      {
+        "type": "pre-chorus-reflection",
+        "content": {
+          "text": "The next most important part of this song is the pre-chorus. It was traditional in my religious upbringing to be taught that we were right and everyone else was simply just wrong and would ultimately face punishment for it (John 3:18). This is why I wrote “I believed that I knew best”. I thought highly of myself and my way of thinking, even though now I look back and see how hateful much of it was. The pre-chorus finishes by setting up the premise of how I was taught to navigate an understanding of my beliefs and how to grow and change if it was necessary."
+        },
+        "order": 4
+      },
+      {
+        "type": "conclusion",
+        "content": {
+          "text": "Recognizing that even if what I thought was best got proved wrong somehow, I needed to have a f..."
+        },
+        "order": 5
+      }
+    ]
+  },
+  "author": {
+    "name": "Asabaal Horan",
+    "signature": "In love and unity,<br><strong>Asabaal Horan</strong><br>Founder, Asabaal Ventures"
+  }
+}
