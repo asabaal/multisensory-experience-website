@@ -68,3 +68,4 @@ REQUIREMENTS:
 OUTPUT: 
 1. Updated PR_ANALYSIS_REPORT.md
 2. Updated complete_pr_analysis.json
+3. Updated pr_analysis_interactive.html
