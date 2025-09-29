@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connect with Asabaal - All Links</title>
+    <link rel="icon" type="image/svg+xml" href="assets/images/icons/favicon.svg">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #0f0f23 0%, #1a1a3e 25%, #2d1b69 50%, #4c1d95 75%, #6b21a8 100%);
+            color: #ffffff;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 600px;
+            width: 100%;
+            text-align: center;
+        }
+
+        /* Profile Section */
+        .profile-section {
+            margin-bottom: 40px;
+        }
+
+        .profile-image {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #fbbf24, #f59e0b);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 3rem;
+            font-weight: bold;
+            color: #0f0f23;
+            overflow: hidden;
+        }
+
+        .profile-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .profile-name {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+            background: linear-gradient(45deg, #fbbf24, #f472b6, #8b5cf6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .profile-tagline {
+            color: #d1d5db;
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+        }
+
+        /* QR Code Section */
+        .qr-section {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            padding: 20px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            margin-bottom: 30px;
+        }
+
+        .qr-placeholder {
+            width: 200px;
+            height: 200px;
+            background: white;
+            margin: 0 auto;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #0f0f23;
+            font-weight: bold;
+        }
+
+        .qr-text {
+            margin-top: 15px;
+            color: #9ca3af;
+            font-size: 0.9rem;
+        }
+
+        /* Links Section */
+        .links-section {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .link-category {
+            margin: 20px 0;
+        }
+
+        .category-title {
+            font-size: 1.2rem;
+            color: #fbbf24;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+
+        .platform-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            padding: 30px;
+            border-radius: 20px;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .platform-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(255, 255, 255, 0.3);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+        }
+        
+        .platform-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transition: left 0.5s ease;
+        }
+        
+        .platform-card:hover::before {
+            left: 100%;
+        }
+        
+        .platform-header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+        
+        .platform-icon {
+            font-size: 1.8rem;
+        }
+        
+        .platform-name {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: white;
+        }
+        
+        .qr-code-large {
+            width: 150px;
+            height: 150px;
+            border-radius: 12px;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            margin: 0 auto 20px;
+            background: white;
+            padding: 8px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+        }
+        
+        .platform-link {
+            display: inline-block;
+            background: linear-gradient(45deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+            color: white;
+            padding: 12px 24px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .platform-link:hover {
+            background: linear-gradient(45deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.1));
+            transform: translateY(-2px);
+        }
+        
+        .platforms-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin: 30px 0;
+        }
+
+        .link-button:hover {
+            transform: translateY(-2px);
+            border-color: rgba(255, 255, 255, 0.3);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        .link-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .link-button:hover::before {
+            left: 100%;
+        }
+
+        .link-icon {
+            font-size: 1.4rem;
+        }
+
+        /* Social Media Colors */
+        .tiktok { border-color: #ff0050; }
+        .tiktok:hover { background: rgba(255, 0, 80, 0.1); }
+
+        .youtube { border-color: #ff0000; }
+        .youtube:hover { background: rgba(255, 0, 0, 0.1); }
+
+        .instagram { border-color: #e4405f; }
+        .instagram:hover { background: rgba(228, 64, 95, 0.1); }
+
+        .facebook { border-color: #1877f2; }
+        .facebook:hover { background: rgba(24, 119, 242, 0.1); }
+
+        .linkedin { border-color: #0077b5; }
+        .linkedin:hover { background: rgba(0, 119, 181, 0.1); }
+
+        .twitter { border-color: #1da1f2; }
+        .twitter:hover { background: rgba(29, 161, 242, 0.1); }
+
+        .spotify { border-color: #1db954; }
+        .spotify:hover { background: rgba(29, 185, 84, 0.1); }
+
+        .apple-music { border-color: #fc3c44; }
+        .apple-music:hover { background: rgba(252, 60, 68, 0.1); }
+
+        .youtube-music { border-color: #ff0000; }
+        .youtube-music:hover { background: rgba(255, 0, 0, 0.1); }
+
+        .suno { border-color: #8b5cf6; }
+        .suno:hover { background: rgba(139, 92, 246, 0.1); }
+
+        /* Primary Links */
+        .primary-link {
+            background: linear-gradient(45deg, #f59e0b, #d97706);
+            border: none;
+            color: white;
+            font-size: 1.1rem;
+        }
+
+        .primary-link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(245, 158, 11, 0.3);
+        }
+
+        /* Footer */
+        .footer {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #9ca3af;
+            font-size: 0.9rem;
+        }
+
+        .footer a {
+            color: #fbbf24;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive */
+        @media (max-width: 480px) {
+            .profile-name {
+                font-size: 1.6rem;
+            }
+            
+            .link-button {
+                padding: 14px 20px;
+                font-size: 0.95rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Profile Section -->
+        <div class="profile-section">
+            <div class="profile-image">
+                <img src="assets/images/profiles/founder-headshot.jpg" alt="Dr. Asabaal Horan" onerror="this.style.display='none'; this.parentElement.innerHTML='AH';">
+            </div>
+            <h1 class="profile-name">Dr. Asabaal Horan</h1>
+            <p class="profile-tagline">Building Kingdom Cooperative Economy • Engineering Global Peace</p>
+        </div>
+
+
+        <!-- Primary Links -->
+        <div class="links-section">
+            <a href="index.html" class="link-button primary-link">
+                <span class="link-icon">🌟</span>
+                <span>Asabaal Ventures Website</span>
+            </a>
+            
+            <a href="unity-remix-contest.html" class="link-button primary-link">
+                <span class="link-icon">🎵</span>
+                <span>Unity Remix Contest</span>
+            </a>
+        </div>
+
+        <!-- Social Media Links -->
+        <div class="link-category">
+            <h2 class="category-title">Social Media</h2>
+            <div class="platforms-grid">
+                <div class="platform-card tiktok">
+                    <div class="platform-header">
+                        <span class="platform-icon">📱</span>
+                        <span class="platform-name">TikTok</span>
+                    </div>
+                    <img src="assets/images/qr/TikTok.jpg" alt="TikTok QR Code" class="qr-code-large">
+                    <p style="color: #d1d5db; margin-bottom: 15px;">@asabaalhoran</p>
+                    <a href="https://www.tiktok.com/@asabaalhoran" target="_blank" class="platform-link">Visit Profile</a>
+                </div>
+                
+                <div class="platform-card youtube">
+                    <div class="platform-header">
+                        <span class="platform-icon">📺</span>
+                        <span class="platform-name">YouTube</span>
+                    </div>
+                    <img src="assets/images/qr/youtube.png" alt="YouTube QR Code" class="qr-code-large">
+                    <p style="color: #d1d5db; margin-bottom: 15px;">@asabaal</p>
+                    <a href="https://www.youtube.com/@asabaal" target="_blank" class="platform-link">Visit Channel</a>
+                </div>
+                
+                <div class="platform-card instagram">
+                    <div class="platform-header">
+                        <span class="platform-icon">📷</span>
+                        <span class="platform-name">Instagram</span>
+                    </div>
+                    <img src="assets/images/qr/instagram.png" alt="Instagram QR Code" class="qr-code-large">
+                    <p style="color: #d1d5db; margin-bottom: 15px;">@asabaalhoran</p>
+                    <a href="https://www.instagram.com/asabaalhoran/" target="_blank" class="platform-link">Visit Profile</a>
+                </div>
+                
+                <div class="platform-card facebook">
+                    <div class="platform-header">
+                        <span class="platform-icon">👥</span>
+                        <span class="platform-name">Facebook</span>
+                    </div>
+                    <img src="assets/images/qr/facebook.png" alt="Facebook QR Code" class="qr-code-large">
+                    <p style="color: #d1d5db; margin-bottom: 15px;">Asabaal Ventures</p>
+                    <a href="https://www.facebook.com/profile.php?id=61559665792660" target="_blank" class="platform-link">Visit Page</a>
+                </div>
+                
+                <div class="platform-card linkedin">
+                    <div class="platform-header">
+                        <span class="platform-icon">💼</span>
+                        <span class="platform-name">LinkedIn</span>
+                    </div>
+                    <img src="assets/images/qr/linkedin.png" alt="LinkedIn QR Code" class="qr-code-large">
+                    <p style="color: #d1d5db; margin-bottom: 15px;">Dr. Asabaal Horan</p>
+                    <a href="https://www.linkedin.com/in/asabaal-horan-phd-2144b689/" target="_blank" class="platform-link">Visit Profile</a>
+                </div>
+                
+                <div class="platform-card twitter">
+                    <div class="platform-header">
+                        <span class="platform-icon">🐦</span>
+                        <span class="platform-name">X (Twitter)</span>
+                    </div>
+                    <img src="assets/images/qr/x.png" alt="X QR Code" class="qr-code-large">
+                    <p style="color: #d1d5db; margin-bottom: 15px;">@asabaalventures</p>
+                    <a href="https://x.com/asabaalventures" target="_blank" class="platform-link">Visit Profile</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Music Platform Links -->
+        <div class="link-category">
+            <h2 class="category-title">Music Platforms</h2>
+            <div class="platforms-grid">
+                <div class="platform-card spotify">
+                    <div class="platform-header">
+                        <span class="platform-icon">🎵</span>
+                        <span class="platform-name">Spotify</span>
+                    </div>
+                    <img src="assets/images/qr/spotify.png" alt="Spotify QR Code" class="qr-code-large">
+                    <p style="color: #d1d5db; margin-bottom: 15px;">Asabaal Music</p>
+                    <a href="https://open.spotify.com/artist/3lEEkkje9FI8sDZ8m6gMqI?si=ADWA3bUWQQODh1ylwQooRQ" target="_blank" class="platform-link">Listen Now</a>
+                </div>
+                
+                <div class="platform-card apple-music">
+                    <div class="platform-header">
+                        <span class="platform-icon">🎵</span>
+                        <span class="platform-name">Apple Music</span>
+                    </div>
+                    <img src="assets/images/qr/applemusic.png" alt="Apple Music QR Code" class="qr-code-large">
+                    <p style="color: #d1d5db; margin-bottom: 15px;">Asabaal Artist Page</p>
+                    <a href="https://music.apple.com/us/artist/asabaal/1772699078" target="_blank" class="platform-link">Listen Now</a>
+                </div>
+                
+                <div class="platform-card youtube-music">
+                    <div class="platform-header">
+                        <span class="platform-icon">🎵</span>
+                        <span class="platform-name">YouTube Music</span>
+                    </div>
+                    <img src="assets/images/qr/youtube.png" alt="YouTube Music QR Code" class="qr-code-large">
+                    <p style="color: #d1d5db; margin-bottom: 15px;">Music Channel</p>
+                    <a href="https://music.youtube.com/channel/UCxNlSZI7obQg8zBJHKITqbg" target="_blank" class="platform-link">Listen Now</a>
+                </div>
+                
+                <div class="platform-card suno">
+                    <div class="platform-header">
+                        <span class="platform-icon">🎵</span>
+                        <span class="platform-name">Suno</span>
+                    </div>
+                    <img src="assets/images/qr/suno.png" alt="Suno QR Code" class="qr-code-large">
+                    <p style="color: #d1d5db; margin-bottom: 15px;">@asabaal</p>
+                    <a href="https://suno.com/@asabaal" target="_blank" class="platform-link">Visit Profile</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p><a href="index.html">Back to Asabaal Ventures</a> • <a href="index.html#join">Join Newsletter</a></p>
+            <p style="margin-top: 10px;">© 2025 Asabaal Ventures • Kingdom Cooperative</p>
+        </div>
+    </div>
+</body>
+</html>

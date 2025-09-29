@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Collaborative Business Models & Ethical Advertising | Asabaal Ventures Blog</title>
+    <meta name="description" content="Exploring how businesses can collaborate ethically and use advertising as a force for positive social change in today's competitive landscape.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #0f0f23 0%, #1a1a3e 25%, #2d1b69 50%, #4c1d95 75%, #6b21a8 100%);
+            color: #ffffff;
+            min-height: 100vh;
+            overflow-x: hidden;
+            padding-top: 70px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(15, 15, 35, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 20px 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .nav {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .nav-links a {
+            color: #e5e7eb;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-weight: 500;
+        }
+        
+        .nav-links a:hover {
+            color: #fbbf24;
+        }
+
+        /* Post Header */
+        .post-header {
+            padding: 100px 0 60px;
+            text-align: center;
+            position: relative;
+            background: radial-gradient(circle at 50% 50%, rgba(251, 191, 36, 0.15) 0%, transparent 70%);
+        }
+
+
+        .back-link {
+            position: absolute;
+            top: 120px;
+            left: 20px;
+            color: #06b6d4;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .back-link:hover {
+            color: #fbbf24;
+        }
+
+        .post-title {
+            font-size: 3.5rem;
+            font-weight: 900;
+            margin-bottom: 25px;
+            background: linear-gradient(45deg, #fbbf24, #f472b6, #8b5cf6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.1;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .post-meta {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .post-date {
+            background: linear-gradient(45deg, #8b5cf6, #ec4899);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 25px;
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+
+        .post-tags {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            background: rgba(255, 255, 255, 0.1);
+            color: #d1d5db;
+            padding: 6px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .post-subtitle {
+            font-size: 1.3rem;
+            color: #d1d5db;
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        /* Featured Video */
+        .featured-video {
+            padding: 60px 0;
+            background: rgba(0, 0, 0, 0.2);
+        }
+
+        .video-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .featured-video .video-embed {
+            position: relative;
+            width: 100%;
+            height: 0;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        }
+
+        .featured-video .video-embed iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Video Placeholder */
+        .video-placeholder {
+            background: linear-gradient(135deg, rgba(15, 15, 35, 0.9), rgba(45, 27, 105, 0.8));
+            border: 2px dashed rgba(251, 191, 36, 0.3);
+            border-radius: 20px;
+            padding: 60px 40px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+        }
+
+        .placeholder-content {
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        .placeholder-icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            filter: grayscale(30%);
+        }
+
+        .placeholder-title {
+            color: #fbbf24;
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .placeholder-text {
+            color: #d1d5db;
+            font-size: 1.1rem;
+            line-height: 1.6;
+            opacity: 0.8;
+        }
+
+
+        /* Post Content */
+        .post-content {
+            padding: 80px 0;
+            background: linear-gradient(rgba(15, 15, 35, 0.85), rgba(45, 27, 105, 0.9)), url('../assets/images/blog/collaborative-business-models.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            position: relative;
+        }
+
+        .post-content::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.4);
+            pointer-events: none;
+        }
+
+        .content-wrapper {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .intro-section {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-left: 4px solid #fbbf24;
+            padding: 30px;
+            margin-bottom: 60px;
+            border-radius: 10px;
+            font-style: italic;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .intro-text {
+            font-size: 1.3rem;
+            color: #e5e7eb;
+            line-height: 1.7;
+        }
+
+        .content-section {
+            margin-bottom: 60px;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            padding: 30px;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .section-title {
+            font-size: 2rem;
+            color: #fbbf24;
+            margin-bottom: 25px;
+            font-weight: 700;
+        }
+
+        .content-text {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: #e5e7eb;
+            margin-bottom: 30px;
+        }
+
+        .content-text p {
+            margin-bottom: 20px;
+        }
+
+        .quote-section {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(15px);
+            border-left: 4px solid #fbbf24;
+            padding: 40px;
+            margin: 40px 0;
+            border-radius: 15px;
+            font-style: italic;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.3);
+        }
+
+        .quote-text {
+            font-size: 1.4rem;
+            color: #d1d5db;
+            margin-bottom: 15px;
+        }
+
+        .image-section {
+            margin: 40px 0;
+        }
+
+        .content-image {
+            text-align: center;
+        }
+
+        .section-img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 0 15px 35px -10px rgba(139, 92, 246, 0.3);
+        }
+
+        /* Special styling for in-love-and-unity image */
+        .section-img[src*="in-love-and-unity"] {
+            max-width: 300px;
+            margin: 0 auto;
+            display: block;
+        }
+
+        .image-caption {
+            text-align: center;
+            color: #9ca3af;
+            font-size: 0.9rem;
+            margin-top: 15px;
+            font-style: italic;
+        }
+
+        .video-section {
+            margin: 40px 0;
+            text-align: center;
+        }
+
+        .video-embed {
+            position: relative;
+            width: 100%;
+            height: 0;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px -10px rgba(139, 92, 246, 0.3);
+        }
+
+        .video-embed iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .video-title {
+            color: #fbbf24;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .video-description {
+            color: #9ca3af;
+            font-size: 0.9rem;
+            margin-top: 15px;
+        }
+
+        /* Author Section */
+        .author-section {
+            padding: 60px 0;
+            background: rgba(0, 0, 0, 0.4);
+            text-align: center;
+        }
+
+        .author-signature {
+            font-size: 1.1rem;
+            color: #d1d5db;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        .post-navigation {
+            padding: 60px 0;
+            background: rgba(0, 0, 0, 0.4);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .nav-button {
+            background: linear-gradient(45deg, #8b5cf6, #06b6d4);
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 50px;
+            font-weight: bold;
+            text-decoration: none;
+            transition: transform 0.3s ease;
+        }
+
+        .nav-button:hover {
+            transform: scale(1.05);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .post-title { font-size: 2.5rem; }
+            .back-link { position: static; margin-bottom: 20px; display: inline-block; }
+            .post-meta { flex-direction: column; gap: 15px; }
+            .nav-content { flex-direction: column; text-align: center; }
+            .nav-links { gap: 15px; font-size: 0.9rem; }
+            .post-content { background-attachment: scroll; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                <ul class="nav-links">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../vision_2054_page.html">Vision 2054</a></li>
+                    <li><a href="../index.html#videos">Videos</a></li>
+                    <li><a href="../unity-remix-contest.html">Contest</a></li>
+                    <li><a href="../blog.html">Blog</a></li>
+                    <li><a href="#contact">Connect</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Post Header -->
+    <section class="post-header">
+        <div class="container">
+            <a href="../blog.html" class="back-link">← Back to Blog</a>
+            <h1 class="post-title">Collaborative Business Models & Ethical Advertising</h1>
+            <div class="post-meta">
+                <span class="post-date">2024-08-22</span>
+                <div class="post-tags">
+                        <span class="tag">collaborative-business</span>
+                        <span class="tag">ethical-advertising</span>
+                        <span class="tag">social-impact</span>
+                        <span class="tag">partnerships</span>
+                        <span class="tag">business-ethics</span>
+                </div>
+            </div>
+            <p class="post-subtitle">
+                Exploring how businesses can collaborate ethically and use advertising as a force for positive social change in today's competitive landscape.
+            </p>
+        </div>
+    </section>
+
+                <!-- Featured Video Placeholder -->
+                <section class="featured-video">
+                    <div class="container">
+                        <div class="video-container">
+                            <div class="video-placeholder">
+                                <div class="placeholder-content">
+                                    <div class="placeholder-icon">🎬</div>
+                                    <h3 class="placeholder-title">Featured Video Coming Soon</h3>
+                                    <p class="placeholder-text">We're working on creating an engaging video for this post. Check back soon!</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+    <!-- Post Content -->
+    <section class="post-content">
+        <div class="container">
+            <div class="content-wrapper">
+
+                <div class="intro-section">
+                    <div class="intro-text">
+                        Hello, World! Today, we're exploring a concept that's reshaping the business landscape: collaborative business models. At Asabaal Affiliates, we're harnessing the power of partnerships, and at Asabaal Advertising we're working to redefine advertising as something which promotes social good. These things raise some intriguing questions.
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <h2 class="section-title">Ethical Collaboration in a Competitive Market</h2>
+                    <div class="content-text">
+                        <p>First, how can businesses collaborate ethically in a competitive market? In a world often driven by cutthroat competition, how do we foster genuine cooperation?</p>
+                        <p>Another crucial question: What role do shared values play in successful partnerships? Is alignment on mission and ethics as important as financial considerations?</p>
+                        <p>And here's a challenging one: How can affiliate models be used to drive positive social impact? Can we create partnerships that benefit not just businesses, but society as a whole?</p>
+                    </div>
+                </div>
+
+                <div class="quote-section">
+                    <div class="quote-text">
+                        "I believe that by working together, we can achieve more than we ever could alone."
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <h2 class="section-title">Advertising as a Force for Good</h2>
+                    <div class="content-text">
+                        <p>Something else to consider: how can we use advertising to promote social good? In a world where ads are often seen as manipulative, how can we flip the script and use them as a force for positive change?</p>
+                        <p>Another critical question: What are the ethical considerations in targeted digital advertising? As our ability to personalize ads becomes more sophisticated, where do we draw the line?</p>
+                        <p>And here's a challenging one: How do we measure the true impact of cause-related marketing? When a campaign claims to support a cause, how can we ensure it's making a real difference?</p>
+                    </div>
+                </div>
+
+                <div class="image-section">
+                    <div class="content-image">
+                        <img src="../assets/images/profiles/in-love-and-unity.png" alt="Visual representation of unity and collaboration in business" class="section-img">
+                        
+                    </div>
+                </div>
+
+                <div class="quote-section">
+                    <div class="quote-text">
+                        "I believe that advertising, when done ethically and thoughtfully, can be a powerful tool for education and positive influence."
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <h2 class="section-title">Join the Conversation</h2>
+                    <div class="content-text">
+                        <p>I await the opportunity to share more insights on this at the conference, and I'm curious to hear your views. How do you feel about the current state of advertising? What changes would you like to see? Share your thoughts with me!</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Author Section -->
+    <section class="author-section">
+        <div class="container">
+            <div class="author-signature">
+                In love and unity,<br><strong>Asabaal Horan</strong><br>Founder, Asabaal Ventures
+            </div>
+        </div>
+    </section>
+
+    <!-- Post Navigation -->
+    <section class="post-navigation">
+        <div class="container">
+            <div class="nav-content">
+                <div class="prev-post">
+                    <!-- Previous post link will be added dynamically -->
+                </div>
+                <a href="../blog.html" class="nav-button">All Posts</a>
+                <div class="next-post">
+                    <!-- Next post link will be added dynamically -->
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

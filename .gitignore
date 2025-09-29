@@ -1,0 +1,46 @@
+**/.claude/settings.local.json
+*.pdf
+
+# Codebase experimentation tool
+.codebase_ref
+
+# Environment variables
+.env
+.env.local
+.env.production
+
+# Local Supabase configuration (keep your keys private!)
+config/supabase-keys.js
+
+# Content Management
+# Note: You can choose to track or ignore blog content
+# Option 1: Track everything (recommended for backup)
+# content/
+
+# Option 2: Ignore drafts only (track published content)
+content/blog/drafts/
+
+# Option 3: Ignore all content (if you prefer external storage)
+# content/blog/
+
+# Migration script outputs
+content/migrate-posts.log
+
+# Image processing
+*.tmp
+*.temp
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Windows development artifacts
+*:Zone.Identifier
+
+# PR analysis debug outputs
+pr_analysis_output/debug_outputs/

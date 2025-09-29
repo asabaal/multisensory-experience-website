@@ -1,0 +1,74 @@
+You are generating HTML file tree sections for an interactive dashboard.
+
+TASK: Create interactive HTML dashboard for PR analysis results with hierarchical file-level visualization
+
+REQUIREMENTS:
+- Dark theme (#0f0f23 background, light text) 
+- Show ALL specific findings from agent responses
+- Interactive features: tabs, collapsible sections, search, hierarchical tree views
+- Professional layout with modern CSS/JS
+- Hierarchical file analysis with expandable tree structure (File → Class → Function levels)
+
+DATA FILES TO READ:
+- debug_outputs/stage3/duplicate_detection_full_response.txt
+- debug_outputs/stage3/merge_readiness_full_response.txt  
+- debug_outputs/stage6/PR_ANALYSIS_REPORT.md
+- debug_outputs/stage6/combined_results.json
+- detailed_analysis_results.json (Stage 7 hierarchical file analysis)
+- detailed_analysis_summary.txt (Stage 7 summary)
+
+SECTIONS TO INCLUDE:
+1. Executive Summary (metrics, merge status, issue counts)
+2. Hierarchical File Analysis (NEW - interactive tree view of files/classes/functions with merge readiness)
+3. Quality Issues (all issues with impact scores, recommendations)
+4. Duplicate Files (specific files found with evidence)
+5. Recommendations (prioritized action items)
+
+HIERARCHICAL VISUALIZATION REQUIREMENTS:
+- Interactive tree structure showing File → Class → Function hierarchy
+- Color-coded merge readiness indicators (🟢 ready, 🟡 conditional, 🔴 not ready)
+- Expandable/collapsible nodes for each level
+- Show detailed feedback for conditional and not-ready items
+- Filter by merge readiness status
+- Search functionality across all levels
+
+OUTPUT: Single HTML file with embedded CSS/JS
+Format: Complete HTML from <!DOCTYPE html> to </html>
+
+BATCH DATA: Read from /home/asabaal/asabaal_ventures/repos/multisensory-experience-website/pr_analysis_output/batch_data_1754251104.json
+
+FILES IN THIS BATCH (25):
+- .env.example
+- .gitignore
+- AGENTIC_SYSTEM_TECHNICAL_WALKTHROUGH.md
+- DEPLOYMENT.md
+- SUPABASE_SETUP.md
+- TECHNICAL_SPECIFICATION.md
+- assets/images/blog/20250512-cover-image.jpg
+- assets/images/blog/asabaal-ventures.jpg
+- assets/images/blog/by-my-hand.jpg
+- assets/images/blog/charting-a-course.jpg
+- assets/images/blog/collaborative-business-models.jpg
+- assets/images/blog/electric-pulse.jpg
+- assets/images/blog/ethical-advocacy.jpg
+- assets/images/blog/free-as-a-bird.jpg
+- assets/images/blog/human-creativity.jpg
+- assets/images/blog/keep-it-simple.jpg
+- assets/images/blog/logical-fallacies.jpg
+- assets/images/blog/microaggression.jpg
+- assets/images/blog/more-than-me.jpg
+- assets/images/blog/no.jpg
+- assets/images/blog/omniscient.jpg
+- assets/images/blog/power-of-pain.jpg
+- assets/images/blog/probably-right.jpg
+- assets/images/blog/respect.jpg
+- assets/images/logos/Asabaal Ventures.png
+
+REQUIREMENTS:
+1. Generate HTML sections for EVERY file in the batch
+2. Use the file tree structure specified in instructions
+3. Include all file analysis data (purpose, business impact, risk assessment)
+4. Return ONLY the HTML sections (no explanations)
+5. Each file should be a complete <div class="file-item"> section
+
+Return the HTML sections for all 25 files.

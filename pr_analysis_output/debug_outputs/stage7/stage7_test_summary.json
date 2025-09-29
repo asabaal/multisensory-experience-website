@@ -1,0 +1,12 @@
+{
+  "stage": "7_detailed_analysis",
+  "success": true,
+  "message": "Detailed file-level analysis completed successfully",
+  "timestamp": "2025-08-03 13:09:30",
+  "output_files": [
+    "/home/asabaal/asabaal_ventures/repos/multisensory-experience-website/pr_analysis_output/debug_outputs/stage7/detailed_analysis_results.json",
+    "/home/asabaal/asabaal_ventures/repos/multisensory-experience-website/pr_analysis_output/debug_outputs/stage7/analysis_summary.txt",
+    "/home/asabaal/asabaal_ventures/repos/multisensory-experience-website/pr_analysis_output/debug_outputs/stage7/detailed_analysis_prompt.txt",
+    "/home/asabaal/asabaal_ventures/repos/multisensory-experience-website/pr_analysis_output/debug_outputs/stage7/detailed_analysis_full_response.txt"
+  ]
+}

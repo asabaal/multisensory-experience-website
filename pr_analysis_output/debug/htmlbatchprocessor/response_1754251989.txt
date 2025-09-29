@@ -1,0 +1,526 @@
+```html
+<div class="file-item" data-status="ready">
+  <div class="file-header" onclick="toggleFileExpansion(this)">
+    <span class="status-indicator">🟢</span>
+    <span class="file-path">.env.example</span>
+    <span class="status-text">Ready to merge</span>
+  </div>
+  <div class="file-details">
+    <div class="assessment">
+      <h4>Purpose</h4>
+      <p>Environment configuration template with secure defaults and clear documentation</p>
+      <h4>Business Impact</h4>
+      <p>Enables proper configuration management for production deployment</p>
+      <h4>Risk Assessment</h4>
+      <p>Low risk - template file with placeholder values, no secrets exposed</p>
+    </div>
+    <div class="code-elements">
+      <p><em>No code elements detected</em></p>
+    </div>
+  </div>
+</div>
+
+<div class="file-item" data-status="ready">
+  <div class="file-header" onclick="toggleFileExpansion(this)">
+    <span class="status-indicator">🟢</span>
+    <span class="file-path">.gitignore</span>
+    <span class="status-text">Ready to merge</span>
+  </div>
+  <div class="file-details">
+    <div class="assessment">
+      <h4>Purpose</h4>
+      <p>Standard gitignore configuration for web project with security considerations</p>
+      <h4>Business Impact</h4>
+      <p>Prevents accidental commits of sensitive files and development artifacts</p>
+      <h4>Risk Assessment</h4>
+      <p>Low risk - standard ignore patterns with proper security exclusions</p>
+    </div>
+    <div class="code-elements">
+      <p><em>No code elements detected</em></p>
+    </div>
+  </div>
+</div>
+
+<div class="file-item" data-status="ready">
+  <div class="file-header" onclick="toggleFileExpansion(this)">
+    <span class="status-indicator">🟢</span>
+    <span class="file-path">AGENTIC_SYSTEM_TECHNICAL_WALKTHROUGH.md</span>
+    <span class="status-text">Ready to merge</span>
+  </div>
+  <div class="file-details">
+    <div class="assessment">
+      <h4>Purpose</h4>
+      <p>Comprehensive technical documentation for agentic PR analysis system architecture</p>
+      <h4>Business Impact</h4>
+      <p>Provides clear understanding of system design and troubleshooting guidance</p>
+      <h4>Risk Assessment</h4>
+      <p>Low risk - documentation only, helps with system maintenance and debugging</p>
+    </div>
+    <div class="code-elements">
+      <p><em>No code elements detected</em></p>
+    </div>
+  </div>
+</div>
+
+<div class="file-item" data-status="ready">
+  <div class="file-header" onclick="toggleFileExpansion(this)">
+    <span class="status-indicator">🟢</span>
+    <span class="file-path">DEPLOYMENT.md</span>
+    <span class="status-text">Ready to merge</span>
+  </div>
+  <div class="file-details">
+    <div class="assessment">
+      <h4>Purpose</h4>
+      <p>Step-by-step deployment guide for multiple hosting platforms with backend setup</p>
+      <h4>Business Impact</h4>
+      <p>Enables smooth production deployment and reduces deployment friction</p>
+      <h4>Risk Assessment</h4>
+      <p>Low risk - instructional documentation with security best practices included</p>
+    </div>
+    <div class="code-elements">
+      <p><em>No code elements detected</em></p>
+    </div>
+  </div>
+</div>
+
+<div class="file-item" data-status="ready">
+  <div class="file-header" onclick="toggleFileExpansion(this)">
+    <span class="status-indicator">🟢</span>
+    <span class="file-path">SUPABASE_SETUP.md</span>
+    <span class="status-text">Ready to merge</span>
+  </div>
+  <div class="file-details">
+    <div class="assessment">
+      <h4>Purpose</h4>
+      <p>Detailed backend setup guide for Supabase integration with security considerations</p>
+      <h4>Business Impact</h4>
+      <p>Essential for backend functionality, enables database and authentication setup</p>
+      <h4>Risk Assessment</h4>
+      <p>Low risk - setup documentation with appropriate security warnings and best practices</p>
+    </div>
+    <div class="code-elements">
+      <p><em>No code elements detected</em></p>
+    </div>
+  </div>
+</div>
+
+<div class="file-item" data-status="ready">
+  <div class="file-header" onclick="toggleFileExpansion(this)">
+    <span class="status-indicator">🟢</span>
+    <span class="file-path">TECHNICAL_SPECIFICATION.md</span>
+    <span class="status-text">Ready to merge</span>
+  </div>
+  <div class="file-details">
+    <div class="assessment">
+      <h4>Purpose</h4>
+      <p>Comprehensive technical roadmap for multimedia ecosystem expansion</p>
+      <h4>Business Impact</h4>
+      <p>Provides strategic technical direction and implementation priorities</p>
+      <h4>Risk Assessment</h4>
+      <p>Low risk - planning document with realistic technical approach and cost projections</p>
+    </div>
+    <div class="code-elements">
+      <p><em>No code elements detected</em></p>
+    </div>
+  </div>
+</div>
+
+<div class="file-item" data-status="ready">
+  <div class="file-header" onclick="toggleFileExpansion(this)">
+    <span class="status-indicator">🟢</span>
+    <span class="file-path">assets/images/blog/20250512-cover-image.jpg</span>
+    <span class="status-text">Ready to merge</span>
+  </div>
+  <div class="file-details">
+    <div class="assessment">
+      <h4>Purpose</h4>
+      <p>Blog content image asset for visual content presentation</p>
+      <h4>Business Impact</h4>
+      <p>Enhances blog visual appeal and user engagement</p>
+      <h4>Risk Assessment</h4>
+      <p>No risk - static image asset</p>
+    </div>
+    <div class="code-elements">
+      <p><em>No code elements detected</em></p>
+    </div>
+  </div>
+</div>
+
+<div class="file-item" data-status="ready">
+  <div class="file-header" onclick="toggleFileExpansion(this)">
+    <span class="status-indicator">🟢</span>
+    <span class="file-path">assets/images/blog/asabaal-ventures.jpg</span>
+    <span class="status-text">Ready to merge</span>
+  </div>
+  <div class="file-details">
+    <div class="assessment">
+      <h4>Purpose</h4>
+      <p>Blog content image asset for visual content presentation</p>
+      <h4>Business Impact</h4>
+      <p>Enhances blog visual appeal and user engagement</p>
+      <h4>Risk Assessment</h4>
+      <p>No risk - static image asset</p>
+    </div>
+    <div class="code-elements">
+      <p><em>No code elements detected</em></p>
+    </div>
+  </div>
+</div>
+
+<div class="file-item" data-status="ready">
+  <div class="file-header" onclick="toggleFileExpansion(this)">
+    <span class="status-indicator">🟢</span>
+    <span class="file-path">assets/images/blog/by-my-hand.jpg</span>
+    <span class="status-text">Ready to merge</span>
+  </div>
+  <div class="file-details">
+    <div class="assessment">
+      <h4>Purpose</h4>
+      <p>Blog content image asset for visual content presentation</p>
+      <h4>Business Impact</h4>
+      <p>Enhances blog visual appeal and user engagement</p>
+      <h4>Risk Assessment</h4>
+      <p>No risk - static image asset</p>
+    </div>
+    <div class="code-elements">
+      <p><em>No code elements detected</em></p>
+    </div>
+  </div>
+</div>
+
+<div class="file-item" data-status="ready">
+  <div class="file-header" onclick="toggleFileExpansion(this)">
+    <span class="status-indicator">🟢</span>
+    <span class="file-path">assets/images/blog/charting-a-course.jpg</span>
+    <span class="status-text">Ready to merge</span>
+  </div>
+  <div class="file-details">
+    <div class="assessment">
+      <h4>Purpose</h4>
+      <p>Blog content image asset for visual content presentation</p>
+      <h4>Business Impact</h4>
+      <p>Enhances blog visual appeal and user engagement</p>
+      <h4>Risk Assessment</h4>
+      <p>No risk - static image asset</p>
+    </div>
+    <div class="code-elements">
+      <p><em>No code elements detected</em></p>
+    </div>
+  </div>
+</div>
+
+<div class="file-item" data-status="ready">
+  <div class="file-header" onclick="toggleFileExpansion(this)">
+    <span class="status-indicator">🟢</span>
+    <span class="file-path">assets/images/blog/collaborative-business-models.jpg</span>
+    <span class="status-text">Ready to merge</span>
+  </div>
+  <div class="file-details">
+    <div class="assessment">
+      <h4>Purpose</h4>
+      <p>Blog content image asset for visual content presentation</p>
+      <h4>Business Impact</h4>
+      <p>Enhances blog visual appeal and user engagement</p>
+      <h4>Risk Assessment</h4>
+      <p>No risk - static image asset</p>
+    </div>
+    <div class="code-elements">
+      <p><em>No code elements detected</em></p>
+    </div>
+  </div>
+</div>
+
+<div class="file-item" data-status="ready">
+  <div class="file-header" onclick="toggleFileExpansion(this)">
+    <span class="status-indicator">🟢</span>
+    <span class="file-path">assets/images/blog/electric-pulse.jpg</span>
+    <span class="status-text">Ready to merge</span>
+  </div>
+  <div class="file-details">
+    <div class="assessment">
+      <h4>Purpose</h4>
+      <p>Blog content image asset for visual content presentation</p>
+      <h4>Business Impact</h4>
+      <p>Enhances blog visual appeal and user engagement</p>
+      <h4>Risk Assessment</h4>
+      <p>No risk - static image asset</p>
+    </div>
+    <div class="code-elements">
+      <p><em>No code elements detected</em></p>
+    </div>
+  </div>
+</div>
+
+<div class="file-item" data-status="ready">
+  <div class="file-header" onclick="toggleFileExpansion(this)">
+    <span class="status-indicator">🟢</span>
+    <span class="file-path">assets/images/blog/ethical-advocacy.jpg</span>
+    <span class="status-text">Ready to merge</span>
+  </div>
+  <div class="file-details">
+    <div class="assessment">
+      <h4>Purpose</h4>
+      <p>Blog cover image depicting social justice advocacy with protest signs for equality and justice</p>
+      <h4>Business Impact</h4>
+      <p>Supports blog content on ethical advocacy and social change themes</p>
+      <h4>Risk Assessment</h4>
+      <p>Low risk - professionally composed image appropriate for advocacy content</p>
+    </div>
+    <div class="code-elements">
+      <p><em>No code elements detected</em></p>
+    </div>
+  </div>
+</div>
+
+<div class="file-item" data-status="ready">
+  <div class="file-header" onclick="toggleFileExpansion(this)">
+    <span class="status-indicator">🟢</span>
+    <span class="file-path">assets/images/blog/free-as-a-bird.jpg</span>
+    <span class="status-text">Ready to merge</span>
+  </div>
+  <div class="file-details">
+    <div class="assessment">
+      <h4>Purpose</h4>
+      <p>Artistic cover image showing spiritual liberation theme with winged figure and glowing energy centers</p>
+      <h4>Business Impact</h4>
+      <p>Visually represents spiritual journey and self-discovery blog content</p>
+      <h4>Risk Assessment</h4>
+      <p>Low risk - high-quality artistic rendering suitable for spiritual content</p>
+    </div>
+    <div class="code-elements">
+      <p><em>No code elements detected</em></p>
+    </div>
+  </div>
+</div>
+
+<div class="file-item" data-status="ready">
+  <div class="file-header" onclick="toggleFileExpansion(this)">
+    <span class="status-indicator">🟢</span>
+    <span class="file-path">assets/images/blog/human-creativity.jpg</span>
+    <span class="status-text">Ready to merge</span>
+  </div>
+  <div class="file-details">
+    <div class="assessment">
+      <h4>Purpose</h4>
+      <p>Vibrant surreal artwork depicting human creativity and AI collaboration in an immersive creative environment</p>
+      <h4>Business Impact</h4>
+      <p>Effectively illustrates themes of human-AI creative partnership for blog content</p>
+      <h4>Risk Assessment</h4>
+      <p>Low risk - visually engaging artwork appropriate for creativity-focused content</p>
+    </div>
+    <div class="code-elements">
+      <p><em>No code elements detected</em></p>
+    </div>
+  </div>
+</div>
+
+<div class="file-item" data-status="ready">
+  <div class="file-header" onclick="toggleFileExpansion(this)">
+    <span class="status-indicator">🟢</span>
+    <span class="file-path">assets/images/blog/keep-it-simple.jpg</span>
+    <span class="status-text">Ready to merge</span>
+  </div>
+  <div class="file-details">
+    <div class="assessment">
+      <h4>Purpose</h4>
+      <p>Creative collage-style cover image with ASABAAL branding and 'Keep it Simple' message</p>
+      <h4>Business Impact</h4>
+      <p>Reinforces brand identity while conveying simplicity philosophy</p>
+      <h4>Risk Assessment</h4>
+      <p>Low risk - brand-consistent design suitable for blog content</p>
+    </div>
+    <div class="code-elements">
+      <p><em>No code elements detected</em></p>
+    </div>
+  </div>
+</div>
+
+<div class="file-item" data-status="ready">
+  <div class="file-header" onclick="toggleFileExpansion(this)">
+    <span class="status-indicator">🟢</span>
+    <span class="file-path">assets/images/blog/logical-fallacies.jpg</span>
+    <span class="status-text">Ready to merge</span>
+  </div>
+  <div class="file-details">
+    <div class="assessment">
+      <h4>Purpose</h4>
+      <p>Branded cover image for logical fallacies content with geometric sacred geometry design and fire elements</p>
+      <h4>Business Impact</h4>
+      <p>Supports educational content on critical thinking with strong brand presence</p>
+      <h4>Risk Assessment</h4>
+      <p>Low risk - professional design appropriate for educational content</p>
+    </div>
+    <div class="code-elements">
+      <p><em>No code elements detected</em></p>
+    </div>
+  </div>
+</div>
+
+<div class="file-item" data-status="ready">
+  <div class="file-header" onclick="toggleFileExpansion(this)">
+    <span class="status-indicator">🟢</span>
+    <span class="file-path">assets/images/blog/microaggression.jpg</span>
+    <span class="status-text">Ready to merge</span>
+  </div>
+  <div class="file-details">
+    <div class="assessment">
+      <h4>Purpose</h4>
+      <p>Contemplative image showing spiritual connection and awareness themes with ethereal hands reaching toward a seated figure</p>
+      <h4>Business Impact</h4>
+      <p>Visually represents mindfulness and awareness content related to microaggressions</p>
+      <h4>Risk Assessment</h4>
+      <p>Low risk - tasteful artistic representation suitable for sensitive social topics</p>
+    </div>
+    <div class="code-elements">
+      <p><em>No code elements detected</em></p>
+    </div>
+  </div>
+</div>
+
+<div class="file-item" data-status="ready">
+  <div class="file-header" onclick="toggleFileExpansion(this)">
+    <span class="status-indicator">🟢</span>
+    <span class="file-path">assets/images/blog/more-than-me.jpg</span>
+    <span class="status-text">Ready to merge</span>
+  </div>
+  <div class="file-details">
+    <div class="assessment">
+      <h4>Purpose</h4>
+      <p>Interior design image featuring pride flag and inclusive bedroom setup representing LGBTQ+ themes</p>
+      <h4>Business Impact</h4>
+      <p>Supports personal identity and beliefs content with inclusive visual messaging</p>
+      <h4>Risk Assessment</h4>
+      <p>Low risk - tasteful representation of diversity and inclusion themes</p>
+    </div>
+    <div class="code-elements">
+      <p><em>No code elements detected</em></p>
+    </div>
+  </div>
+</div>
+
+<div class="file-item" data-status="ready">
+  <div class="file-header" onclick="toggleFileExpansion(this)">
+    <span class="status-indicator">🟢</span>
+    <span class="file-path">assets/images/blog/no.jpg</span>
+    <span class="status-text">Ready to merge</span>
+  </div>
+  <div class="file-details">
+    <div class="assessment">
+      <h4>Purpose</h4>
+      <p>Branded cover image with 'NO' theme and surreal artistic elements representing internal conflict</p>
+      <h4>Business Impact</h4>
+      <p>Visually supports content about confronting negative thoughts or internal struggles</p>
+      <h4>Risk Assessment</h4>
+      <p>Low risk - artistic interpretation appropriate for self-reflection content</p>
+    </div>
+    <div class="code-elements">
+      <p><em>No code elements detected</em></p>
+    </div>
+  </div>
+</div>
+
+<div class="file-item" data-status="ready">
+  <div class="file-header" onclick="toggleFileExpansion(this)">
+    <span class="status-indicator">🟢</span>
+    <span class="file-path">assets/images/blog/omniscient.jpg</span>
+    <span class="status-text">Ready to merge</span>
+  </div>
+  <div class="file-details">
+    <div class="assessment">
+      <h4>Purpose</h4>
+      <p>Mystical artwork depicting universal knowledge theme with cosmic imagery and divine hand symbolism</p>
+      <h4>Business Impact</h4>
+      <p>Supports philosophical content about omniscience and divine understanding</p>
+      <h4>Risk Assessment</h4>
+      <p>Low risk - sophisticated artistic representation suitable for philosophical discussions</p>
+    </div>
+    <div class="code-elements">
+      <p><em>No code elements detected</em></p>
+    </div>
+  </div>
+</div>
+
+<div class="file-item" data-status="ready">
+  <div class="file-header" onclick="toggleFileExpansion(this)">
+    <span class="status-indicator">🟢</span>
+    <span class="file-path">assets/images/blog/power-of-pain.jpg</span>
+    <span class="status-text">Ready to merge</span>
+  </div>
+  <div class="file-details">
+    <div class="assessment">
+      <h4>Purpose</h4>
+      <p>Dynamic branded cover featuring musician with guitar and 'Power of Pain' messaging in energetic composition</p>
+      <h4>Business Impact</h4>
+      <p>Effectively represents content about leveraging difficult experiences for growth</p>
+      <h4>Risk Assessment</h4>
+      <p>Low risk - empowering visual message appropriate for personal development content</p>
+    </div>
+    <div class="code-elements">
+      <p><em>No code elements detected</em></p>
+    </div>
+  </div>
+</div>
+
+<div class="file-item" data-status="ready">
+  <div class="file-header" onclick="toggleFileExpansion(this)">
+    <span class="status-indicator">🟢</span>
+    <span class="file-path">assets/images/blog/probably-right.jpg</span>
+    <span class="status-text">Ready to merge</span>
+  </div>
+  <div class="file-details">
+    <div class="assessment">
+      <h4>Purpose</h4>
+      <p>Futuristic branded cover with 'Probably Right' title and cybernetic human imagery representing AI-human interaction</p>
+      <h4>Business Impact</h4>
+      <p>Supports content exploring AI consciousness and human-machine relationships</p>
+      <h4>Risk Assessment</h4>
+      <p>Low risk - thought-provoking design suitable for AI philosophy content</p>
+    </div>
+    <div class="code-elements">
+      <p><em>No code elements detected</em></p>
+    </div>
+  </div>
+</div>
+
+<div class="file-item" data-status="ready">
+  <div class="file-header" onclick="toggleFileExpansion(this)">
+    <span class="status-indicator">🟢</span>
+    <span class="file-path">assets/images/blog/respect.jpg</span>
+    <span class="status-text">Ready to merge</span>
+  </div>
+  <div class="file-details">
+    <div class="assessment">
+      <h4>Purpose</h4>
+      <p>Branded cover image with stylized 'RESPECT' lettering and 'The Fundamental Human Right' messaging</p>
+      <h4>Business Impact</h4>
+      <p>Visually reinforces human rights content with strong typographic design and brand consistency</p>
+      <h4>Risk Assessment</h4>
+      <p>Low risk - professional design appropriate for human rights advocacy content</p>
+    </div>
+    <div class="code-elements">
+      <p><em>No code elements detected</em></p>
+    </div>
+  </div>
+</div>
+
+<div class="file-item" data-status="ready">
+  <div class="file-header" onclick="toggleFileExpansion(this)">
+    <span class="status-indicator">🟢</span>
+    <span class="file-path">assets/images/logos/Asabaal Ventures.png</span>
+    <span class="status-text">Ready to merge</span>
+  </div>
+  <div class="file-details">
+    <div class="assessment">
+      <h4>Purpose</h4>
+      <p>Brand logo asset for Asabaal Ventures company branding</p>
+      <h4>Business Impact</h4>
+      <p>Essential for brand identity and visual consistency across the website</p>
+      <h4>Risk Assessment</h4>
+      <p>Low risk - static brand asset with no code dependencies</p>
+    </div>
+    <div class="code-elements">
+      <p><em>No code elements detected</em></p>
+    </div>
+  </div>
+</div>
+```

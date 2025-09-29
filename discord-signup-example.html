@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Join Our Discord Community</title>
+    <style>
+        .discord-form {
+            max-width: 500px;
+            margin: 2rem auto;
+            padding: 2rem;
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+        
+        .discord-form h2 {
+            color: #5865f2;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .form-group {
+            margin-bottom: 1rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: #374151;
+        }
+        
+        .form-group input {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #d1d5db;
+            border-radius: 6px;
+            font-size: 1rem;
+        }
+        
+        .form-group input:focus {
+            outline: none;
+            border-color: #5865f2;
+            box-shadow: 0 0 0 3px rgba(88, 101, 242, 0.1);
+        }
+        
+        .discord-submit {
+            background: #5865f2;
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            width: 100%;
+            transition: background-color 0.2s;
+        }
+        
+        .discord-submit:hover {
+            background: #4752c4;
+        }
+        
+        .discord-submit:disabled {
+            background: #9ca3af;
+            cursor: not-allowed;
+        }
+        
+        .help-text {
+            font-size: 0.875rem;
+            color: #6b7280;
+            margin-top: 0.25rem;
+        }
+        
+        .discord-benefits {
+            background: #f8fafc;
+            padding: 1rem;
+            border-radius: 6px;
+            margin-bottom: 1.5rem;
+        }
+        
+        .discord-benefits ul {
+            margin: 0;
+            padding-left: 1.25rem;
+        }
+        
+        .discord-benefits li {
+            margin-bottom: 0.5rem;
+            color: #374151;
+        }
+    </style>
+</head>
+<body>
+    <div class="discord-form">
+        <h2>🎮 Join Our Discord Community</h2>
+        
+        <div class="discord-benefits">
+            <strong>Why join our Discord?</strong>
+            <ul>
+                <li>Get exclusive updates and early access</li>
+                <li>Connect with like-minded community members</li>
+                <li>Participate in live discussions and Q&A</li>
+                <li>Access member-only content and resources</li>
+            </ul>
+        </div>
+        
+        <form class="discord-signup-form" data-form-type="discord">
+            <div class="form-group">
+                <label for="discord-name">Your Name *</label>
+                <input 
+                    type="text" 
+                    id="discord-name"
+                    name="name" 
+                    required 
+                    placeholder="Enter your full name"
+                >
+            </div>
+            
+            <div class="form-group">
+                <label for="discord-email">Email Address (Optional)</label>
+                <input 
+                    type="email" 
+                    id="discord-email"
+                    name="email" 
+                    placeholder="your@email.com"
+                >
+                <div class="help-text">Optional - for Discord-related updates only</div>
+            </div>
+            
+            <div class="form-group">
+                <label for="discord-username">Discord Username *</label>
+                <input 
+                    type="text" 
+                    id="discord-username"
+                    name="discord_username" 
+                    required
+                    placeholder="YourDiscordName#1234"
+                >
+                <div class="help-text">We need your Discord username to add you to the server</div>
+            </div>
+            
+            <button type="submit" class="discord-submit">
+                Join Discord Community
+            </button>
+        </form>
+    </div>
+
+    <!-- Include Supabase -->
+    <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+    
+    <!-- Include your Discord-enabled contact forms -->
+    <script src="config/supabase-keys.js"></script>
+    <script src="assets/js/contact-forms.js"></script>
+    
+    <script>
+        // Initialize the contact API when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            new ContactAPI();
+        });
+    </script>
+</body>
+</html>

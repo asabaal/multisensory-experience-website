@@ -1,0 +1,160 @@
+{
+  "files_analyzed": 245,
+  "files_with_content": 198,
+  "files_too_large": 45,
+  "files_missing": 2,
+  "content_errors": [],
+  "category_content_samples": {
+    "CONFIGURATION": [
+      {
+        "file": ".env.example",
+        "sample": "# Environment Configuration for Asabaal Ventures Website\n# Copy this file to .env and fill in your actual values\n# Get Supabase values from your project dashboard -> Settings -> API\n\n# Supabase Config",
+        "has_functions": false,
+        "has_classes": false
+      },
+      {
+        "file": "config/supabase-keys.template.js",
+        "sample": "// Supabase Configuration Template\n// Copy this to 'supabase-keys.js' and add your actual credentials\n// This file should NOT be committed to git - it's in .gitignore\n\nwindow.VITE_SUPABASE_URL = 'http",
+        "has_functions": false,
+        "has_classes": false
+      }
+    ],
+    "UNCATEGORIZED": [
+      {
+        "file": ".gitignore",
+        "sample": "**/.claude/settings.local.json\n*.pdf\n\n# Environment variables\n.env\n.env.local\n.env.production\n\n# Local Supabase configuration (keep your keys private!)\nconfig/supabase-keys.js\n\n# Content Management\n# ",
+        "has_functions": false,
+        "has_classes": false
+      },
+      {
+        "file": "blog.html",
+        "sample": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <title>Blog | Asabaal Ventures</title>\n    <style>\n   ",
+        "has_functions": true,
+        "has_classes": false
+      },
+      {
+        "file": "development-archive/test-forms.html",
+        "sample": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <title>Form Testing - Asabaal Ventures</title>\n    <st",
+        "has_functions": true,
+        "has_classes": false
+      }
+    ],
+    "DOCUMENTATION": [
+      {
+        "file": "AGENTIC_SYSTEM_TECHNICAL_WALKTHROUGH.md",
+        "sample": "# Agentic PR Analysis System - Technical Walkthrough\n\n*Visual guide to how the agent-calling-agents architecture works*\n\n---\n\n## System Architecture Overview\n\n```\n\u250c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500",
+        "has_functions": true,
+        "has_classes": false
+      },
+      {
+        "file": "DEPLOYMENT.md",
+        "sample": "# \ud83d\ude80 Deployment Guide\n\nYour website is ready to deploy! This guide covers deployment to multiple platforms with full backend functionality.\n\n## \u2705 What's Already Ready\n- \u2705 Blog system (static files, no ",
+        "has_functions": false,
+        "has_classes": false
+      },
+      {
+        "file": "SUPABASE_SETUP.md",
+        "sample": "# Supabase Backend Setup Guide\n\nThis guide will help you set up the backend infrastructure for the Asabaal Ventures website using Supabase.\n\n## \ud83d\ude80 Quick Start\n\n### Step 1: Create Supabase Project\n\n1. G",
+        "has_functions": false,
+        "has_classes": false
+      }
+    ],
+    "ASSETS_MEDIA": [
+      {
+        "file": "assets/images/logos/Lehigh-University-logo.png",
+        "sample": "PNG\n\u001a\n\nIHDR\u0002]\u0004\u0003UE'PLTEV V V V V M\u001a8\u057fV \u0141D\u007fR2d.\bN\u0005tRNS\u02c5\u001eF\u000f.\u0010IDATx?oH\u00168\n+(\n-b\u060d+DRF\u001f@8NM rC\u0016\u000b^!N`l]n-,-3$\u001f\u000f)\n9C\u001cLD\"\u0019\u079b7o\f+*\u0005J\u0018(^x)^(^x)^*x)^*x)^f\u0017sZT\u0017\u0007W\u000eX,O^JU-P\u25c8\u001d\u06ae\u0538Z*J\u0002\u06d5<V\u000f)\u06c9<a~8V!\fSqV\u0016)\u0005fW\u001ccx9\u02d0mT+yoj|]P\u0006",
+        "has_functions": false,
+        "has_classes": false
+      },
+      {
+        "file": "assets/images/logos/argus_logo.svg",
+        "sample": "<?xml version=\"1.0\" encoding=\"UTF-8\"?><svg id=\"a\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1113.62 245.98\"><defs><style>.b{fill:#006ba6;}.c{fill:#707070;}</style></defs><g><path class=\"b\" d=\"M6",
+        "has_functions": false,
+        "has_classes": false
+      },
+      {
+        "file": "assets/images/logos/fixed-logo-white.svg",
+        "sample": "<svg width=\"40\" height=\"40\" viewBox=\"0 0 40 40\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n  <rect width=\"40\" height=\"40\" rx=\"8\" fill=\"rgba(255,255,255,0.0)\" />\n  <path d=\"M20 7C13.925 7 9 11.925",
+        "has_functions": false,
+        "has_classes": false
+      }
+    ],
+    "BLOG_CONTENT": [
+      {
+        "file": "blog/embracing_the_age_of_creativity_20240512.txt",
+        "sample": "Hello, World!\n\nI find myself in a challenging season of life - recently fired from my job, selling one of my homes, going through a divorce, and living far from my family. It's a time filled with anxi",
+        "has_functions": false,
+        "has_classes": false
+      },
+      {
+        "file": "blog/post-asabaal-ventures-dawn-new-era.html",
+        "sample": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <title>Asabaal Ventures: The Dawn of a New Era | Asaba",
+        "has_functions": false,
+        "has_classes": false
+      },
+      {
+        "file": "blog/post-by-my-hand-discarding-hurt-for-unity.html",
+        "sample": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <title>By My Hand: Discarding Hurt for Unity | Asabaal",
+        "has_functions": false,
+        "has_classes": false
+      }
+    ],
+    "USER_INTERFACE": [
+      {
+        "file": "content/templates/post-template.json",
+        "sample": "{\n  \"metadata\": {\n    \"title\": \"Your Post Title Here\",\n    \"slug\": \"your-post-slug-here\",\n    \"publishDate\": \"2024-MM-DD\",\n    \"tags\": [\"tag1\", \"tag2\", \"tag3\"],\n    \"excerpt\": \"A compelling summary of",
+        "has_functions": false,
+        "has_classes": false
+      }
+    ],
+    "DATABASE": [
+      {
+        "file": "database-archive/blog-database/README-SUPABASE.md",
+        "sample": "# Supabase Blog Backend Setup\n\nThis document explains how to set up the Supabase backend for your multisensory blog.\n\n## Quick Start\n\n1. **Create a Supabase Project**\n   - Go to [supabase.com](https:/",
+        "has_functions": false,
+        "has_classes": false
+      },
+      {
+        "file": "database-archive/blog-database/supabase-config.js",
+        "sample": "// Supabase Configuration\n// This file manages environment variables and configuration for Supabase\n\n// Development/Production Configuration\nconst SupabaseConfig = {\n    // Replace these with your act",
+        "has_functions": false,
+        "has_classes": false
+      },
+      {
+        "file": "database-archive/blog-database/supabase/migrations/001_initial_setup.sql",
+        "sample": "-- Initial Blog Setup Migration\n-- Run this in your Supabase SQL editor to set up the blog infrastructure\n\n-- First, ensure UUID extension is enabled\nCREATE EXTENSION IF NOT EXISTS \"uuid-ossp\";\n\n-- Cr",
+        "has_functions": false,
+        "has_classes": false
+      }
+    ],
+    "SCRIPTS_AUTOMATION": [
+      {
+        "file": "start-server.sh",
+        "sample": "#!/bin/bash\n\n# Simple script to start a local server for testing the blog\necho \"Starting local server for Multisensory Blog...\"\necho \"Navigate to http://localhost:8000 to view the site\"\necho \"Visit ht",
+        "has_functions": false,
+        "has_classes": false
+      }
+    ],
+    "VISUALIZATIONS": [
+      {
+        "file": "visualizations/complete-implementation-timeline.html",
+        "sample": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <title>Complete Implementation Timeline - Music + Gami",
+        "has_functions": false,
+        "has_classes": false
+      },
+      {
+        "file": "visualizations/cooperative-kingdom-ecosystem-fixed.html",
+        "sample": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <title>Kingdom Cooperative Ecosystem - Engineering Glo",
+        "has_functions": true,
+        "has_classes": false
+      },
+      {
+        "file": "visualizations/implementation-timeline.html",
+        "sample": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <title>Enhanced Implementation Timeline - Music + Gami",
+        "has_functions": false,
+        "has_classes": false
+      }
+    ]
+  },
+  "performance_ms": 1109.6017360687256
+}

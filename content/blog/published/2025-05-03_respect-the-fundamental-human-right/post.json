@@ -1,0 +1,116 @@
+{
+  "metadata": {
+    "title": "Respect: The Fundamental Human Right",
+    "slug": "respect-the-fundamental-human-right",
+    "publishDate": "2025-05-03",
+    "tags": [
+      "human rights",
+      "workplace reform",
+      "entrepreneurship",
+      "mental health",
+      "social justice"
+    ],
+    "excerpt": "A passionate manifesto on why at-will employment violates human dignity and how we can build a more respectful future.",
+    "coverImage": "respect.jpg",
+    "featured": false,
+    "status": "published"
+  },
+  "content": {
+    "subtitle": "Breaking Free from Systems That Diminish Human Dignity",
+    "sections": [
+      {
+        "type": "intro",
+        "content": {
+          "text": "Hello world! I'm excited to write this post and share it with you, because this launch officially begins this initiative of Asabaal Ventures! And, on top of that, it's the first initiative I'm launching after having officially registered the business! This a huge moment of celebration for me, and yet also a moment of somber reflection."
+        },
+        "order": 1
+      },
+      {
+        "type": "text",
+        "title": "A Year of Transformation",
+        "content": {
+          "paragraphs": [
+            "It was a year ago to this date that I was fired from my previous corporate data science position. While I had already started ideating Asabaal Ventures and had some initial concepts and content, I was barely getting started at this time. Like I said in my very first blog post, that happened during a season of trouble in my life.",
+            "Today, I'm speaking as plainly as I can conceive on this topic. I believe that at-will employment, the system that resulted in my being fired, is a violation of human rights. Therefore, I believe that my being fired was a violation of my human rights. In particular, it was a violation of my fundamental right to be treated with respect and dignity."
+          ]
+        },
+        "order": 2
+      },
+      {
+        "type": "text",
+        "title": "Understanding the Right to Dignity",
+        "content": {
+          "paragraphs": [
+            "So, what do I mean by the fundamental right to be treated with respect and dignity? It's really not that amorphous when it really comes down to it. Prior to my being fired, I had begun a long journey working on my mental health. I quickly learned about the ways in which our brains deceive us from the truth, and how we can overcome those disadvantages.",
+            "I learned about psychological safety and how lack of it leads to many negative health outcomes. I drew connections between the systems that we are governed, and ultimately controlled, by, and I came to an important realization - this system, composed mostly of good actors, treats its members with ultimate disrespect."
+          ]
+        },
+        "order": 3
+      },
+      {
+        "type": "text",
+        "title": "The Reality of Modern Suffering",
+        "content": {
+          "paragraphs": [
+            "The way I see things is pretty simple. People are suffering. People are living in poverty. People are living with anxiety. People are living with limited access to healthcare. People are struggling to pursue and achieve their passions and dreams. People are enslaved to the system.",
+            "So while we are mostly not physically abused in our places of work, we are psychologically abused. Lack of financial security creates a dangerous sense of dependence on the power structures that at-will employment creates."
+          ]
+        },
+        "order": 4
+      },
+      {
+        "type": "quote",
+        "content": {
+          "text": "To cope with my anxiety about these problems, I found it necessary to start calling the workplace 'the plantation', because that's where I was forced to be subject to labor and mistreatment that I wished not to be a part of, and yet I was required to do so if I wanted to have access to basic human needs such as food and shelter.",
+          "attribution": "Asabaal Horan"
+        },
+        "order": 5
+      },
+      {
+        "type": "image",
+        "content": {
+          "src": "in-love-and-unity.jpg",
+          "alt": "In Love and Unity - Asabaal Ventures message of hope and transformation"
+        },
+        "order": 6
+      },
+      {
+        "type": "text",
+        "title": "Building a New System",
+        "content": {
+          "paragraphs": [
+            "This only made my entrepreneurial desires even stronger. I don't want anyone to suffer the fate I suffered, and I'm going to do everything that I can to beat this system and install a new system. One that upholds our fundamental right to be treated with respect and dignity. I have a plan to do it, and Asabaal Ventures' 'Respect' initiative is the part of the business centered around doing just that.",
+            "Making changes of this scale is going to take time. I have no delusion that this is going to be easy. What I do have is relentless passion and empathy for humanity. No one deserves to suffer. We've mistreated each other enough."
+          ]
+        },
+        "order": 7
+      },
+      {
+        "type": "text",
+        "title": "Faith, Love, and the Future",
+        "content": {
+          "paragraphs": [
+            "Thanks to my faith, I believe that loving other people is one of the most important things we can do in our lives. That's why my efforts for change aren't limited to thinking about societal-level problems, but also to working on individual issues that cause individuals' problems. And that's why Asabaal Ventures is all about creating experiences designed to improve people's lives.",
+            "As we enter the post-labor era, one of the most important things to find fulfillment in life is meaningful experiences with other human beings. This is one of the most important business models of the future, and I am going to be a part of it. The game is changing, and we don't have to accept the limits that were placed on us in our past."
+          ]
+        },
+        "order": 8
+      },
+      {
+        "type": "text",
+        "title": "A Call to Action",
+        "content": {
+          "paragraphs": [
+            "I won't accept being disrespected anymore, and neither should you. I have a lot of projects in the pipeline, and I'm excited to share them with you as they become ready.",
+            "Together, let's make the world beautiful, and let's not settle for anything less than freedom from suffering, because that's what true freedom looks like. Freedom from the system, and freedom to be ourselves and pursue our dreams and passions. That's how we contribute the most to economic development. Until next time…"
+          ]
+        },
+        "order": 9
+      }
+    ]
+  },
+  "author": {
+    "name": "Asabaal Horan",
+    "signature": "In love and unity,<br><strong>Asabaal Horan</strong><br>Founder, Asabaal Ventures"
+  }
+}

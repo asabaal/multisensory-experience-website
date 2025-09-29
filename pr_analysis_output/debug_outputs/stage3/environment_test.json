@@ -1,0 +1,8 @@
+{
+  "claude_cli_available": true,
+  "claude_cli_version": "1.0.67 (Claude Code)",
+  "oauth_token_present": true,
+  "oauth_token_format_valid": true,
+  "environment_ready": true,
+  "issues": []
+}

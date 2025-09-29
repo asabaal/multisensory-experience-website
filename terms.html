@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms of Service - Asabaal Ventures</title>
+    <link rel="icon" type="image/svg+xml" href="assets/images/icons/favicon.svg">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #0f0f23 0%, #1a1a3e 25%, #2d1b69 50%, #4c1d95 75%, #6b21a8 100%);
+            color: #ffffff;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        .header {
+            padding: 20px 0;
+            background: rgba(15, 15, 35, 0.95);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #fbbf24;
+            text-decoration: none;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            color: #fbbf24;
+        }
+        
+        /* Main Content */
+        .main {
+            margin-top: 100px;
+            padding: 40px 0;
+        }
+        
+        .legal-document {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .document-header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .document-title {
+            font-size: 2.5rem;
+            color: #fbbf24;
+            margin-bottom: 15px;
+        }
+        
+        .document-meta {
+            color: #d1d5db;
+            font-size: 1rem;
+        }
+        
+        .document-content h2 {
+            color: #8b5cf6;
+            font-size: 1.8rem;
+            margin: 30px 0 15px 0;
+            padding-bottom: 10px;
+            border-bottom: 1px solid rgba(139, 92, 246, 0.3);
+        }
+        
+        .document-content h3 {
+            color: #a78bfa;
+            font-size: 1.4rem;
+            margin: 25px 0 10px 0;
+        }
+        
+        .document-content h4 {
+            color: #c4b5fd;
+            font-size: 1.2rem;
+            margin: 20px 0 8px 0;
+        }
+        
+        .document-content p {
+            line-height: 1.7;
+            margin-bottom: 15px;
+            color: #e5e7eb;
+        }
+        
+        .document-content ul, .document-content ol {
+            margin: 15px 0;
+            padding-left: 25px;
+        }
+        
+        .document-content li {
+            line-height: 1.6;
+            margin-bottom: 8px;
+            color: #e5e7eb;
+        }
+        
+        .document-content a {
+            color: #60a5fa;
+            text-decoration: none;
+            border-bottom: 1px solid rgba(96, 165, 250, 0.3);
+            transition: all 0.3s ease;
+        }
+        
+        .document-content a:hover {
+            color: #93c5fd;
+            border-bottom-color: #93c5fd;
+        }
+        
+        .document-content strong {
+            color: #f9fafb;
+            font-weight: 600;
+        }
+        
+        .highlight-box {
+            background: rgba(139, 92, 246, 0.15);
+            border: 1px solid rgba(139, 92, 246, 0.3);
+            border-radius: 12px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        
+        .warning-box {
+            background: rgba(239, 68, 68, 0.15);
+            border: 1px solid rgba(239, 68, 68, 0.3);
+            border-radius: 12px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        
+        .warning-box h4 {
+            color: #fca5a5;
+            margin-bottom: 10px;
+        }
+        
+        .contact-section {
+            background: rgba(251, 191, 36, 0.1);
+            border: 1px solid rgba(251, 191, 36, 0.3);
+            border-radius: 12px;
+            padding: 25px;
+            margin: 30px 0;
+        }
+        
+        .contact-section h3 {
+            color: #fbbf24;
+            margin-bottom: 15px;
+        }
+        
+        /* Footer */
+        .footer {
+            background: rgba(15, 15, 35, 0.95);
+            backdrop-filter: blur(10px);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 30px 0;
+            margin-top: 60px;
+        }
+        
+        .footer-content {
+            text-align: center;
+            color: #9ca3af;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .footer-links a {
+            color: #d1d5db;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: #fbbf24;
+        }
+        
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: linear-gradient(45deg, #8b5cf6, #7c3aed);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+        
+        .back-to-top:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(139, 92, 246, 0.3);
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .legal-document {
+                padding: 25px;
+                margin: 20px 10px;
+            }
+            
+            .document-title {
+                font-size: 2rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                <a href="index.html" class="logo">Asabaal Ventures</a>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="discord-signup-example.html">Join Discord</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="container">
+            <div class="legal-document">
+                <div class="document-header">
+                    <h1 class="document-title">Terms of Service</h1>
+                    <div class="document-meta">
+                        <strong>Effective Date:</strong> August 2, 2025<br>
+                        <strong>Last Updated:</strong> August 2, 2025
+                    </div>
+                </div>
+
+                <div class="document-content">
+                    <h2>Agreement to Terms</h2>
+                    <p>By accessing and using the Asabaal Ventures website and services ("Service"), you agree to be bound by these Terms of Service ("Terms"). If you disagree with any part of these terms, then you may not access the Service.</p>
+
+                    <h2>Description of Service</h2>
+                    <p>Asabaal Ventures provides:</p>
+                    <ul>
+                        <li>Information and content about our projects and services</li>
+                        <li>Contact forms for inquiries and communication</li>
+                        <li>Discord community access for updates, discussions, and member resources</li>
+                        <li>Blog content and resources</li>
+                    </ul>
+
+                    <h2>Acceptance of Terms</h2>
+                    <p>By using our Service, you represent that:</p>
+                    <ul>
+                        <li>You are at least 13 years of age</li>
+                        <li>You have the legal capacity to enter into these Terms</li>
+                        <li>You will comply with all applicable laws and regulations</li>
+                        <li>All information you provide is accurate and truthful</li>
+                    </ul>
+
+                    <h2>User Accounts and Registration</h2>
+                    
+                    <h3>Discord Community</h3>
+                    <ul>
+                        <li>Community participation requires providing your name and email address</li>
+                        <li>Discord username is optional but recommended for better community interaction</li>
+                        <li>You must comply with Discord's Terms of Service and Community Guidelines</li>
+                        <li>We reserve the right to remove members who violate community standards</li>
+                    </ul>
+
+                    <h2>Acceptable Use Policy</h2>
+                    
+                    <div class="warning-box">
+                        <h4>You agree NOT to use the Service to:</h4>
+                        <h3>Prohibited Activities</h3>
+                        <ul>
+                            <li>Violate any applicable laws or regulations</li>
+                            <li>Transmit spam, unsolicited communications, or non-approved marketing materials</li>
+                            <li>Upload or transmit viruses, malware, or harmful code</li>
+                            <li>Impersonate others or provide false information</li>
+                            <li>Harass, abuse, or harm other users</li>
+                            <li>Attempt to gain unauthorized access to our systems</li>
+                            <li>Scrape or harvest user data without permission</li>
+                        </ul>
+                    </div>
+
+                    <h3>Content Guidelines</h3>
+                    <ul>
+                        <li>Keep communications respectful and professional</li>
+                        <li>Do not share inappropriate, offensive, or illegal content</li>
+                        <li>Respect intellectual property rights</li>
+                        <li>Do not use our platforms for commercial purposes without permission</li>
+                    </ul>
+
+                    <h2>Intellectual Property Rights</h2>
+                    
+                    <h3>Our Content</h3>
+                    <ul>
+                        <li>All content on our website is owned by Asabaal Ventures or our licensors</li>
+                        <li>You may view and download content for personal, non-commercial use</li>
+                        <li>You may not redistribute, modify, or create derivative works without permission</li>
+                        <li>Our trademarks and logos are protected and may not be used without authorization</li>
+                    </ul>
+
+                    <h3>User-Generated Content</h3>
+                    <ul>
+                        <li>You retain ownership of content you submit through contact forms or Discord</li>
+                        <li>By submitting content, you grant us a license to use it for Service-related purposes</li>
+                        <li>You represent that you have the right to submit such content</li>
+                        <li>We reserve the right to remove content that violates these Terms</li>
+                    </ul>
+
+                    <h2>Privacy and Data Protection</h2>
+                    
+                    <h3>Data Collection</h3>
+                    <ul>
+                        <li>We collect information as described in our <a href="privacy.html">Privacy Policy</a></li>
+                        <li>By using our Service, you consent to data collection and processing</li>
+                        <li>We implement appropriate security measures to protect your information</li>
+                    </ul>
+
+                    <h3>Third-Party Services</h3>
+                    <ul>
+                        <li>Our Service integrates with Supabase (database) and Discord (community)</li>
+                        <li>These services have their own terms and privacy policies</li>
+                        <li>We are not responsible for third-party service practices</li>
+                    </ul>
+
+                    <h2>Service Availability</h2>
+                    
+                    <h3>Uptime</h3>
+                    <ul>
+                        <li>We strive to maintain Service availability but cannot guarantee 100% uptime</li>
+                        <li>We may perform maintenance that temporarily interrupts Service</li>
+                        <li>We will provide notice of planned maintenance when possible</li>
+                    </ul>
+
+                    <h3>Service Changes</h3>
+                    <ul>
+                        <li>We reserve the right to modify, suspend, or discontinue the Service</li>
+                        <li>We may update features, functionality, or requirements</li>
+                        <li>Significant changes will be communicated to users</li>
+                    </ul>
+
+                    <h2>Disclaimers and Limitations</h2>
+                    
+                    <div class="highlight-box">
+                        <h3>Service Disclaimer</h3>
+                        <ul>
+                            <li>The Service is provided "as is" without warranties of any kind</li>
+                            <li>We disclaim all express and implied warranties</li>
+                            <li>We do not warrant that the Service will be error-free or uninterrupted</li>
+                        </ul>
+                    </div>
+
+                    <h3>Limitation of Liability</h3>
+                    <ul>
+                        <li>Our liability is limited to the maximum extent permitted by law</li>
+                        <li>We are not liable for indirect, incidental, or consequential damages</li>
+                        <li>Our total liability shall not exceed the amount you paid for the Service (if any)</li>
+                    </ul>
+
+                    <h2>Termination</h2>
+                    
+                    <h3>By You</h3>
+                    <ul>
+                        <li>You may stop using the Service at any time</li>
+                        <li>You can unsubscribe from newsletters or leave the Discord community</li>
+                        <li>Termination does not relieve you of obligations incurred before termination</li>
+                    </ul>
+
+                    <h3>By Us</h3>
+                    <ul>
+                        <li>We may terminate or suspend your access for Terms violations</li>
+                        <li>We may terminate the Service with reasonable notice</li>
+                        <li>We may remove content that violates these Terms</li>
+                    </ul>
+
+                    <h2>Changes to Terms</h2>
+                    
+                    <h3>Modification Process</h3>
+                    <ul>
+                        <li>We may update these Terms from time to time</li>
+                        <li>Updated Terms will be posted on this page with a new "Last Updated" date</li>
+                        <li>Continued use of the Service constitutes acceptance of new Terms</li>
+                    </ul>
+
+                    <h3>Notification</h3>
+                    <ul>
+                        <li>For significant changes, we may notify users via email or website notice</li>
+                        <li>It is your responsibility to review Terms periodically</li>
+                    </ul>
+
+                    <div class="contact-section">
+                        <h3>Contact Information</h3>
+                        <p>For questions about these Terms of Service, please contact us:</p>
+                        <p>
+                            <strong>Asabaal Ventures</strong><br>
+                            Email: <a href="mailto:asabaal@asabaalventures.me">asabaal@asabaalventures.me</a><br>
+                            Website: <a href="https://asabaalventures.me">asabaalventures.me</a>
+                        </p>
+                        <p>For legal matters, please include "Terms of Service" in your subject line.</p>
+                    </div>
+
+                    <h2>Severability</h2>
+                    <p>If any provision of these Terms is deemed invalid or unenforceable, the remaining provisions will continue in full force and effect.</p>
+
+                    <h2>Entire Agreement</h2>
+                    <p>These Terms, together with our <a href="privacy.html">Privacy Policy</a>, constitute the entire agreement between you and Asabaal Ventures regarding the Service.</p>
+
+                    <p><em>These Terms of Service are designed to protect both users and Asabaal Ventures while enabling a positive experience. They should be reviewed by a qualified attorney to ensure compliance with applicable laws and your specific business needs.</em></p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-links">
+                    <a href="index.html">Home</a>
+                    <a href="blog.html">Blog</a>
+                    <a href="contact.html">Contact</a>
+                    <a href="privacy.html">Privacy Policy</a>
+                    <a href="terms.html">Terms of Service</a>
+                    <a href="discord-signup-example.html">Join Discord</a>
+                </div>
+                <p>&copy; 2025 Asabaal Ventures. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <button class="back-to-top" onclick="scrollToTop()" title="Back to top">↑</button>
+
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Show/hide back to top button
+        window.addEventListener('scroll', function() {
+            const backToTop = document.querySelector('.back-to-top');
+            if (window.pageYOffset > 300) {
+                backToTop.style.display = 'block';
+            } else {
+                backToTop.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>

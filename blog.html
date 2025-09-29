@@ -1,427 +1,375 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Insights and perspectives on multisensory experiences, AI-generated content, and the post-labor economy.">
-  
-  <!-- Open Graph Meta Tags -->
-  <meta property="og:title" content="Blog | Multisensory Experiences">
-  <meta property="og:description" content="Insights and perspectives on multisensory experiences, AI-generated content, and the post-labor economy.">
-  <meta property="og:image" content="/images/og-image.jpg">
-  <meta property="og:url" content="https://yourdomain.com/blog.html">
-  <meta property="og:type" content="website">
-  
-  <!-- Twitter Card Meta Tags -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Blog | Multisensory Experiences">
-  <meta name="twitter:description" content="Insights and perspectives on multisensory experiences, AI-generated content, and the post-labor economy.">
-  <meta name="twitter:image" content="/images/og-image.jpg">
-  
-  <!-- Favicon -->
-  <link rel="icon" href="/images/favicon.ico">
-  <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
-  
-  <!-- CSS -->
-  <link rel="stylesheet" href="/css/main.css">
-  <link rel="stylesheet" href="/css/pages/blog.css">
-  
-  <title>Blog | Multisensory Experiences</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog | Asabaal Ventures</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #0f0f23 0%, #1a1a3e 25%, #2d1b69 50%, #4c1d95 75%, #6b21a8 100%);
+            color: #ffffff;
+            min-height: 100vh;
+            overflow-x: hidden;
+            padding-top: 70px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(15, 15, 35, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 20px 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .nav {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .nav-links a {
+            color: #e5e7eb;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-weight: 500;
+        }
+        
+        .nav-links a:hover {
+            color: #fbbf24;
+        }
+
+        /* Blog Header */
+        .blog-header {
+            padding: 100px 0 80px;
+            text-align: center;
+            position: relative;
+            background: radial-gradient(circle at 50% 50%, rgba(251, 191, 36, 0.15) 0%, transparent 70%);
+        }
+
+        .blog-title {
+            font-size: 4rem;
+            font-weight: 900;
+            margin-bottom: 25px;
+            background: linear-gradient(45deg, #fbbf24, #f472b6, #8b5cf6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.1;
+        }
+
+        .blog-subtitle {
+            font-size: 1.5rem;
+            color: #d1d5db;
+            margin-bottom: 40px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+        }
+
+        /* Blog Grid */
+        .blog-grid {
+            padding: 80px 0;
+            background: rgba(0, 0, 0, 0.2);
+        }
+
+        .posts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .post-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .post-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transition: left 0.5s;
+        }
+
+        .post-card:hover::before {
+            left: 100%;
+        }
+
+        .post-card:hover {
+            transform: translateY(-10px);
+            border-color: #fbbf24;
+        }
+
+        .post-image {
+            width: 100%;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio (9/16 = 0.5625) */
+            background: linear-gradient(45deg, #8b5cf6, #06b6d4);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .post-image img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .post-content {
+            padding: 30px;
+        }
+
+        .post-title {
+            font-size: 1.5rem;
+            color: #fbbf24;
+            margin-bottom: 15px;
+            font-weight: 700;
+            line-height: 1.3;
+        }
+
+        .post-excerpt {
+            color: #d1d5db;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .post-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: #9ca3af;
+            font-size: 0.9rem;
+        }
+
+        .post-date {
+            background: linear-gradient(45deg, #8b5cf6, #ec4899);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+        }
+
+        .read-more {
+            color: #06b6d4;
+            font-weight: 500;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .read-more:hover {
+            color: #fbbf24;
+        }
+
+        /* Loading animation */
+        .loading {
+            text-align: center;
+            padding: 60px 0;
+            color: #9ca3af;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .blog-title { font-size: 2.5rem; }
+            .posts-grid { grid-template-columns: 1fr; gap: 30px; }
+            .nav-links { gap: 15px; font-size: 0.9rem; }
+        }
+    </style>
 </head>
-<body data-page="blog">
-  <!-- Current Phase Banner -->
-  <div class="current-phase-banner">
-    Current Phase: Digital Foundation
-  </div>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="vision_2054_page.html">Vision 2054</a></li>
+                    <li><a href="index.html#videos">Videos</a></li>
+                    <li><a href="unity-remix-contest.html">Contest</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="#contact">Connect</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
-  <!-- Header -->
-  <header class="header">
-    <div class="container header__container">
-      <a href="/" class="header__logo">
-        <img src="/images/logo.svg" alt="Multisensory Experiences Logo" class="header__logo-img">
-        <span class="header__logo-text">Multisensory</span>
-      </a>
-      
-      <div class="nav-toggle">
-        <span class="nav-toggle__line"></span>
-        <span class="nav-toggle__line"></span>
-        <span class="nav-toggle__line"></span>
-      </div>
-      
-      <nav class="nav">
-        <ul class="nav__list">
-          <li class="nav__item"><a href="/" class="nav__link">Home</a></li>
-          <li class="nav__item"><a href="/blog.html" class="nav__link">Blog</a></li>
-          <li class="nav__item"><a href="/news.html" class="nav__link">News</a></li>
-          <li class="nav__item"><a href="/featured.html" class="nav__link">Featured</a></li>
-          <li class="nav__item"><a href="/events.html" class="nav__link">Events</a></li>
-          <li class="nav__item"><a href="/approach.html" class="nav__link">Our Approach</a></li>
-          <li class="nav__item"><a href="/invest.html" class="nav__link">Invest</a></li>
-          <li class="nav__item"><a href="/community.html" class="nav__link">Community</a></li>
-        </ul>
-        
-        <a href="/imagination.html" class="btn btn--accent nav__button">Experience Our Vision</a>
-      </nav>
-    </div>
-  </header>
-
-  <!-- Main Content -->
-  <main>
-    <!-- Page Header -->
-    <section class="page-header">
-      <div class="container">
-        <h1 class="page-header__title">Insights for a New Economy</h1>
-        <p class="page-header__subtitle">Perspectives on multisensory experiences, AI content creation, and community building in a post-labor world.</p>
-      </div>
+    <!-- Blog Header -->
+    <section class="blog-header">
+        <div class="container">
+            <h1 class="blog-title">Multisensory Blog</h1>
+            <p class="blog-subtitle">
+                Explore the journey of purpose-driven creation, unity consciousness, and the evolution of collaborative innovation. 
+                Each post is a piece of the larger vision coming to life.
+            </p>
+        </div>
     </section>
 
-    <!-- Blog Content -->
-    <section class="section blog-section">
-      <div class="container">
-        <div class="blog-layout">
-          <!-- Main Content Area -->
-          <div class="blog-main">
-            <!-- Featured Post -->
-            <article class="featured-post animate-on-scroll" data-animation="fade-in">
-              <div class="featured-post__image-container">
-                <img src="/images/blog-featured.jpg" alt="The Future of Community Centers" class="featured-post__image">
-                <span class="featured-post__category">Featured</span>
-              </div>
-              <div class="featured-post__content">
-                <h2 class="featured-post__title">The Future of Community Centers in a Digital World</h2>
-                <div class="featured-post__meta">
-                  <span class="featured-post__date">May 15, 2025</span>
-                  <span class="featured-post__author">by Sarah Johnson</span>
-                  <span class="featured-post__read-time">8 min read</span>
-                </div>
-                <p class="featured-post__excerpt">As our digital lives become increasingly intertwined with our physical existence, we explore the evolving role of community spaces and how they can be reimagined to foster deeper connections, personal growth, and societal betterment in a post-labor economy.</p>
-                <a href="#" class="btn btn--primary">Read Full Article</a>
-              </div>
-            </article>
-
-            <!-- Post Filter -->
-            <div class="post-filter animate-on-scroll" data-animation="fade-in">
-              <h3 class="post-filter__title">Filter by Category</h3>
-              <div class="post-filter__buttons">
-                <button class="post-filter__button post-filter__button--active" data-filter="all">All</button>
-                <button class="post-filter__button" data-filter="ai-insights">AI-Generated Insights</button>
-                <button class="post-filter__button" data-filter="business">Business Development</button>
-                <button class="post-filter__button" data-filter="experience">Multisensory Experience</button>
-                <button class="post-filter__button" data-filter="future-work">Future of Work</button>
-              </div>
+    <!-- Blog Grid -->
+    <section class="blog-grid">
+        <div class="container">
+            <div class="posts-grid" id="posts-grid">
+                <div class="loading">Loading blog posts...</div>
             </div>
+        </div>
+    </section>
 
-            <!-- Blog Posts Grid -->
-            <div class="blog-grid animate-on-scroll" data-animation="fade-in-up">
-              <!-- Post 1 -->
-              <article class="blog-card" data-category="ai-insights">
-                <img src="/images/blog-1.jpg" alt="AI Content Creation" class="blog-card__image">
-                <div class="blog-card__content">
-                  <span class="blog-card__category">AI-Generated Insights</span>
-                  <h3 class="blog-card__title">The Future of AI-Generated Content Creation</h3>
-                  <p class="blog-card__excerpt">Exploring how artificial intelligence is transforming the creative process and enabling new forms of expression that were previously unimaginable.</p>
-                  <div class="blog-card__footer">
-                    <div class="blog-card__meta">
-                      <span class="blog-card__date">May 10, 2025</span>
-                      <div class="blog-card__author">
-                        <img src="/images/author-1.jpg" alt="Alex Chen" class="blog-card__author-img">
-                        <span>Alex Chen</span>
-                      </div>
-                    </div>
-                    <a href="#" class="card__link">Read More →</a>
-                  </div>
-                </div>
-              </article>
-
-              <!-- Post 2 -->
-              <article class="blog-card" data-category="future-work">
-                <img src="/images/blog-3.jpg" alt="Post-Labor Economy" class="blog-card__image">
-                <div class="blog-card__content">
-                  <span class="blog-card__category">Future of Work</span>
-                  <h3 class="blog-card__title">Navigating the Post-Labor Economy</h3>
-                  <p class="blog-card__excerpt">Examining the shifts in economic structures and exploring new models for value creation and distribution in a world where traditional employment is evolving.</p>
-                  <div class="blog-card__footer">
-                    <div class="blog-card__meta">
-                      <span class="blog-card__date">April 28, 2025</span>
-                      <div class="blog-card__author">
-                        <img src="/images/author-2.jpg" alt="Maya Rodriguez" class="blog-card__author-img">
-                        <span>Maya Rodriguez</span>
-                      </div>
-                    </div>
-                    <a href="#" class="card__link">Read More →</a>
-                  </div>
-                </div>
-              </article>
-
-              <!-- Post 3 -->
-              <article class="blog-card" data-category="experience">
-                <img src="/images/blog-4.jpg" alt="Sensory Integration" class="blog-card__image">
-                <div class="blog-card__content">
-                  <span class="blog-card__category">Multisensory Experience</span>
-                  <h3 class="blog-card__title">The Science of Sensory Integration</h3>
-                  <p class="blog-card__excerpt">Understanding how our brains process and integrate multiple sensory inputs, and how this knowledge can be applied to create more immersive and impactful experiences.</p>
-                  <div class="blog-card__footer">
-                    <div class="blog-card__meta">
-                      <span class="blog-card__date">April 15, 2025</span>
-                      <div class="blog-card__author">
-                        <img src="/images/author-3.jpg" alt="Dr. James Wilson" class="blog-card__author-img">
-                        <span>Dr. James Wilson</span>
-                      </div>
-                    </div>
-                    <a href="#" class="card__link">Read More →</a>
-                  </div>
-                </div>
-              </article>
-
-              <!-- Post 4 -->
-              <article class="blog-card" data-category="business">
-                <img src="/images/blog-5.jpg" alt="Self-Funding Models" class="blog-card__image">
-                <div class="blog-card__content">
-                  <span class="blog-card__category">Business Development</span>
-                  <h3 class="blog-card__title">Self-Funding Models for Community Ventures</h3>
-                  <p class="blog-card__excerpt">Exploring innovative approaches to creating financially sustainable community-focused businesses that don't rely on traditional venture capital or donations.</p>
-                  <div class="blog-card__footer">
-                    <div class="blog-card__meta">
-                      <span class="blog-card__date">April 5, 2025</span>
-                      <div class="blog-card__author">
-                        <img src="/images/author-4.jpg" alt="Emma Blackwood" class="blog-card__author-img">
-                        <span>Emma Blackwood</span>
-                      </div>
-                    </div>
-                    <a href="#" class="card__link">Read More →</a>
-                  </div>
-                </div>
-              </article>
-
-              <!-- Post 5 -->
-              <article class="blog-card" data-category="ai-insights">
-                <img src="/images/blog-6.jpg" alt="Ethical AI" class="blog-card__image">
-                <div class="blog-card__content">
-                  <span class="blog-card__category">AI-Generated Insights</span>
-                  <h3 class="blog-card__title">Ethical Considerations in AI Content Generation</h3>
-                  <p class="blog-card__excerpt">Examining the ethical implications of AI-generated content and developing frameworks to ensure responsible and beneficial applications.</p>
-                  <div class="blog-card__footer">
-                    <div class="blog-card__meta">
-                      <span class="blog-card__date">March 25, 2025</span>
-                      <div class="blog-card__author">
-                        <img src="/images/author-5.jpg" alt="Rajiv Patel" class="blog-card__author-img">
-                        <span>Rajiv Patel</span>
-                      </div>
-                    </div>
-                    <a href="#" class="card__link">Read More →</a>
-                  </div>
-                </div>
-              </article>
-
-              <!-- Post 6 -->
-              <article class="blog-card" data-category="experience">
-                <img src="/images/blog-7.jpg" alt="Digital-Physical Integration" class="blog-card__image">
-                <div class="blog-card__content">
-                  <span class="blog-card__category">Multisensory Experience</span>
-                  <h3 class="blog-card__title">Bridging Digital and Physical Experiences</h3>
-                  <p class="blog-card__excerpt">Strategies for seamlessly integrating digital and physical elements to create cohesive and powerful multisensory experiences.</p>
-                  <div class="blog-card__footer">
-                    <div class="blog-card__meta">
-                      <span class="blog-card__date">March 18, 2025</span>
-                      <div class="blog-card__author">
-                        <img src="/images/author-6.jpg" alt="Sophie Kim" class="blog-card__author-img">
-                        <span>Sophie Kim</span>
-                      </div>
-                    </div>
-                    <a href="#" class="card__link">Read More →</a>
-                  </div>
-                </div>
-              </article>
+    <!-- Discord Community Signup -->
+    <section class="newsletter-section" style="padding: 80px 0; background: rgba(0, 0, 0, 0.4); text-align: center;">
+        <div class="container">
+            <h2 style="color: #fbbf24; font-size: 2.5rem; margin-bottom: 20px;">🎮 Join Our Discord Community</h2>
+            <p style="color: #d1d5db; font-size: 1.2rem; margin-bottom: 30px; max-width: 600px; margin-left: auto; margin-right: auto;">
+                Connect with our Discord community for blog discussions, Vision 2054 updates, and exclusive insights. Join the conversation!
+            </p>
+            
+            <div style="background: rgba(88, 101, 242, 0.1); border: 1px solid rgba(88, 101, 242, 0.3); border-radius: 15px; padding: 25px; margin: 30px auto; max-width: 500px;">
+                <ul style="list-style: none; padding: 0; margin: 0; color: #e5e7eb;">
+                    <li style="margin-bottom: 10px;">💬 Discuss blog posts with other readers</li>
+                    <li style="margin-bottom: 10px;">🚀 Get early access to new content</li>
+                    <li style="margin-bottom: 10px;">📚 Access exclusive resources</li>
+                    <li>🌟 Connect with purpose-driven creators</li>
+                </ul>
             </div>
-
-            <!-- Pagination -->
-            <div class="pagination animate-on-scroll" data-animation="fade-in">
-              <button class="pagination__button pagination__button--active">1</button>
-              <button class="pagination__button">2</button>
-              <button class="pagination__button">3</button>
-              <span class="pagination__ellipsis">...</span>
-              <button class="pagination__button">10</button>
-              <button class="pagination__button pagination__button--next">
-                Next
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
-              </button>
-            </div>
-          </div>
-
-          <!-- Sidebar -->
-          <aside class="blog-sidebar">
-            <!-- Search -->
-            <div class="sidebar-widget search-widget animate-on-scroll" data-animation="fade-in">
-              <h3 class="sidebar-widget__title">Search</h3>
-              <form class="search-form">
-                <input type="text" class="search-form__input" placeholder="Search blog posts...">
-                <button type="submit" class="search-form__button">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+            
+            <form class="discord-signup-form" data-form-type="discord" style="max-width: 500px; margin: 0 auto; display: flex; flex-direction: column; gap: 15px;">
+                <input type="hidden" name="source" value="blog-page-discord">
+                
+                <div style="display: flex; gap: 15px;">
+                    <input type="text" name="name" placeholder="Your name" required
+                           style="flex: 1; padding: 15px 20px; border: none; border-radius: 50px; background: rgba(255, 255, 255, 0.1); color: #ffffff; font-size: 1rem; backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.2);">
+                    <input type="email" name="email" placeholder="Email (optional)"
+                           style="flex: 1; padding: 15px 20px; border: none; border-radius: 50px; background: rgba(255, 255, 255, 0.1); color: #ffffff; font-size: 1rem; backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.2);">
+                </div>
+                
+                <input type="text" name="discord_username" placeholder="Discord username" required
+                       style="padding: 15px 20px; border: none; border-radius: 50px; background: rgba(255, 255, 255, 0.1); color: #ffffff; font-size: 1rem; backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.2);">
+                
+                <div style="text-align: left; padding: 0 20px;">
+                    <label style="display: flex; align-items: flex-start; gap: 10px; color: #d1d5db; font-size: 0.9rem; line-height: 1.4; cursor: pointer;">
+                        <input type="checkbox" name="discord_consent" required style="margin-top: 2px; accent-color: #5865f2;">
+                        I agree to join the Discord community and consent to data sharing as described in our 
+                        <a href="privacy.html" target="_blank" style="color: #60a5fa; text-decoration: none; border-bottom: 1px solid rgba(96, 165, 250, 0.3);">Privacy Policy</a> and 
+                        <a href="terms.html" target="_blank" style="color: #60a5fa; text-decoration: none; border-bottom: 1px solid rgba(96, 165, 250, 0.3);">Terms of Service</a>
+                    </label>
+                </div>
+                
+                <button type="submit" 
+                        style="padding: 15px 30px; background: linear-gradient(45deg, #5865f2, #4752c4); color: white; border: none; border-radius: 50px; font-weight: bold; cursor: pointer; font-size: 1.1rem; transition: all 0.3s ease;">
+                    Join Discord Community
                 </button>
-              </form>
-            </div>
-
-            <!-- Categories -->
-            <div class="sidebar-widget categories-widget animate-on-scroll" data-animation="fade-in">
-              <h3 class="sidebar-widget__title">Categories</h3>
-              <ul class="categories-list">
-                <li class="categories-list__item">
-                  <a href="#" class="categories-list__link">AI-Generated Insights <span class="categories-list__count">12</span></a>
-                </li>
-                <li class="categories-list__item">
-                  <a href="#" class="categories-list__link">Business Development <span class="categories-list__count">8</span></a>
-                </li>
-                <li class="categories-list__item">
-                  <a href="#" class="categories-list__link">Multisensory Experience <span class="categories-list__count">15</span></a>
-                </li>
-                <li class="categories-list__item">
-                  <a href="#" class="categories-list__link">Future of Work <span class="categories-list__count">10</span></a>
-                </li>
-                <li class="categories-list__item">
-                  <a href="#" class="categories-list__link">Community Building <span class="categories-list__count">7</span></a>
-                </li>
-              </ul>
-            </div>
-
-            <!-- Popular Posts -->
-            <div class="sidebar-widget popular-posts-widget animate-on-scroll" data-animation="fade-in">
-              <h3 class="sidebar-widget__title">Popular Posts</h3>
-              <ul class="popular-posts-list">
-                <li class="popular-post">
-                  <a href="#" class="popular-post__link">
-                    <img src="/images/blog-popular-1.jpg" alt="Popular Post 1" class="popular-post__image">
-                    <div class="popular-post__content">
-                      <h4 class="popular-post__title">AI-Generated Art: The New Renaissance</h4>
-                      <span class="popular-post__date">April 2, 2025</span>
-                    </div>
-                  </a>
-                </li>
-                <li class="popular-post">
-                  <a href="#" class="popular-post__link">
-                    <img src="/images/blog-popular-2.jpg" alt="Popular Post 2" class="popular-post__image">
-                    <div class="popular-post__content">
-                      <h4 class="popular-post__title">The 5 Senses of Digital Experience</h4>
-                      <span class="popular-post__date">March 15, 2025</span>
-                    </div>
-                  </a>
-                </li>
-                <li class="popular-post">
-                  <a href="#" class="popular-post__link">
-                    <img src="/images/blog-popular-3.jpg" alt="Popular Post 3" class="popular-post__image">
-                    <div class="popular-post__content">
-                      <h4 class="popular-post__title">Building Self-Sustaining Communities</h4>
-                      <span class="popular-post__date">February 28, 2025</span>
-                    </div>
-                  </a>
-                </li>
-              </ul>
-            </div>
-
-            <!-- Newsletter -->
-            <div class="sidebar-widget newsletter-widget animate-on-scroll" data-animation="fade-in">
-              <h3 class="sidebar-widget__title">Subscribe</h3>
-              <p class="sidebar-widget__text">Get the latest insights delivered directly to your inbox.</p>
-              <form class="newsletter-form">
-                <input type="email" class="newsletter-form__input" placeholder="Your email address" required>
-                <button type="submit" class="newsletter-form__button">Subscribe</button>
-              </form>
-            </div>
-
-            <!-- Tags -->
-            <div class="sidebar-widget tags-widget animate-on-scroll" data-animation="fade-in">
-              <h3 class="sidebar-widget__title">Tags</h3>
-              <div class="tags-list">
-                <a href="#" class="tag">AI</a>
-                <a href="#" class="tag">Technology</a>
-                <a href="#" class="tag">Multisensory</a>
-                <a href="#" class="tag">Future</a>
-                <a href="#" class="tag">Community</a>
-                <a href="#" class="tag">Design</a>
-                <a href="#" class="tag">Economy</a>
-                <a href="#" class="tag">Digital</a>
-                <a href="#" class="tag">Experience</a>
-                <a href="#" class="tag">Innovation</a>
-              </div>
-            </div>
-          </aside>
+            </form>
+            
+            <p style="color: #9ca3af; font-size: 0.9rem; margin-top: 20px;">
+                🔒 Your data is protected. You control your Discord notifications and can leave anytime.
+            </p>
         </div>
-      </div>
     </section>
 
-    <!-- Call to Action -->
-    <section class="section cta-section">
-      <div class="container">
-        <div class="cta-container animate-on-scroll" data-animation="fade-in">
-          <h2 class="cta-title">Share Your Insights</h2>
-          <p class="cta-text">Have a perspective on multisensory experiences or the post-labor economy? We welcome guest contributors who are passionate about building a better future.</p>
-          <a href="#" class="btn btn--gradient btn--large">Become a Contributor</a>
-        </div>
-      </div>
-    </section>
-  </main>
+    <!-- Supabase CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    
+    <!-- Local Supabase Configuration -->
+    <script src="config/supabase-keys.js"></script>
+    
+    <!-- Blog Data and Contact Forms -->
+    <script src="assets/js/blog-data.js"></script>
+    <script src="assets/js/contact-forms.js"></script>
+    <script>
+        // Simple blog display using static data
+        let blogPosts = [];
 
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="container">
-      <div class="footer__container">
-        <div class="footer__logo">
-          <img src="/images/logo-white.svg" alt="Multisensory Experiences Logo" class="footer__logo-img">
-          <div class="footer__tagline">Reimagining Possible in a Post-Labor Economy</div>
-          <div class="footer__social">
-            <a href="#" class="footer__social-link" aria-label="Twitter">
-              <svg class="footer__social-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg>
-            </a>
-            <a href="#" class="footer__social-link" aria-label="LinkedIn">
-              <svg class="footer__social-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
-            </a>
-            <a href="#" class="footer__social-link" aria-label="Instagram">
-              <svg class="footer__social-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
-            </a>
-            <a href="#" class="footer__social-link" aria-label="YouTube">
-              <svg class="footer__social-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg>
-            </a>
-          </div>
-        </div>
-        
-        <div class="footer__links-column">
-          <h3 class="footer__links-title">Navigation</h3>
-          <ul class="footer__links">
-            <li><a href="/" class="footer__link">Home</a></li>
-            <li><a href="/blog.html" class="footer__link">Blog</a></li>
-            <li><a href="/news.html" class="footer__link">News</a></li>
-            <li><a href="/featured.html" class="footer__link">Featured Content</a></li>
-            <li><a href="/events.html" class="footer__link">Events</a></li>
-          </ul>
-        </div>
-        
-        <div class="footer__links-column">
-          <h3 class="footer__links-title">About Us</h3>
-          <ul class="footer__links">
-            <li><a href="/approach.html" class="footer__link">Our Evolving Approach</a></li>
-            <li><a href="/invest.html" class="footer__link">Investment Opportunities</a></li>
-            <li><a href="/community.html" class="footer__link">Community Center Concept</a></li>
-            <li><a href="/imagination.html" class="footer__link">Imagination</a></li>
-          </ul>
-        </div>
-        
-        <div class="footer__form">
-          <h3 class="footer__form-title">Stay Updated</h3>
-          <form class="newsletter-form">
-            <input type="email" class="footer__form-input" placeholder="Your email address" required>
-            <button type="submit" class="footer__form-button">Subscribe</button>
-          </form>
-          <p class="footer__tagline">Join our community and receive updates on our latest multisensory experiences.</p>
-        </div>
-      </div>
-      
-      <div class="footer__bottom">
-        <p>&copy; 2025 Multisensory Experiences. All rights reserved.</p>
-      </div>
-    </div>
-  </footer>
+        function initializeBlog() {
+            const postsGrid = document.getElementById('posts-grid');
+            postsGrid.innerHTML = '<div class="loading">Loading blog posts...</div>';
 
-  <!-- JavaScript -->
-  <script src="/js/main.js"></script>
-  <script src="/js/pages/blog.js"></script>
+            // Use the static blog data
+            blogPosts = blogPostsData || [];
+            renderBlogPosts();
+        }
+
+        // Function to render blog posts
+        function renderBlogPosts() {
+            const postsGrid = document.getElementById('posts-grid');
+            
+            if (blogPosts.length === 0) {
+                postsGrid.innerHTML = '<div class="loading">No blog posts found.</div>';
+                return;
+            }
+
+            const postsHTML = blogPosts.map(post => {
+                return `
+                <article class="post-card" onclick="openPost('${post.slug}')">
+                    <div class="post-image">
+                        <img src="${post.image}" alt="${post.title}" loading="lazy">
+                    </div>
+                    <div class="post-content">
+                        <h2 class="post-title">${post.title}</h2>
+                        <p class="post-excerpt">${post.excerpt}</p>
+                        <div class="post-meta">
+                            <span class="post-date">${formatDate(post.date)}</span>
+                            <a href="#" class="read-more" onclick="event.stopPropagation(); openPost('${post.slug}')">Read More →</a>
+                        </div>
+                    </div>
+                </article>
+                `;
+            }).join('');
+
+            postsGrid.innerHTML = postsHTML;
+        }
+
+        // Function to format date
+        function formatDate(dateString) {
+            const options = { year: 'numeric', month: 'short', day: 'numeric' };
+            return new Date(dateString).toLocaleDateString('en-US', options);
+        }
+
+        // Function to open individual post
+        function openPost(slug) {
+            // For now, we'll navigate to the individual post page
+            window.location.href = `blog/post-${slug}.html`;
+        }
+
+        // Initialize the blog when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeBlog();
+        });
+    </script>
 </body>
 </html>

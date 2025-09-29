@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Why I Entered the AI Remix Competition | Asabaal Ventures Blog</title>
+    <meta name="description" content="Opening up about my personal struggles and the spiritual journey that led me to create music exploring what it means to be omniscient.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #0f0f23 0%, #1a1a3e 25%, #2d1b69 50%, #4c1d95 75%, #6b21a8 100%);
+            color: #ffffff;
+            min-height: 100vh;
+            overflow-x: hidden;
+            padding-top: 70px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(15, 15, 35, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 20px 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .nav {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .nav-links a {
+            color: #e5e7eb;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-weight: 500;
+        }
+        
+        .nav-links a:hover {
+            color: #fbbf24;
+        }
+
+        /* Post Header */
+        .post-header {
+            padding: 100px 0 60px;
+            text-align: center;
+            position: relative;
+            background: radial-gradient(circle at 50% 50%, rgba(251, 191, 36, 0.15) 0%, transparent 70%);
+        }
+
+
+        .back-link {
+            position: absolute;
+            top: 120px;
+            left: 20px;
+            color: #06b6d4;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .back-link:hover {
+            color: #fbbf24;
+        }
+
+        .post-title {
+            font-size: 3.5rem;
+            font-weight: 900;
+            margin-bottom: 25px;
+            background: linear-gradient(45deg, #fbbf24, #f472b6, #8b5cf6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.1;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .post-meta {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .post-date {
+            background: linear-gradient(45deg, #8b5cf6, #ec4899);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 25px;
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+
+        .post-tags {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            background: rgba(255, 255, 255, 0.1);
+            color: #d1d5db;
+            padding: 6px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .post-subtitle {
+            font-size: 1.3rem;
+            color: #d1d5db;
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        /* Featured Video */
+        .featured-video {
+            padding: 60px 0;
+            background: rgba(0, 0, 0, 0.2);
+        }
+
+        .video-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .featured-video .video-embed {
+            position: relative;
+            width: 100%;
+            height: 0;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        }
+
+        .featured-video .video-embed iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Video Placeholder */
+        .video-placeholder {
+            background: linear-gradient(135deg, rgba(15, 15, 35, 0.9), rgba(45, 27, 105, 0.8));
+            border: 2px dashed rgba(251, 191, 36, 0.3);
+            border-radius: 20px;
+            padding: 60px 40px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+        }
+
+        .placeholder-content {
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        .placeholder-icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            filter: grayscale(30%);
+        }
+
+        .placeholder-title {
+            color: #fbbf24;
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .placeholder-text {
+            color: #d1d5db;
+            font-size: 1.1rem;
+            line-height: 1.6;
+            opacity: 0.8;
+        }
+
+
+        /* Post Content */
+        .post-content {
+            padding: 80px 0;
+            background: linear-gradient(rgba(15, 15, 35, 0.85), rgba(45, 27, 105, 0.9)), url('../assets/images/blog/soundclash.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            position: relative;
+        }
+
+        .post-content::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.4);
+            pointer-events: none;
+        }
+
+        .content-wrapper {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .intro-section {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-left: 4px solid #fbbf24;
+            padding: 30px;
+            margin-bottom: 60px;
+            border-radius: 10px;
+            font-style: italic;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .intro-text {
+            font-size: 1.3rem;
+            color: #e5e7eb;
+            line-height: 1.7;
+        }
+
+        .content-section {
+            margin-bottom: 60px;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            padding: 30px;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .section-title {
+            font-size: 2rem;
+            color: #fbbf24;
+            margin-bottom: 25px;
+            font-weight: 700;
+        }
+
+        .content-text {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: #e5e7eb;
+            margin-bottom: 30px;
+        }
+
+        .content-text p {
+            margin-bottom: 20px;
+        }
+
+        .quote-section {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(15px);
+            border-left: 4px solid #fbbf24;
+            padding: 40px;
+            margin: 40px 0;
+            border-radius: 15px;
+            font-style: italic;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.3);
+        }
+
+        .quote-text {
+            font-size: 1.4rem;
+            color: #d1d5db;
+            margin-bottom: 15px;
+        }
+
+        .image-section {
+            margin: 40px 0;
+        }
+
+        .content-image {
+            text-align: center;
+        }
+
+        .section-img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 0 15px 35px -10px rgba(139, 92, 246, 0.3);
+        }
+
+        /* Special styling for in-love-and-unity image */
+        .section-img[src*="in-love-and-unity"] {
+            max-width: 300px;
+            margin: 0 auto;
+            display: block;
+        }
+
+        .image-caption {
+            text-align: center;
+            color: #9ca3af;
+            font-size: 0.9rem;
+            margin-top: 15px;
+            font-style: italic;
+        }
+
+        .video-section {
+            margin: 40px 0;
+            text-align: center;
+        }
+
+        .video-embed {
+            position: relative;
+            width: 100%;
+            height: 0;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px -10px rgba(139, 92, 246, 0.3);
+        }
+
+        .video-embed iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .video-title {
+            color: #fbbf24;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .video-description {
+            color: #9ca3af;
+            font-size: 0.9rem;
+            margin-top: 15px;
+        }
+
+        /* Author Section */
+        .author-section {
+            padding: 60px 0;
+            background: rgba(0, 0, 0, 0.4);
+            text-align: center;
+        }
+
+        .author-signature {
+            font-size: 1.1rem;
+            color: #d1d5db;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        .post-navigation {
+            padding: 60px 0;
+            background: rgba(0, 0, 0, 0.4);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .nav-button {
+            background: linear-gradient(45deg, #8b5cf6, #06b6d4);
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 50px;
+            font-weight: bold;
+            text-decoration: none;
+            transition: transform 0.3s ease;
+        }
+
+        .nav-button:hover {
+            transform: scale(1.05);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .post-title { font-size: 2.5rem; }
+            .back-link { position: static; margin-bottom: 20px; display: inline-block; }
+            .post-meta { flex-direction: column; gap: 15px; }
+            .nav-content { flex-direction: column; text-align: center; }
+            .nav-links { gap: 15px; font-size: 0.9rem; }
+            .post-content { background-attachment: scroll; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                <ul class="nav-links">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../vision_2054_page.html">Vision 2054</a></li>
+                    <li><a href="../index.html#videos">Videos</a></li>
+                    <li><a href="../unity-remix-contest.html">Contest</a></li>
+                    <li><a href="../blog.html">Blog</a></li>
+                    <li><a href="#contact">Connect</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Post Header -->
+    <section class="post-header">
+        <div class="container">
+            <a href="../blog.html" class="back-link">← Back to Blog</a>
+            <h1 class="post-title">Why I Entered the AI Remix Competition</h1>
+            <div class="post-meta">
+                <span class="post-date">2024-09-18</span>
+                <div class="post-tags">
+                        <span class="tag">AI music</span>
+                        <span class="tag">mental health</span>
+                        <span class="tag">spirituality</span>
+                        <span class="tag">personal growth</span>
+                        <span class="tag">omniscience</span>
+                </div>
+            </div>
+            <p class="post-subtitle">
+                Opening up about my personal struggles and the spiritual journey that led me to create music exploring what it means to be omniscient.
+            </p>
+        </div>
+    </section>
+
+                <!-- Featured Video -->
+                <section class="featured-video">
+                    <div class="container">
+                        <div class="video-container">
+                            <div class="video-embed">
+                                <iframe src="https://www.youtube.com/embed/4zMsYtfr3m0" frameborder="0" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+    <!-- Post Content -->
+    <section class="post-content">
+        <div class="container">
+            <div class="content-wrapper">
+
+                <div class="intro-section">
+                    <div class="intro-text">
+                        Hello world! Up to this point, I've spent most of my content efforts around telling the story that I obtained a newfound sense of inner peace, and how that led me to start advocating for the well-being of others, and how my faith ties into everything I do. Not today. Today I want to start opening up about my own struggles more directly. The messaging of a better life and a better world is still here, but it's time to start digging underneath the surface to see what made Asabaal the woman she is.
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <h2 class="section-title">Creating an Omniscient Sound</h2>
+                    <div class="content-text">
+                        <p>The lyrics of the track were inspired by the genre. I wanted the sound of this song to feel all-encompassing, everywhere, completely immersive. In fact, the prompt I used to generate the intro for this song was "Shoegazer trap, omniscient EDM". I wanted this song to sound like it was everything, and therefore it knew everything, to be a reflection of what it might mean to be omniscient.</p>
+                        <p>This isn't the time I want to talk about why I'm using AI and why I think society shouldn't be afraid of it, but rather to embrace it; however, I do want to publicly acknowledge that I am utilizing AI to help me make my music, but it isn't where the journey ends. This journey has me, the human in the loop and even as the guide.</p>
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <h2 class="section-title">The Feelings Behind the Music</h2>
+                    <div class="content-text">
+                        <p>Instead, I want to focus on the feelings I wanted to evoke from this piece. You may notice I didn't actually tell very much about my story in this song. That was intentional. I wanted to give you an inkling of what is to come, as well as an insight into some of the feelings I have faced in my life.</p>
+                        <p>I have struggled with anxiety for the entirety of my life, and I wasn't treated for nearly 30 years, for lack of recognition of the issue! It took even longer for me to accept my depression and be treated for that as well. This song sheds some light on how that felt. I felt alone. I didn't know who I should be. All I could do was hope that I didn't lose everything. And that failed. At least that's how I felt.</p>
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <h2 class="section-title">A Life of Struggle and Searching</h2>
+                    <div class="content-text">
+                        <p>Not this time. While it was true then, it's still true now that I don't know what's in the future, and I barely know what happens now. I have spent so much of my life feeling like a loser and desperate for help. I literally felt without purpose. This isn't to say there was no one who believed I had something great to offer, but I rejected their input because I couldn't see the pathway to accomplishing something.</p>
+                        <p>I felt forced into this life of failure and misery. It led me to depressive episodes full of tears, where I begged God for help in a broken, ghastly voice. I wanted to get that feeling of sinking in my chest out of me, but I couldn't do it. I didn't have a choice but to deal with it. I thought this was all life was.</p>
+                    </div>
+                </div>
+
+                <div class="video-section">
+                    <h3 class="video-title">Behind the Music - Creative Process</h3>
+                    <div class="video-embed">
+                        <iframe src="https://www.youtube.com/embed/d_H4NeFsjmo" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                    
+                </div>
+
+                <div class="content-section">
+                    <h2 class="section-title">The Question That Changed Everything</h2>
+                    <div class="content-text">
+                        <p>I knew I had done terrible things over and over again, but through it all, I chose to believe that there was a way out. I came to a conclusion. I asked myself the question, "What exactly does it mean to be omniscient?" Since I already believed in God and believed that God is omniscient (Psa 139:1-3, Is 46:9-10, Heb 4:13), I figured having a good understanding of what this actually is would be beneficial.</p>
+                        <p>The conclusion I came to was that if I knew everything, and I mean absolutely everything, that everything would make sense. All of the things I perceived as bad, evil, unfair, etc. would all make sense in the context of the assumptions that drove those things.</p>
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <h2 class="section-title">Finding Peace in Understanding</h2>
+                    <div class="content-text">
+                        <p>That makes it possible to let go of the unknown. That makes it possible to have a worry-free life, to have a life where you let go of your preconceived notions that lead to negative outcomes. It makes it possible to acknowledge you are sick mentally for having them and letting them drive you. It lets you acknowledge that you need to be refined, to have a life where you rise above these things into the life you were always meant for.</p>
+                        <p>That's what this song is about. It's just a taste of what's to come. What do you think? What if you could know absolutely everything? How do you think that would impact how you treat other people and how you treat yourself?</p>
+                    </div>
+                </div>
+
+                <div class="image-section">
+                    <div class="content-image">
+                        <img src="../assets/images/profiles/in-love-and-unity.png" alt="In Love and Unity - Asabaal's signature image" class="section-img">
+                        <p class="image-caption">In Love and Unity</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Author Section -->
+    <section class="author-section">
+        <div class="container">
+            <div class="author-signature">
+                In love and unity,<br><strong>Asabaal Horan</strong><br>Founder, Asabaal Ventures
+            </div>
+        </div>
+    </section>
+
+    <!-- Post Navigation -->
+    <section class="post-navigation">
+        <div class="container">
+            <div class="nav-content">
+                <div class="prev-post">
+                    <!-- Previous post link will be added dynamically -->
+                </div>
+                <a href="../blog.html" class="nav-button">All Posts</a>
+                <div class="next-post">
+                    <!-- Next post link will be added dynamically -->
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
