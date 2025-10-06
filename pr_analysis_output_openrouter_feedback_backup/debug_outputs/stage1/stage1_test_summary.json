@@ -1,0 +1,34 @@
+{
+  "stage": "Context Preparation",
+  "success": true,
+  "total_files": 245,
+  "files_with_content": 245,
+  "files_by_category": {
+    "CONFIGURATION": 2,
+    "UNCATEGORIZED": 21,
+    "DOCUMENTATION": 19,
+    "BLOG_CONTENT": 156,
+    "ASSETS_MEDIA": 31,
+    "USER_INTERFACE": 1,
+    "DATABASE": 10,
+    "SCRIPTS_AUTOMATION": 1,
+    "VISUALIZATIONS": 4
+  },
+  "performance_ms": 3123.2664585113525,
+  "comparison_with_manual": {
+    "expected_blog_processors": [
+      "content/auto_blog_processor.py",
+      "content/automated_blog_processor.py",
+      "content/batch_process_all_posts.py"
+    ],
+    "found_blog_files": [
+      "content/auto_blog_processor.py",
+      "content/automated_blog_processor.py",
+      "content/claude_blog_processor.py",
+      "content/process_blog_posts.py",
+      "content/refresh_blog_explorer.py",
+      "content/simple_blog_processor.py"
+    ],
+    "match_rate": 2.0
+  }
+}

@@ -1,0 +1,578 @@
+Now I'll generate the HTML sections for all 25 analysis results:
+
+```html
+<div class="file-item ready" data-path="assets/images/logos/Lehigh-University-logo.png">
+  <div class="file-header" onclick="toggleFile(this)">
+    <span class="toggle-icon">▶</span>
+    <span class="merge-status ready">🟢</span>
+    <span class="file-path">assets/images/logos/Lehigh-University-logo.png</span>
+    <span class="file-type">Image Asset</span>
+  </div>
+  <div class="file-content">
+    <div class="assessment-section">
+      <h4>Assessment</h4>
+      <div class="assessment-item">
+        <strong>Purpose:</strong> Educational institution logo for credentials or partnership display
+      </div>
+      <div class="assessment-item">
+        <strong>Business Impact:</strong> Supports credibility and educational background representation
+      </div>
+      <div class="assessment-item">
+        <strong>Risk Assessment:</strong> Low risk - static educational logo asset
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="file-item ready" data-path="assets/images/logos/argus_logo.svg">
+  <div class="file-header" onclick="toggleFile(this)">
+    <span class="toggle-icon">▶</span>
+    <span class="merge-status ready">🟢</span>
+    <span class="file-path">assets/images/logos/argus_logo.svg</span>
+    <span class="file-type">SVG Asset</span>
+  </div>
+  <div class="file-content">
+    <div class="assessment-section">
+      <h4>Assessment</h4>
+      <div class="assessment-item">
+        <strong>Purpose:</strong> SVG logo asset for Argus brand/service representation
+      </div>
+      <div class="assessment-item">
+        <strong>Business Impact:</strong> Part of brand portfolio or partnership display
+      </div>
+      <div class="assessment-item">
+        <strong>Risk Assessment:</strong> Low risk - scalable vector graphic with no security concerns
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="file-item ready" data-path="assets/images/logos/fixed-logo-white.svg">
+  <div class="file-header" onclick="toggleFile(this)">
+    <span class="toggle-icon">▶</span>
+    <span class="merge-status ready">🟢</span>
+    <span class="file-path">assets/images/logos/fixed-logo-white.svg</span>
+    <span class="file-type">SVG Asset</span>
+  </div>
+  <div class="file-content">
+    <div class="assessment-section">
+      <h4>Assessment</h4>
+      <div class="assessment-item">
+        <strong>Purpose:</strong> White variant logo SVG for dark backgrounds or theme consistency
+      </div>
+      <div class="assessment-item">
+        <strong>Business Impact:</strong> Critical for maintaining brand visibility across different design contexts
+      </div>
+      <div class="assessment-item">
+        <strong>Risk Assessment:</strong> Low risk - corrected logo variant for improved visual presentation
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="file-item ready" data-path="assets/images/logos/logo-white.svg">
+  <div class="file-header" onclick="toggleFile(this)">
+    <span class="toggle-icon">▶</span>
+    <span class="merge-status ready">🟢</span>
+    <span class="file-path">assets/images/logos/logo-white.svg</span>
+    <span class="file-type">SVG Asset</span>
+  </div>
+  <div class="file-content">
+    <div class="assessment-section">
+      <h4>Assessment</h4>
+      <div class="assessment-item">
+        <strong>Purpose:</strong> Primary white logo variant in SVG format for scalable branding
+      </div>
+      <div class="assessment-item">
+        <strong>Business Impact:</strong> Essential brand asset for navigation and header sections
+      </div>
+      <div class="assessment-item">
+        <strong>Risk Assessment:</strong> Low risk - core brand identity asset with universal compatibility
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="file-item ready" data-path="assets/images/logos/plu_logo.png">
+  <div class="file-header" onclick="toggleFile(this)">
+    <span class="toggle-icon">▶</span>
+    <span class="merge-status ready">🟢</span>
+    <span class="file-path">assets/images/logos/plu_logo.png</span>
+    <span class="file-type">Image Asset</span>
+  </div>
+  <div class="file-content">
+    <div class="assessment-section">
+      <h4>Assessment</h4>
+      <div class="assessment-item">
+        <strong>Purpose:</strong> Pacific Lutheran University logo for educational credentials display
+      </div>
+      <div class="assessment-item">
+        <strong>Business Impact:</strong> Enhances credibility through educational background representation
+      </div>
+      <div class="assessment-item">
+        <strong>Risk Assessment:</strong> Low risk - institutional logo with standard usage rights
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="file-item ready" data-path="assets/images/logos/sift_logo.png">
+  <div class="file-header" onclick="toggleFile(this)">
+    <span class="toggle-icon">▶</span>
+    <span class="merge-status ready">🟢</span>
+    <span class="file-path">assets/images/logos/sift_logo.png</span>
+    <span class="file-type">Image Asset</span>
+  </div>
+  <div class="file-content">
+    <div class="assessment-section">
+      <h4>Assessment</h4>
+      <div class="assessment-item">
+        <strong>Purpose:</strong> SIFT organization/service logo for portfolio or partnership display
+      </div>
+      <div class="assessment-item">
+        <strong>Business Impact:</strong> Part of professional portfolio or service offerings representation
+      </div>
+      <div class="assessment-item">
+        <strong>Risk Assessment:</strong> Low risk - third-party logo with appropriate usage context
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="file-item ready" data-path="assets/images/logos/springboard.png">
+  <div class="file-header" onclick="toggleFile(this)">
+    <span class="toggle-icon">▶</span>
+    <span class="merge-status ready">🟢</span>
+    <span class="file-path">assets/images/logos/springboard.png</span>
+    <span class="file-type">Image Asset</span>
+  </div>
+  <div class="file-content">
+    <div class="assessment-section">
+      <h4>Assessment</h4>
+      <div class="assessment-item">
+        <strong>Purpose:</strong> Springboard platform logo for educational or professional development context
+      </div>
+      <div class="assessment-item">
+        <strong>Business Impact:</strong> Supports professional development narrative and credibility
+      </div>
+      <div class="assessment-item">
+        <strong>Risk Assessment:</strong> Low risk - educational platform logo with standard usage
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="file-item ready" data-path="assets/images/logos/tgr-logo.svg">
+  <div class="file-header" onclick="toggleFile(this)">
+    <span class="toggle-icon">▶</span>
+    <span class="merge-status ready">🟢</span>
+    <span class="file-path">assets/images/logos/tgr-logo.svg</span>
+    <span class="file-type">SVG Asset</span>
+  </div>
+  <div class="file-content">
+    <div class="assessment-section">
+      <h4>Assessment</h4>
+      <div class="assessment-item">
+        <strong>Purpose:</strong> TGR brand logo in scalable SVG format
+      </div>
+      <div class="assessment-item">
+        <strong>Business Impact:</strong> Brand identity asset for service or project representation
+      </div>
+      <div class="assessment-item">
+        <strong>Risk Assessment:</strong> Low risk - vector logo with clean implementation
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="file-item ready" data-path="assets/images/logos/tgr-plus-logo.svg">
+  <div class="file-header" onclick="toggleFile(this)">
+    <span class="toggle-icon">▶</span>
+    <span class="merge-status ready">🟢</span>
+    <span class="file-path">assets/images/logos/tgr-plus-logo.svg</span>
+    <span class="file-type">SVG Asset</span>
+  </div>
+  <div class="file-content">
+    <div class="assessment-section">
+      <h4>Assessment</h4>
+      <div class="assessment-item">
+        <strong>Purpose:</strong> Enhanced TGR Plus variant logo for premium or extended services
+      </div>
+      <div class="assessment-item">
+        <strong>Business Impact:</strong> Differentiates service tiers and supports product hierarchy
+      </div>
+      <div class="assessment-item">
+        <strong>Risk Assessment:</strong> Low risk - variant logo with clear branding distinction
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="file-item ready" data-path="assets/images/logos/unity-remix-3d-text.png">
+  <div class="file-header" onclick="toggleFile(this)">
+    <span class="toggle-icon">▶</span>
+    <span class="merge-status ready">🟢</span>
+    <span class="file-path">assets/images/logos/unity-remix-3d-text.png</span>
+    <span class="file-type">Image Asset</span>
+  </div>
+  <div class="file-content">
+    <div class="assessment-section">
+      <h4>Assessment</h4>
+      <div class="assessment-item">
+        <strong>Purpose:</strong> Unity Remix 3D text logo for project or service branding
+      </div>
+      <div class="assessment-item">
+        <strong>Business Impact:</strong> Creative project branding that aligns with AI/remix initiatives
+      </div>
+      <div class="assessment-item">
+        <strong>Risk Assessment:</strong> Low risk - project-specific branding asset
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="file-item ready" data-path="assets/images/logos/unity-remix-logo.png">
+  <div class="file-header" onclick="toggleFile(this)">
+    <span class="toggle-icon">▶</span>
+    <span class="merge-status ready">🟢</span>
+    <span class="file-path">assets/images/logos/unity-remix-logo.png</span>
+    <span class="file-type">Image Asset</span>
+  </div>
+  <div class="file-content">
+    <div class="assessment-section">
+      <h4>Assessment</h4>
+      <div class="assessment-item">
+        <strong>Purpose:</strong> Unity Remix main logo for project identification and branding
+      </div>
+      <div class="assessment-item">
+        <strong>Business Impact:</strong> Core asset for Unity Remix project visibility and recognition
+      </div>
+      <div class="assessment-item">
+        <strong>Risk Assessment:</strong> Low risk - project logo with clear brand identity
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="file-item ready" data-path="assets/images/logos/vision-2054-logo.svg">
+  <div class="file-header" onclick="toggleFile(this)">
+    <span class="toggle-icon">▶</span>
+    <span class="merge-status ready">🟢</span>
+    <span class="file-path">assets/images/logos/vision-2054-logo.svg</span>
+    <span class="file-type">SVG Asset</span>
+  </div>
+  <div class="file-content">
+    <div class="assessment-section">
+      <h4>Assessment</h4>
+      <div class="assessment-item">
+        <strong>Purpose:</strong> SVG logo for Vision 2054 brand/project
+      </div>
+      <div class="assessment-item">
+        <strong>Business Impact:</strong> Essential brand asset for visual identity
+      </div>
+      <div class="assessment-item">
+        <strong>Risk Assessment:</strong> None - standard logo asset
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="file-item ready" data-path="assets/images/profiles/founder-headshot.jpg">
+  <div class="file-header" onclick="toggleFile(this)">
+    <span class="toggle-icon">▶</span>
+    <span class="merge-status ready">🟢</span>
+    <span class="file-path">assets/images/profiles/founder-headshot.jpg</span>
+    <span class="file-type">Image Asset</span>
+  </div>
+  <div class="file-content">
+    <div class="assessment-section">
+      <h4>Assessment</h4>
+      <div class="assessment-item">
+        <strong>Purpose:</strong> Professional headshot image for founder profile
+      </div>
+      <div class="assessment-item">
+        <strong>Business Impact:</strong> Provides visual representation for team/about sections
+      </div>
+      <div class="assessment-item">
+        <strong>Risk Assessment:</strong> None - standard profile image
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="file-item ready" data-path="assets/images/profiles/in-love-and-unity.png">
+  <div class="file-header" onclick="toggleFile(this)">
+    <span class="toggle-icon">▶</span>
+    <span class="merge-status ready">🟢</span>
+    <span class="file-path">assets/images/profiles/in-love-and-unity.png</span>
+    <span class="file-type">Image Asset</span>
+  </div>
+  <div class="file-content">
+    <div class="assessment-section">
+      <h4>Assessment</h4>
+      <div class="assessment-item">
+        <strong>Purpose:</strong> Branded message image with artistic text design
+      </div>
+      <div class="assessment-item">
+        <strong>Business Impact:</strong> Visual content for branding and messaging
+      </div>
+      <div class="assessment-item">
+        <strong>Risk Assessment:</strong> None - standard graphic asset
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="file-item ready" data-path="assets/images/qr/TikTok.jpg">
+  <div class="file-header" onclick="toggleFile(this)">
+    <span class="toggle-icon">▶</span>
+    <span class="merge-status ready">🟢</span>
+    <span class="file-path">assets/images/qr/TikTok.jpg</span>
+    <span class="file-type">QR Code</span>
+  </div>
+  <div class="file-content">
+    <div class="assessment-section">
+      <h4>Assessment</h4>
+      <div class="assessment-item">
+        <strong>Purpose:</strong> QR code for TikTok social media platform access
+      </div>
+      <div class="assessment-item">
+        <strong>Business Impact:</strong> Enables easy access to TikTok presence
+      </div>
+      <div class="assessment-item">
+        <strong>Risk Assessment:</strong> None - standard QR code asset
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="file-item ready" data-path="assets/images/qr/applemusic.png">
+  <div class="file-header" onclick="toggleFile(this)">
+    <span class="toggle-icon">▶</span>
+    <span class="merge-status ready">🟢</span>
+    <span class="file-path">assets/images/qr/applemusic.png</span>
+    <span class="file-type">QR Code</span>
+  </div>
+  <div class="file-content">
+    <div class="assessment-section">
+      <h4>Assessment</h4>
+      <div class="assessment-item">
+        <strong>Purpose:</strong> QR code for Apple Music platform access
+      </div>
+      <div class="assessment-item">
+        <strong>Business Impact:</strong> Enables easy access to Apple Music content
+      </div>
+      <div class="assessment-item">
+        <strong>Risk Assessment:</strong> None - standard QR code asset
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="file-item ready" data-path="assets/images/qr/facebook.png">
+  <div class="file-header" onclick="toggleFile(this)">
+    <span class="toggle-icon">▶</span>
+    <span class="merge-status ready">🟢</span>
+    <span class="file-path">assets/images/qr/facebook.png</span>
+    <span class="file-type">QR Code</span>
+  </div>
+  <div class="file-content">
+    <div class="assessment-section">
+      <h4>Assessment</h4>
+      <div class="assessment-item">
+        <strong>Purpose:</strong> QR code for Facebook social media platform access
+      </div>
+      <div class="assessment-item">
+        <strong>Business Impact:</strong> Enables easy access to Facebook presence
+      </div>
+      <div class="assessment-item">
+        <strong>Risk Assessment:</strong> None - standard QR code asset
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="file-item ready" data-path="assets/images/qr/homepage_qr_code.png">
+  <div class="file-header" onclick="toggleFile(this)">
+    <span class="toggle-icon">▶</span>
+    <span class="merge-status ready">🟢</span>
+    <span class="file-path">assets/images/qr/homepage_qr_code.png</span>
+    <span class="file-type">QR Code</span>
+  </div>
+  <div class="file-content">
+    <div class="assessment-section">
+      <h4>Assessment</h4>
+      <div class="assessment-item">
+        <strong>Purpose:</strong> QR code for homepage/website access
+      </div>
+      <div class="assessment-item">
+        <strong>Business Impact:</strong> Enables easy access to main website
+      </div>
+      <div class="assessment-item">
+        <strong>Risk Assessment:</strong> None - standard QR code asset
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="file-item ready" data-path="assets/images/qr/instagram.png">
+  <div class="file-header" onclick="toggleFile(this)">
+    <span class="toggle-icon">▶</span>
+    <span class="merge-status ready">🟢</span>
+    <span class="file-path">assets/images/qr/instagram.png</span>
+    <span class="file-type">QR Code</span>
+  </div>
+  <div class="file-content">
+    <div class="assessment-section">
+      <h4>Assessment</h4>
+      <div class="assessment-item">
+        <strong>Purpose:</strong> QR code for Instagram social media platform access
+      </div>
+      <div class="assessment-item">
+        <strong>Business Impact:</strong> Enables easy access to Instagram presence
+      </div>
+      <div class="assessment-item">
+        <strong>Risk Assessment:</strong> None - standard QR code asset
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="file-item ready" data-path="assets/images/qr/linkedin.png">
+  <div class="file-header" onclick="toggleFile(this)">
+    <span class="toggle-icon">▶</span>
+    <span class="merge-status ready">🟢</span>
+    <span class="file-path">assets/images/qr/linkedin.png</span>
+    <span class="file-type">QR Code</span>
+  </div>
+  <div class="file-content">
+    <div class="assessment-section">
+      <h4>Assessment</h4>
+      <div class="assessment-item">
+        <strong>Purpose:</strong> QR code for LinkedIn professional platform access
+      </div>
+      <div class="assessment-item">
+        <strong>Business Impact:</strong> Enables easy access to LinkedIn presence
+      </div>
+      <div class="assessment-item">
+        <strong>Risk Assessment:</strong> None - standard QR code asset
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="file-item ready" data-path="assets/images/qr/spotify.png">
+  <div class="file-header" onclick="toggleFile(this)">
+    <span class="toggle-icon">▶</span>
+    <span class="merge-status ready">🟢</span>
+    <span class="file-path">assets/images/qr/spotify.png</span>
+    <span class="file-type">QR Code</span>
+  </div>
+  <div class="file-content">
+    <div class="assessment-section">
+      <h4>Assessment</h4>
+      <div class="assessment-item">
+        <strong>Purpose:</strong> QR code for Spotify music platform access
+      </div>
+      <div class="assessment-item">
+        <strong>Business Impact:</strong> Enables easy access to Spotify content
+      </div>
+      <div class="assessment-item">
+        <strong>Risk Assessment:</strong> None - standard QR code asset
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="file-item ready" data-path="assets/images/qr/suno.png">
+  <div class="file-header" onclick="toggleFile(this)">
+    <span class="toggle-icon">▶</span>
+    <span class="merge-status ready">🟢</span>
+    <span class="file-path">assets/images/qr/suno.png</span>
+    <span class="file-type">QR Code</span>
+  </div>
+  <div class="file-content">
+    <div class="assessment-section">
+      <h4>Assessment</h4>
+      <div class="assessment-item">
+        <strong>Purpose:</strong> QR code for Suno platform access
+      </div>
+      <div class="assessment-item">
+        <strong>Business Impact:</strong> Enables easy access to Suno platform
+      </div>
+      <div class="assessment-item">
+        <strong>Risk Assessment:</strong> None - standard QR code asset
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="file-item ready" data-path="assets/images/qr/x.png">
+  <div class="file-header" onclick="toggleFile(this)">
+    <span class="toggle-icon">▶</span>
+    <span class="merge-status ready">🟢</span>
+    <span class="file-path">assets/images/qr/x.png</span>
+    <span class="file-type">QR Code</span>
+  </div>
+  <div class="file-content">
+    <div class="assessment-section">
+      <h4>Assessment</h4>
+      <div class="assessment-item">
+        <strong>Purpose:</strong> QR code for X (formerly Twitter) platform access
+      </div>
+      <div class="assessment-item">
+        <strong>Business Impact:</strong> Enables easy access to X social media presence
+      </div>
+      <div class="assessment-item">
+        <strong>Risk Assessment:</strong> None - standard QR code asset
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="file-item ready" data-path="assets/images/qr/youtube.png">
+  <div class="file-header" onclick="toggleFile(this)">
+    <span class="toggle-icon">▶</span>
+    <span class="merge-status ready">🟢</span>
+    <span class="file-path">assets/images/qr/youtube.png</span>
+    <span class="file-type">QR Code</span>
+  </div>
+  <div class="file-content">
+    <div class="assessment-section">
+      <h4>Assessment</h4>
+      <div class="assessment-item">
+        <strong>Purpose:</strong> QR code for YouTube social media link
+      </div>
+      <div class="assessment-item">
+        <strong>Business Impact:</strong> Low - standard social media asset
+      </div>
+      <div class="assessment-item">
+        <strong>Risk Assessment:</strong> Minimal - image asset with no functionality
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="file-item ready" data-path="assets/js/blog-data.js">
+  <div class="file-header" onclick="toggleFile(this)">
+    <span class="toggle-icon">▶</span>
+    <span class="merge-status ready">🟢</span>
+    <span class="file-path">assets/js/blog-data.js</span>
+    <span class="file-type">JavaScript</span>
+  </div>
+  <div class="file-content">
+    <div class="assessment-section">
+      <h4>Assessment</h4>
+      <div class="assessment-item">
+        <strong>Purpose:</strong> Static blog posts data structure with metadata
+      </div>
+      <div class="assessment-item">
+        <strong>Business Impact:</strong> Medium - provides blog content structure for website
+      </div>
+      <div class="assessment-item">
+        <strong>Risk Assessment:</strong> Low - static data with no dynamic functionality
+      </div>
+    </div>
+  </div>
+</div>
+```

@@ -1,0 +1,43 @@
+{
+  "metadata": {
+    "title": "Your Post Title Here",
+    "slug": "your-post-title-here",
+    "publishDate": "2024-01-01",
+    "tags": [
+      "blogging",
+      "content-creation",
+      "ai-tools"
+    ],
+    "excerpt": "A compelling summary of your post that draws readers in...",
+    "coverImage": "cover.jpg",
+    "featured": false,
+    "status": "published"
+  },
+  "content": {
+    "subtitle": "An optional subtitle that expands on the title",
+    "sections": [
+      {
+        "type": "intro",
+        "content": {
+          "text": "Your main content goes here. Just write naturally - no formatting needed."
+        },
+        "order": 1
+      },
+      {
+        "type": "text",
+        "title": "Section Title",
+        "content": {
+          "paragraphs": [
+            "You can write multiple paragraphs. The AI will intelligently structure this into sections, extract quotes, and create proper blog formatting.",
+            "Add any thoughts, stories, or insights you want to share. The agent will handle the rest!"
+          ]
+        },
+        "order": 2
+      }
+    ]
+  },
+  "author": {
+    "name": "Asabaal Horan",
+    "signature": "In love and unity,<br><strong>Asabaal Horan</strong><br>Founder, Asabaal Ventures"
+  }
+}

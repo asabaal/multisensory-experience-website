@@ -1,17 +1,7 @@
 TASK: Update PR analysis report based on user feedback
 
 USER FEEDBACK:
-{
-  "file_updates": [
-    {
-      "file_path": "content/raw-input/.md",
-      "merge_readiness": "ready",
-      "recommendations": [
-        "File is ready for merge - functional template for blog post creation"
-      ]
-    }
-  ]
-}
+Test feedback with correct model
 
 ADDITIONAL FILES PROVIDED:
 None
