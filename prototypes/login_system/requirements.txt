@@ -1,0 +1,25 @@
+# Asabaal Ventures - Worker Daemon Requirements
+# Core dependencies for job processing system
+
+# Supabase client
+supabase>=2.0.0
+
+# HTTP requests
+requests>=2.31.0
+
+# File handling and utilities
+pathlib2>=2.3.7
+
+# Optional: For better file type detection
+python-magic>=0.4.27
+
+# Optional: For progress bars and better logging
+tqdm>=4.66.0
+
+# Optional: For configuration management
+python-dotenv>=1.0.0
+
+# Development dependencies (uncomment for development)
+# pytest>=7.4.0
+# black>=23.0.0
+# flake8>=6.0.0
