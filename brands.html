@@ -261,6 +261,15 @@
             box-shadow: 0 20px 40px rgba(244, 114, 182, 0.3);
         }
         
+        .brand-card.acts {
+            border-color: rgba(16, 185, 129, 0.2);
+        }
+        
+        .brand-card.acts:hover {
+            border-color: #10b981;
+            box-shadow: 0 20px 40px rgba(16, 185, 129, 0.3);
+        }
+        
         .card-visual {
             height: 200px;
             position: relative;
@@ -280,6 +289,10 @@
         
         .card-visual.amusements {
             background: linear-gradient(135deg, #f472b6 0%, #ec4899 100%);
+        }
+        
+        .card-visual.acts {
+            background: linear-gradient(135deg, #10b981 0%, #34d399 100%);
         }
         
         .card-icon {
@@ -319,6 +332,11 @@
             color: white;
         }
         
+        .brand-card.acts .card-badge {
+            background: linear-gradient(45deg, #10b981, #34d399);
+            color: white;
+        }
+        
         .card-title {
             font-size: 1.8rem;
             margin-bottom: 12px;
@@ -341,6 +359,13 @@
         
         .brand-card.amusements .card-title {
             background: linear-gradient(45deg, #f472b6, #fb7185);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .brand-card.acts .card-title {
+            background: linear-gradient(45deg, #10b981, #34d399);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -424,14 +449,14 @@
                 </div>
                 
                 <div class="nav-center">
-                    <a href="index.html">
+                    <a href="brands.html">
                         <img src="assets/images/logos/Asabaal Ventures.png" alt="Asabaal Ventures" class="center-logo">
                     </a>
                 </div>
                 
                 <div class="nav-right">
                     <ul class="nav-links">
-                        <li><a href="index.html">Home</a></li>
+                        <li><a href="brands.html">Home</a></li>
                         <li><a href="consume.html">Consume</a></li>
                         <li><a href="interact.html">Interact</a></li>
                         <li><a href="learn.html" style="color: #fbbf24;">Learn</a></li>
@@ -524,6 +549,28 @@
                         <div class="card-arrow">
                             <span>→</span>
                             <span>Explore Amusements</span>
+                        </div>
+                    </div>
+                </a>
+                
+                <a href="acts-of-asabaal.html" class="brand-card acts">
+                    <div class="card-visual acts">
+                        <div class="card-icon">🎭</div>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-badge">Experiences</div>
+                        <h3 class="card-title">Acts of Asabaal</h3>
+                        <p class="card-description">
+                            Curated experiences, performances, and transformative events designed to inspire authentic living.
+                        </p>
+                        <ul class="card-features">
+                            <li>Live Experiences</li>
+                            <li>Transformative Events</li>
+                            <li>Community Gatherings</li>
+                        </ul>
+                        <div class="card-arrow">
+                            <span>→</span>
+                            <span>Explore Acts</span>
                         </div>
                     </div>
                 </a>

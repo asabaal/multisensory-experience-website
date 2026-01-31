@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Asabaal | Asabaal Ventures</title>
+    <link rel="icon" type="image/svg+xml" href="assets/images/icons/favicon.svg">
     <style>
         * {
             margin: 0;
@@ -155,6 +156,7 @@
             font-weight: 600;
         }
         
+        /* Hero Section */
         .hero-section {
             padding: 80px 0 60px;
             text-align: center;
@@ -191,61 +193,170 @@
             line-height: 1.6;
         }
         
-        .placeholder-section {
-            padding: 60px 0;
-            text-align: center;
+        .suno-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 30px;
+            padding: 15px 30px;
+            background: linear-gradient(45deg, #fbbf24, #f59e0b);
+            color: #0f0f23;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(251, 191, 36, 0.3);
         }
         
-        .placeholder-card {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            border: 2px dashed rgba(251, 191, 36, 0.3);
-            padding: 60px;
-            max-width: 700px;
+        .suno-link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(251, 191, 36, 0.5);
+        }
+        
+        /* Cards Section */
+        .cards-section {
+            padding: 60px 0;
+        }
+        
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 40px;
+            max-width: 1000px;
             margin: 0 auto;
         }
         
-        .placeholder-icon {
-            font-size: 5rem;
-            margin-bottom: 30px;
-            opacity: 0.5;
+        .nav-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 25px;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+            position: relative;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+            padding: 50px;
         }
         
-        .placeholder-title {
-            font-size: 2rem;
-            margin-bottom: 20px;
-            color: #fbbf24;
+        .nav-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transition: left 0.6s ease;
         }
         
-        .placeholder-text {
-            font-size: 1.1rem;
+        .nav-card:hover::before {
+            left: 100%;
+        }
+        
+        .nav-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            border-color: #fbbf24;
+            box-shadow: 0 20px 40px rgba(251, 191, 36, 0.3);
+        }
+        
+        .nav-card.projects {
+            border-color: rgba(251, 191, 36, 0.15);
+        }
+        
+        .nav-card.projects:hover {
+            border-color: #fbbf24;
+            box-shadow: 0 20px 40px rgba(251, 191, 36, 0.3);
+        }
+        
+        .nav-card.playlists {
+            border-color: rgba(139, 92, 246, 0.15);
+        }
+        
+        .nav-card.playlists:hover {
+            border-color: #8b5cf6;
+            box-shadow: 0 20px 40px rgba(139, 92, 246, 0.3);
+        }
+        
+        .card-visual {
+            height: 120px;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .nav-card.projects .card-visual {
+            background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+        }
+        
+        .nav-card.playlists .card-visual {
+            background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+        }
+        
+        .card-icon {
+            font-size: 4rem;
+            animation: float 6s ease-in-out infinite;
+            animation-delay: 0.5s;
+        }
+        
+        .card-content {
+            padding-top: 30px;
+            text-align: center;
+        }
+        
+        .card-title {
+            font-size: 1.8rem;
+            margin-bottom: 12px;
+            line-height: 1.3;
+        }
+        
+        .nav-card.projects .card-title {
+            background: linear-gradient(45deg, #fbbf24, #fcd34d);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .nav-card.playlists .card-title {
+            background: linear-gradient(45deg, #8b5cf6, #a78bfa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .card-description {
+            font-size: 1rem;
             color: #d1d5db;
             line-height: 1.6;
-            margin-bottom: 30px;
         }
         
-        .placeholder-links {
+        .card-arrow {
             display: flex;
+            align-items: center;
+            gap: 10px;
             justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
-        
-        .placeholder-link {
-            padding: 12px 30px;
-            border-radius: 50px;
-            background: rgba(251, 191, 36, 0.1);
-            border: 1px solid rgba(251, 191, 36, 0.3);
+            margin-top: 15px;
             color: #fbbf24;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            font-weight: 500;
+            font-weight: 600;
+            font-size: 1rem;
         }
         
-        .placeholder-link:hover {
-            background: rgba(251, 191, 36, 0.2);
-            transform: translateY(-2px);
+        .nav-card.playlists .card-arrow {
+            color: #8b5cf6;
+        }
+        
+        .card-arrow span {
+            font-size: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .nav-card:hover .card-arrow span {
+            transform: translateX(8px);
         }
         
         @media (max-width: 768px) {
@@ -257,12 +368,8 @@
                 display: none;
             }
             
-            .placeholder-card {
-                padding: 40px 30px;
-            }
-            
-            .placeholder-links {
-                flex-direction: column;
+            .cards-grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -282,7 +389,7 @@
                 </div>
                 
                 <div class="nav-center">
-                    <a href="index.html">
+                    <a href="brands.html">
                         <img src="assets/images/logos/Asabaal Ventures.png" alt="Asabaal Ventures" class="center-logo">
                     </a>
                 </div>
@@ -309,27 +416,52 @@
     
     <section class="hero-section">
         <div class="container">
-            <div class="hero-icon">⭐</div>
+            <div class="hero-icon">🎵</div>
             <h1 class="hero-title">Asabaal</h1>
             <p class="hero-subtitle">
-                The creative force behind purpose-driven innovation. Explore the vision, mission, and transformative journey.
+                The artist and music brand behind transformative sound experiences. Explore complete discography and curated playlists.
             </p>
+            <a href="https://suno.com/@asabaal" class="suno-link" target="_blank">
+                <span>🎵</span>
+                <span>Suno Profile</span>
+            </a>
         </div>
     </section>
     
-    <section class="placeholder-section">
+    <section class="cards-section">
         <div class="container">
-            <div class="placeholder-card">
-                <div class="placeholder-icon">🚧</div>
-                <h2 class="placeholder-title">Page Under Development</h2>
-                <p class="placeholder-text">
-                    We're currently building the comprehensive Asabaal page. Soon you'll be able to explore the founder's journey, core philosophy, and the vision that drives all our work.
-                </p>
-                <div class="placeholder-links">
-                    <a href="brands.html" class="placeholder-link">← Back to Our Brands</a>
-                    <a href="resume_cv/asabaal_horan_cv_202507.html" class="placeholder-link">View Founder's Resume</a>
-                    <a href="connect.html" class="placeholder-link">Connect With Us</a>
-                </div>
+            <div class="cards-grid">
+                <a href="asabaal-projects.html" class="nav-card projects">
+                    <div class="card-visual">
+                        <div class="card-icon">🎨</div>
+                    </div>
+                    <div class="card-content">
+                        <h2 class="card-title">Browse Projects</h2>
+                        <p class="card-description">
+                            Explore all EPs, singles, demos, and special projects.
+                        </p>
+                        <div class="card-arrow">
+                            <span>→</span>
+                            <span>View Projects</span>
+                        </div>
+                    </div>
+                </a>
+                
+                <a href="playlists.html" class="nav-card playlists">
+                    <div class="card-visual">
+                        <div class="card-icon">🎧</div>
+                    </div>
+                    <div class="card-content">
+                        <h2 class="card-title">Browse Playlists</h2>
+                        <p class="card-description">
+                            Listen to curated playlists from THE AI SERIES, Suno Previews, and more.
+                        </p>
+                        <div class="card-arrow">
+                            <span>→</span>
+                            <span>View Playlists</span>
+                        </div>
+                    </div>
+                </a>
             </div>
         </div>
     </section>
