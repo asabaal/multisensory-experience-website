@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Episode 2: First Steps | Life is your Word</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Arial', sans-serif; background: linear-gradient(135deg, #0f0f23 0%, #1a1a3e 25%, #2d1b69 50%, #4c1d95 75%, #6b21a8 100%); color: #ffffff; min-height: 100vh; overflow-x: hidden; padding-top: 70px; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        .header { position: fixed; top: 0; left: 0; right: 0; background: rgba(15, 15, 35, 0.95); backdrop-filter: blur(10px); padding: 20px 0; z-index: 1000; border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+        .nav { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 20px; }
+        .nav-left { display: flex; align-items: center; gap: 15px; justify-self: start; }
+        .nav-center { justify-self: center; }
+        .center-logo { height: calc(100% - 10px); width: auto; max-height: 80px; }
+        .nav-right { justify-self: end; }
+        .logo-image { width: 40px; height: 40px; background: transparent; border: 2px solid #fbbf24; border-radius: 8px; display: flex; align-items: center; justify-content: center; color: #0f0f23; font-weight: bold; font-size: 1.2rem; }
+        .logo-image img { width: 100%; height: 100%; object-fit: contain; }
+        .logo-text { display: flex; flex-direction: column; }
+        .company-name { font-size: 24px; font-weight: bold; background: linear-gradient(45deg, #fbbf24, #f59e0b, #d97706); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; line-height: 1; }
+        .company-tagline { font-size: 11px; color: #9ca3af; text-transform: uppercase; letter-spacing: 1px; margin-top: 2px; }
+        .nav-links { display: flex; gap: 30px; list-style: none; }
+        .nav-links a { color: #e5e7eb; text-decoration: none; transition: color 0.3s ease; font-weight: 500; white-space: nowrap; }
+        .nav-links a:hover { color: #fbbf24; }
+        .breadcrumb { display: flex; align-items: center; gap: 10px; padding: 20px 0; font-size: 0.9rem; color: #9ca3af; }
+        .breadcrumb-item { color: #e5e7eb; text-decoration: none; transition: color 0.3s ease; }
+        .breadcrumb-item:hover { color: #fbbf24; }
+        .breadcrumb-separator { color: #6b7280; }
+        .breadcrumb-current { color: #9ca3af; font-weight: 600; }
+        .episode-header { padding: 40px 0; }
+        .episode-banner { width: 100%; height: 250px; border-radius: 20px; display: flex; align-items: center; justify-content: center; overflow: hidden; margin-bottom: 40px; position: relative; }
+        .episode-number-large { font-size: 6rem; font-weight: 900; color: rgba(255, 255, 255, 0.9); text-shadow: 0 4px 20px rgba(0, 0, 0, 0.5); }
+        .episode-header-info { text-align: center; max-width: 900px; margin: 0 auto; }
+        .episode-title-large { font-size: 3rem; font-weight: 900; margin-bottom: 20px; background: linear-gradient(45deg, #fbbf24, #f472b6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; line-height: 1.1; }
+        .episode-meta-large { display: flex; justify-content: center; align-items: center; gap: 15px; margin-bottom: 30px; font-size: 1.1rem; }
+        .show-link a, .season-link { color: #e5e7eb; text-decoration: none; transition: color 0.3s ease; font-weight: 600; }
+        .show-link a:hover, .season-link:hover { color: #fbbf24; }
+        .separator { color: #6b7280; }
+        .video-section { padding: 40px 0; }
+        .video-container { width: 100%; max-width: 900px; margin: 0 auto; background: rgba(0, 0, 0, 0.3); border-radius: 20px; overflow: hidden; border: 2px solid rgba(255,255, 255, 0.1); position: relative; padding-bottom: 56.25%; height: 0; }
+        .video-placeholder { position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; background: linear-gradient(135deg, #fbbf24 0%, #f472b6 100%); }
+        .placeholder-icon { font-size: 4rem; margin-bottom: 20px; color: white; }
+        .video-placeholder p { font-size: 1.2rem; color: white; font-weight: 600; }
+        .description-section { padding: 80px 0; background: rgba(0, 0, 0, 0.2); }
+        .episode-description-full { max-width: 800px; margin: 0 auto; }
+        .episode-description-full h3 { font-size: 2rem; margin-bottom: 25px; background: linear-gradient(45deg, #f472b6, #8b5cf6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .episode-description-full p { color: #d1d5db; line-height: 1.8; margin-bottom: 20px; font-size: 1.15rem; }
+        .navigation-section { padding: 60px 0; background: rgba(0, 0, 0, 0.3); }
+        .episode-nav { max-width: 900px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 20px; }
+        .episode-nav-prev, .episode-nav-next { background: rgba(255,255, 255, 0.05); padding: 20px 30px; border-radius: 15px; border: 1px solid rgba(255, 255, 255, 0.1); color: #e5e7eb; text-decoration: none; transition: all 0.3s ease; flex: 1; text-align: center; }
+        .episode-nav-prev:hover, .episode-nav-next:hover { background: rgba(255, 255, 255, 0.1); border-color: #fbbf24; transform: translateY(-3px); }
+        .back-buttons { max-width: 900px; margin: 0 auto; padding-top: 30px; text-align: center; }
+        .back-link { display: inline-block; margin: 0 15px; color: #fbbf24; font-weight: 600; text-decoration: none; transition: all 0.3s ease; }
+        .back-link:hover { transform: translateX(-5px); }
+        @media (max-width: 768px) {
+            .episode-title-large { font-size: 2.5rem; }
+            .nav-links { display: none; }
+            .episode-nav { flex-direction: column; }
+            .back-link { display: block; margin: 10px 0; }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                <div class="nav-left">
+                    <div class="logo-image"><img src="../../assets/images/icons/favicon.svg" alt="Asabaal Ventures Logo"></div>
+                    <div class="logo-text"><div class="company-name">Asabaal Ventures</div><div class="company-tagline">Purpose-Driven Innovation</div></div>
+                </div>
+                <div class="nav-center"><img src="../../assets/images/logos/Asabaal Ventures.png" alt="Asabaal Ventures" class="center-logo"></div>
+                <div class="nav-right">
+                    <ul class="nav-links">
+                        <li><a href="../../index.html">Home</a></li>
+                        <li><a href="../../vision_2054_page.html">Vision 2054</a></li>
+                        <li><a href="../../advancements-by-asabaal.html">Advancements</a></li>
+                        <li><a href="../../index.html#videos">Videos</a></li>
+                        <li><a href="../../amusements.html">Amusements</a></li>
+                        <li><a href="../../connect.html">Connect</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <div class="breadcrumb">
+        <a href="../../amusements.html" class="breadcrumb-item">Amusements</a>
+        <span class="breadcrumb-separator">›</span>
+        <a href="../life-is-your-word.html" class="breadcrumb-item">Life is your Word</a>
+        <span class="breadcrumb-separator">›</span>
+        <a href="season-0.html" class="breadcrumb-item">Season 0</a>
+        <span class="breadcrumb-separator">›</span>
+        <span class="breadcrumb-current">Episode 2</span>
+    </div>
+    <section class="episode-header">
+        <div class="container">
+            <div class="episode-banner" style="background: linear-gradient(135deg, #fbbf24 0%, #f472b6 100%);">
+                <div class="episode-number-large">2</div>
+            </div>
+            <div class="episode-header-info">
+                <h1 class="episode-title-large">First Steps</h1>
+                <div class="episode-meta-large">
+                    <span class="show-link"><a href="../life-is-your-word.html">Life is your Word</a></span>
+                    <span class="separator">›</span>
+                    <span class="season-link"><a href="season-0.html">Season 0: Pilot</a></span>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="video-section">
+        <div class="container">
+            <div class="video-container">
+                <div class="video-placeholder">
+                    <div class="placeholder-icon">▶</div>
+                    <p>Video Player</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="description-section">
+        <div class="container">
+            <div class="episode-description-full">
+                <h3>About This Episode</h3>
+                <p>Taking the first brave steps toward living authentically</p>
+                <p>This episode is 18 min of transformative content exploring authenticity and personal growth in the Life is your Word series.</p>
+            </div>
+        </div>
+    </section>
+    <section class="navigation-section">
+        <div class="container">
+            <div class="episode-nav">
+                
+                <a href="episode-1.html" class="episode-nav-prev">← Previous: The Beginning</a>
+                
+                
+                <a href="episode-3.html" class="episode-nav-next">Next: Breaking Through →</a>
+                
+            </div>
+            <div class="back-buttons">
+                <a href="season-0.html" class="back-link">← Back to Season 0</a>
+                <a href="../life-is-your-word.html" class="back-link">Back to Show</a>
+            </div>
+        </div>
+    </section>
+    <script src="../../assets/js/amusements-data.js"></script>
+    <script src="../../assets/js/amusements-navigation.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            AmusementsNavigation.renderEpisode('life-is-your-word', 'season0', 2);
+        });
+    </script>
+</body>
+</html>

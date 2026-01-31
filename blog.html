@@ -1,375 +1,50 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog | Asabaal Ventures</title>
+    <meta http-equiv="refresh" content="0; url=amusements.html">
+    <title>Redirecting to Asabaal's Amusements...</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
         body {
-            font-family: 'Arial', sans-serif;
             background: linear-gradient(135deg, #0f0f23 0%, #1a1a3e 25%, #2d1b69 50%, #4c1d95 75%, #6b21a8 100%);
             color: #ffffff;
-            min-height: 100vh;
-            overflow-x: hidden;
-            padding-top: 70px;
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* Header Styles */
-        .header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            background: rgba(15, 15, 35, 0.95);
-            backdrop-filter: blur(10px);
-            padding: 20px 0;
-            z-index: 1000;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        
-        .nav {
+            font-family: 'Arial', sans-serif;
             display: flex;
-            justify-content: flex-end;
             align-items: center;
-        }
-        
-        .nav-links {
-            display: flex;
-            gap: 30px;
-            list-style: none;
+            justify-content: center;
+            min-height: 100vh;
             margin: 0;
             padding: 0;
         }
-        
-        .nav-links a {
-            color: #e5e7eb;
-            text-decoration: none;
-            transition: color 0.3s ease;
-            font-weight: 500;
-        }
-        
-        .nav-links a:hover {
-            color: #fbbf24;
-        }
-
-        /* Blog Header */
-        .blog-header {
-            padding: 100px 0 80px;
+        .redirect-message {
             text-align: center;
-            position: relative;
-            background: radial-gradient(circle at 50% 50%, rgba(251, 191, 36, 0.15) 0%, transparent 70%);
+            max-width: 600px;
+            padding: 40px;
         }
-
-        .blog-title {
-            font-size: 4rem;
-            font-weight: 900;
-            margin-bottom: 25px;
-            background: linear-gradient(45deg, #fbbf24, #f472b6, #8b5cf6);
+        .redirect-message h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, #fbbf24, #f472b6);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            line-height: 1.1;
         }
-
-        .blog-subtitle {
-            font-size: 1.5rem;
+        .redirect-message p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
             color: #d1d5db;
-            margin-bottom: 40px;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-            line-height: 1.6;
         }
-
-        /* Blog Grid */
-        .blog-grid {
-            padding: 80px 0;
-            background: rgba(0, 0, 0, 0.2);
-        }
-
-        .posts-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 40px;
-            margin-top: 60px;
-        }
-
-        .post-card {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            overflow: hidden;
-            transition: all 0.3s ease;
-            cursor: pointer;
-            position: relative;
-        }
-
-        .post-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
-            transition: left 0.5s;
-        }
-
-        .post-card:hover::before {
-            left: 100%;
-        }
-
-        .post-card:hover {
-            transform: translateY(-10px);
-            border-color: #fbbf24;
-        }
-
-        .post-image {
-            width: 100%;
-            padding-bottom: 56.25%; /* 16:9 aspect ratio (9/16 = 0.5625) */
-            background: linear-gradient(45deg, #8b5cf6, #06b6d4);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .post-image img {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .post-content {
-            padding: 30px;
-        }
-
-        .post-title {
-            font-size: 1.5rem;
-            color: #fbbf24;
-            margin-bottom: 15px;
-            font-weight: 700;
-            line-height: 1.3;
-        }
-
-        .post-excerpt {
-            color: #d1d5db;
-            line-height: 1.6;
-            margin-bottom: 20px;
-        }
-
-        .post-meta {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            color: #9ca3af;
-            font-size: 0.9rem;
-        }
-
-        .post-date {
-            background: linear-gradient(45deg, #8b5cf6, #ec4899);
-            color: white;
-            padding: 4px 12px;
-            border-radius: 15px;
-            font-size: 0.8rem;
-        }
-
-        .read-more {
+        .redirect-link {
             color: #06b6d4;
-            font-weight: 500;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .read-more:hover {
-            color: #fbbf24;
-        }
-
-        /* Loading animation */
-        .loading {
-            text-align: center;
-            padding: 60px 0;
-            color: #9ca3af;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .blog-title { font-size: 2.5rem; }
-            .posts-grid { grid-template-columns: 1fr; gap: 30px; }
-            .nav-links { gap: 15px; font-size: 0.9rem; }
+            font-size: 1.1rem;
         }
     </style>
 </head>
 <body>
-    <!-- Header -->
-    <header class="header">
-        <div class="container">
-            <nav class="nav">
-                <ul class="nav-links">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="vision_2054_page.html">Vision 2054</a></li>
-                    <li><a href="index.html#videos">Videos</a></li>
-                    <li><a href="unity-remix-contest.html">Contest</a></li>
-                    <li><a href="blog.html">Blog</a></li>
-                    <li><a href="#contact">Connect</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
-
-    <!-- Blog Header -->
-    <section class="blog-header">
-        <div class="container">
-            <h1 class="blog-title">Multisensory Blog</h1>
-            <p class="blog-subtitle">
-                Explore the journey of purpose-driven creation, unity consciousness, and the evolution of collaborative innovation. 
-                Each post is a piece of the larger vision coming to life.
-            </p>
-        </div>
-    </section>
-
-    <!-- Blog Grid -->
-    <section class="blog-grid">
-        <div class="container">
-            <div class="posts-grid" id="posts-grid">
-                <div class="loading">Loading blog posts...</div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Discord Community Signup -->
-    <section class="newsletter-section" style="padding: 80px 0; background: rgba(0, 0, 0, 0.4); text-align: center;">
-        <div class="container">
-            <h2 style="color: #fbbf24; font-size: 2.5rem; margin-bottom: 20px;">🎮 Join Our Discord Community</h2>
-            <p style="color: #d1d5db; font-size: 1.2rem; margin-bottom: 30px; max-width: 600px; margin-left: auto; margin-right: auto;">
-                Connect with our Discord community for blog discussions, Vision 2054 updates, and exclusive insights. Join the conversation!
-            </p>
-            
-            <div style="background: rgba(88, 101, 242, 0.1); border: 1px solid rgba(88, 101, 242, 0.3); border-radius: 15px; padding: 25px; margin: 30px auto; max-width: 500px;">
-                <ul style="list-style: none; padding: 0; margin: 0; color: #e5e7eb;">
-                    <li style="margin-bottom: 10px;">💬 Discuss blog posts with other readers</li>
-                    <li style="margin-bottom: 10px;">🚀 Get early access to new content</li>
-                    <li style="margin-bottom: 10px;">📚 Access exclusive resources</li>
-                    <li>🌟 Connect with purpose-driven creators</li>
-                </ul>
-            </div>
-            
-            <form class="discord-signup-form" data-form-type="discord" style="max-width: 500px; margin: 0 auto; display: flex; flex-direction: column; gap: 15px;">
-                <input type="hidden" name="source" value="blog-page-discord">
-                
-                <div style="display: flex; gap: 15px;">
-                    <input type="text" name="name" placeholder="Your name" required
-                           style="flex: 1; padding: 15px 20px; border: none; border-radius: 50px; background: rgba(255, 255, 255, 0.1); color: #ffffff; font-size: 1rem; backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.2);">
-                    <input type="email" name="email" placeholder="Email (optional)"
-                           style="flex: 1; padding: 15px 20px; border: none; border-radius: 50px; background: rgba(255, 255, 255, 0.1); color: #ffffff; font-size: 1rem; backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.2);">
-                </div>
-                
-                <input type="text" name="discord_username" placeholder="Discord username" required
-                       style="padding: 15px 20px; border: none; border-radius: 50px; background: rgba(255, 255, 255, 0.1); color: #ffffff; font-size: 1rem; backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.2);">
-                
-                <div style="text-align: left; padding: 0 20px;">
-                    <label style="display: flex; align-items: flex-start; gap: 10px; color: #d1d5db; font-size: 0.9rem; line-height: 1.4; cursor: pointer;">
-                        <input type="checkbox" name="discord_consent" required style="margin-top: 2px; accent-color: #5865f2;">
-                        I agree to join the Discord community and consent to data sharing as described in our 
-                        <a href="privacy.html" target="_blank" style="color: #60a5fa; text-decoration: none; border-bottom: 1px solid rgba(96, 165, 250, 0.3);">Privacy Policy</a> and 
-                        <a href="terms.html" target="_blank" style="color: #60a5fa; text-decoration: none; border-bottom: 1px solid rgba(96, 165, 250, 0.3);">Terms of Service</a>
-                    </label>
-                </div>
-                
-                <button type="submit" 
-                        style="padding: 15px 30px; background: linear-gradient(45deg, #5865f2, #4752c4); color: white; border: none; border-radius: 50px; font-weight: bold; cursor: pointer; font-size: 1.1rem; transition: all 0.3s ease;">
-                    Join Discord Community
-                </button>
-            </form>
-            
-            <p style="color: #9ca3af; font-size: 0.9rem; margin-top: 20px;">
-                🔒 Your data is protected. You control your Discord notifications and can leave anytime.
-            </p>
-        </div>
-    </section>
-
-    <!-- Supabase CDN -->
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-    
-    <!-- Local Supabase Configuration -->
-    <script src="config/supabase-keys.js"></script>
-    
-    <!-- Blog Data and Contact Forms -->
-    <script src="assets/js/blog-data.js"></script>
-    <script src="assets/js/contact-forms.js"></script>
-    <script>
-        // Simple blog display using static data
-        let blogPosts = [];
-
-        function initializeBlog() {
-            const postsGrid = document.getElementById('posts-grid');
-            postsGrid.innerHTML = '<div class="loading">Loading blog posts...</div>';
-
-            // Use the static blog data
-            blogPosts = blogPostsData || [];
-            renderBlogPosts();
-        }
-
-        // Function to render blog posts
-        function renderBlogPosts() {
-            const postsGrid = document.getElementById('posts-grid');
-            
-            if (blogPosts.length === 0) {
-                postsGrid.innerHTML = '<div class="loading">No blog posts found.</div>';
-                return;
-            }
-
-            const postsHTML = blogPosts.map(post => {
-                return `
-                <article class="post-card" onclick="openPost('${post.slug}')">
-                    <div class="post-image">
-                        <img src="${post.image}" alt="${post.title}" loading="lazy">
-                    </div>
-                    <div class="post-content">
-                        <h2 class="post-title">${post.title}</h2>
-                        <p class="post-excerpt">${post.excerpt}</p>
-                        <div class="post-meta">
-                            <span class="post-date">${formatDate(post.date)}</span>
-                            <a href="#" class="read-more" onclick="event.stopPropagation(); openPost('${post.slug}')">Read More →</a>
-                        </div>
-                    </div>
-                </article>
-                `;
-            }).join('');
-
-            postsGrid.innerHTML = postsHTML;
-        }
-
-        // Function to format date
-        function formatDate(dateString) {
-            const options = { year: 'numeric', month: 'short', day: 'numeric' };
-            return new Date(dateString).toLocaleDateString('en-US', options);
-        }
-
-        // Function to open individual post
-        function openPost(slug) {
-            // For now, we'll navigate to the individual post page
-            window.location.href = `blog/post-${slug}.html`;
-        }
-
-        // Initialize the blog when page loads
-        document.addEventListener('DOMContentLoaded', function() {
-            initializeBlog();
-        });
-    </script>
+    <div class="redirect-message">
+        <h1>Asabaal's Amusements</h1>
+        <p>The Blog has been upgraded and moved to Asabaal's Amusements platform.</p>
+        <p>Redirecting to new location...</p>
+        <p>If you are not automatically redirected, <a href="amusements.html" class="redirect-link">click here</a>.</p>
+    </div>
 </body>
 </html>

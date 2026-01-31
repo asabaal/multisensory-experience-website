@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asabaal's Amusements | Multisensory Experience Platform</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #0f0f23 0%, #1a1a3e 25%, #2d1b69 50%, #4c1d95 75%, #6b21a8 100%);
+            color: #ffffff;
+            min-height: 100vh;
+            overflow-x: hidden;
+            padding-top: 70px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(15, 15, 35, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 20px 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .nav {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .nav-left {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            justify-self: start;
+        }
+
+        .nav-center {
+            justify-self: center;
+        }
+
+        .center-logo {
+            height: calc(100% - 10px);
+            width: auto;
+            max-height: 80px;
+        }
+
+        .nav-right {
+            justify-self: end;
+        }
+
+        .logo-image {
+            width: 40px;
+            height: 40px;
+            background: transparent;
+            border: 2px solid #fbbf24;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #0f0f23;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .logo-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .company-name {
+            font-size: 24px;
+            font-weight: bold;
+            background: linear-gradient(45deg, #fbbf24, #f59e0b, #d97706);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1;
+        }
+        
+        .company-tagline {
+            font-size: 11px;
+            color: #9ca3af;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 2px;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            color: #e5e7eb;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-weight: 500;
+            white-space: nowrap;
+        }
+        
+        .nav-links a:hover {
+            color: #fbbf24;
+        }
+
+        .hero-section {
+            padding: 80px 0 40px;
+            text-align: center;
+            position: relative;
+            background: radial-gradient(circle at 50% 50%, rgba(251, 191, 36, 0.15) 0%, transparent 70%);
+        }
+
+        .amusements-logo {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 25px;
+            background: linear-gradient(45deg, #fbbf24, #f472b6, #8b5cf6);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: white;
+            box-shadow: 0 15px 40px rgba(251, 191, 36, 0.3);
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+        }
+
+        .hero-title {
+            font-size: 2.8rem;
+            font-weight: 900;
+            margin-bottom: 15px;
+            background: linear-gradient(45deg, #fbbf24, #f472b6, #8b5cf6, #06b6d4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.1;
+        }
+
+        .hero-subtitle {
+            font-size: 1.1rem;
+            color: #d1d5db;
+            margin-bottom: 30px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.5;
+        }
+
+        .shows-grid {
+            padding: 60px 0 80px;
+            background: rgba(0, 0, 0, 0.2);
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin: 0 auto;
+        }
+
+        .show-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .show-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transition: left 0.5s;
+        }
+
+        .show-card:hover::before {
+            left: 100%;
+        }
+
+        .show-card:hover {
+            transform: translateY(-10px);
+            border-color: #fbbf24;
+        }
+
+        .show-image {
+            width: 100%;
+            padding-bottom: 56.25%;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .show-image img {
+            max-width: 80%;
+            max-height: 80%;
+            object-fit: contain;
+        }
+
+        .show-overlay {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+        }
+
+        .show-status {
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 6px 12px;
+            border-radius: 15px;
+            font-size: 0.75rem;
+            font-weight: bold;
+            backdrop-filter: blur(10px);
+        }
+
+        .show-status.active {
+            background: linear-gradient(45deg, #10b981, #059669);
+        }
+
+        .show-status.coming-soon {
+            background: linear-gradient(45deg, #f59e0b, #d97706);
+        }
+
+        .show-content {
+            padding: 20px;
+        }
+
+        .show-title {
+            font-size: 1.5rem;
+            color: #fbbf24;
+            margin-bottom: 6px;
+            font-weight: 700;
+            line-height: 1.3;
+        }
+
+        .show-subtitle {
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .show-description {
+            color: #d1d5db;
+            line-height: 1.5;
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .show-stats {
+            margin-bottom: 12px;
+        }
+
+        .episode-count {
+            background: rgba(139, 92, 246, 0.2);
+            color: #8b5cf6;
+            padding: 4px 10px;
+            border-radius: 10px;
+            font-size: 0.75rem;
+            font-weight: bold;
+        }
+
+        .show-explore {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 12px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .show-card:hover .show-explore {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: #fbbf24;
+        }
+
+        .explore-text {
+            font-weight: 600;
+            color: #e5e7eb;
+            font-size: 0.85rem;
+        }
+
+        .explore-arrow {
+            font-size: 1.2rem;
+            color: #fbbf24;
+            transition: transform 0.3s ease;
+        }
+
+        .show-card:hover .explore-arrow {
+            transform: translateX(5px);
+        }
+
+        .about-section {
+            padding: 60px 0 80px;
+            background: rgba(0, 0, 0, 0.4);
+            text-align: center;
+        }
+
+        .about-content {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .about-content h2 {
+            font-size: 2rem;
+            margin-bottom: 15px;
+            background: linear-gradient(45deg, #f472b6, #8b5cf6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .about-content p {
+            color: #d1d5db;
+            line-height: 1.6;
+            margin-bottom: 15px;
+            font-size: 1.05rem;
+        }
+
+        .footer {
+            padding: 60px 0 40px;
+            background: rgba(0, 0, 0, 0.6);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-brand {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+        }
+
+        .footer-logo {
+            width: 50px;
+            height: 50px;
+            background: transparent;
+            border: 2px solid #fbbf24;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #0f0f23;
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+
+        .footer-brand-text h3 {
+            color: #fbbf24;
+            margin-bottom: 8px;
+        }
+
+        .footer-brand-text p {
+            color: #9ca3af;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        .footer-section h4 {
+            color: #e5e7eb;
+            margin-bottom: 20px;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-section ul li a {
+            color: #9ca3af;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section ul li a:hover {
+            color: #fbbf24;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #6b7280;
+        }
+
+        @media (max-width: 1024px) {
+            .grid-container {
+                gap: 20px;
+            }
+
+            .show-card {
+                flex: 1 1;
+                max-width: 500px;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+                gap: 30px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .grid-container {
+                gap: 15px;
+            }
+
+            .show-card {
+                flex: 1 1;
+                min-width: 250px;
+                max-width: 350px;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .amusements-logo {
+                width: 90px;
+                height: 90px;
+                font-size: 1.8rem;
+            }
+
+            .hero-title {
+                font-size: 2rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                <div class="nav-left">
+                    <div class="logo-image">
+                        <img src="assets/images/icons/favicon.svg" alt="Asabaal Ventures Logo">
+                    </div>
+                    <div class="logo-text">
+                        <div class="company-name">Asabaal Ventures</div>
+                        <div class="company-tagline">Purpose-Driven Innovation</div>
+                    </div>
+                </div>
+                
+                <div class="nav-center">
+                    <img src="assets/images/logos/Asabaal Ventures.png" alt="Asabaal Ventures" class="center-logo">
+                </div>
+                
+                <div class="nav-right">
+                    <ul class="nav-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="vision_2054_page.html">Vision 2054</a></li>
+                        <li><a href="advancements-by-asabaal.html">Advancements</a></li>
+                        <li><a href="index.html#videos">Videos</a></li>
+                        <li><a href="unity-remix-contest.html">Contest</a></li>
+                        <li><a href="amusements.html" style="color: #fbbf24;">Amusements</a></li>
+                        <li><a href="connect.html">Connect</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero-section">
+        <div class="container">
+            <div class="amusements-logo">
+                🎭
+            </div>
+            <h1 class="hero-title">Asabaal's Amusements</h1>
+            <p class="hero-subtitle">
+                Welcome to a multisensory experience platform where transformation comes alive. Explore shows that ignite consciousness, inspire authenticity, and awaken your creative spirit.
+            </p>
+        </div>
+    </section>
+
+    <section class="shows-grid">
+        <div class="container">
+            <div class="grid-container" id="shows-grid">
+                <div class="loading" style="text-align: center; padding: 60px;">Loading shows...</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="about-section">
+        <div class="container">
+            <div class="about-content">
+                <h2>About Asabaal's Amusements</h2>
+                <p>
+                    Asabaal's Amusements represents the evolution of content consumption - from passive observation to active, multisensory engagement. Each show is designed to not just inform, but to transform.
+                </p>
+                <p>
+                    Whether you're exploring the philosophical depths of "Life is your Word," experiencing the poetic journey of "Musical Poetry with Asabaal," diving into the foundational ideas of "Demos/Previews," or the visionary blueprint of "Vision 2054," you're invited to participate in your own awakening.
+                </p>
+                <p>
+                    This is more than content. This is a journey of consciousness, authenticity, and creative expression.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="footer-logo">AV</div>
+                    <div class="footer-brand-text">
+                        <h3>Asabaal Ventures</h3>
+                        <p>Purpose-Driven Innovation</p>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Navigation</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="vision_2054_page.html">Vision 2054</a></li>
+                        <li><a href="advancements-by-asabaal.html">Advancements</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Content</h4>
+                    <ul>
+                        <li><a href="amusements.html">Amusements</a></li>
+                        <li><a href="unity-remix-contest.html">Contest</a></li>
+                        <li><a href="index.html#videos">Videos</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Connect</h4>
+                    <ul>
+                        <li><a href="connect.html">Contact</a></li>
+                        <li><a href="links.html">Social Links</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="terms.html">Terms of Service</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>About</h4>
+                    <ul>
+                        <li><a href="resume_cv/asabaal_horan_cv_202507.html">CV</a></li>
+                        <li><a href="index.html#about">About</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 Asabaal Ventures. All rights reserved. | Purpose-Driven Innovation</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/amusements-data.js"></script>
+    <script src="assets/js/amusements-navigation.js"></script>
+    <script>
+        AmusementsNavigation.init();
+    </script>
+</body>
+</html>

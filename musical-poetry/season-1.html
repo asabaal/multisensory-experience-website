@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Season 1 | Musical Poetry with Asabaal</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #0f0f23 0%, #1a1a3e 25%, #2d1b69 50%, #4c1d95 75%, #6b21a8 100%);
+            color: #ffffff;
+            min-height: 100vh;
+            overflow-x: hidden;
+            padding-top: 70px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(15, 15, 35, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 20px 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .nav {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .nav-left {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            justify-self: start;
+        }
+
+        .nav-center {
+            justify-self: center;
+        }
+
+        .center-logo {
+            height: calc(100% - 10px);
+            width: auto;
+            max-height: 80px;
+        }
+
+        .nav-right {
+            justify-self: end;
+        }
+
+        .logo-image {
+            width: 40px;
+            height: 40px;
+            background: transparent;
+            border: 2px solid #fbbf24;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #0f0f23;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .logo-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .company-name {
+            font-size: 24px;
+            font-weight: bold;
+            background: linear-gradient(45deg, #fbbf24, #f59e0b, #d97706);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1;
+        }
+        
+        .company-tagline {
+            font-size: 11px;
+            color: #9ca3af;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 2px;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            color: #e5e7eb;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-weight: 500;
+            white-space: nowrap;
+        }
+        
+        .nav-links a:hover {
+            color: #fbbf24;
+        }
+
+        .breadcrumb {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 20px 0;
+            font-size: 0.9rem;
+            color: #9ca3af;
+        }
+
+        .breadcrumb-item {
+            color: #e5e7eb;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .breadcrumb-item:hover {
+            color: #fbbf24;
+        }
+
+        .breadcrumb-separator {
+            color: #6b7280;
+        }
+
+        .breadcrumb-current {
+            color: #9ca3af;
+            font-weight: 600;
+        }
+
+        .season-header {
+            padding: 60px 0 40px;
+        }
+
+        .season-banner {
+            width: 100%;
+            height: 350px;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .season-banner-content {
+            text-align: center;
+            padding: 40px;
+        }
+
+        .season-title-large {
+            font-size: 3.5rem;
+            font-weight: 900;
+            margin-bottom: 15px;
+            background: linear-gradient(45deg, #06b6d4, #10b981);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.1;
+        }
+
+        .season-subtitle {
+            font-size: 1.3rem;
+            color: #d1d5db;
+            font-weight: 600;
+        }
+
+        .season-info {
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto 40px;
+        }
+
+        .season-description-large {
+            color: #d1d5db;
+            line-height: 1.7;
+            font-size: 1.15rem;
+            margin-bottom: 20px;
+        }
+
+        .episodes-grid-section {
+            padding: 80px 0;
+            background: rgba(0, 0, 0, 0.2);
+        }
+
+        .episodes-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .episodes-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            background: linear-gradient(45deg, #06b6d4, #10b981);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .episodes-header p {
+            color: #d1d5db;
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .episodes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .episode-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .episode-card:hover {
+            transform: translateY(-8px);
+            border-color: #06b6d4;
+            box-shadow: 0 15px 40px rgba(6, 182, 212, 0.15);
+        }
+
+        .episode-thumbnail {
+            width: 100%;
+            padding-bottom: 56.25%;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .episode-number {
+            font-size: 4rem;
+            font-weight: 900;
+            color: rgba(255, 255, 255, 0.9);
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .episode-content {
+            padding: 25px;
+        }
+
+        .episode-title {
+            font-size: 1.3rem;
+            color: #06b6d4;
+            margin-bottom: 12px;
+            font-weight: 700;
+            line-height: 1.4;
+        }
+
+        .episode-description {
+            color: #d1d5db;
+            line-height: 1.5;
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+        }
+
+        .episode-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 15px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .episode-duration {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #06b6d4;
+        }
+
+        .episode-explore {
+            color: #06b6d4;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .episode-card:hover .episode-explore {
+            transform: translateX(5px);
+        }
+
+        @media (max-width: 768px) {
+            .season-title-large {
+                font-size: 2.5rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .episodes-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                <div class="nav-left">
+                    <div class="logo-image">
+                        <img src="assets/images/icons/favicon.svg" alt="Asabaal Ventures Logo">
+                    </div>
+                    <div class="logo-text">
+                        <div class="company-name">Asabaal Ventures</div>
+                        <div class="company-tagline">Purpose-Driven Innovation</div>
+                    </div>
+                </div>
+                
+                <div class="nav-center">
+                    <img src="assets/images/logos/Asabaal Ventures.png" alt="Asabaal Ventures" class="center-logo">
+                </div>
+                
+                <div class="nav-right">
+                    <ul class="nav-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="vision_2054_page.html">Vision 2054</a></li>
+                        <li><a href="advancements-by-asabaal.html">Advancements</a></li>
+                        <li><a href="index.html#videos">Videos</a></li>
+                        <li><a href="amusements.html">Amusements</a></li>
+                        <li><a href="connect.html">Connect</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <div class="breadcrumb">
+        <a href="amusements.html" class="breadcrumb-item">Amusements</a>
+        <span class="breadcrumb-separator">›</span>
+        <a href="musical-poetry.html" class="breadcrumb-item">Musical Poetry with Asabaal</a>
+        <span class="breadcrumb-separator">›</span>
+        <span class="breadcrumb-current">Season 1</span>
+    </div>
+
+    <section class="season-header">
+        <div class="container">
+            <div class="season-banner" style="background: linear-gradient(135deg, #06b6d4 0%, #10b981 100%);">
+                <div class="season-banner-content">
+                    <h1 class="season-title-large">Season 1</h1>
+                    <p class="season-subtitle">Musical Poetry with Asabaal</p>
+                </div>
+            </div>
+            <div class="season-info">
+                <p class="season-description-large">
+                    The inaugural season of musical poetry experiences - a journey through consciousness, emotion, and spiritual awakening. 
+                    Each episode weaves together spoken word, original music, and visual poetry to create a truly multisensory meditation experience.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="episodes-grid-section">
+        <div class="container">
+            <div class="episodes-header">
+                <h2>Episodes</h2>
+                <p>Poetic journeys through consciousness, emotion, and spiritual awakening</p>
+            </div>
+            <div class="episodes-grid" id="episodes-grid">
+                <div class="loading" style="text-align: center; grid-column: 1 / -1; padding: 60px;">Loading episodes...</div>
+            </div>
+        </div>
+    </section>
+
+    <script src="assets/js/amusements-data.js"></script>
+    <script src="assets/js/amusements-navigation.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            AmusementsNavigation.renderSeason('musical-poetry', 'season1');
+        });
+    </script>
+</body>
+</html>

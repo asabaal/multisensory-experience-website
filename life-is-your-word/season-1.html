@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Season 1 | Life is your Word</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #0f0f23 0%, #1a1a3e 25%, #2d1b69 50%, #4c1d95 75%, #6b21a8 100%);
+            color: #ffffff;
+            min-height: 100vh;
+            overflow-x: hidden;
+            padding-top: 70px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(15, 15, 35, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 20px 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .nav {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .nav-left {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            justify-self: start;
+        }
+
+        .nav-center {
+            justify-self: center;
+        }
+
+        .center-logo {
+            height: calc(100% - 10px);
+            width: auto;
+            max-height: 80px;
+        }
+
+        .nav-right {
+            justify-self: end;
+        }
+
+        .logo-image {
+            width: 40px;
+            height: 40px;
+            background: transparent;
+            border: 2px solid #fbbf24;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #0f0f23;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .logo-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .company-name {
+            font-size: 24px;
+            font-weight: bold;
+            background: linear-gradient(45deg, #fbbf24, #f59e0b, #d97706);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1;
+        }
+        
+        .company-tagline {
+            font-size: 11px;
+            color: #9ca3af;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 2px;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            color: #e5e7eb;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-weight: 500;
+            white-space: nowrap;
+        }
+        
+        .nav-links a:hover {
+            color: #fbbf24;
+        }
+
+        .breadcrumb {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 20px 0;
+            font-size: 0.9rem;
+            color: #9ca3af;
+        }
+
+        .breadcrumb-item {
+            color: #e5e7eb;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .breadcrumb-item:hover {
+            color: #fbbf24;
+        }
+
+        .breadcrumb-separator {
+            color: #6b7280;
+        }
+
+        .breadcrumb-current {
+            color: #9ca3af;
+            font-weight: 600;
+        }
+
+        .season-header {
+            padding: 60px 0 40px;
+        }
+
+        .season-banner {
+            width: 100%;
+            height: 350px;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .season-banner-content {
+            text-align: center;
+            padding: 40px;
+        }
+
+        .season-title-large {
+            font-size: 3.5rem;
+            font-weight: 900;
+            margin-bottom: 15px;
+            background: linear-gradient(45deg, #fbbf24, #f472b6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.1;
+        }
+
+        .season-subtitle {
+            font-size: 1.3rem;
+            color: #d1d5db;
+            font-weight: 600;
+        }
+
+        .season-info {
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .coming-soon-banner {
+            background: linear-gradient(135deg, rgba(251, 191, 36, 0.15) 0%, rgba(244, 114, 182, 0.15) 100%);
+            border: 2px solid rgba(251, 191, 36, 0.3);
+            border-radius: 20px;
+            padding: 60px 40px;
+            margin: 40px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .coming-soon-banner::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(251, 191, 36, 0.05) 0%, transparent 70%);
+            animation: pulse 4s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 1; }
+        }
+
+        .coming-soon-banner > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        .coming-soon-badge {
+            background: linear-gradient(45deg, #f59e0b, #d97706);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            display: inline-block;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(251, 191, 36, 0.3);
+        }
+
+        .coming-soon-banner h3 {
+            font-size: 2rem;
+            color: #fbbf24;
+            margin-bottom: 20px;
+        }
+
+        .coming-soon-banner p {
+            color: #d1d5db;
+            line-height: 1.7;
+            margin-bottom: 30px;
+            font-size: 1.1rem;
+        }
+
+        .notify-form {
+            max-width: 500px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .notify-input {
+            padding: 18px 25px;
+            border: none;
+            border-radius: 50px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            font-size: 1rem;
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .notify-input:focus {
+            outline: none;
+            border-color: #fbbf24;
+            box-shadow: 0 0 0 4px rgba(251, 191, 36, 0.1);
+        }
+
+        .notify-input::placeholder {
+            color: #9ca3af;
+        }
+
+        .notify-button {
+            background: linear-gradient(45deg, #fbbf24, #f472b6);
+            color: white;
+            padding: 18px 40px;
+            border: none;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .notify-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(251, 191, 36, 0.3);
+        }
+
+        .season-description-large {
+            color: #d1d5db;
+            line-height: 1.7;
+            font-size: 1.15rem;
+            margin-bottom: 30px;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 30px;
+            color: #fbbf24;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .back-link:hover {
+            transform: translateX(-5px);
+        }
+
+        @media (max-width: 768px) {
+            .season-title-large {
+                font-size: 2.5rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .coming-soon-banner {
+                padding: 40px 25px;
+            }
+
+            .coming-soon-badge {
+                font-size: 1rem;
+                padding: 10px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                <div class="nav-left">
+                    <div class="logo-image">
+                        <img src="assets/images/icons/favicon.svg" alt="Asabaal Ventures Logo">
+                    </div>
+                    <div class="logo-text">
+                        <div class="company-name">Asabaal Ventures</div>
+                        <div class="company-tagline">Purpose-Driven Innovation</div>
+                    </div>
+                </div>
+                
+                <div class="nav-center">
+                    <img src="assets/images/logos/Asabaal Ventures.png" alt="Asabaal Ventures" class="center-logo">
+                </div>
+                
+                <div class="nav-right">
+                    <ul class="nav-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="vision_2054_page.html">Vision 2054</a></li>
+                        <li><a href="advancements-by-asabaal.html">Advancements</a></li>
+                        <li><a href="index.html#videos">Videos</a></li>
+                        <li><a href="amusements.html">Amusements</a></li>
+                        <li><a href="connect.html">Connect</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <div class="breadcrumb">
+        <a href="amusements.html" class="breadcrumb-item">Amusements</a>
+        <span class="breadcrumb-separator">›</span>
+        <a href="life-is-your-word.html" class="breadcrumb-item">Life is your Word</a>
+        <span class="breadcrumb-separator">›</span>
+        <span class="breadcrumb-current">Season 1</span>
+    </div>
+
+    <section class="season-header">
+        <div class="container">
+            <div class="season-banner" style="background: linear-gradient(135deg, #fbbf24 0%, #f472b6 100%);">
+                <div class="season-banner-content">
+                    <h1 class="season-title-large">Season 1</h1>
+                    <p class="season-subtitle">Life is your Word</p>
+                </div>
+            </div>
+            <div class="season-info">
+                <p class="season-description-large">
+                    The inaugural season launching in 2025. More intimate conversations, deeper transformations, 
+                    and authentic moments of awakening. Get ready for even more powerful stories of transformation and authenticity.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <div class="coming-soon-banner">
+                <span class="coming-soon-badge">Season 1 Coming Soon</span>
+                <h3>Launching Q2 2025</h3>
+                <p>
+                    We're working hard to bring you the next chapter of Life is your Word. 
+                    Season 1 will feature even more intimate conversations, deeper explorations of authenticity, 
+                    and transformative journeys that will inspire you to live your word with courage and conviction.
+                </p>
+                <form class="notify-form" onsubmit="event.preventDefault(); alert('Thank you for subscribing! You will be notified when Season 1 launches.');">
+                    <input type="email" placeholder="Enter your email for notifications" class="notify-input" required>
+                    <button type="submit" class="notify-button">Get Notified</button>
+                </form>
+            </div>
+            <div style="text-align: center; margin-top: 40px;">
+                <a href="life-is-your-word.html" class="back-link">← Back to Seasons</a>
+            </div>
+        </div>
+    </section>
+
+    <script src="assets/js/amusements-data.js"></script>
+    <script src="assets/js/amusements-navigation.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            AmusementsNavigation.renderSeason('life-is-your-word', 'season1');
+        });
+    </script>
+</body>
+</html>
