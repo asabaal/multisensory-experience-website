@@ -1,0 +1,203 @@
+digraph NavigationByMode {
+    // Navigation grouped by primary modes
+    rankdir=LR;
+    splines=ortho;
+    dpi=150;
+    fontname="Arial";
+    fontsize=10;
+    bgcolor="#1a1a2e";
+    compound=true;
+
+    // Global Attributes
+    node [fontname="Arial", fontsize=10, shape=box, style="rounded,filled", width=1.5, height=0.7];
+    edge [fontname="Arial", fontsize=8, color="#6B7280"];
+
+    // ==================== ENTRY POINTS ====================
+    subgraph cluster_entry {
+        label="Entry Points";
+        style=filled;
+        color="#FFD700";
+        fillcolor="#FFD70022";
+
+        index [label="index.html", fillcolor="#FFD700", fontcolor="black", fontsize=12, penwidth=2];
+    }
+
+    // ==================== CONSUME MODE ====================
+    subgraph cluster_consume {
+        label="Consume Mode";
+        style=filled;
+        color="#8B5CF6";
+        fillcolor="#8B5CF622";
+
+        consume [label="consume.html", fillcolor="#8B5CF6", fontcolor="white", fontsize=11, penwidth=2];
+        amusements [label="amusements.html", fillcolor="#A78BFA", fontcolor="white"];
+        bloglisting [label="blog-listing.html", fillcolor="#A78BFA", fontcolor="white"];
+        blogsselection [label="blogs-selection.html", fillcolor="#A78BFA", fontcolor="white"];
+        shows [label="shows.html", fillcolor="#C4B5FD", fontcolor="white"];
+        games [label="games.html", fillcolor="#C4B5FD", fontcolor="white"];
+
+        // Sub-nodes
+        vision2054 [label="vision_2054_page.html", fillcolor="#C084FC", fontcolor="white"];
+        lifeisyourword [label="life-is-your-word.html", fillcolor="#FB923C", fontcolor="white"];
+        musicalpoetry [label="musical-poetry.html", fillcolor="#FB923C", fontcolor="white"];
+        blog [label="blog.html", fillcolor="#E879F9", fontcolor="white"];
+    }
+
+    // ==================== INTERACT MODE ====================
+    subgraph cluster_interact {
+        label="Interact Mode";
+        style=filled;
+        color="#06B6D4";
+        fillcolor="#06B6D422";
+
+        interact [label="interact.html", fillcolor="#06B6D4", fontcolor="white", fontsize=11, penwidth=2];
+        dispatch [label="dispatch-revenue-reporting.html", fillcolor="#67E8F9", fontcolor="white"];
+        tictactoe [label="tic-tac-toe.html", fillcolor="#67E8F9", fontcolor="white"];
+    }
+
+    // ==================== LEARN MODE ====================
+    subgraph cluster_learn {
+        label="Learn Mode";
+        style=filled;
+        color="#10B981";
+        fillcolor="#10B98122";
+
+        learn [label="learn.html", fillcolor="#10B981", fontcolor="white", fontsize=11, penwidth=2];
+        aboutfounder [label="about-founder.html", fillcolor="#34D399", fontcolor="white"];
+        whatwedo [label="what-we-do.html", fillcolor="#34D399", fontcolor="white"];
+        resume [label="resume_cv/asabaal_horan_cv_202507.html", fillcolor="#60A5FA", fontcolor="white"];
+    }
+
+    // ==================== BUSINESS MODE ====================
+    subgraph cluster_business {
+        label="Business Mode";
+        style=filled;
+        color="#F59E0B";
+        fillcolor="#F59E0B22";
+
+        dobusiness [label="do-business.html", fillcolor="#F59E0B", fontcolor="white", fontsize=11, penwidth=2];
+        products [label="products.html", fillcolor="#FBBF24", fontcolor="black"];
+        services [label="services.html", fillcolor="#FBBF24", fontcolor="black"];
+        partner [label="partner.html", fillcolor="#FBBF24", fontcolor="black"];
+        buildwithme [label="build-with-me.html", fillcolor="#FCD34D", fontcolor="black"];
+        buildwithyou [label="build-with-you.html", fillcolor="#FCD34D", fontcolor="black"];
+
+        // Sub-nodes
+        asabaal [label="asabaal.html", fillcolor="#F472B6", fontcolor="white"];
+        advancements [label="advancements-by-asabaal.html", fillcolor="#F472B6", fontcolor="white"];
+        asabaalprojects [label="asabaal-projects.html", fillcolor="#FBCFE8", fontcolor="black"];
+        playlists [label="playlists.html", fillcolor="#FBCFE8", fontcolor="black"];
+        acts [label="acts-of-asabaal.html", fillcolor="#FBCFE8", fontcolor="black"];
+        opensource [label="open-source-model.html", fillcolor="#C084FC", fontcolor="white"];
+        unityremix [label="unity-remix-contest.html", fillcolor="#67E8F9", fontcolor="white"];
+    }
+
+    // ==================== UTILITY PAGES ====================
+    subgraph cluster_utility {
+        label="Utility Pages";
+        style=filled;
+        color="#6B7280";
+        fillcolor="#6B728022";
+
+        connect [label="connect.html", fillcolor="#6B7280", fontcolor="white"];
+        links [label="links.html", fillcolor="#6B7280", fontcolor="white"];
+        privacy [label="privacy.html", fillcolor="#6B7280", fontcolor="white"];
+        terms [label="terms.html", fillcolor="#6B7280", fontcolor="white"];
+    }
+
+    // ==================== EXTERNAL LINKS ====================
+    subgraph cluster_external {
+        label="External Platforms";
+        style=filled;
+        color="#9CA3AF";
+        fillcolor="#9CA3AF22";
+
+        extern_social [label="Social Platforms", shape=ellipse, fillcolor="#D1D5DB", fontcolor="black"];
+        extern_music [label="Music Platforms", shape=ellipse, fillcolor="#D1D5DB", fontcolor="black"];
+        extern_email [label="Email", shape=ellipse, fillcolor="#D1D5DB", fontcolor="black"];
+        extern_website [label="Websites", shape=ellipse, fillcolor="#D1D5DB", fontcolor="black"];
+    }
+
+    // ==================== EDGES: NAVIGATION ====================
+
+    // Entry to Modes
+    index -> brands [label="Home", color="#FFD700", penwidth=3];
+    index -> consume [color="#8B5CF6", penwidth=3];
+    index -> interact [color="#06B6D4", penwidth=3];
+    index -> learn [color="#10B981", penwidth=3];
+    index -> dobusiness [color="#F59E0B", penwidth=3];
+    index -> connect [color="#6B7280", penwidth=2];
+    index -> links [color="#6B7280", penwidth=1];
+
+    // brands.html navigation (secondary entry point)
+    brands -> consume [color="#8B5CF6", penwidth=1];
+    brands -> interact [color="#06B6D4", penwidth=1];
+    brands -> learn [color="#10B981", penwidth=1];
+    brands -> dobusiness [color="#F59E0B", penwidth=1];
+    brands -> connect [color="#6B7280", penwidth=1];
+    brands -> asabaal [color="#F472B6"];
+    brands -> advancements [color="#F472B6"];
+    brands -> amusements [color="#A78BFA"];
+
+    // Consume Mode Edges
+    consume -> amusements [color="#A78BFA", penwidth=2];
+    consume -> bloglisting [color="#A78BFA"];
+    consume -> blogsselection [color="#A78BFA"];
+
+    amusements -> shows [color="#C4B5FD"];
+    amusements -> games [color="#C4B5FD"];
+
+    shows -> vision2054 [color="#C084FC"];
+    shows -> lifeisyourword [color="#FB923C"];
+
+    blogsselection -> musicalpoetry [color="#FB923C"];
+
+    games -> unityremix [color="#67E8F9"];
+
+    bloglisting -> blog [color="#E879F9"];
+
+    // Interact Mode Edges
+    interact -> dispatch [color="#67E8F9"];
+    interact -> tictactoe [color="#67E8F9"];
+    interact -> unityremix [color="#67E8F9", penwidth=2];
+
+    // Learn Mode Edges
+    learn -> aboutfounder [color="#34D399"];
+    learn -> whatwedo [color="#34D399"];
+
+    aboutfounder -> resume [color="#60A5FA"];
+
+    // Business Mode Edges
+    dobusiness -> products [color="#FBBF24"];
+    dobusiness -> services [color="#FBBF24"];
+    dobusiness -> partner [color="#FBBF24"];
+
+    services -> buildwithme [color="#FCD34D"];
+    services -> buildwithyou [color="#FCD34D"];
+    services -> dispatch [color="#67E8F9"];
+
+    products -> advancements [color="#F472B6"];
+
+    asabaal -> asabaalprojects [color="#FBCFE8"];
+    asabaal -> playlists [color="#FBCFE8"];
+
+    advancements -> opensource [color="#C084FC"];
+    advancements -> vision2054 [color="#C084FC"];
+
+    // Cross-mode Links
+    vision2054 -> blog [color="#E879F9"];
+    vision2054 -> unityremix [color="#67E8F9"];
+    unityremix -> blog [color="#E879F9"];
+
+    // Utility Links
+    connect -> privacy [color="#6B7280"];
+    connect -> terms [color="#6B7280"];
+    privacy -> terms [color="#6B7280"];
+
+    // External Links
+    links -> extern_social [color="#9CA3AF", style=dashed, penwidth=2];
+    links -> extern_music [color="#9CA3AF", style=dashed, penwidth=2];
+    asabaal -> extern_music [color="#9CA3AF", style=dashed];
+    connect -> extern_email [color="#9CA3AF", style=dashed];
+    brands -> extern_website [color="#9CA3AF", style=dashed];
+}

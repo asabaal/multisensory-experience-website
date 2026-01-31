@@ -1,0 +1,2302 @@
+{
+  "metadata": {
+    "title": "Website Navigation Topology",
+    "website": "multisensory-experience-website",
+    "analysisDate": "2026-01-31",
+    "totalPages": 70,
+    "totalEdges": 400,
+    "description": "Complete navigation structure analysis for visualization"
+  },
+  "nodes": [
+    {
+      "id": "index.html",
+      "label": "index.html",
+      "type": "entry",
+      "category": "Entry Point",
+      "level": 0,
+      "description": "Mode selection hub",
+      "color": "#FFD700",
+      "url": "index.html"
+    },
+    {
+      "id": "brands.html",
+      "label": "brands.html",
+      "type": "content",
+      "category": "Content Hub",
+      "level": 1,
+      "description": "Brands page (not entry point)",
+      "color": "#E5E7EB",
+      "url": "brands.html"
+    },
+    {
+      "id": "consume.html",
+      "label": "consume.html",
+      "type": "mode",
+      "category": "Primary Mode",
+      "level": 1,
+      "description": "Consume Mode",
+      "color": "#8B5CF6",
+      "url": "consume.html"
+    },
+    {
+      "id": "interact.html",
+      "label": "interact.html",
+      "type": "mode",
+      "category": "Primary Mode",
+      "level": 1,
+      "description": "Interact Mode",
+      "color": "#06B6D4",
+      "url": "interact.html"
+    },
+    {
+      "id": "learn.html",
+      "label": "learn.html",
+      "type": "mode",
+      "category": "Primary Mode",
+      "level": 1,
+      "description": "Learn Mode",
+      "color": "#10B981",
+      "url": "learn.html"
+    },
+    {
+      "id": "do-business.html",
+      "label": "do-business.html",
+      "type": "mode",
+      "category": "Primary Mode",
+      "level": 1,
+      "description": "Do Business",
+      "color": "#F59E0B",
+      "url": "do-business.html"
+    },
+    {
+      "id": "connect.html",
+      "label": "connect.html",
+      "type": "utility",
+      "category": "Utility",
+      "level": 1,
+      "description": "Community/Discord signup",
+      "color": "#6B7280",
+      "url": "connect.html"
+    },
+    {
+      "id": "links.html",
+      "label": "links.html",
+      "type": "utility",
+      "category": "Utility",
+      "level": 1,
+      "description": "All social links",
+      "color": "#6B7280",
+      "url": "links.html"
+    },
+    {
+      "id": "privacy.html",
+      "label": "privacy.html",
+      "type": "utility",
+      "category": "Utility",
+      "level": 1,
+      "description": "Privacy policy",
+      "color": "#6B7280",
+      "url": "privacy.html"
+    },
+    {
+      "id": "terms.html",
+      "label": "terms.html",
+      "type": "utility",
+      "category": "Utility",
+      "level": 1,
+      "description": "Terms of service",
+      "color": "#6B7280",
+      "url": "terms.html"
+    },
+    {
+      "id": "amusements.html",
+      "label": "amusements.html",
+      "type": "content",
+      "category": "Content Hub",
+      "level": 2,
+      "description": "Main content hub",
+      "color": "#A78BFA",
+      "url": "amusements.html",
+      "parent": "consume.html"
+    },
+    {
+      "id": "blog-listing.html",
+      "label": "blog-listing.html",
+      "type": "content",
+      "category": "Content Hub",
+      "level": 2,
+      "description": "Blog archive",
+      "color": "#A78BFA",
+      "url": "blog-listing.html",
+      "parent": "consume.html"
+    },
+    {
+      "id": "blogs-selection.html",
+      "label": "blogs-selection.html",
+      "type": "content",
+      "category": "Content Hub",
+      "level": 2,
+      "description": "Blog categories",
+      "color": "#A78BFA",
+      "url": "blogs-selection.html",
+      "parent": "consume.html"
+    },
+    {
+      "id": "shows.html",
+      "label": "shows.html",
+      "type": "content",
+      "category": "Content Hub",
+      "level": 3,
+      "description": "Shows and series",
+      "color": "#C4B5FD",
+      "url": "shows.html",
+      "parent": "amusements.html"
+    },
+    {
+      "id": "games.html",
+      "label": "games.html",
+      "type": "content",
+      "category": "Content Hub",
+      "level": 3,
+      "description": "Games and interactive content",
+      "color": "#C4B5FD",
+      "url": "games.html",
+      "parent": "amusements.html"
+    },
+    {
+      "id": "dispatch-revenue-reporting.html",
+      "label": "dispatch-revenue-reporting.html",
+      "type": "interactive",
+      "category": "Interactive",
+      "level": 2,
+      "description": "Revenue reporting tool",
+      "color": "#67E8F9",
+      "url": "dispatch-revenue-reporting.html",
+      "parent": "interact.html"
+    },
+    {
+      "id": "tic-tac-toe.html",
+      "label": "tic-tac-toe.html",
+      "type": "interactive",
+      "category": "Interactive",
+      "level": 2,
+      "description": "Tic-tac-toe game",
+      "color": "#67E8F9",
+      "url": "tic-tac-toe.html",
+      "parent": "interact.html"
+    },
+    {
+      "id": "unity-remix-contest.html",
+      "label": "unity-remix-contest.html",
+      "type": "interactive",
+      "category": "Interactive",
+      "level": 2,
+      "description": "Unity Remix Contest",
+      "color": "#67E8F9",
+      "url": "unity-remix-contest.html",
+      "parent": "interact.html"
+    },
+    {
+      "id": "about-founder.html",
+      "label": "about-founder.html",
+      "type": "about",
+      "category": "About",
+      "level": 2,
+      "description": "About the founder",
+      "color": "#34D399",
+      "url": "about-founder.html",
+      "parent": "learn.html"
+    },
+    {
+      "id": "what-we-do.html",
+      "label": "what-we-do.html",
+      "type": "about",
+      "category": "About",
+      "level": 2,
+      "description": "What we do",
+      "color": "#34D399",
+      "url": "what-we-do.html",
+      "parent": "learn.html"
+    },
+    {
+      "id": "products.html",
+      "label": "products.html",
+      "type": "business",
+      "category": "Business",
+      "level": 2,
+      "description": "Products",
+      "color": "#FBBF24",
+      "url": "products.html",
+      "parent": "do-business.html"
+    },
+    {
+      "id": "services.html",
+      "label": "services.html",
+      "type": "business",
+      "category": "Business",
+      "level": 2,
+      "description": "Services",
+      "color": "#FBBF24",
+      "url": "services.html",
+      "parent": "do-business.html"
+    },
+    {
+      "id": "partner.html",
+      "label": "partner.html",
+      "type": "business",
+      "category": "Business",
+      "level": 2,
+      "description": "Partner with us",
+      "color": "#FBBF24",
+      "url": "partner.html",
+      "parent": "do-business.html"
+    },
+    {
+      "id": "build-with-me.html",
+      "label": "build-with-me.html",
+      "type": "business",
+      "category": "Business",
+      "level": 3,
+      "description": "Build with me",
+      "color": "#FCD34D",
+      "url": "build-with-me.html",
+      "parent": "services.html"
+    },
+    {
+      "id": "build-with-you.html",
+      "label": "build-with-you.html",
+      "type": "business",
+      "category": "Business",
+      "level": 3,
+      "description": "Build with you",
+      "color": "#FCD34D",
+      "url": "build-with-you.html",
+      "parent": "services.html"
+    },
+    {
+      "id": "asabaal.html",
+      "label": "asabaal.html",
+      "type": "about",
+      "category": "About",
+      "level": 2,
+      "description": "Asabaal profile",
+      "color": "#F472B6",
+      "url": "asabaal.html",
+      "parent": "brands.html"
+    },
+    {
+      "id": "advancements-by-asabaal.html",
+      "label": "advancements-by-asabaal.html",
+      "type": "about",
+      "category": "About",
+      "level": 2,
+      "description": "Advancements showcase",
+      "color": "#F472B6",
+      "url": "advancements-by-asabaal.html",
+      "parent": "brands.html"
+    },
+    {
+      "id": "acts-of-asabaal.html",
+      "label": "acts-of-asabaal.html",
+      "type": "about",
+      "category": "About",
+      "level": 2,
+      "description": "Acts and achievements",
+      "color": "#FBCFE8",
+      "url": "acts-of-asabaal.html",
+      "parent": "brands.html"
+    },
+    {
+      "id": "asabaal-projects.html",
+      "label": "asabaal-projects.html",
+      "type": "music",
+      "category": "Music",
+      "level": 3,
+      "description": "Music projects",
+      "color": "#FBCFE8",
+      "url": "asabaal-projects.html",
+      "parent": "asabaal.html"
+    },
+    {
+      "id": "playlists.html",
+      "label": "playlists.html",
+      "type": "music",
+      "category": "Music",
+      "level": 3,
+      "description": "Music playlists",
+      "color": "#FBCFE8",
+      "url": "playlists.html",
+      "parent": "asabaal.html"
+    },
+    {
+      "id": "vision_2054_page.html",
+      "label": "vision_2054_page.html",
+      "type": "content",
+      "category": "Special Content",
+      "level": 2,
+      "description": "Vision 2054 series",
+      "color": "#C084FC",
+      "url": "vision_2054_page.html"
+    },
+    {
+      "id": "open-source-model.html",
+      "label": "open-source-model.html",
+      "type": "content",
+      "category": "Special Content",
+      "level": 2,
+      "description": "Open source model",
+      "color": "#C084FC",
+      "url": "open-source-model.html"
+    },
+    {
+      "id": "blog.html",
+      "label": "blog.html",
+      "type": "content",
+      "category": "Special Content",
+      "level": 2,
+      "description": "Main blog page",
+      "color": "#E879F9",
+      "url": "blog.html"
+    },
+    {
+      "id": "musical-poetry.html",
+      "label": "musical-poetry.html",
+      "type": "series",
+      "category": "Series",
+      "level": 3,
+      "description": "Musical Poetry series",
+      "color": "#FB923C",
+      "url": "musical-poetry.html",
+      "parent": "amusements.html"
+    },
+    {
+      "id": "musical-poetry/season-1.html",
+      "label": "musical-poetry/season-1.html",
+      "type": "series",
+      "category": "Series",
+      "level": 4,
+      "description": "Musical Poetry Season 1",
+      "color": "#FDBA74",
+      "url": "musical-poetry/season-1.html",
+      "parent": "musical-poetry.html"
+    },
+    {
+      "id": "musical-poetry/season-1/episode-1.html",
+      "label": "musical-poetry/season-1/episode-1.html",
+      "type": "series",
+      "category": "Series",
+      "level": 5,
+      "description": "Episode 1",
+      "color": "#FED7AA",
+      "url": "musical-poetry/season-1/episode-1.html",
+      "parent": "musical-poetry/season-1.html"
+    },
+    {
+      "id": "life-is-your-word.html",
+      "label": "life-is-your-word.html",
+      "type": "series",
+      "category": "Series",
+      "level": 3,
+      "description": "Life is Your Word series",
+      "color": "#FB923C",
+      "url": "life-is-your-word.html",
+      "parent": "amusements.html"
+    },
+    {
+      "id": "life-is-your-word/season-0.html",
+      "label": "life-is-your-word/season-0.html",
+      "type": "series",
+      "category": "Series",
+      "level": 4,
+      "description": "Season 0",
+      "color": "#FDBA74",
+      "url": "life-is-your-word/season-0.html",
+      "parent": "life-is-your-word.html"
+    },
+    {
+      "id": "life-is-your-word/season-1.html",
+      "label": "life-is-your-word/season-1.html",
+      "type": "series",
+      "category": "Series",
+      "level": 4,
+      "description": "Season 1",
+      "color": "#FDBA74",
+      "url": "life-is-your-word/season-1.html",
+      "parent": "life-is-your-word.html"
+    },
+    {
+      "id": "resume_cv/asabaal_horan_cv_202507.html",
+      "label": "asabaal_horan_cv_202507.html",
+      "type": "documentation",
+      "category": "Documentation",
+      "level": 3,
+      "description": "Resume/CV",
+      "color": "#60A5FA",
+      "url": "resume_cv/asabaal_horan_cv_202507.html"
+    },
+    {
+      "id": "visualizations/cooperative-kingdom-ecosystem-fixed.html",
+      "label": "cooperative-kingdom-ecosystem-fixed.html",
+      "type": "visualization",
+      "category": "Visualization",
+      "level": 3,
+      "description": "Ecosystem visualization",
+      "color": "#38BDF8",
+      "url": "visualizations/cooperative-kingdom-ecosystem-fixed.html"
+    },
+    {
+      "id": "visualizations/complete-implementation-timeline.html",
+      "label": "complete-implementation-timeline.html",
+      "type": "visualization",
+      "category": "Visualization",
+      "level": 3,
+      "description": "Implementation timeline",
+      "color": "#38BDF8",
+      "url": "visualizations/complete-implementation-timeline.html"
+    },
+    {
+      "id": "visualizations/implementation-timeline.html",
+      "label": "implementation-timeline.html",
+      "type": "visualization",
+      "category": "Visualization",
+      "level": 3,
+      "description": "Timeline visualization",
+      "color": "#38BDF8",
+      "url": "visualizations/implementation-timeline.html"
+    },
+    {
+      "id": "visualizations/kingdom-power-distribution-model.html",
+      "label": "kingdom-power-distribution-model.html",
+      "type": "visualization",
+      "category": "Visualization",
+      "level": 3,
+      "description": "Power distribution model",
+      "color": "#38BDF8",
+      "url": "visualizations/kingdom-power-distribution-model.html"
+    },
+    {
+      "id": "prototypes/ecosystem-diagram.html",
+      "label": "ecosystem-diagram.html",
+      "type": "prototype",
+      "category": "Prototype",
+      "level": 3,
+      "description": "Ecosystem diagram",
+      "color": "#818CF8",
+      "url": "prototypes/ecosystem-diagram.html"
+    },
+    {
+      "id": "prototypes/full-co-creator-platform-vision-concept.html",
+      "label": "full-co-creator-platform-vision-concept.html",
+      "type": "prototype",
+      "category": "Prototype",
+      "level": 3,
+      "description": "Co-creator platform vision",
+      "color": "#818CF8",
+      "url": "prototypes/full-co-creator-platform-vision-concept.html"
+    },
+    {
+      "id": "prototypes/phase-1.html",
+      "label": "phase-1.html",
+      "type": "prototype",
+      "category": "Prototype",
+      "level": 3,
+      "description": "Phase 1 prototype",
+      "color": "#A5B4FC",
+      "url": "prototypes/phase-1.html"
+    },
+    {
+      "id": "prototypes/phase-2.html",
+      "label": "phase-2.html",
+      "type": "prototype",
+      "category": "Prototype",
+      "level": 3,
+      "description": "Phase 2 prototype",
+      "color": "#A5B4FC",
+      "url": "prototypes/phase-2.html"
+    },
+    {
+      "id": "prototypes/phase-3.html",
+      "label": "phase-3.html",
+      "type": "prototype",
+      "category": "Prototype",
+      "level": 3,
+      "description": "Phase 3 prototype",
+      "color": "#A5B4FC",
+      "url": "prototypes/phase-3.html"
+    },
+    {
+      "id": "prototypes/phase-4.html",
+      "label": "phase-4.html",
+      "type": "prototype",
+      "category": "Prototype",
+      "level": 3,
+      "description": "Phase 4 prototype",
+      "color": "#A5B4FC",
+      "url": "prototypes/phase-4.html"
+    },
+    {
+      "id": "prototypes/phase-5.html",
+      "label": "phase-5.html",
+      "type": "prototype",
+      "category": "Prototype",
+      "level": 3,
+      "description": "Phase 5 prototype",
+      "color": "#A5B4FC",
+      "url": "prototypes/phase-5.html"
+    },
+    {
+      "id": "prototypes/Pitch Deck Updated 20250714.html",
+      "label": "Pitch Deck Updated 20250714.html",
+      "type": "prototype",
+      "category": "Prototype",
+      "level": 3,
+      "description": "Pitch deck",
+      "color": "#A5B4FC",
+      "url": "prototypes/Pitch Deck Updated 20250714.html"
+    },
+    {
+      "id": "blog/post-asabaal-ventures-dawn-new-era.html",
+      "label": "post-asabaal-ventures-dawn-new-era.html",
+      "type": "blog",
+      "category": "Blog Post",
+      "level": 4,
+      "description": "Blog post",
+      "color": "#F9A8D4",
+      "url": "blog/post-asabaal-ventures-dawn-new-era.html"
+    },
+    {
+      "id": "blog/post-by-my-hand-discarding-hurt-for-unity.html",
+      "label": "post-by-my-hand-discarding-hurt-for-unity.html",
+      "type": "blog",
+      "category": "Blog Post",
+      "level": 4,
+      "description": "Blog post",
+      "color": "#F9A8D4",
+      "url": "blog/post-by-my-hand-discarding-hurt-for-unity.html"
+    },
+    {
+      "id": "blog/post-charting-the-course-for-a-more-fulfilling-future.html",
+      "label": "post-charting-the-course-for-a-more-fulfilling-future.html",
+      "type": "blog",
+      "category": "Blog Post",
+      "level": 4,
+      "description": "Blog post",
+      "color": "#F9A8D4",
+      "url": "blog/post-charting-the-course-for-a-more-fulfilling-future.html"
+    },
+    {
+      "id": "blog/post-collaborative-business-models-ethical-advertising.html",
+      "label": "post-collaborative-business-models-ethical-advertising.html",
+      "type": "blog",
+      "category": "Blog Post",
+      "level": 4,
+      "description": "Blog post",
+      "color": "#F9A8D4",
+      "url": "blog/post-collaborative-business-models-ethical-advertising.html"
+    },
+    {
+      "id": "blog/post-electric-pulse-journey-self-discovery-transformation.html",
+      "label": "post-electric-pulse-journey-self-discovery-transformation.html",
+      "type": "blog",
+      "category": "Blog Post",
+      "level": 4,
+      "description": "Blog post",
+      "color": "#F9A8D4",
+      "url": "blog/post-electric-pulse-journey-self-discovery-transformation.html"
+    },
+    {
+      "id": "blog/post-embracing-the-age-of-creativity.html",
+      "label": "post-embracing-the-age-of-creativity.html",
+      "type": "blog",
+      "category": "Blog Post",
+      "level": 4,
+      "description": "Blog post",
+      "color": "#F9A8D4",
+      "url": "blog/post-embracing-the-age-of-creativity.html"
+    },
+    {
+      "id": "blog/post-ethical-advocacy-future-education.html",
+      "label": "post-ethical-advocacy-future-education.html",
+      "type": "blog",
+      "category": "Blog Post",
+      "level": 4,
+      "description": "Blog post",
+      "color": "#F9A8D4",
+      "url": "blog/post-ethical-advocacy-future-education.html"
+    },
+    {
+      "id": "blog/post-free-as-a-bird-spiritual-journey-self-discovery-liberation.html",
+      "label": "post-free-as-a-bird-spiritual-journey-self-discovery-liberation.html",
+      "type": "blog",
+      "category": "Blog Post",
+      "level": 4,
+      "description": "Blog post",
+      "color": "#F9A8D4",
+      "url": "blog/post-free-as-a-bird-spiritual-journey-self-discovery-liberation.html"
+    },
+    {
+      "id": "blog/post-human-creativity-ai-ethical-social-platforms.html",
+      "label": "post-human-creativity-ai-ethical-social-platforms.html",
+      "type": "blog",
+      "category": "Blog Post",
+      "level": 4,
+      "description": "Blog post",
+      "color": "#F9A8D4",
+      "url": "blog/post-human-creativity-ai-ethical-social-platforms.html"
+    },
+    {
+      "id": "blog/post-keep-it-simple-simple-indeed.html",
+      "label": "post-keep-it-simple-simple-indeed.html",
+      "type": "blog",
+      "category": "Blog Post",
+      "level": 4,
+      "description": "Blog post",
+      "color": "#F9A8D4",
+      "url": "blog/post-keep-it-simple-simple-indeed.html"
+    },
+    {
+      "id": "blog/post-logical-fallacies-lets-start-thinking-together.html",
+      "label": "post-logical-fallacies-lets-start-thinking-together.html",
+      "type": "blog",
+      "category": "Blog Post",
+      "level": 4,
+      "description": "Blog post",
+      "color": "#F9A8D4",
+      "url": "blog/post-logical-fallacies-lets-start-thinking-together.html"
+    },
+    {
+      "id": "blog/post-microaggression-becoming-cognizant-of-our-actions.html",
+      "label": "post-microaggression-becoming-cognizant-of-our-actions.html",
+      "type": "blog",
+      "category": "Blog Post",
+      "level": 4,
+      "description": "Blog post",
+      "color": "#F9A8D4",
+      "url": "blog/post-microaggression-becoming-cognizant-of-our-actions.html"
+    },
+    {
+      "id": "blog/post-more-than-me-how-my-beliefs-evolved.html",
+      "label": "post-more-than-me-how-my-beliefs-evolved.html",
+      "type": "blog",
+      "category": "Blog Post",
+      "level": 4,
+      "description": "Blog post",
+      "color": "#F9A8D4",
+      "url": "blog/post-more-than-me-how-my-beliefs-evolved.html"
+    },
+    {
+      "id": "blog/post-no-fighting-the-evil-inside-yourself.html",
+      "label": "post-no-fighting-the-evil-inside-yourself.html",
+      "type": "blog",
+      "category": "Blog Post",
+      "level": 4,
+      "description": "Blog post",
+      "color": "#F9A8D4",
+      "url": "blog/post-no-fighting-the-evil-inside-yourself.html"
+    },
+    {
+      "id": "blog/post-omniscient-what-does-that-actually-mean.html",
+      "label": "post-omniscient-what-does-that-actually-mean.html",
+      "type": "blog",
+      "category": "Blog Post",
+      "level": 4,
+      "description": "Blog post",
+      "color": "#F9A8D4",
+      "url": "blog/post-omniscient-what-does-that-actually-mean.html"
+    },
+    {
+      "id": "blog/post-power-of-pain-you-already-feel-it-leverage-it.html",
+      "label": "post-power-of-pain-you-already-feel-it-leverage-it.html",
+      "type": "blog",
+      "category": "Blog Post",
+      "level": 4,
+      "description": "Blog post",
+      "color": "#F9A8D4",
+      "url": "blog/post-power-of-pain-you-already-feel-it-leverage-it.html"
+    },
+    {
+      "id": "blog/post-probably-right-accepting-criticism-with-humility.html",
+      "label": "post-probably-right-accepting-criticism-with-humility.html",
+      "type": "blog",
+      "category": "Blog Post",
+      "level": 4,
+      "description": "Blog post",
+      "color": "#F9A8D4",
+      "url": "blog/post-probably-right-accepting-criticism-with-humility.html"
+    },
+    {
+      "id": "blog/post-respect-the-fundamental-human-right.html",
+      "label": "post-respect-the-fundamental-human-right.html",
+      "type": "blog",
+      "category": "Blog Post",
+      "level": 4,
+      "description": "Blog post",
+      "color": "#F9A8D4",
+      "url": "blog/post-respect-the-fundamental-human-right.html"
+    },
+    {
+      "id": "blog/post-special-we-are-all-special-this-is-a-special-time-in-history-lets-get-moving.html",
+      "label": "post-special-we-are-all-special-this-is-a-special-time-in-history-lets-get-moving.html",
+      "type": "blog",
+      "category": "Blog Post",
+      "level": 4,
+      "description": "Blog post",
+      "color": "#F9A8D4",
+      "url": "blog/post-special-we-are-all-special-this-is-a-special-time-in-history-lets-get-moving.html"
+    },
+    {
+      "id": "blog/post-the-future-of-work-and-personal-growth-cultivating-fulfillment-in-the-changing-landscape-of-work.html",
+      "label": "post-the-future-of-work-and-personal-growth-cultivating-fulfillment-in-the-changing-landscape-of-work.html",
+      "type": "blog",
+      "category": "Blog Post",
+      "level": 4,
+      "description": "Blog post",
+      "color": "#F9A8D4",
+      "url": "blog/post-the-future-of-work-and-personal-growth-cultivating-fulfillment-in-the-changing-landscape-of-work.html"
+    },
+    {
+      "id": "blog/post-unity-of-truth-global-peace-inevitable-superintelligence.html",
+      "label": "post-unity-of-truth-global-peace-inevitable-superintelligence.html",
+      "type": "blog",
+      "category": "Blog Post",
+      "level": 4,
+      "description": "Blog post",
+      "color": "#F9A8D4",
+      "url": "blog/post-unity-of-truth-global-peace-inevitable-superintelligence.html"
+    },
+    {
+      "id": "blog/post-unveiling-the-future-of-asabaal-ventures.html",
+      "label": "post-unveiling-the-future-of-asabaal-ventures.html",
+      "type": "blog",
+      "category": "Blog Post",
+      "level": 4,
+      "description": "Blog post",
+      "color": "#F9A8D4",
+      "url": "blog/post-unveiling-the-future-of-asabaal-ventures.html"
+    },
+    {
+      "id": "blog/post-what-happens-when-queer-christian-remixes-anikes-send-that.html",
+      "label": "post-what-happens-when-queer-christian-remixes-anikes-send-that.html",
+      "type": "blog",
+      "category": "Blog Post",
+      "level": 4,
+      "description": "Blog post",
+      "color": "#F9A8D4",
+      "url": "blog/post-what-happens-when-queer-christian-remixes-anikes-send-that.html"
+    },
+    {
+      "id": "blog/post-why-a-plea-for-change.html",
+      "label": "post-why-a-plea-for-change.html",
+      "type": "blog",
+      "category": "Blog Post",
+      "level": 4,
+      "description": "Blog post",
+      "color": "#F9A8D4",
+      "url": "blog/post-why-a-plea-for-change.html"
+    },
+    {
+      "id": "blog/post-why-i-entered-the-ai-remix-competition.html",
+      "label": "post-why-i-entered-the-ai-remix-competition.html",
+      "type": "blog",
+      "category": "Blog Post",
+      "level": 4,
+      "description": "Blog post",
+      "color": "#F9A8D4",
+      "url": "blog/post-why-i-entered-the-ai-remix-competition.html"
+    },
+    {
+      "id": "blog/post-your-nature-starting-conversation-intuitive-understanding-god.html",
+      "label": "post-your-nature-starting-conversation-intuitive-understanding-god.html",
+      "type": "blog",
+      "category": "Blog Post",
+      "level": 4,
+      "description": "Blog post",
+      "color": "#F9A8D4",
+      "url": "blog/post-your-nature-starting-conversation-intuitive-understanding-god.html"
+    },
+    {
+      "id": "https://www.tiktok.com/@asabaalhoran",
+      "label": "TikTok",
+      "type": "external",
+      "category": "Social Media",
+      "level": 0,
+      "description": "TikTok profile",
+      "color": "#D1D5DB",
+      "url": "https://www.tiktok.com/@asabaalhoran",
+      "isExternal": true
+    },
+    {
+      "id": "https://www.youtube.com/@asabaal",
+      "label": "YouTube",
+      "type": "external",
+      "category": "Social Media",
+      "level": 0,
+      "description": "YouTube channel",
+      "color": "#D1D5DB",
+      "url": "https://www.youtube.com/@asabaal",
+      "isExternal": true
+    },
+    {
+      "id": "https://www.instagram.com/asabaalhoran/",
+      "label": "Instagram",
+      "type": "external",
+      "category": "Social Media",
+      "level": 0,
+      "description": "Instagram profile",
+      "color": "#D1D5DB",
+      "url": "https://www.instagram.com/asabaalhoran/",
+      "isExternal": true
+    },
+    {
+      "id": "https://www.facebook.com/profile.php?id=61559665792660",
+      "label": "Facebook",
+      "type": "external",
+      "category": "Social Media",
+      "level": 0,
+      "description": "Facebook page",
+      "color": "#D1D5DB",
+      "url": "https://www.facebook.com/profile.php?id=61559665792660",
+      "isExternal": true
+    },
+    {
+      "id": "https://www.linkedin.com/in/asabaal-horan-phd-2144b689/",
+      "label": "LinkedIn",
+      "type": "external",
+      "category": "Social Media",
+      "level": 0,
+      "description": "LinkedIn profile",
+      "color": "#D1D5DB",
+      "url": "https://www.linkedin.com/in/asabaal-horan-phd-2144b689/",
+      "isExternal": true
+    },
+    {
+      "id": "https://x.com/asabaalventures",
+      "label": "X/Twitter",
+      "type": "external",
+      "category": "Social Media",
+      "level": 0,
+      "description": "X/Twitter profile",
+      "color": "#D1D5DB",
+      "url": "https://x.com/asabaalventures",
+      "isExternal": true
+    },
+    {
+      "id": "https://open.spotify.com/artist/3lEEkkje9FI8sDZ8m6gMqI?si=ADWA3bUWQQODh1ylwQooRQ",
+      "label": "Spotify",
+      "type": "external",
+      "category": "Music Platform",
+      "level": 0,
+      "description": "Spotify artist",
+      "color": "#D1D5DB",
+      "url": "https://open.spotify.com/artist/3lEEkkje9FI8sDZ8m6gMqI?si=ADWA3bUWQQODh1ylwQooRQ",
+      "isExternal": true
+    },
+    {
+      "id": "https://music.apple.com/us/artist/asabaal/1772699078",
+      "label": "Apple Music",
+      "type": "external",
+      "category": "Music Platform",
+      "level": 0,
+      "description": "Apple Music artist",
+      "color": "#D1D5DB",
+      "url": "https://music.apple.com/us/artist/asabaal/1772699078",
+      "isExternal": true
+    },
+    {
+      "id": "https://music.youtube.com/channel/UCxNlSZI7obQg8zBJHKITqbg",
+      "label": "YouTube Music",
+      "type": "external",
+      "category": "Music Platform",
+      "level": 0,
+      "description": "YouTube Music channel",
+      "color": "#D1D5DB",
+      "url": "https://music.youtube.com/channel/UCxNlSZI7obQg8zBJHKITqbg",
+      "isExternal": true
+    },
+    {
+      "id": "https://suno.com/@asabaal",
+      "label": "Suno",
+      "type": "external",
+      "category": "Music Platform",
+      "level": 0,
+      "description": "Suno profile",
+      "color": "#D1D5DB",
+      "url": "https://suno.com/@asabaal",
+      "isExternal": true
+    },
+    {
+      "id": "https://asabaalventures.me",
+      "label": "Main Site",
+      "type": "external",
+      "category": "Website",
+      "level": 0,
+      "description": "Main website",
+      "color": "#D1D5DB",
+      "url": "https://asabaalventures.me",
+      "isExternal": true
+    },
+    {
+      "id": "https://tshilllogisticsllc.com/",
+      "label": "TSHill Logistics",
+      "type": "external",
+      "category": "Website",
+      "level": 0,
+      "description": "TSHill Logistics",
+      "color": "#D1D5DB",
+      "url": "https://tshilllogisticsllc.com/",
+      "isExternal": true
+    },
+    {
+      "id": "mailto:asabaal@asabaalventures.me",
+      "label": "Email",
+      "type": "external",
+      "category": "Contact",
+      "level": 0,
+      "description": "Email contact",
+      "color": "#D1D5DB",
+      "url": "mailto:asabaal@asabaalventures.me",
+      "isExternal": true
+    }
+  ],
+  "edges": [
+    {
+      "source": "index.html",
+      "target": "brands.html",
+      "label": "Main Nav",
+      "type": "primary",
+      "weight": 3,
+      "color": "#FFD700"
+    },
+    {
+      "source": "index.html",
+      "target": "consume.html",
+      "label": "Mode Card",
+      "type": "primary",
+      "weight": 2,
+      "color": "#8B5CF6"
+    },
+    {
+      "source": "index.html",
+      "target": "interact.html",
+      "label": "Mode Card",
+      "type": "primary",
+      "weight": 2,
+      "color": "#06B6D4"
+    },
+    {
+      "source": "index.html",
+      "target": "learn.html",
+      "label": "Mode Card",
+      "type": "primary",
+      "weight": 2,
+      "color": "#10B981"
+    },
+    {
+      "source": "index.html",
+      "target": "do-business.html",
+      "label": "Mode Card",
+      "type": "primary",
+      "weight": 2,
+      "color": "#F59E0B"
+    },
+    {
+      "source": "index.html",
+      "target": "connect.html",
+      "label": "Main Nav",
+      "type": "primary",
+      "weight": 2,
+      "color": "#6B7280"
+    },
+    {
+      "source": "index.html",
+      "target": "links.html",
+      "label": "Footer",
+      "type": "secondary",
+      "weight": 1,
+      "color": "#9CA3AF"
+    },
+    {
+      "source": "brands.html",
+      "target": "consume.html",
+      "label": "Nav",
+      "type": "primary",
+      "weight": 2,
+      "color": "#8B5CF6"
+    },
+    {
+      "source": "brands.html",
+      "target": "interact.html",
+      "label": "Nav",
+      "type": "primary",
+      "weight": 2,
+      "color": "#06B6D4"
+    },
+    {
+      "source": "brands.html",
+      "target": "learn.html",
+      "label": "Nav",
+      "type": "primary",
+      "weight": 2,
+      "color": "#10B981"
+    },
+    {
+      "source": "brands.html",
+      "target": "do-business.html",
+      "label": "Nav",
+      "type": "primary",
+      "weight": 2,
+      "color": "#F59E0B"
+    },
+    {
+      "source": "brands.html",
+      "target": "connect.html",
+      "label": "Nav",
+      "type": "primary",
+      "weight": 2,
+      "color": "#6B7280"
+    },
+    {
+      "source": "brands.html",
+      "target": "asabaal.html",
+      "label": "Brand Card",
+      "type": "secondary",
+      "weight": 1,
+      "color": "#F472B6"
+    },
+    {
+      "source": "brands.html",
+      "target": "advancements-by-asabaal.html",
+      "label": "Brand Card",
+      "type": "secondary",
+      "weight": 1,
+      "color": "#F472B6"
+    },
+    {
+      "source": "brands.html",
+      "target": "amusements.html",
+      "label": "Brand Card",
+      "type": "secondary",
+      "weight": 1,
+      "color": "#A78BFA"
+    },
+    {
+      "source": "brands.html",
+      "target": "acts-of-asabaal.html",
+      "label": "Brand Card",
+      "type": "secondary",
+      "weight": 1,
+      "color": "#FBCFE8"
+    },
+    {
+      "source": "consume.html",
+      "target": "brands.html",
+      "label": "Nav",
+      "type": "primary",
+      "weight": 2,
+      "color": "#FFD700"
+    },
+    {
+      "source": "consume.html",
+      "target": "interact.html",
+      "label": "Nav",
+      "type": "primary",
+      "weight": 2,
+      "color": "#06B6D4"
+    },
+    {
+      "source": "consume.html",
+      "target": "learn.html",
+      "label": "Nav",
+      "type": "primary",
+      "weight": 2,
+      "color": "#10B981"
+    },
+    {
+      "source": "consume.html",
+      "target": "do-business.html",
+      "label": "Nav",
+      "type": "primary",
+      "weight": 2,
+      "color": "#F59E0B"
+    },
+    {
+      "source": "consume.html",
+      "target": "connect.html",
+      "label": "Nav",
+      "type": "primary",
+      "weight": 2,
+      "color": "#6B7280"
+    },
+    {
+      "source": "consume.html",
+      "target": "amusements.html",
+      "label": "Content Card",
+      "type": "secondary",
+      "weight": 1,
+      "color": "#A78BFA"
+    },
+    {
+      "source": "consume.html",
+      "target": "blog-listing.html",
+      "label": "Content",
+      "type": "secondary",
+      "weight": 1,
+      "color": "#A78BFA"
+    },
+    {
+      "source": "consume.html",
+      "target": "blogs-selection.html",
+      "label": "Content",
+      "type": "secondary",
+      "weight": 1,
+      "color": "#A78BFA"
+    },
+    {
+      "source": "consume.html",
+      "target": "links.html",
+      "label": "Social",
+      "type": "secondary",
+      "weight": 1,
+      "color": "#9CA3AF"
+    },
+    {
+      "source": "consume.html",
+      "target": "privacy.html",
+      "label": "Footer",
+      "type": "secondary",
+      "weight": 1,
+      "color": "#9CA3AF"
+    },
+    {
+      "source": "consume.html",
+      "target": "terms.html",
+      "label": "Footer",
+      "type": "secondary",
+      "weight": 1,
+      "color": "#9CA3AF"
+    },
+    {
+      "source": "amusements.html",
+      "target": "brands.html",
+      "label": "Nav",
+      "type": "primary",
+      "weight": 2,
+      "color": "#FFD700"
+    },
+    {
+      "source": "amusements.html",
+      "target": "consume.html",
+      "label": "Nav",
+      "type": "primary",
+      "weight": 2,
+      "color": "#8B5CF6"
+    },
+    {
+      "source": "amusements.html",
+      "target": "interact.html",
+      "label": "Nav",
+      "type": "primary",
+      "weight": 2,
+      "color": "#06B6D4"
+    },
+    {
+      "source": "amusements.html",
+      "target": "learn.html",
+      "label": "Nav",
+      "type": "primary",
+      "weight": 2,
+      "color": "#10B981"
+    },
+    {
+      "source": "amusements.html",
+      "target": "do-business.html",
+      "label": "Nav",
+      "type": "primary",
+      "weight": 2,
+      "color": "#F59E0B"
+    },
+    {
+      "source": "amusements.html",
+      "target": "connect.html",
+      "label": "Nav",
+      "type": "primary",
+      "weight": 2,
+      "color": "#6B7280"
+    },
+    {
+      "source": "amusements.html",
+      "target": "blogs-selection.html",
+      "label": "Card",
+      "type": "secondary",
+      "weight": 1,
+      "color": "#A78BFA"
+    },
+    {
+      "source": "amusements.html",
+      "target": "shows.html",
+      "label": "Card",
+      "type": "secondary",
+      "weight": 1,
+      "color": "#C4B5FD"
+    },
+    {
+      "source": "amusements.html",
+      "target": "games.html",
+      "label": "Card",
+      "type": "secondary",
+      "weight": 1,
+      "color": "#C4B5FD"
+    },
+    {
+      "source": "shows.html",
+      "target": "brands.html",
+      "label": "Nav",
+      "type": "primary",
+      "weight": 2,
+      "color": "#FFD700"
+    },
+    {
+      "source": "shows.html",
+      "target": "consume.html",
+      "label": "Nav",
+      "type": "primary",
+      "weight": 2,
+      "color": "#8B5CF6"
+    },
+    {
+      "source": "shows.html",
+      "target": "vision_2054_page.html",
+      "label": "Card",
+      "type": "secondary",
+      "weight": 1,
+      "color": "#C084FC"
+    },
+    {
+      "source": "shows.html",
+      "target": "life-is-your-word.html",
+      "label": "Card",
+      "type": "secondary",
+      "weight": 1,
+      "color": "#FB923C"
+    },
+    {
+      "source": "games.html",
+      "target": "brands.html",
+      "label": "Nav",
+      "type": "primary",
+      "weight": 2,
+      "color": "#FFD700"
+    },
+    {
+      "source": "games.html",
+      "target": "unity-remix-contest.html",
+      "label": "Card",
+      "type": "secondary",
+      "weight": 1,
+      "color": "#67E8F9"
+    },
+    {
+      "source": "games.html",
+      "target": "amusements.html",
+      "label": "Back",
+      "type": "secondary",
+      "weight": 1,
+      "color": "#A78BFA"
+    },
+    {
+      "source": "interact.html",
+      "target": "brands.html",
+      "label": "Nav",
+      "type": "primary",
+      "weight": 2,
+      "color": "#FFD700"
+    },
+    {
+      "source": "interact.html",
+      "target": "consume.html",
+      "label": "Nav",
+      "type": "primary",
+      "weight": 2,
+      "color": "#8B5CF6"
+    },
+    {
+      "source": "interact.html",
+      "target": "learn.html",
+      "label": "Nav",
+      "type": "primary",
+      "weight": 2,
+      "color": "#10B981"
+    },
+    {
+      "source": "interact.html",
+      "target": "do-business.html",
+      "label": "Nav",
+      "type": "primary",
+      "weight": 2,
+      "color": "#F59E0B"
+    },
+    {
+      "source": "interact.html",
+      "target": "connect.html",
+      "label": "Nav",
+      "type": "primary",
+      "weight": 2,
+      "color": "#6B7280"
+    },
+    {
+      "source": "interact.html",
+      "target": "dispatch-revenue-reporting.html",
+      "label": "Card",
+      "type": "secondary",
+      "weight": 1,
+      "color": "#67E8F9"
+    },
+    {
+      "source": "interact.html",
+      "target": "tic-tac-toe.html",
+      "label": "Card",
+      "type": "secondary",
+      "weight": 1,
+      "color": "#67E8F9"
+    },
+    {
+      "source": "interact.html",
+      "target": "unity-remix-contest.html",
+      "label": "Card",
+      "type": "secondary",
+      "weight": 1,
+      "color": "#67E8F9"
+    },
+    {
+      "source": "learn.html",
+      "target": "brands.html",
+      "label": "Nav",
+      "type": "primary",
+      "weight": 2,
+      "color": "#FFD700"
+    },
+    {
+      "source": "learn.html",
+      "target": "consume.html",
+      "label": "Nav",
+      "type": "primary",
+      "weight": 2,
+      "color": "#8B5CF6"
+    },
+    {
+      "source": "learn.html",
+      "target": "interact.html",
+      "label": "Nav",
+      "type": "primary",
+      "weight": 2,
+      "color": "#06B6D4"
+    },
+    {
+      "source": "learn.html",
+      "target": "do-business.html",
+      "label": "Nav",
+      "type": "primary",
+      "weight": 2,
+      "color": "#F59E0B"
+    },
+    {
+      "source": "learn.html",
+      "target": "connect.html",
+      "label": "Nav",
+      "type": "primary",
+      "weight": 2,
+      "color": "#6B7280"
+    },
+    {
+      "source": "learn.html",
+      "target": "about-founder.html",
+      "label": "Card",
+      "type": "secondary",
+      "weight": 1,
+      "color": "#34D399"
+    },
+    {
+      "source": "learn.html",
+      "target": "what-we-do.html",
+      "label": "Card",
+      "type": "secondary",
+      "weight": 1,
+      "color": "#34D399"
+    },
+    {
+      "source": "about-founder.html",
+      "target": "brands.html",
+      "label": "Nav",
+      "type": "primary",
+      "weight": 2,
+      "color": "#FFD700"
+    },
+    {
+      "source": "about-founder.html",
+      "target": "consume.html",
+      "label": "Nav",
+      "type": "primary",
+      "weight": 2,
+      "color": "#8B5CF6"
+    },
+    {
+      "source": "about-founder.html",
+      "target": "interact.html",
+      "label": "Nav",
+      "type": "primary",
+      "weight": 2,
+      "color": "#06B6D4"
+    },
+    {
+      "source": "about-founder.html",
+      "target": "learn.html",
+      "label": "Breadcrumb",
+      "type": "secondary",
+      "weight": 1,
+      "color": "#10B981"
+    },
+    {
+      "source": "about-founder.html",
+      "target": "resume_cv/asabaal_horan_cv_202507.html",
+      "label": "Card",
+      "type": "secondary",
+      "weight": 1,
+      "color": "#60A5FA"
+    },
+    {
+      "source": "about-founder.html",
+      "target": "https://www.tiktok.com/@asabaalhoran",
+      "label": "External",
+      "type": "external",
+      "weight": 1,
+      "color": "#9CA3AF",
+      "dashed": true
+    },
+    {
+      "source": "do-business.html",
+      "target": "brands.html",
+      "label": "Nav",
+      "type": "primary",
+      "weight": 2,
+      "color": "#FFD700"
+    },
+    {
+      "source": "do-business.html",
+      "target": "consume.html",
+      "label": "Nav",
+      "type": "primary",
+      "weight": 2,
+      "color": "#8B5CF6"
+    },
+    {
+      "source": "do-business.html",
+      "target": "interact.html",
+      "label": "Nav",
+      "type": "primary",
+      "weight": 2,
+      "color": "#06B6D4"
+    },
+    {
+      "source": "do-business.html",
+      "target": "learn.html",
+      "label": "Nav",
+      "type": "primary",
+      "weight": 2,
+      "color": "#10B981"
+    },
+    {
+      "source": "do-business.html",
+      "target": "connect.html",
+      "label": "Nav",
+      "type": "primary",
+      "weight": 2,
+      "color": "#6B7280"
+    },
+    {
+      "source": "do-business.html",
+      "target": "products.html",
+      "label": "Card",
+      "type": "secondary",
+      "weight": 1,
+      "color": "#FBBF24"
+    },
+    {
+      "source": "do-business.html",
+      "target": "services.html",
+      "label": "Card",
+      "type": "secondary",
+      "weight": 1,
+      "color": "#FBBF24"
+    },
+    {
+      "source": "do-business.html",
+      "target": "partner.html",
+      "label": "Card",
+      "type": "secondary",
+      "weight": 1,
+      "color": "#FBBF24"
+    },
+    {
+      "source": "products.html",
+      "target": "brands.html",
+      "label": "Nav",
+      "type": "primary",
+      "weight": 2,
+      "color": "#FFD700"
+    },
+    {
+      "source": "products.html",
+      "target": "do-business.html",
+      "label": "Breadcrumb",
+      "type": "secondary",
+      "weight": 1,
+      "color": "#F59E0B"
+    },
+    {
+      "source": "products.html",
+      "target": "advancements-by-asabaal.html",
+      "label": "Card",
+      "type": "secondary",
+      "weight": 1,
+      "color": "#F472B6"
+    },
+    {
+      "source": "services.html",
+      "target": "brands.html",
+      "label": "Nav",
+      "type": "primary",
+      "weight": 2,
+      "color": "#FFD700"
+    },
+    {
+      "source": "services.html",
+      "target": "do-business.html",
+      "label": "Breadcrumb",
+      "type": "secondary",
+      "weight": 1,
+      "color": "#F59E0B"
+    },
+    {
+      "source": "services.html",
+      "target": "dispatch-revenue-reporting.html",
+      "label": "Card",
+      "type": "secondary",
+      "weight": 1,
+      "color": "#67E8F9"
+    },
+    {
+      "source": "services.html",
+      "target": "build-with-me.html",
+      "label": "Card",
+      "type": "secondary",
+      "weight": 1,
+      "color": "#FCD34D"
+    },
+    {
+      "source": "services.html",
+      "target": "build-with-you.html",
+      "label": "Card",
+      "type": "secondary",
+      "weight": 1,
+      "color": "#FCD34D"
+    },
+    {
+      "source": "partner.html",
+      "target": "brands.html",
+      "label": "Nav",
+      "type": "primary",
+      "weight": 2,
+      "color": "#FFD700"
+    },
+    {
+      "source": "partner.html",
+      "target": "do-business.html",
+      "label": "Nav",
+      "type": "primary",
+      "weight": 2,
+      "color": "#F59E0B"
+    },
+    {
+      "source": "partner.html",
+      "target": "connect.html",
+      "label": "Action",
+      "type": "secondary",
+      "weight": 1,
+      "color": "#6B7280"
+    },
+    {
+      "source": "connect.html",
+      "target": "index.html",
+      "label": "Home",
+      "type": "secondary",
+      "weight": 1,
+      "color": "#FFD700"
+    },
+    {
+      "source": "connect.html",
+      "target": "consume.html",
+      "label": "Nav",
+      "type": "primary",
+      "weight": 2,
+      "color": "#8B5CF6"
+    },
+    {
+      "source": "connect.html",
+      "target": "interact.html",
+      "label": "Nav",
+      "type": "primary",
+      "weight": 2,
+      "color": "#06B6D4"
+    },
+    {
+      "source": "connect.html",
+      "target": "learn.html",
+      "label": "Nav",
+      "type": "primary",
+      "weight": 2,
+      "color": "#10B981"
+    },
+    {
+      "source": "connect.html",
+      "target": "do-business.html",
+      "label": "Nav",
+      "type": "primary",
+      "weight": 2,
+      "color": "#F59E0B"
+    },
+    {
+      "source": "connect.html",
+      "target": "privacy.html",
+      "label": "Footer",
+      "type": "secondary",
+      "weight": 1,
+      "color": "#9CA3AF"
+    },
+    {
+      "source": "connect.html",
+      "target": "terms.html",
+      "label": "Footer",
+      "type": "secondary",
+      "weight": 1,
+      "color": "#9CA3AF"
+    },
+    {
+      "source": "connect.html",
+      "target": "mailto:asabaal@asabaalventures.me",
+      "label": "Contact",
+      "type": "external",
+      "weight": 1,
+      "color": "#9CA3AF",
+      "dashed": true
+    },
+    {
+      "source": "links.html",
+      "target": "index.html",
+      "label": "Home",
+      "type": "secondary",
+      "weight": 1,
+      "color": "#FFD700"
+    },
+    {
+      "source": "links.html",
+      "target": "unity-remix-contest.html",
+      "label": "Featured",
+      "type": "secondary",
+      "weight": 1,
+      "color": "#67E8F9"
+    },
+    {
+      "source": "links.html",
+      "target": "https://www.tiktok.com/@asabaalhoran",
+      "label": "Social",
+      "type": "external",
+      "weight": 1,
+      "color": "#9CA3AF",
+      "dashed": true
+    },
+    {
+      "source": "links.html",
+      "target": "https://www.youtube.com/@asabaal",
+      "label": "Social",
+      "type": "external",
+      "weight": 1,
+      "color": "#9CA3AF",
+      "dashed": true
+    },
+    {
+      "source": "links.html",
+      "target": "https://www.instagram.com/asabaalhoran/",
+      "label": "Social",
+      "type": "external",
+      "weight": 1,
+      "color": "#9CA3AF",
+      "dashed": true
+    },
+    {
+      "source": "links.html",
+      "target": "https://www.facebook.com/profile.php?id=61559665792660",
+      "label": "Social",
+      "type": "external",
+      "weight": 1,
+      "color": "#9CA3AF",
+      "dashed": true
+    },
+    {
+      "source": "links.html",
+      "target": "https://www.linkedin.com/in/asabaal-horan-phd-2144b689/",
+      "label": "Social",
+      "type": "external",
+      "weight": 1,
+      "color": "#9CA3AF",
+      "dashed": true
+    },
+    {
+      "source": "links.html",
+      "target": "https://x.com/asabaalventures",
+      "label": "Social",
+      "type": "external",
+      "weight": 1,
+      "color": "#9CA3AF",
+      "dashed": true
+    },
+    {
+      "source": "links.html",
+      "target": "https://open.spotify.com/artist/3lEEkkje9FI8sDZ8m6gMqI?si=ADWA3bUWQQODh1ylwQooRQ",
+      "label": "Music",
+      "type": "external",
+      "weight": 1,
+      "color": "#9CA3AF",
+      "dashed": true
+    },
+    {
+      "source": "links.html",
+      "target": "https://music.apple.com/us/artist/asabaal/1772699078",
+      "label": "Music",
+      "type": "external",
+      "weight": 1,
+      "color": "#9CA3AF",
+      "dashed": true
+    },
+    {
+      "source": "links.html",
+      "target": "https://music.youtube.com/channel/UCxNlSZI7obQg8zBJHKITqbg",
+      "label": "Music",
+      "type": "external",
+      "weight": 1,
+      "color": "#9CA3AF",
+      "dashed": true
+    },
+    {
+      "source": "links.html",
+      "target": "https://suno.com/@asabaal",
+      "label": "Music",
+      "type": "external",
+      "weight": 1,
+      "color": "#9CA3AF",
+      "dashed": true
+    },
+    {
+      "source": "asabaal.html",
+      "target": "brands.html",
+      "label": "Nav",
+      "type": "primary",
+      "weight": 2,
+      "color": "#FFD700"
+    },
+    {
+      "source": "asabaal.html",
+      "target": "index.html",
+      "label": "Home",
+      "type": "secondary",
+      "weight": 1,
+      "color": "#FFD700"
+    },
+    {
+      "source": "asabaal.html",
+      "target": "consume.html",
+      "label": "Nav",
+      "type": "primary",
+      "weight": 2,
+      "color": "#8B5CF6"
+    },
+    {
+      "source": "asabaal.html",
+      "target": "interact.html",
+      "label": "Nav",
+      "type": "primary",
+      "weight": 2,
+      "color": "#06B6D4"
+    },
+    {
+      "source": "asabaal.html",
+      "target": "learn.html",
+      "label": "Nav",
+      "type": "primary",
+      "weight": 2,
+      "color": "#10B981"
+    },
+    {
+      "source": "asabaal.html",
+      "target": "do-business.html",
+      "label": "Nav",
+      "type": "primary",
+      "weight": 2,
+      "color": "#F59E0B"
+    },
+    {
+      "source": "asabaal.html",
+      "target": "connect.html",
+      "label": "Nav",
+      "type": "primary",
+      "weight": 2,
+      "color": "#6B7280"
+    },
+    {
+      "source": "asabaal.html",
+      "target": "https://suno.com/@asabaal",
+      "label": "Profile",
+      "type": "external",
+      "weight": 1,
+      "color": "#9CA3AF",
+      "dashed": true
+    },
+    {
+      "source": "asabaal.html",
+      "target": "asabaal-projects.html",
+      "label": "Card",
+      "type": "secondary",
+      "weight": 1,
+      "color": "#FBCFE8"
+    },
+    {
+      "source": "asabaal.html",
+      "target": "playlists.html",
+      "label": "Card",
+      "type": "secondary",
+      "weight": 1,
+      "color": "#FBCFE8"
+    },
+    {
+      "source": "asabaal-projects.html",
+      "target": "brands.html",
+      "label": "Nav",
+      "type": "primary",
+      "weight": 2,
+      "color": "#FFD700"
+    },
+    {
+      "source": "asabaal-projects.html",
+      "target": "asabaal.html",
+      "label": "Breadcrumb",
+      "type": "secondary",
+      "weight": 1,
+      "color": "#F472B6"
+    },
+    {
+      "source": "asabaal-projects.html",
+      "target": "https://suno.com/@asabaal",
+      "label": "14+ Playlists",
+      "type": "external",
+      "weight": 1,
+      "color": "#9CA3AF",
+      "dashed": true
+    },
+    {
+      "source": "playlists.html",
+      "target": "brands.html",
+      "label": "Nav",
+      "type": "primary",
+      "weight": 2,
+      "color": "#FFD700"
+    },
+    {
+      "source": "playlists.html",
+      "target": "asabaal.html",
+      "label": "Breadcrumb",
+      "type": "secondary",
+      "weight": 1,
+      "color": "#F472B6"
+    },
+    {
+      "source": "playlists.html",
+      "target": "https://suno.com/@asabaal",
+      "label": "14+ Playlists",
+      "type": "external",
+      "weight": 1,
+      "color": "#9CA3AF",
+      "dashed": true
+    },
+    {
+      "source": "advancements-by-asabaal.html",
+      "target": "brands.html",
+      "label": "Nav",
+      "type": "primary",
+      "weight": 2,
+      "color": "#FFD700"
+    },
+    {
+      "source": "advancements-by-asabaal.html",
+      "target": "https://tshilllogisticsllc.com/",
+      "label": "External",
+      "type": "external",
+      "weight": 1,
+      "color": "#9CA3AF",
+      "dashed": true
+    },
+    {
+      "source": "advancements-by-asabaal.html",
+      "target": "mailto:asabaal@asabaalventures.me",
+      "label": "Contact",
+      "type": "external",
+      "weight": 1,
+      "color": "#9CA3AF",
+      "dashed": true
+    },
+    {
+      "source": "advancements-by-asabaal.html",
+      "target": "vision_2054_page.html",
+      "label": "Card",
+      "type": "secondary",
+      "weight": 1,
+      "color": "#C084FC"
+    },
+    {
+      "source": "advancements-by-asabaal.html",
+      "target": "visualizations/cooperative-kingdom-ecosystem-fixed.html",
+      "label": "Visualization",
+      "type": "secondary",
+      "weight": 1,
+      "color": "#38BDF8"
+    },
+    {
+      "source": "advancements-by-asabaal.html",
+      "target": "prototypes/Pitch Deck Updated 20250714.html",
+      "label": "Prototype",
+      "type": "secondary",
+      "weight": 1,
+      "color": "#A5B4FC"
+    },
+    {
+      "source": "advancements-by-asabaal.html",
+      "target": "blog.html",
+      "label": "Blog",
+      "type": "secondary",
+      "weight": 1,
+      "color": "#E879F9"
+    },
+    {
+      "source": "advancements-by-asabaal.html",
+      "target": "unity-remix-contest.html",
+      "label": "Contest",
+      "type": "secondary",
+      "weight": 1,
+      "color": "#67E8F9"
+    },
+    {
+      "source": "advancements-by-asabaal.html",
+      "target": "open-source-model.html",
+      "label": "Model",
+      "type": "secondary",
+      "weight": 1,
+      "color": "#C084FC"
+    },
+    {
+      "source": "advancements-by-asabaal.html",
+      "target": "resume_cv/asabaal_horan_cv_202507.html",
+      "label": "Resume",
+      "type": "secondary",
+      "weight": 1,
+      "color": "#60A5FA"
+    },
+    {
+      "source": "advancements-by-asabaal.html",
+      "target": "links.html",
+      "label": "Social",
+      "type": "secondary",
+      "weight": 1,
+      "color": "#6B7280"
+    },
+    {
+      "source": "vision_2054_page.html",
+      "target": "index.html",
+      "label": "Home",
+      "type": "secondary",
+      "weight": 1,
+      "color": "#FFD700"
+    },
+    {
+      "source": "vision_2054_page.html",
+      "target": "blog.html",
+      "label": "Blog",
+      "type": "secondary",
+      "weight": 1,
+      "color": "#E879F9"
+    },
+    {
+      "source": "vision_2054_page.html",
+      "target": "unity-remix-contest.html",
+      "label": "Contest",
+      "type": "secondary",
+      "weight": 1,
+      "color": "#67E8F9"
+    },
+    {
+      "source": "vision_2054_page.html",
+      "target": "mailto:asabaal@asabaalventures.me",
+      "label": "Contact",
+      "type": "external",
+      "weight": 1,
+      "color": "#9CA3AF",
+      "dashed": true
+    },
+    {
+      "source": "unity-remix-contest.html",
+      "target": "index.html",
+      "label": "Home",
+      "type": "secondary",
+      "weight": 1,
+      "color": "#FFD700"
+    },
+    {
+      "source": "unity-remix-contest.html",
+      "target": "vision_2054_page.html",
+      "label": "Related",
+      "type": "secondary",
+      "weight": 1,
+      "color": "#C084FC"
+    },
+    {
+      "source": "unity-remix-contest.html",
+      "target": "blog.html",
+      "label": "Blog",
+      "type": "secondary",
+      "weight": 1,
+      "color": "#E879F9"
+    },
+    {
+      "source": "open-source-model.html",
+      "target": "index.html",
+      "label": "Home",
+      "type": "secondary",
+      "weight": 1,
+      "color": "#FFD700"
+    },
+    {
+      "source": "open-source-model.html",
+      "target": "vision_2054_page.html",
+      "label": "Related",
+      "type": "secondary",
+      "weight": 1,
+      "color": "#C084FC"
+    },
+    {
+      "source": "open-source-model.html",
+      "target": "blog.html",
+      "label": "Blog",
+      "type": "secondary",
+      "weight": 1,
+      "color": "#E879F9"
+    },
+    {
+      "source": "open-source-model.html",
+      "target": "links.html",
+      "label": "Social",
+      "type": "secondary",
+      "weight": 1,
+      "color": "#6B7280"
+    },
+    {
+      "source": "open-source-model.html",
+      "target": "visualizations/cooperative-kingdom-ecosystem-fixed.html",
+      "label": "Visualization",
+      "type": "secondary",
+      "weight": 1,
+      "color": "#38BDF8"
+    },
+    {
+      "source": "musical-poetry.html",
+      "target": "brands.html",
+      "label": "Nav",
+      "type": "primary",
+      "weight": 2,
+      "color": "#FFD700"
+    },
+    {
+      "source": "musical-poetry.html",
+      "target": "vision_2054_page.html",
+      "label": "Related",
+      "type": "secondary",
+      "weight": 1,
+      "color": "#C084FC"
+    },
+    {
+      "source": "musical-poetry.html",
+      "target": "advancements-by-asabaal.html",
+      "label": "Related",
+      "type": "secondary",
+      "weight": 1,
+      "color": "#F472B6"
+    },
+    {
+      "source": "musical-poetry.html",
+      "target": "amusements.html",
+      "label": "Back",
+      "type": "secondary",
+      "weight": 1,
+      "color": "#A78BFA"
+    },
+    {
+      "source": "musical-poetry.html",
+      "target": "connect.html",
+      "label": "Action",
+      "type": "secondary",
+      "weight": 1,
+      "color": "#6B7280"
+    },
+    {
+      "source": "musical-poetry.html",
+      "target": "musical-poetry/season-1.html",
+      "label": "Season",
+      "type": "secondary",
+      "weight": 1,
+      "color": "#FDBA74"
+    },
+    {
+      "source": "musical-poetry/season-1.html",
+      "target": "index.html",
+      "label": "Home",
+      "type": "secondary",
+      "weight": 1,
+      "color": "#FFD700"
+    },
+    {
+      "source": "musical-poetry/season-1.html",
+      "target": "vision_2054_page.html",
+      "label": "Related",
+      "type": "secondary",
+      "weight": 1,
+      "color": "#C084FC"
+    },
+    {
+      "source": "musical-poetry/season-1.html",
+      "target": "advancements-by-asabaal.html",
+      "label": "Related",
+      "type": "secondary",
+      "weight": 1,
+      "color": "#F472B6"
+    },
+    {
+      "source": "musical-poetry/season-1.html",
+      "target": "amusements.html",
+      "label": "Back",
+      "type": "secondary",
+      "weight": 1,
+      "color": "#A78BFA"
+    },
+    {
+      "source": "musical-poetry/season-1.html",
+      "target": "connect.html",
+      "label": "Action",
+      "type": "secondary",
+      "weight": 1,
+      "color": "#6B7280"
+    },
+    {
+      "source": "musical-poetry/season-1.html",
+      "target": "musical-poetry.html",
+      "label": "Back",
+      "type": "secondary",
+      "weight": 1,
+      "color": "#FB923C"
+    },
+    {
+      "source": "life-is-your-word.html",
+      "target": "brands.html",
+      "label": "Nav",
+      "type": "primary",
+      "weight": 2,
+      "color": "#FFD700"
+    },
+    {
+      "source": "life-is-your-word.html",
+      "target": "vision_2054_page.html",
+      "label": "Related",
+      "type": "secondary",
+      "weight": 1,
+      "color": "#C084FC"
+    },
+    {
+      "source": "life-is-your-word.html",
+      "target": "advancements-by-asabaal.html",
+      "label": "Related",
+      "type": "secondary",
+      "weight": 1,
+      "color": "#F472B6"
+    },
+    {
+      "source": "life-is-your-word.html",
+      "target": "unity-remix-contest.html",
+      "label": "Related",
+      "type": "secondary",
+      "weight": 1,
+      "color": "#67E8F9"
+    },
+    {
+      "source": "life-is-your-word.html",
+      "target": "amusements.html",
+      "label": "Back",
+      "type": "secondary",
+      "weight": 1,
+      "color": "#A78BFA"
+    },
+    {
+      "source": "life-is-your-word.html",
+      "target": "connect.html",
+      "label": "Action",
+      "type": "secondary",
+      "weight": 1,
+      "color": "#6B7280"
+    },
+    {
+      "source": "blog/post-asabaal-ventures-dawn-new-era.html",
+      "target": "index.html",
+      "label": "Home",
+      "type": "secondary",
+      "weight": 1,
+      "color": "#FFD700"
+    },
+    {
+      "source": "blog/post-asabaal-ventures-dawn-new-era.html",
+      "target": "vision_2054_page.html",
+      "label": "Related",
+      "type": "secondary",
+      "weight": 1,
+      "color": "#C084FC"
+    },
+    {
+      "source": "blog/post-asabaal-ventures-dawn-new-era.html",
+      "target": "unity-remix-contest.html",
+      "label": "Related",
+      "type": "secondary",
+      "weight": 1,
+      "color": "#67E8F9"
+    },
+    {
+      "source": "blog/post-asabaal-ventures-dawn-new-era.html",
+      "target": "blog.html",
+      "label": "Blog",
+      "type": "secondary",
+      "weight": 1,
+      "color": "#E879F9"
+    },
+    {
+      "source": "blog/post-asabaal-ventures-dawn-new-era.html",
+      "target": "mailto:asabaal@asabaalventures.me",
+      "label": "Contact",
+      "type": "external",
+      "weight": 1,
+      "color": "#9CA3AF",
+      "dashed": true
+    }
+  ]
+}
