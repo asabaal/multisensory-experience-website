@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Amusements | Asabaal Ventures</title>
+    <title>Shows | Asabaal Ventures</title>
     <style>
         * {
             margin: 0;
@@ -134,7 +134,7 @@
             background: radial-gradient(circle at 50% 50%, rgba(251, 191, 36, 0.15) 0%, transparent 70%);
         }
         
-        .amusements-logo {
+        .shows-logo {
             width: 120px;
             height: 120px;
             margin: 0 auto 25px;
@@ -176,22 +176,22 @@
             line-height: 1.5;
         }
         
-        .amusements-grid {
+        .shows-grid {
             padding: 60px 0;
         }
         
         .grid-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+            gap: 40px;
             max-width: 1000px;
             margin: 0 auto;
         }
         
-        .amusements-card {
+        .show-card {
             background: rgba(255, 255, 255, 0.05);
             backdrop-filter: blur(10px);
-            border-radius: 20px;
+            border-radius: 25px;
             border: 2px solid rgba(255, 255, 255, 0.1);
             overflow: hidden;
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
@@ -201,7 +201,7 @@
             color: inherit;
         }
         
-        .amusements-card::before {
+        .show-card::before {
             content: '';
             position: absolute;
             top: 0;
@@ -212,43 +212,34 @@
             transition: left 0.6s ease;
         }
         
-        .amusements-card:hover::before {
+        .show-card:hover::before {
             left: 100%;
         }
         
-        .amusements-card:hover {
-            transform: translateY(-10px) scale(1.02);
+        .show-card:hover {
+            transform: translateY(-15px) scale(1.02);
         }
         
-        .amusements-card.blogs {
+        .show-card.vision {
             border-color: rgba(139, 92, 246, 0.2);
         }
         
-        .amusements-card.blogs:hover {
+        .show-card.vision:hover {
             border-color: #8b5cf6;
-            box-shadow: 0 20px 40px rgba(139, 92, 246, 0.3);
+            box-shadow: 0 30px 60px rgba(139, 92, 246, 0.3);
         }
         
-        .amusements-card.shows {
+        .show-card.life {
             border-color: rgba(244, 114, 182, 0.2);
         }
         
-        .amusements-card.shows:hover {
+        .show-card.life:hover {
             border-color: #f472b6;
-            box-shadow: 0 20px 40px rgba(244, 114, 182, 0.3);
+            box-shadow: 0 30px 60px rgba(244, 114, 182, 0.3);
         }
         
-        .amusements-card.games {
-            border-color: rgba(6, 182, 212, 0.2);
-        }
-        
-        .amusements-card.games:hover {
-            border-color: #06b6d4;
-            box-shadow: 0 20px 40px rgba(6, 182, 212, 0.3);
-        }
-        
-        .card-visual {
-            height: 200px;
+        .show-visual {
+            height: 280px;
             position: relative;
             overflow: hidden;
             display: flex;
@@ -256,30 +247,25 @@
             justify-content: center;
         }
         
-        .card-visual.blogs {
-            background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+        .show-visual.vision {
+            background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 50%, #06b6d4 100%);
         }
         
-        .card-visual.shows {
-            background: linear-gradient(135deg, #f472b6 0%, #ec4899 100%);
+        .show-visual.life {
+            background: linear-gradient(135deg, #f472b6 0%, #ec4899 50%, #f59e0b 100%);
         }
         
-        .card-visual.games {
-            background: linear-gradient(135deg, #06b6d4 0%, #10b981 100%);
-        }
-        
-        .card-icon {
-            font-size: 5rem;
+        .show-icon {
+            font-size: 6rem;
             filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.3));
             animation: float 6s ease-in-out infinite;
-            animation-delay: 0.5s;
         }
         
-        .card-content {
-            padding: 35px;
+        .show-content {
+            padding: 40px;
         }
         
-        .card-badge {
+        .show-badge {
             display: inline-block;
             padding: 8px 16px;
             border-radius: 20px;
@@ -290,93 +276,81 @@
             letter-spacing: 1px;
         }
         
-        .amusements-card.blogs .card-badge {
+        .show-card.vision .show-badge {
             background: linear-gradient(45deg, #8b5cf6, #7c3aed);
             color: white;
         }
         
-        .amusements-card.shows .card-badge {
+        .show-card.life .show-badge {
             background: linear-gradient(45deg, #f472b6, #ec4899);
             color: white;
         }
         
-        .amusements-card.games .card-badge {
-            background: linear-gradient(45deg, #06b6d4, #10b981);
-            color: white;
-        }
-        
-        .card-title {
-            font-size: 1.8rem;
-            margin-bottom: 12px;
+        .show-title {
+            font-size: 2rem;
+            margin-bottom: 15px;
             line-height: 1.3;
         }
         
-        .amusements-card.blogs .card-title {
+        .show-card.vision .show-title {
             background: linear-gradient(45deg, #8b5cf6, #a78bfa);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
         
-        .amusements-card.shows .card-title {
+        .show-card.life .show-title {
             background: linear-gradient(45deg, #f472b6, #fb7185);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
         
-        .amusements-card.games .card-title {
-            background: linear-gradient(45deg, #06b6d4, #34d399);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        
-        .card-description {
-            font-size: 1rem;
-            line-height: 1.6;
+        .show-description {
+            font-size: 1.05rem;
+            line-height: 1.7;
             color: #d1d5db;
             margin-bottom: 20px;
         }
         
-        .card-features {
+        .show-features {
             list-style: none;
             padding: 0;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
         }
         
-        .card-features li {
+        .show-features li {
             display: flex;
             align-items: center;
             gap: 10px;
-            margin-bottom: 10px;
-            font-size: 0.9rem;
+            margin-bottom: 12px;
+            font-size: 0.95rem;
             color: #e5e7eb;
         }
         
-        .card-features li::before {
+        .show-features li::before {
             content: '✓';
             color: inherit;
             font-weight: bold;
             font-size: 1.1rem;
         }
         
-        .card-arrow {
+        .show-arrow {
             display: flex;
             align-items: center;
             gap: 10px;
             color: #fbbf24;
             font-weight: 600;
-            font-size: 0.95rem;
+            font-size: 1rem;
         }
         
-        .card-arrow span {
-            font-size: 1.3rem;
+        .show-arrow span {
+            font-size: 1.5rem;
             transition: transform 0.3s ease;
         }
         
-        .amusements-card:hover .card-arrow span {
-            transform: translateX(8px);
+        .show-card:hover .show-arrow span {
+            transform: translateX(10px);
         }
         
         @media (max-width: 768px) {
@@ -390,7 +364,7 @@
             
             .grid-container {
                 grid-template-columns: 1fr;
-                gap: 25px;
+                gap: 30px;
             }
         }
     </style>
@@ -429,81 +403,59 @@
     
     <section class="hero-section">
         <div class="container">
-            <div class="amusements-logo">
-                🎭
+            <div class="shows-logo">
+                🎬
             </div>
-            <h1 class="hero-title">Asabaal's Amusements</h1>
+            <h1 class="hero-title">Shows</h1>
             <p class="hero-subtitle">
-                Welcome to a world of transformational entertainment. Explore our blogs, shows, and interactive experiences designed to inspire authentic living and awaken creative consciousness.
+                Discover our flagship shows exploring authenticity, transformation, and the journey toward living your truth.
             </p>
         </div>
     </section>
     
-    <section class="amusements-grid">
+    <section class="shows-grid">
         <div class="container">
             <div class="grid-container">
-                <a href="blogs-selection.html" class="amusements-card blogs">
-                    <div class="card-visual blogs">
-                        <div class="card-icon">📝</div>
+                <a href="vision_2054_page.html" class="show-card vision">
+                    <div class="show-visual vision">
+                        <div class="show-icon">🌟</div>
                     </div>
-                    <div class="card-content">
-                        <div class="card-badge">Library</div>
-                        <h3 class="card-title">Blogs</h3>
-                        <p class="card-description">
-                            Explore a vast collection of articles on consciousness, purpose, and transformation. Dive deep into ideas that inspire authentic living.
+                    <div class="show-content">
+                        <div class="show-badge">Featured Series</div>
+                        <h3 class="show-title">Vision 2054: The Great Reconciliation</h3>
+                        <p class="show-description">
+                            A blueprint for humanity's collective awakening to unity consciousness. Where division becomes connection, where separation becomes remembrance of our interconnectedness.
                         </p>
-                        <ul class="card-features">
-                            <li>Thought-provoking articles</li>
-                            <li>Purpose discovery insights</li>
-                            <li>Visionary perspectives</li>
+                        <ul class="show-features">
+                            <li>Foundation weeks</li>
+                            <li>Biblical integration</li>
+                            <li>Kingdom transformation</li>
                         </ul>
-                        <div class="card-arrow">
+                        <div class="show-arrow">
                             <span>→</span>
-                            <span>Browse Blog Library</span>
+                            <span>Explore Vision 2054</span>
                         </div>
                     </div>
                 </a>
                 
-                <a href="shows.html" class="amusements-card shows">
-                    <div class="card-visual shows">
-                        <div class="card-icon">🎬</div>
+                <a href="life-is-your-word.html" class="show-card life">
+                    <div class="show-visual life">
+                        <div class="show-icon">🎭</div>
                     </div>
-                    <div class="card-content">
-                        <div class="card-badge">Featured</div>
-                        <h3 class="card-title">Shows</h3>
-                        <p class="card-description">
-                            Discover our flagship shows exploring authenticity, transformation, and the journey toward living your truth.
+                    <div class="show-content">
+                        <div class="show-badge">Reality Series</div>
+                        <h3 class="show-title">Life is your Word</h3>
+                        <p class="show-description">
+                            Experience the journey of transformation, authenticity, and awakening through intimate conversations and real-life moments.
                         </p>
-                        <ul class="card-features">
-                            <li>Vision 2054 series</li>
-                            <li>Life is your Word</li>
-                            <li>Musical Poetry</li>
+                        <ul class="show-features">
+                            <li>Season 0: Pilot (Now Streaming)</li>
+                            <li>Season 1 (Coming Soon)</li>
+                            <li>Authentic conversations</li>
                         </ul>
-                        <div class="card-arrow">
+                        <div class="show-arrow">
                             <span>→</span>
-                            <span>Explore Shows</span>
-                        </div>
-                    </div>
-                </a>
-                
-                <a href="games.html" class="amusements-card games">
-                    <div class="card-visual games">
-                        <div class="card-icon">🎮</div>
-                    </div>
-                    <div class="card-content">
-                        <div class="card-badge">Interactive</div>
-                        <h3 class="card-title">Games</h3>
-                        <p class="card-description">
-                            Engage with interactive experiences that combine entertainment with transformation. Play, learn, and grow.
-                        </p>
-                        <ul class="card-features">
-                            <li>Tic Tac Toe</li>
-                            <li>Interactive experiences</li>
-                            <li>Fun & educational</li>
-                        </ul>
-                        <div class="card-arrow">
-                            <span>→</span>
-                            <span>Start Playing</span>
+                            <span>Watch Life is your Word</span>
                         </div>
                     </div>
                 </a>

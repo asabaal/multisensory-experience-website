@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Life is your Word | Asabaal's Amusements</title>
+    <title>Blogs | Asabaal Ventures</title>
     <style>
         * {
             margin: 0;
@@ -25,7 +25,7 @@
             margin: 0 auto;
             padding: 0 20px;
         }
-
+        
         .header {
             position: fixed;
             top: 0;
@@ -44,28 +44,28 @@
             align-items: center;
             gap: 20px;
         }
-
+        
         .nav-left {
             display: flex;
             align-items: center;
             gap: 15px;
             justify-self: start;
         }
-
+        
         .nav-center {
             justify-self: center;
         }
-
+        
         .center-logo {
             height: calc(100% - 10px);
             width: auto;
             max-height: 80px;
         }
-
+        
         .nav-right {
             justify-self: end;
         }
-
+        
         .logo-image {
             width: 40px;
             height: 40px;
@@ -79,13 +79,13 @@
             font-weight: bold;
             font-size: 1.2rem;
         }
-
+        
         .logo-image img {
             width: 100%;
             height: 100%;
             object-fit: contain;
         }
-
+        
         .logo-text {
             display: flex;
             flex-direction: column;
@@ -126,7 +126,7 @@
         .nav-links a:hover {
             color: #fbbf24;
         }
-
+        
         .breadcrumb {
             display: flex;
             align-items: center;
@@ -135,125 +135,88 @@
             font-size: 0.9rem;
             color: #9ca3af;
         }
-
+        
         .breadcrumb-item {
             color: #e5e7eb;
             text-decoration: none;
             transition: color 0.3s ease;
         }
-
+        
         .breadcrumb-item:hover {
             color: #fbbf24;
         }
-
+        
         .breadcrumb-separator {
             color: #6b7280;
         }
-
+        
         .breadcrumb-current {
             color: #9ca3af;
             font-weight: 600;
         }
-
+        
         .hero-section {
-            padding: 60px 0;
+            padding: 80px 0 40px;
             text-align: center;
             position: relative;
-            background: radial-gradient(circle at 50% 50%, rgba(251, 191, 36, 0.15) 0%, transparent 70%);
+            background: radial-gradient(circle at 50% 50%, rgba(139, 92, 246, 0.15) 0%, transparent 70%);
         }
-
-        .show-logo {
-            width: 120px;
-            height: 120px;
-            margin: 0 auto 25px;
-            background: linear-gradient(45deg, #fbbf24, #f472b6);
-            border-radius: 16px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 3rem;
-            box-shadow: 0 15px 40px rgba(251, 191, 36, 0.3);
+        
+        .hero-icon {
+            font-size: 6rem;
+            margin-bottom: 30px;
             animation: float 6s ease-in-out infinite;
         }
-
+        
         @keyframes float {
             0%, 100% { transform: translateY(0px); }
             50% { transform: translateY(-15px); }
         }
-
+        
         .hero-title {
             font-size: 3.5rem;
-            font-weight: 900;
-            margin-bottom: 15px;
-            background: linear-gradient(45deg, #fbbf24, #f472b6);
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, #8b5cf6, #a78bfa);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            line-height: 1.1;
+            line-height: 1.2;
         }
-
+        
         .hero-subtitle {
-            font-size: 1.5rem;
-            font-weight: 600;
-            margin-bottom: 25px;
-            color: #fbbf24;
-        }
-
-        .hero-description {
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             color: #d1d5db;
-            max-width: 800px;
-            margin: 0 auto;
-            line-height: 1.7;
-        }
-
-        .seasons-grid {
-            padding: 80px 0;
-            background: rgba(0, 0, 0, 0.2);
-        }
-
-        .seasons-header {
-            text-align: center;
-            margin-bottom: 60px;
-        }
-
-        .seasons-header h2 {
-            font-size: 2.5rem;
-            margin-bottom: 15px;
-            background: linear-gradient(45deg, #fbbf24, #f472b6);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .seasons-header p {
-            color: #d1d5db;
-            font-size: 1.1rem;
             max-width: 600px;
             margin: 0 auto;
             line-height: 1.6;
         }
-
-        .seasons-container {
+        
+        .blogs-grid {
+            padding: 60px 0;
+        }
+        
+        .grid-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
             gap: 40px;
-            max-width: 900px;
+            max-width: 1000px;
             margin: 0 auto;
         }
-
-        .season-card {
+        
+        .blog-card {
             background: rgba(255, 255, 255, 0.05);
             backdrop-filter: blur(10px);
-            border-radius: 20px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 25px;
+            border: 2px solid rgba(255, 255, 255, 0.1);
             overflow: hidden;
-            transition: all 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             cursor: pointer;
             position: relative;
+            text-decoration: none;
+            color: inherit;
         }
-
-        .season-card::before {
+        
+        .blog-card::before {
             content: '';
             position: absolute;
             top: 0;
@@ -261,124 +224,162 @@
             width: 100%;
             height: 100%;
             background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
-            transition: left 0.5s;
+            transition: left 0.6s ease;
         }
-
-        .season-card:hover::before {
+        
+        .blog-card:hover::before {
             left: 100%;
         }
-
-        .season-card:hover {
-            transform: translateY(-10px);
-            border-color: #fbbf24;
-            box-shadow: 0 20px 40px rgba(251, 191, 36, 0.2);
+        
+        .blog-card:hover {
+            transform: translateY(-15px) scale(1.02);
         }
-
-        .season-image {
-            width: 100%;
-            padding-bottom: 56.25%;
+        
+        .blog-card.legacy {
+            border-color: rgba(139, 92, 246, 0.2);
+        }
+        
+        .blog-card.legacy:hover {
+            border-color: #8b5cf6;
+            box-shadow: 0 30px 60px rgba(139, 92, 246, 0.3);
+        }
+        
+        .blog-card.musical {
+            border-color: rgba(244, 114, 182, 0.2);
+        }
+        
+        .blog-card.musical:hover {
+            border-color: #f472b6;
+            box-shadow: 0 30px 60px rgba(244, 114, 182, 0.3);
+        }
+        
+        .card-visual {
+            height: 280px;
             position: relative;
             overflow: hidden;
             display: flex;
             align-items: center;
             justify-content: center;
         }
-
-        .season-overlay {
-            position: absolute;
-            top: 20px;
-            left: 20px;
+        
+        .blog-card.legacy .card-visual {
+            background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 50%, #06b6d4 100%);
         }
-
-        .season-badge {
-            background: rgba(0, 0, 0, 0.7);
-            color: white;
+        
+        .blog-card.musical .card-visual {
+            background: linear-gradient(135deg, #f472b6 0%, #ec4899 50%, #f59e0b 100%);
+        }
+        
+        .card-icon {
+            font-size: 6rem;
+            filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.3));
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        .card-content {
+            padding: 40px;
+        }
+        
+        .card-badge {
+            display: inline-block;
             padding: 8px 16px;
             border-radius: 20px;
-            font-size: 0.85rem;
             font-weight: bold;
-            backdrop-filter: blur(10px);
-        }
-
-        .season-badge.active {
-            background: linear-gradient(45deg, #10b981, #059669);
-        }
-
-        .season-badge.coming-soon {
-            background: linear-gradient(45deg, #f59e0b, #d97706);
-        }
-
-        .season-card:hover .season-badge {
-            transform: scale(1.05);
-        }
-
-        .season-content {
-            padding: 30px;
-        }
-
-        .season-title {
-            font-size: 1.8rem;
-            color: #fbbf24;
+            font-size: 0.75rem;
             margin-bottom: 15px;
-            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .blog-card.legacy .card-badge {
+            background: linear-gradient(45deg, #8b5cf6, #7c3aed);
+            color: white;
+        }
+        
+        .blog-card.musical .card-badge {
+            background: linear-gradient(45deg, #f472b6, #ec4899);
+            color: white;
+        }
+        
+        .card-title {
+            font-size: 2rem;
+            margin-bottom: 15px;
             line-height: 1.3;
         }
-
-        .season-description {
+        
+        .blog-card.legacy .card-title {
+            background: linear-gradient(45deg, #8b5cf6, #a78bfa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .blog-card.musical .card-title {
+            background: linear-gradient(45deg, #f472b6, #fb7185);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .card-description {
+            font-size: 1.05rem;
+            line-height: 1.7;
             color: #d1d5db;
-            line-height: 1.6;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
         }
-
-        .season-stats {
-            color: #9ca3af;
-            font-size: 0.9rem;
-            margin-bottom: 15px;
-            font-weight: 600;
+        
+        .card-features {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 25px;
         }
-
-        .season-explore {
+        
+        .card-features li {
             display: flex;
             align-items: center;
-            justify-content: space-between;
-            padding: 15px;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 12px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: all 0.3s ease;
-        }
-
-        .season-card:hover .season-explore {
-            background: rgba(255, 255, 255, 0.1);
-            border-color: #fbbf24;
-        }
-
-        .explore-text {
-            font-weight: 600;
+            gap: 10px;
+            margin-bottom: 12px;
+            font-size: 0.95rem;
             color: #e5e7eb;
         }
-
-        .explore-arrow {
-            font-size: 1.5rem;
+        
+        .card-features li::before {
+            content: '✓';
+            color: inherit;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+        
+        .card-arrow {
+            display: flex;
+            align-items: center;
+            gap: 10px;
             color: #fbbf24;
+            font-weight: 600;
+            font-size: 1rem;
+        }
+        
+        .card-arrow span {
+            font-size: 1.5rem;
             transition: transform 0.3s ease;
         }
-
-        .season-card:hover .explore-arrow {
+        
+        .blog-card:hover .card-arrow span {
             transform: translateX(10px);
         }
-
+        
         @media (max-width: 768px) {
             .hero-title {
                 font-size: 2.5rem;
             }
-
+            
             .nav-links {
                 display: none;
             }
-
-            .seasons-container {
+            
+            .grid-container {
                 grid-template-columns: 1fr;
+                gap: 30px;
             }
         }
     </style>
@@ -406,78 +407,77 @@
                         <li><a href="index.html">Home</a></li>
                         <li><a href="vision_2054_page.html">Vision 2054</a></li>
                         <li><a href="advancements-by-asabaal.html">Advancements</a></li>
-                        
                         <li><a href="unity-remix-contest.html">Contest</a></li>
-                        <li><a href="amusements.html">Amusements</a></li>
+                        <li><a href="amusements.html" style="color: #fbbf24;">Amusements</a></li>
                         <li><a href="connect.html">Connect</a></li>
                     </ul>
                 </div>
             </nav>
         </div>
     </header>
-
+    
     <div class="breadcrumb">
         <a href="amusements.html" class="breadcrumb-item">Amusements</a>
         <span class="breadcrumb-separator">›</span>
-        <span class="breadcrumb-current">Life is your Word</span>
+        <span class="breadcrumb-current">Blogs</span>
     </div>
-
+    
     <section class="hero-section">
         <div class="container">
-            <div class="show-logo">
-                🎬
-            </div>
-            <h1 class="hero-title">Life is your Word</h1>
-            <p class="hero-subtitle">A Reality Series</p>
-            <p class="hero-description">
-                Experience the journey of transformation, authenticity, and awakening through intimate conversations and real-life moments. 
-                Life is your Word explores what it means to truly live in alignment with your authentic self.
+            <div class="hero-icon">📝</div>
+            <h1 class="hero-title">Blogs</h1>
+            <p class="hero-subtitle">
+                Explore our written content on consciousness, purpose, transformation, and authentic living.
             </p>
         </div>
     </section>
-
-    <section class="seasons-grid">
+    
+    <section class="blogs-grid">
         <div class="container">
-            <div class="seasons-header">
-                <h2>Seasons</h2>
-                <p>Explore the journey through authenticity, transformation, and awakening.</p>
-            </div>
-            <div class="seasons-container">
-                <div class="season-card" onclick="window.location.href='life-is-your-word/season-0.html'">
-                    <div class="season-image" style="background: linear-gradient(45deg, #10b981, #059669);">
-                        <div style="font-size: 4rem; color: white; text-shadow: 0 4px 20px rgba(0,0,0,0.5);">▶</div>
-                        <div class="season-overlay">
-                            <span class="season-badge active">Now Streaming</span>
+            <div class="grid-container">
+                <a href="blog-listing.html" class="blog-card legacy">
+                    <div class="card-visual">
+                        <div class="card-icon">📜</div>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-badge">Legacy Blog</div>
+                        <h3 class="card-title">Legacy Blog</h3>
+                        <p class="card-description">
+                            Explore a vast collection of articles on consciousness, purpose, and transformation. Dive deep into ideas that inspire authentic living.
+                        </p>
+                        <ul class="card-features">
+                            <li>Thought-provoking articles</li>
+                            <li>Purpose discovery insights</li>
+                            <li>Visionary perspectives</li>
+                        </ul>
+                        <div class="card-arrow">
+                            <span>→</span>
+                            <span>Browse Legacy Blog</span>
                         </div>
                     </div>
-                    <div class="season-content">
-                        <h3 class="season-title">Season 0: Pilot</h3>
-                        <p class="season-description">The pilot concept exploring authenticity and transformation through 15 intimate episodes.</p>
-                        <p class="season-stats">15 episodes</p>
+                </a>
+                
+                <a href="musical-poetry.html" class="blog-card musical">
+                    <div class="card-visual">
+                        <div class="card-icon">🎵</div>
                     </div>
-                    <div class="season-explore">
-                        <span class="explore-text">Explore Now</span>
-                        <span class="explore-arrow">→</span>
-                    </div>
-                </div>
-
-                <div class="season-card" onclick="window.location.href='life-is-your-word/season-1.html'">
-                    <div class="season-image" style="background: linear-gradient(45deg, #f59e0b, #d97706);">
-                        <div style="font-size: 4rem; color: white; text-shadow: 0 4px 20px rgba(0,0,0,0.5);">📅</div>
-                        <div class="season-overlay">
-                            <span class="season-badge coming-soon">Coming Soon</span>
+                    <div class="card-content">
+                        <div class="card-badge">Featured</div>
+                        <h3 class="card-title">Musical Poetry with Asabaal</h3>
+                        <p class="card-description">
+                            Experience poetry transformed through music, rhythm, and melody. A multisensory journey of authentic expression.
+                        </p>
+                        <ul class="card-features">
+                            <li>Poetic lyrics & reflections</li>
+                            <li>Original music compositions</li>
+                            <li>Seasonal content</li>
+                        </ul>
+                        <div class="card-arrow">
+                            <span>→</span>
+                            <span>Explore Musical Poetry</span>
                         </div>
                     </div>
-                    <div class="season-content">
-                        <h3 class="season-title">Season 1</h3>
-                        <p class="season-description">The inaugural season launching in 2025. More intimate conversations, deeper transformations, and authentic moments of awakening.</p>
-                        <p class="season-stats" style="color: #fbbf24;">Launching Q2 2025</p>
-                    </div>
-                    <div class="season-explore">
-                        <span class="explore-text">Get Notified</span>
-                        <span class="explore-arrow">→</span>
-                    </div>
-                </div>
+                </a>
             </div>
         </div>
     </section>
