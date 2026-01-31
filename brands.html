@@ -156,10 +156,9 @@
         }
         
         .hero-section {
-            padding: 100px 0 60px;
+            padding: 80px 0 60px;
             text-align: center;
             position: relative;
-            background: radial-gradient(circle at 50% 50%, rgba(244, 114, 182, 0.15) 0%, transparent 70%);
         }
         
         .hero-icon {
@@ -191,26 +190,207 @@
             line-height: 1.6;
         }
         
-        .coming-soon {
-            margin-top: 40px;
-            padding: 30px;
+        .brands-grid {
+            padding: 60px 0;
+        }
+        
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .brand-card {
             background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
             border-radius: 20px;
-            border: 2px dashed rgba(244, 114, 182, 0.3);
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+            position: relative;
+            text-decoration: none;
+            color: inherit;
         }
         
-        .coming-soon h3 {
-            color: #f472b6;
-            font-size: 1.5rem;
+        .brand-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transition: left 0.6s ease;
+        }
+        
+        .brand-card:hover::before {
+            left: 100%;
+        }
+        
+        .brand-card:hover {
+            transform: translateY(-10px) scale(1.02);
+        }
+        
+        .brand-card.asabaal {
+            border-color: rgba(251, 191, 36, 0.2);
+        }
+        
+        .brand-card.asabaal:hover {
+            border-color: #fbbf24;
+            box-shadow: 0 20px 40px rgba(251, 191, 36, 0.3);
+        }
+        
+        .brand-card.advancements {
+            border-color: rgba(139, 92, 246, 0.2);
+        }
+        
+        .brand-card.advancements:hover {
+            border-color: #8b5cf6;
+            box-shadow: 0 20px 40px rgba(139, 92, 246, 0.3);
+        }
+        
+        .brand-card.amusements {
+            border-color: rgba(244, 114, 182, 0.2);
+        }
+        
+        .brand-card.amusements:hover {
+            border-color: #f472b6;
+            box-shadow: 0 20px 40px rgba(244, 114, 182, 0.3);
+        }
+        
+        .card-visual {
+            height: 200px;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .card-visual.asabaal {
+            background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+        }
+        
+        .card-visual.advancements {
+            background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+        }
+        
+        .card-visual.amusements {
+            background: linear-gradient(135deg, #f472b6 0%, #ec4899 100%);
+        }
+        
+        .card-icon {
+            font-size: 5rem;
+            filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.3));
+            animation: float 6s ease-in-out infinite;
+            animation-delay: 0.5s;
+        }
+        
+        .card-content {
+            padding: 35px;
+        }
+        
+        .card-badge {
+            display: inline-block;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 0.75rem;
             margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
         
-        .coming-soon p {
-            color: #d1d5db;
+        .brand-card.asabaal .card-badge {
+            background: linear-gradient(45deg, #fbbf24, #f59e0b);
+            color: #0f0f23;
+        }
+        
+        .brand-card.advancements .card-badge {
+            background: linear-gradient(45deg, #8b5cf6, #7c3aed);
+            color: white;
+        }
+        
+        .brand-card.amusements .card-badge {
+            background: linear-gradient(45deg, #f472b6, #ec4899);
+            color: white;
+        }
+        
+        .card-title {
+            font-size: 1.8rem;
+            margin-bottom: 12px;
+            line-height: 1.3;
+        }
+        
+        .brand-card.asabaal .card-title {
+            background: linear-gradient(45deg, #fbbf24, #fcd34d);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .brand-card.advancements .card-title {
+            background: linear-gradient(45deg, #8b5cf6, #a78bfa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .brand-card.amusements .card-title {
+            background: linear-gradient(45deg, #f472b6, #fb7185);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .card-description {
+            font-size: 1rem;
             line-height: 1.6;
+            color: #d1d5db;
+            margin-bottom: 20px;
+        }
+        
+        .card-features {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 20px;
+        }
+        
+        .card-features li {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+            font-size: 0.9rem;
+            color: #e5e7eb;
+        }
+        
+        .card-features li::before {
+            content: '✓';
+            color: inherit;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+        
+        .card-arrow {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #fbbf24;
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+        
+        .card-arrow span {
+            font-size: 1.3rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .brand-card:hover .card-arrow span {
+            transform: translateX(8px);
         }
         
         @media (max-width: 768px) {
@@ -220,6 +400,11 @@
             
             .nav-links {
                 display: none;
+            }
+            
+            .grid-container {
+                grid-template-columns: 1fr;
+                gap: 25px;
             }
         }
     </style>
@@ -247,8 +432,6 @@
                 <div class="nav-right">
                     <ul class="nav-links">
                         <li><a href="index.html">Home</a></li>
-                        
-                        
                         <li><a href="consume.html">Consume</a></li>
                         <li><a href="interact.html">Interact</a></li>
                         <li><a href="learn.html" style="color: #fbbf24;">Learn</a></li>
@@ -272,9 +455,77 @@
             <p class="hero-subtitle">
                 A portfolio of reality signals, shows, and experiences designed to inspire authenticity and transform consciousness.
             </p>
-            <div class="coming-soon">
-                <h3>Coming Soon</h3>
-                <p>We're building a comprehensive portfolio of reality signals and shows at Reality Studio. Check back soon to explore our full brand ecosystem!</p>
+        </div>
+    </section>
+    
+    <section class="brands-grid">
+        <div class="container">
+            <div class="grid-container">
+                <a href="asabaal.html" class="brand-card asabaal">
+                    <div class="card-visual asabaal">
+                        <div class="card-icon">⭐</div>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-badge">Core</div>
+                        <h3 class="card-title">Asabaal</h3>
+                        <p class="card-description">
+                            The creative force behind purpose-driven innovation. Explore the vision, mission, and transformative journey.
+                        </p>
+                        <ul class="card-features">
+                            <li>Vision & Mission</li>
+                            <li>Founder's Journey</li>
+                            <li>Core Philosophy</li>
+                        </ul>
+                        <div class="card-arrow">
+                            <span>→</span>
+                            <span>Explore Asabaal</span>
+                        </div>
+                    </div>
+                </a>
+                
+                <a href="advancements-by-asabaal.html" class="brand-card advancements">
+                    <div class="card-visual advancements">
+                        <div class="card-icon">🚀</div>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-badge">Technology</div>
+                        <h3 class="card-title">Advancements by Asabaal</h3>
+                        <p class="card-description">
+                            Systems-driven product line focused on transforming operational data into structured, actionable intelligence.
+                        </p>
+                        <ul class="card-features">
+                            <li>Revenue Reporting Systems</li>
+                            <li>Automated Analytics</li>
+                            <li>Consulting Services</li>
+                        </ul>
+                        <div class="card-arrow">
+                            <span>→</span>
+                            <span>Explore Advancements</span>
+                        </div>
+                    </div>
+                </a>
+                
+                <a href="amusements.html" class="brand-card amusements">
+                    <div class="card-visual amusements">
+                        <div class="card-icon">🎭</div>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-badge">Entertainment</div>
+                        <h3 class="card-title">Asabaal's Amusements</h3>
+                        <p class="card-description">
+                            A world of reality signals through blogs, shows, and interactive experiences that inspire authentic living.
+                        </p>
+                        <ul class="card-features">
+                            <li>Blog Library</li>
+                            <li>Featured Shows</li>
+                            <li>Interactive Games</li>
+                        </ul>
+                        <div class="card-arrow">
+                            <span>→</span>
+                            <span>Explore Amusements</span>
+                        </div>
+                    </div>
+                </a>
             </div>
         </div>
     </section>
