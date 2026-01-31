@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>What We Do | Asabaal Ventures</title>
+    <title>Partner With Us | Asabaal Ventures</title>
+    <link rel="icon" type="image/svg+xml" href="assets/images/icons/favicon.svg">
     <style>
         * {
             margin: 0;
@@ -156,10 +157,10 @@
         }
         
         .hero-section {
-            padding: 100px 0 60px;
+            padding: 80px 0 60px;
             text-align: center;
             position: relative;
-            background: radial-gradient(circle at 50% 50%, rgba(6, 182, 212, 0.15) 0%, transparent 70%);
+            background: radial-gradient(circle at 50% 50%, rgba(245, 158, 11, 0.15) 0%, transparent 70%);
         }
         
         .hero-icon {
@@ -176,7 +177,7 @@
         .hero-title {
             font-size: 3.5rem;
             margin-bottom: 20px;
-            background: linear-gradient(45deg, #06b6d4, #10b981);
+            background: linear-gradient(45deg, #f59e0b, #d97706);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -186,31 +187,66 @@
         .hero-subtitle {
             font-size: 1.3rem;
             color: #d1d5db;
-            max-width: 600px;
+            max-width: 700px;
             margin: 0 auto;
             line-height: 1.6;
         }
         
-        .coming-soon {
-            margin-top: 40px;
-            padding: 30px;
+        .placeholder-section {
+            padding: 60px 0;
+            text-align: center;
+        }
+        
+        .placeholder-card {
             background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
             border-radius: 20px;
-            border: 2px dashed rgba(6, 182, 212, 0.3);
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
+            border: 2px dashed rgba(245, 158, 11, 0.3);
+            padding: 60px;
+            max-width: 700px;
+            margin: 0 auto;
         }
         
-        .coming-soon h3 {
-            color: #06b6d4;
-            font-size: 1.5rem;
-            margin-bottom: 15px;
+        .placeholder-icon {
+            font-size: 5rem;
+            margin-bottom: 30px;
+            opacity: 0.5;
         }
         
-        .coming-soon p {
+        .placeholder-title {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: #f59e0b;
+        }
+        
+        .placeholder-text {
+            font-size: 1.1rem;
             color: #d1d5db;
             line-height: 1.6;
+            margin-bottom: 30px;
+        }
+        
+        .placeholder-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .placeholder-link {
+            padding: 12px 30px;
+            border-radius: 50px;
+            background: rgba(245, 158, 11, 0.1);
+            border: 1px solid rgba(245, 158, 11, 0.3);
+            color: #f59e0b;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+        
+        .placeholder-link:hover {
+            background: rgba(245, 158, 11, 0.2);
+            transform: translateY(-2px);
         }
         
         @media (max-width: 768px) {
@@ -220,6 +256,14 @@
             
             .nav-links {
                 display: none;
+            }
+            
+            .placeholder-card {
+                padding: 40px 30px;
+            }
+            
+            .placeholder-links {
+                flex-direction: column;
             }
         }
     </style>
@@ -239,19 +283,16 @@
                 </div>
                 
                 <div class="nav-center">
-                    <a href="index.html">
-                        <img src="assets/images/logos/Asabaal Ventures.png" alt="Asabaal Ventures" class="center-logo">
-                    </a>
+                    <img src="assets/images/logos/Asabaal Ventures.png" alt="Asabaal Ventures" class="center-logo">
                 </div>
                 
                 <div class="nav-right">
                     <ul class="nav-links">
                         <li><a href="index.html">Home</a></li>
-                        
-                        
                         <li><a href="consume.html">Consume</a></li>
                         <li><a href="interact.html">Interact</a></li>
-                        <li><a href="learn.html" style="color: #fbbf24;">Learn</a></li>
+                        <li><a href="learn.html">Learn</a></li>
+                        <li><a href="do-business.html" style="color: #f59e0b;">Do Business</a></li>
                         <li><a href="connect.html">Connect</a></li>
                     </ul>
                 </div>
@@ -260,21 +301,34 @@
     </header>
     
     <div class="breadcrumb">
-        <a href="learn.html" class="breadcrumb-item">Learn Mode</a>
+        <a href="do-business.html" class="breadcrumb-item">Do Business</a>
         <span class="breadcrumb-separator">›</span>
-        <span class="breadcrumb-current">What We Do</span>
+        <span class="breadcrumb-current">Partner</span>
     </div>
     
     <section class="hero-section">
         <div class="container">
-            <div class="hero-icon">🎯</div>
-            <h1 class="hero-title">What We Do</h1>
+            <div class="hero-icon">🤝</div>
+            <h1 class="hero-title">Partner With Us</h1>
             <p class="hero-subtitle">
-                Creating reality signals to transform consciousness and inspire authentic living through multimedia experiences at Reality Studio.
+                Join our network of purpose-driven partners and collaborate on transformative projects.
             </p>
-            <div class="coming-soon">
-                <h3>Coming Soon</h3>
-                <p>We're developing comprehensive information about our mission, approach, and methodology. Check back soon to learn more about what we do at Reality Studio!</p>
+        </div>
+    </section>
+    
+    <section class="placeholder-section">
+        <div class="container">
+            <div class="placeholder-card">
+                <div class="placeholder-icon">🚧</div>
+                <h2 class="placeholder-title">Page Under Development</h2>
+                <p class="placeholder-text">
+                    We're currently building our partnership program. Soon you'll be able to explore opportunities for Strategic Partnerships, Joint Ventures, Network Opportunities, and Growth Together initiatives.
+                </p>
+                <div class="placeholder-links">
+                    <a href="do-business.html" class="placeholder-link">← Back to Do Business</a>
+                    <a href="connect.html" class="placeholder-link">Connect With Us</a>
+                    <a href="connect.html" class="placeholder-link">Join Discord Community</a>
+                </div>
             </div>
         </div>
     </section>

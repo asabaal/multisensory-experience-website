@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>What We Do | Asabaal Ventures</title>
+    <title>Build With Me | Asabaal Ventures</title>
+    <link rel="icon" type="image/svg+xml" href="assets/images/icons/favicon.svg">
     <style>
         * {
             margin: 0;
@@ -156,10 +157,10 @@
         }
         
         .hero-section {
-            padding: 100px 0 60px;
+            padding: 80px 0 60px;
             text-align: center;
             position: relative;
-            background: radial-gradient(circle at 50% 50%, rgba(6, 182, 212, 0.15) 0%, transparent 70%);
+            background: radial-gradient(circle at 50% 50%, rgba(16, 185, 129, 0.15) 0%, transparent 70%);
         }
         
         .hero-icon {
@@ -176,7 +177,7 @@
         .hero-title {
             font-size: 3.5rem;
             margin-bottom: 20px;
-            background: linear-gradient(45deg, #06b6d4, #10b981);
+            background: linear-gradient(45deg, #10b981, #34d399);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -186,31 +187,116 @@
         .hero-subtitle {
             font-size: 1.3rem;
             color: #d1d5db;
-            max-width: 600px;
+            max-width: 800px;
             margin: 0 auto;
             line-height: 1.6;
         }
         
-        .coming-soon {
-            margin-top: 40px;
-            padding: 30px;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 20px;
-            border: 2px dashed rgba(6, 182, 212, 0.3);
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
+        .content-section {
+            padding: 60px 0;
         }
         
-        .coming-soon h3 {
-            color: #06b6d4;
-            font-size: 1.5rem;
+        .section-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            border: 2px solid rgba(16, 185, 129, 0.2);
+            padding: 50px;
+            margin-bottom: 40px;
+        }
+        
+        .section-title {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, #10b981, #34d399);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .section-description {
+            font-size: 1.1rem;
+            color: #d1d5db;
+            line-height: 1.8;
+            margin-bottom: 30px;
+        }
+        
+        .feature-list {
+            list-style: none;
+            padding: 0;
+            margin: 30px 0;
+        }
+        
+        .feature-list li {
+            padding: 15px 0;
+            padding-left: 40px;
+            position: relative;
+            color: #e5e7eb;
+            font-size: 1.05rem;
+            line-height: 1.6;
+        }
+        
+        .feature-list li:before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            top: 15px;
+            color: #10b981;
+            font-weight: bold;
+            font-size: 1.3rem;
+        }
+        
+        .badge {
+            display: inline-block;
+            padding: 10px 20px;
+            background: linear-gradient(45deg, #10b981, #34d399);
+            border-radius: 30px;
+            font-weight: bold;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+        }
+        
+        .highlight-box {
+            background: rgba(16, 185, 129, 0.1);
+            border-left: 4px solid #10b981;
+            padding: 25px;
+            margin: 30px 0;
+            border-radius: 0 10px 10px 0;
+        }
+        
+        .highlight-box h4 {
+            color: #10b981;
+            font-size: 1.3rem;
             margin-bottom: 15px;
         }
         
-        .coming-soon p {
+        .highlight-box p {
             color: #d1d5db;
-            line-height: 1.6;
+            line-height: 1.7;
+        }
+        
+        .cta-section {
+            text-align: center;
+            padding: 60px 0;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            padding: 18px 50px;
+            background: linear-gradient(45deg, #10b981, #34d399);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(16, 185, 129, 0.4);
         }
         
         @media (max-width: 768px) {
@@ -220,6 +306,10 @@
             
             .nav-links {
                 display: none;
+            }
+            
+            .section-card {
+                padding: 30px 20px;
             }
         }
     </style>
@@ -239,19 +329,16 @@
                 </div>
                 
                 <div class="nav-center">
-                    <a href="index.html">
-                        <img src="assets/images/logos/Asabaal Ventures.png" alt="Asabaal Ventures" class="center-logo">
-                    </a>
+                    <img src="assets/images/logos/Asabaal Ventures.png" alt="Asabaal Ventures" class="center-logo">
                 </div>
                 
                 <div class="nav-right">
                     <ul class="nav-links">
                         <li><a href="index.html">Home</a></li>
-                        
-                        
                         <li><a href="consume.html">Consume</a></li>
                         <li><a href="interact.html">Interact</a></li>
-                        <li><a href="learn.html" style="color: #fbbf24;">Learn</a></li>
+                        <li><a href="learn.html">Learn</a></li>
+                        <li><a href="do-business.html" style="color: #f59e0b;">Do Business</a></li>
                         <li><a href="connect.html">Connect</a></li>
                     </ul>
                 </div>
@@ -260,22 +347,62 @@
     </header>
     
     <div class="breadcrumb">
-        <a href="learn.html" class="breadcrumb-item">Learn Mode</a>
+        <a href="do-business.html" class="breadcrumb-item">Do Business</a>
         <span class="breadcrumb-separator">›</span>
-        <span class="breadcrumb-current">What We Do</span>
+        <a href="services.html" class="breadcrumb-item">Services</a>
+        <span class="breadcrumb-separator">›</span>
+        <span class="breadcrumb-current">Build With Me</span>
     </div>
     
     <section class="hero-section">
         <div class="container">
-            <div class="hero-icon">🎯</div>
-            <h1 class="hero-title">What We Do</h1>
+            <div class="hero-icon">🤝</div>
+            <h1 class="hero-title">Build With Me</h1>
             <p class="hero-subtitle">
-                Creating reality signals to transform consciousness and inspire authentic living through multimedia experiences at Reality Studio.
+                An invitation to builders who are open to revenue share contracts. Assist in shared projects without upfront payment, with clear scope and aligned incentives.
             </p>
-            <div class="coming-soon">
-                <h3>Coming Soon</h3>
-                <p>We're developing comprehensive information about our mission, approach, and methodology. Check back soon to learn more about what we do at Reality Studio!</p>
+        </div>
+    </section>
+    
+    <section class="content-section">
+        <div class="container">
+            <div class="section-card">
+                <div class="badge">Risk-Sharing Model</div>
+                <h2 class="section-title">Revenue Share Collaboration</h2>
+                <p class="section-description">
+                    This contract mode is designed for builders who want to contribute to new and experimental projects. It's a risk-sharing arrangement where payment is tied to success and revenue generation from the project or product.
+                </p>
+                
+                <div class="highlight-box">
+                    <h4>Why This Model?</h4>
+                    <p>Revenue share aligns incentives and attracts true builders who want to build something meaningful together. Both parties share in the upside, creating genuine partnership rather than transactional relationship.</p>
+                </div>
+                
+                <h3 style="color: #10b981; margin: 30px 0 20px; font-size: 1.5rem;">When This Works Best</h3>
+                <ul class="feature-list">
+                    <li>Building something new and experimental</li>
+                    <li>Outcomes are uncertain but upside potential is high</li>
+                    <li>Risk should be shared between parties</li>
+                    <li>Cash flow is limited or constrained</li>
+                    <li>You want ownership in what you help create</li>
+                </ul>
+                
+                <h3 style="color: #10b981; margin: 30px 0 20px; font-size: 1.5rem;">How It Works</h3>
+                <ul class="feature-list">
+                    <li>Contribution to a defined project with clear goals</li>
+                    <li>Revenue share tied to that specific project or product</li>
+                    <li>Clear scope and deliverables agreed upfront</li>
+                    <li>Exit conditions defined at the start</li>
+                    <li>Payment aligned with success and revenue generation</li>
+                    <li>No upfront payment required from either party</li>
+                </ul>
             </div>
+        </div>
+    </section>
+    
+    <section class="cta-section">
+        <div class="container">
+            <a href="connect.html" class="cta-button">Connect to Discuss</a>
         </div>
     </section>
 </body>

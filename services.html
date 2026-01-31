@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Amusements | Asabaal Ventures</title>
+    <title>Services | Asabaal Ventures</title>
+    <link rel="icon" type="image/svg+xml" href="assets/images/icons/favicon.svg">
     <style>
         * {
             margin: 0;
@@ -127,26 +128,44 @@
             color: #fbbf24;
         }
         
-        .hero-section {
-            padding: 80px 0 40px;
-            text-align: center;
-            position: relative;
-            background: radial-gradient(circle at 50% 50%, rgba(251, 191, 36, 0.15) 0%, transparent 70%);
-        }
-        
-        .amusements-logo {
-            width: 120px;
-            height: 120px;
-            margin: 0 auto 25px;
-            background: linear-gradient(45deg, #fbbf24, #f472b6, #8b5cf6);
-            border-radius: 16px;
+        .breadcrumb {
             display: flex;
             align-items: center;
-            justify-content: center;
-            font-size: 2.5rem;
-            font-weight: bold;
-            color: white;
-            box-shadow: 0 15px 40px rgba(251, 191, 36, 0.3);
+            gap: 10px;
+            padding: 20px 0;
+            font-size: 0.9rem;
+            color: #9ca3af;
+        }
+        
+        .breadcrumb-item {
+            color: #e5e7eb;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .breadcrumb-item:hover {
+            color: #fbbf24;
+        }
+        
+        .breadcrumb-separator {
+            color: #6b7280;
+        }
+        
+        .breadcrumb-current {
+            color: #9ca3af;
+            font-weight: 600;
+        }
+        
+        .hero-section {
+            padding: 80px 0 60px;
+            text-align: center;
+            position: relative;
+            background: radial-gradient(circle at 50% 50%, rgba(139, 92, 246, 0.15) 0%, transparent 70%);
+        }
+        
+        .hero-icon {
+            font-size: 6rem;
+            margin-bottom: 30px;
             animation: float 6s ease-in-out infinite;
         }
         
@@ -156,27 +175,81 @@
         }
         
         .hero-title {
-            font-size: 2.8rem;
-            font-weight: 900;
-            margin-bottom: 15px;
-            background: linear-gradient(45deg, #fbbf24, #f472b6, #8b5cf6, #06b6d4);
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, #8b5cf6, #7c3aed);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            line-height: 1.1;
+            line-height: 1.2;
         }
         
         .hero-subtitle {
-            font-size: 1.1rem;
+            font-size: 1.3rem;
             color: #d1d5db;
-            margin-bottom: 30px;
             max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-            line-height: 1.5;
+            margin: 0 auto;
+            line-height: 1.6;
         }
         
-        .amusements-grid {
+        .placeholder-section {
+            padding: 60px 0;
+            text-align: center;
+        }
+        
+        .placeholder-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            border: 2px dashed rgba(139, 92, 246, 0.3);
+            padding: 60px;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .placeholder-icon {
+            font-size: 5rem;
+            margin-bottom: 30px;
+            opacity: 0.5;
+        }
+        
+        .placeholder-title {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: #8b5cf6;
+        }
+        
+        .placeholder-text {
+            font-size: 1.1rem;
+            color: #d1d5db;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+        
+        .placeholder-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .placeholder-link {
+            padding: 12px 30px;
+            border-radius: 50px;
+            background: rgba(139, 92, 246, 0.1);
+            border: 1px solid rgba(139, 92, 246, 0.3);
+            color: #8b5cf6;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+        
+        .placeholder-link:hover {
+            background: rgba(139, 92, 246, 0.2);
+            transform: translateY(-2px);
+        }
+        
+        .business-grid {
             padding: 60px 0;
         }
         
@@ -188,7 +261,7 @@
             margin: 0 auto;
         }
         
-        .amusements-card {
+        .business-card {
             background: rgba(255, 255, 255, 0.05);
             backdrop-filter: blur(10px);
             border-radius: 20px;
@@ -201,7 +274,7 @@
             color: inherit;
         }
         
-        .amusements-card::before {
+        .business-card::before {
             content: '';
             position: absolute;
             top: 0;
@@ -212,39 +285,39 @@
             transition: left 0.6s ease;
         }
         
-        .amusements-card:hover::before {
+        .business-card:hover::before {
             left: 100%;
         }
         
-        .amusements-card:hover {
+        .business-card:hover {
             transform: translateY(-10px) scale(1.02);
         }
         
-        .amusements-card.blogs {
-            border-color: rgba(139, 92, 246, 0.2);
-        }
-        
-        .amusements-card.blogs:hover {
-            border-color: #8b5cf6;
-            box-shadow: 0 20px 40px rgba(139, 92, 246, 0.3);
-        }
-        
-        .amusements-card.shows {
-            border-color: rgba(244, 114, 182, 0.2);
-        }
-        
-        .amusements-card.shows:hover {
-            border-color: #f472b6;
-            box-shadow: 0 20px 40px rgba(244, 114, 182, 0.3);
-        }
-        
-        .amusements-card.games {
+        .business-card.revenue-reporting {
             border-color: rgba(6, 182, 212, 0.2);
         }
         
-        .amusements-card.games:hover {
+        .business-card.revenue-reporting:hover {
             border-color: #06b6d4;
             box-shadow: 0 20px 40px rgba(6, 182, 212, 0.3);
+        }
+        
+        .business-card.build-with-me {
+            border-color: rgba(16, 185, 129, 0.2);
+        }
+        
+        .business-card.build-with-me:hover {
+            border-color: #10b981;
+            box-shadow: 0 20px 40px rgba(16, 185, 129, 0.3);
+        }
+        
+        .business-card.build-with-you {
+            border-color: rgba(245, 158, 11, 0.2);
+        }
+        
+        .business-card.build-with-you:hover {
+            border-color: #f59e0b;
+            box-shadow: 0 20px 40px rgba(245, 158, 11, 0.3);
         }
         
         .card-visual {
@@ -256,16 +329,16 @@
             justify-content: center;
         }
         
-        .card-visual.blogs {
-            background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
-        }
-        
-        .card-visual.shows {
-            background: linear-gradient(135deg, #f472b6 0%, #ec4899 100%);
-        }
-        
-        .card-visual.games {
+        .card-visual.revenue-reporting {
             background: linear-gradient(135deg, #06b6d4 0%, #10b981 100%);
+        }
+        
+        .card-visual.build-with-me {
+            background: linear-gradient(135deg, #10b981 0%, #34d399 100%);
+        }
+        
+        .card-visual.build-with-you {
+            background: linear-gradient(135deg, #f59e0b 0%, #fcd34d 100%);
         }
         
         .card-icon {
@@ -290,43 +363,43 @@
             letter-spacing: 1px;
         }
         
-        .amusements-card.blogs .card-badge {
-            background: linear-gradient(45deg, #8b5cf6, #7c3aed);
-            color: white;
-        }
-        
-        .amusements-card.shows .card-badge {
-            background: linear-gradient(45deg, #f472b6, #ec4899);
-            color: white;
-        }
-        
-        .amusements-card.games .card-badge {
+        .business-card.revenue-reporting .card-badge {
             background: linear-gradient(45deg, #06b6d4, #10b981);
             color: white;
         }
         
+        .business-card.build-with-me .card-badge {
+            background: linear-gradient(45deg, #10b981, #34d399);
+            color: white;
+        }
+        
+        .business-card.build-with-you .card-badge {
+            background: linear-gradient(45deg, #f59e0b, #fcd34d);
+            color: white;
+        }
+        
         .card-title {
-            font-size: 1.8rem;
+            font-size: 1.6rem;
             margin-bottom: 12px;
             line-height: 1.3;
         }
         
-        .amusements-card.blogs .card-title {
-            background: linear-gradient(45deg, #8b5cf6, #a78bfa);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        
-        .amusements-card.shows .card-title {
-            background: linear-gradient(45deg, #f472b6, #fb7185);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        
-        .amusements-card.games .card-title {
+        .business-card.revenue-reporting .card-title {
             background: linear-gradient(45deg, #06b6d4, #34d399);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .business-card.build-with-me .card-title {
+            background: linear-gradient(45deg, #10b981, #34d399);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .business-card.build-with-you .card-title {
+            background: linear-gradient(45deg, #f59e0b, #fcd34d);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -375,22 +448,25 @@
             transition: transform 0.3s ease;
         }
         
-        .amusements-card:hover .card-arrow span {
+        .business-card:hover .card-arrow span {
             transform: translateX(8px);
         }
         
         @media (max-width: 768px) {
             .hero-title {
-                font-size: 2rem;
+                font-size: 2.5rem;
             }
             
             .nav-links {
                 display: none;
             }
             
-            .grid-container {
-                grid-template-columns: 1fr;
-                gap: 25px;
+            .placeholder-card {
+                padding: 40px 30px;
+            }
+            
+            .placeholder-links {
+                flex-direction: column;
             }
         }
     </style>
@@ -415,8 +491,7 @@
                 
                 <div class="nav-right">
                     <ul class="nav-links">
-                        
-                        
+                        <li><a href="index.html">Home</a></li>
                         <li><a href="consume.html">Consume</a></li>
                         <li><a href="interact.html">Interact</a></li>
                         <li><a href="learn.html">Learn</a></li>
@@ -428,83 +503,90 @@
         </div>
     </header>
     
+    <div class="breadcrumb">
+        <a href="do-business.html" class="breadcrumb-item">Do Business</a>
+        <span class="breadcrumb-separator">›</span>
+        <span class="breadcrumb-current">Services</span>
+    </div>
+    
     <section class="hero-section">
         <div class="container">
-            <div class="amusements-logo">
-                🎭
-            </div>
-            <h1 class="hero-title">Asabaal's Amusements</h1>
+            <div class="hero-icon">⚙️</div>
+            <h1 class="hero-title">Services</h1>
             <p class="hero-subtitle">
-                Welcome to a world of reality signals. Explore our blogs, shows, and interactive experiences designed to inspire authentic living and awaken creative consciousness.
+                Leverage our expertise in technology, consulting, and creative solutions for your organization.
             </p>
         </div>
     </section>
     
-    <section class="amusements-grid">
+    <section class="business-grid">
         <div class="container">
             <div class="grid-container">
-                <a href="blogs-selection.html" class="amusements-card blogs">
-                    <div class="card-visual blogs">
-                        <div class="card-icon">📝</div>
+                <a href="dispatch-revenue-reporting.html" class="business-card revenue-reporting">
+                    <div class="card-visual revenue-reporting">
+                        <div class="card-icon">📊</div>
                     </div>
                     <div class="card-content">
-                        <div class="card-badge">Library</div>
-                        <h3 class="card-title">Blogs</h3>
+                        <div class="card-badge">Analytics</div>
+                        <h3 class="card-title">Dispatcher-Carrier Revenue Reporting</h3>
                         <p class="card-description">
-                            Explore a vast collection of articles on consciousness, purpose, and transformation. Dive deep into ideas that inspire authentic living.
+                            Auto-generated revenue reporting for logistics carriers. Get actionable insights without manual analysis.
                         </p>
                         <ul class="card-features">
-                            <li>Thought-provoking articles</li>
-                            <li>Purpose discovery insights</li>
-                            <li>Visionary perspectives</li>
+                            <li>$50/carrier/mo pricing</li>
+                            <li>Revenue performance reports</li>
+                            <li>Operational efficiency signals</li>
+                            <li>Broker activity insights</li>
                         </ul>
                         <div class="card-arrow">
                             <span>→</span>
-                            <span>Browse Blog Library</span>
+                            <span>Learn More</span>
                         </div>
                     </div>
                 </a>
                 
-                <a href="shows.html" class="amusements-card shows">
-                    <div class="card-visual shows">
-                        <div class="card-icon">🎬</div>
+                <a href="build-with-me.html" class="business-card build-with-me">
+                    <div class="card-visual build-with-me">
+                        <div class="card-icon">🤝</div>
                     </div>
                     <div class="card-content">
-                        <div class="card-badge">Featured</div>
-                        <h3 class="card-title">Shows</h3>
+                        <div class="card-badge">Collaboration</div>
+                        <h3 class="card-title">Build With Me</h3>
                         <p class="card-description">
-                            Discover our flagship shows exploring authenticity, transformation, and the journey toward living your truth.
+                            Invitation to builders open to revenue share contracts. Assist in shared projects without upfront payment.
                         </p>
                         <ul class="card-features">
-                            <li>Vision 2054 series</li>
-                            <li>Life is your Word</li>
-                            <li>Musical Poetry</li>
+                            <li>Risk-sharing model</li>
+                            <li>No upfront payment</li>
+                            <li>Aligned incentives</li>
+                            <li>Revenue participation</li>
                         </ul>
                         <div class="card-arrow">
                             <span>→</span>
-                            <span>Explore Shows</span>
+                            <span>Explore Collaboration</span>
                         </div>
                     </div>
                 </a>
                 
-                <a href="games.html" class="amusements-card games">
-                    <div class="card-visual games">
-                        <div class="card-icon">🎮</div>
+                <a href="build-with-you.html" class="business-card build-with-you">
+                    <div class="card-visual build-with-you">
+                        <div class="card-icon">💡</div>
                     </div>
                     <div class="card-content">
-                        <div class="card-badge">Interactive</div>
-                        <h3 class="card-title">Games</h3>
+                        <div class="card-badge">Development</div>
+                        <h3 class="card-title">Build With You</h3>
                         <p class="card-description">
-                            Engage with interactive experiences that combine entertainment with transformation. Play, learn, and grow.
+                            Help build something for you through revenue share or well-scoped consulting arrangements.
                         </p>
                         <ul class="card-features">
-                            <li>Tic Tac Toe</li>
-                            <li>Interactive experiences</li>
-                            <li>Fun & educational</li>
+                            <li>Revenue share option</li>
+                            <li>Consulting services</li>
+                            <li>Flexible terms</li>
+                            <li>Clear scope & deliverables</li>
                         </ul>
                         <div class="card-arrow">
                             <span>→</span>
-                            <span>Start Playing</span>
+                            <span>Explore Development</span>
                         </div>
                     </div>
                 </a>

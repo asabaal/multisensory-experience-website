@@ -253,6 +253,15 @@
             box-shadow: 0 30px 60px rgba(16, 185, 129, 0.3);
         }
         
+        .tool-card.remix {
+            border-color: rgba(244, 114, 182, 0.2);
+        }
+        
+        .tool-card.remix:hover {
+            border-color: #f472b6;
+            box-shadow: 0 30px 60px rgba(244, 114, 182, 0.3);
+        }
+        
         .tool-visual {
             height: 280px;
             position: relative;
@@ -268,6 +277,10 @@
         
         .tool-card.tic-tac-toe .tool-visual {
             background: linear-gradient(135deg, #10b981 0%, #f59e0b 100%);
+        }
+        
+        .tool-card.remix .tool-visual {
+            background: linear-gradient(135deg, #f472b6 0%, #ec4899 100%);
         }
         
         .tool-icon {
@@ -301,6 +314,11 @@
             color: white;
         }
         
+        .tool-card.remix .tool-badge {
+            background: linear-gradient(45deg, #f472b6, #ec4899);
+            color: white;
+        }
+        
         .tool-title {
             font-size: 2rem;
             margin-bottom: 15px;
@@ -316,6 +334,13 @@
         
         .tool-card.tic-tac-toe .tool-title {
             background: linear-gradient(45deg, #10b981, #f59e0b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .tool-card.remix .tool-title {
+            background: linear-gradient(45deg, #f472b6, #fb7185);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -394,7 +419,7 @@
                     </div>
                     <div class="logo-text">
                         <div class="company-name">Asabaal Ventures</div>
-                        <div class="company-tagline">Purpose-Driven Innovation</div>
+                        <div class="company-tagline">Reality Studio</div>
                     </div>
                 </div>
                 
@@ -409,6 +434,7 @@
                         <li><a href="consume.html">Consume</a></li>
                         <li><a href="interact.html" style="color: #fbbf24;">Interact</a></li>
                         <li><a href="learn.html">Learn</a></li>
+                        <li><a href="do-business.html" style="color: #f59e0b;">Do Business</a></li>
                         <li><a href="connect.html">Connect</a></li>
                     </ul>
                 </div>
@@ -435,25 +461,25 @@
     <section class="tools-grid">
         <div class="container">
             <div class="grid-container">
-                <a href="bi-tools.html" class="tool-card bi">
+                <a href="dispatch-revenue-reporting.html" class="tool-card bi">
                     <div class="tool-visual">
                         <div class="tool-icon">📊</div>
                     </div>
                     <div class="tool-content">
-                        <div class="tool-badge">Business Tools</div>
-                        <h3 class="tool-title">BI Tools</h3>
+                        <div class="tool-badge">Revenue Reporting</div>
+                        <h3 class="tool-title">Dispatcher-Carrier Revenue</h3>
                         <p class="tool-description">
-                            Powerful business intelligence tools designed to help you analyze data, make informed decisions, and drive growth.
+                            Auto-generated revenue reporting for logistics carriers. Get actionable insights without manual analysis.
                         </p>
                         <ul class="tool-features">
-                            <li>Data analytics</li>
-                            <li>Market insights</li>
+                            <li>$50/carrier/mo pricing</li>
+                            <li>Revenue analytics</li>
                             <li>Performance tracking</li>
-                            <li>Decision support</li>
+                            <li>Operational insights</li>
                         </ul>
                         <div class="tool-arrow">
                             <span>→</span>
-                            <span>Explore BI Tools</span>
+                            <span>Explore Revenue Reporting</span>
                         </div>
                     </div>
                 </a>
@@ -477,6 +503,29 @@
                         <div class="tool-arrow">
                             <span>→</span>
                             <span>Start Playing</span>
+                        </div>
+                    </div>
+                </a>
+                
+                <a href="unity-remix-contest.html" class="tool-card remix">
+                    <div class="tool-visual">
+                        <div class="tool-icon">🎵</div>
+                    </div>
+                    <div class="tool-content">
+                        <div class="tool-badge">Contest</div>
+                        <h3 class="tool-title">Unity Remix Contest</h3>
+                        <p class="tool-description">
+                            Join our creative remix contest and transform the Unity experience. Showcase your talent and win prizes.
+                        </p>
+                        <ul class="tool-features">
+                            <li>Submit your remix</li>
+                            <li>Win prizes</li>
+                            <li>Community voting</li>
+                            <li>Showcase talent</li>
+                        </ul>
+                        <div class="tool-arrow">
+                            <span>→</span>
+                            <span>Join Contest</span>
                         </div>
                     </div>
                 </a>
