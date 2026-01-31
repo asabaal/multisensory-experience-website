@@ -199,8 +199,15 @@
             margin: 0 auto;
         }
 
+        .season-description-large {
+            color: #d1d5db;
+            line-height: 1.7;
+            font-size: 1.15rem;
+            margin-bottom: 20px;
+        }
+
         .coming-soon-banner {
-            background: linear-gradient(135deg, rgba(251, 191, 36, 0.15) 0%, rgba(244, 114, 182, 0.15) 100%);
+            background: linear-gradient(135deg, rgba(251, 191, 36, 0.15) 0%, rgba(244, 114, 182, 0.1));
             border: 2px solid rgba(251, 191, 36, 0.3);
             border-radius: 20px;
             padding: 60px 40px;
@@ -217,18 +224,13 @@
             left: -50%;
             width: 200%;
             height: 200%;
-            background: radial-gradient(circle, rgba(251, 191, 36, 0.05) 0%, transparent 70%);
+            background: radial-gradient(circle, rgba(251, 191, 36, 0.1) 0%, transparent 70%);
             animation: pulse 4s ease-in-out infinite;
         }
 
         @keyframes pulse {
             0%, 100% { opacity: 0.5; }
             50% { opacity: 1; }
-        }
-
-        .coming-soon-banner > * {
-            position: relative;
-            z-index: 1;
         }
 
         .coming-soon-badge {
@@ -240,31 +242,29 @@
             font-weight: bold;
             display: inline-block;
             margin-bottom: 30px;
-            box-shadow: 0 10px 30px rgba(251, 191, 36, 0.3);
+            box-shadow: 0 10px 30px rgba(245, 158, 11, 0.3);
         }
 
         .coming-soon-banner h3 {
             font-size: 2rem;
-            color: #fbbf24;
             margin-bottom: 20px;
+            color: #fbbf24;
         }
 
         .coming-soon-banner p {
             color: #d1d5db;
+            font-size: 1.1rem;
             line-height: 1.7;
             margin-bottom: 30px;
-            font-size: 1.1rem;
         }
 
         .notify-form {
             max-width: 500px;
             margin: 0 auto;
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
         }
 
         .notify-input {
+            width: 100%;
             padding: 18px 25px;
             border: none;
             border-radius: 50px;
@@ -273,7 +273,8 @@
             font-size: 1rem;
             backdrop-filter: blur(10px);
             border: 2px solid rgba(255, 255, 255, 0.2);
-            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+            transition: all 0.3s ease;
+            margin-bottom: 15px;
         }
 
         .notify-input:focus {
@@ -287,6 +288,7 @@
         }
 
         .notify-button {
+            width: 100%;
             background: linear-gradient(45deg, #fbbf24, #f472b6);
             color: white;
             padding: 18px 40px;
@@ -295,28 +297,21 @@
             font-weight: bold;
             font-size: 1.1rem;
             cursor: pointer;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transition: all 0.3s ease;
         }
 
         .notify-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 35px rgba(251, 191, 36, 0.3);
-        }
-
-        .season-description-large {
-            color: #d1d5db;
-            line-height: 1.7;
-            font-size: 1.15rem;
-            margin-bottom: 30px;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(251, 191, 36, 0.3);
         }
 
         .back-link {
             display: inline-block;
-            margin-top: 30px;
+            margin-top: 40px;
             color: #fbbf24;
             font-weight: 600;
             text-decoration: none;
-            transition: all 0.3s ease;
+            transition: transform 0.3s ease;
         }
 
         .back-link:hover {
@@ -332,13 +327,13 @@
                 display: none;
             }
 
-            .coming-soon-banner {
-                padding: 40px 25px;
-            }
-
             .coming-soon-badge {
                 font-size: 1rem;
                 padding: 10px 20px;
+            }
+
+            .coming-soon-banner {
+                padding: 40px 25px;
             }
         }
     </style>
@@ -349,7 +344,7 @@
             <nav class="nav">
                 <div class="nav-left">
                     <div class="logo-image">
-                        <img src="assets/images/icons/favicon.svg" alt="Asabaal Ventures Logo">
+                        <img src="../assets/images/icons/favicon.svg" alt="Asabaal Ventures Logo">
                     </div>
                     <div class="logo-text">
                         <div class="company-name">Asabaal Ventures</div>
@@ -358,17 +353,17 @@
                 </div>
                 
                 <div class="nav-center">
-                    <img src="assets/images/logos/Asabaal Ventures.png" alt="Asabaal Ventures" class="center-logo">
+                    <img src="../assets/images/logos/Asabaal Ventures.png" alt="Asabaal Ventures" class="center-logo">
                 </div>
                 
                 <div class="nav-right">
                     <ul class="nav-links">
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="vision_2054_page.html">Vision 2054</a></li>
-                        <li><a href="advancements-by-asabaal.html">Advancements</a></li>
-                        <li><a href="index.html#videos">Videos</a></li>
-                        <li><a href="amusements.html">Amusements</a></li>
-                        <li><a href="connect.html">Connect</a></li>
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="../vision_2054_page.html">Vision 2054</a></li>
+                        <li><a href="../advancements-by-asabaal.html">Advancements</a></li>
+                        <li><a href="../index.html#videos">Videos</a></li>
+                        <li><a href="../amusements.html">Amusements</a></li>
+                        <li><a href="../connect.html">Connect</a></li>
                     </ul>
                 </div>
             </nav>
@@ -376,16 +371,16 @@
     </header>
 
     <div class="breadcrumb">
-        <a href="amusements.html" class="breadcrumb-item">Amusements</a>
+        <a href="../amusements.html" class="breadcrumb-item">Amusements</a>
         <span class="breadcrumb-separator">›</span>
-        <a href="life-is-your-word.html" class="breadcrumb-item">Life is your Word</a>
+        <a href="../life-is-your-word.html" class="breadcrumb-item">Life is your Word</a>
         <span class="breadcrumb-separator">›</span>
         <span class="breadcrumb-current">Season 1</span>
     </div>
 
     <section class="season-header">
         <div class="container">
-            <div class="season-banner" style="background: linear-gradient(135deg, #fbbf24 0%, #f472b6 100%);">
+            <div class="season-banner" style="background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);">
                 <div class="season-banner-content">
                     <h1 class="season-title-large">Season 1</h1>
                     <p class="season-subtitle">Life is your Word</p>
@@ -400,7 +395,7 @@
         </div>
     </section>
 
-    <section>
+    <section class="coming-soon-section">
         <div class="container">
             <div class="coming-soon-banner">
                 <span class="coming-soon-badge">Season 1 Coming Soon</span>
@@ -415,14 +410,15 @@
                     <button type="submit" class="notify-button">Get Notified</button>
                 </form>
             </div>
-            <div style="text-align: center; margin-top: 40px;">
-                <a href="life-is-your-word.html" class="back-link">← Back to Seasons</a>
-            </div>
+        </div>
+        <div style="text-align: center;">
+            <a href="../life-is-your-word.html" class="back-link">← Back to Seasons</a>
+            <a href="../life-is-your-word.html" class="back-link">Back to Show</a>
         </div>
     </section>
 
-    <script src="assets/js/amusements-data.js"></script>
-    <script src="assets/js/amusements-navigation.js"></script>
+    <script src="../assets/js/amusements-data.js"></script>
+    <script src="../assets/js/amusements-navigation.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             AmusementsNavigation.renderSeason('life-is-your-word', 'season1');

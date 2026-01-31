@@ -17,7 +17,6 @@
             color: #ffffff;
             min-height: 100vh;
             overflow-x: hidden;
-            padding-top: 70px;
         }
         
         .container {
@@ -155,180 +154,255 @@
             font-weight: 600;
         }
 
-        .season-header {
-            padding: 60px 0 40px;
-        }
-
-        .season-banner {
-            width: 100%;
-            height: 350px;
-            border-radius: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-            margin-bottom: 40px;
+        .vision-header {
+            padding: 100px 0 80px;
+            text-align: center;
             position: relative;
+            background: radial-gradient(circle at 50% 50%, rgba(251, 191, 36, 0.15) 0%, transparent 70%);
         }
 
-        .season-banner-content {
-            text-align: center;
-            padding: 40px;
-        }
-
-        .season-title-large {
-            font-size: 3.5rem;
-            font-weight: 900;
-            margin-bottom: 15px;
-            background: linear-gradient(45deg, #fbbf24, #f472b6);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            line-height: 1.1;
-        }
-
-        .season-subtitle {
-            font-size: 1.3rem;
-            color: #d1d5db;
-            font-weight: 600;
-        }
-
-        .season-info {
-            text-align: center;
-            max-width: 900px;
-            margin: 0 auto 40px;
-        }
-
-        .season-description-large {
-            color: #d1d5db;
-            line-height: 1.7;
-            font-size: 1.15rem;
+        .vision-logo {
             margin-bottom: 20px;
         }
 
-        .episodes-grid-section {
-            padding: 80px 0;
-            background: rgba(0, 0, 0, 0.2);
+        .vision-logo img {
+            height: 120px;
+            width: auto;
+            max-width: 100%;
         }
 
-        .episodes-header {
+        .tgr-logo {
+            margin-bottom: 30px;
+        }
+
+        .tgr-logo img {
+            height: 80px;
+            width: auto;
+            max-width: 100%;
+        }
+
+        @keyframes glow {
+            0%, 100% { box-shadow: 0 0 20px rgba(251, 191, 36, 0.3); }
+            50% { box-shadow: 0 0 40px rgba(251, 191, 36, 0.6); }
+        }
+
+        .vision-subtitle {
+            font-size: 1.5rem;
+            color: #d1d5db;
+            margin-bottom: 40px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+        }
+
+        .manifesto-section {
+            padding: 100px 0;
+            background: rgba(0, 0, 0, 0.3);
+            position: relative;
+        }
+
+        .manifesto-content {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .manifesto-quote {
+            font-size: 2.2rem;
+            line-height: 1.4;
+            color: #e5e7eb;
+            margin-bottom: 40px;
+            font-style: italic;
+            position: relative;
+        }
+
+        .manifesto-quote::before,
+        .manifesto-quote::after {
+            content: '"';
+            font-size: 4rem;
+            color: #fbbf24;
+            position: absolute;
+        }
+
+        .manifesto-quote::before {
+            top: -20px;
+            left: -40px;
+        }
+
+        .manifesto-quote::after {
+            bottom: -40px;
+            right: -40px;
+        }
+
+        .manifesto-author {
+            font-size: 1.2rem;
+            color: #9ca3af;
+            font-weight: 500;
+        }
+
+        .journey-section {
+            padding: 80px 0;
+            position: relative;
+        }
+
+        .journey-section:nth-child(even) {
+            background: rgba(251, 191, 36, 0.05);
+        }
+
+        .journey-section:nth-child(odd) {
+            background: rgba(244, 114, 182, 0.05);
+        }
+
+        .journey-header {
             text-align: center;
             margin-bottom: 60px;
         }
 
-        .episodes-header h2 {
-            font-size: 2.5rem;
-            margin-bottom: 15px;
-            background: linear-gradient(45deg, #f472b6, #8b5cf6);
+        .journey-week {
+            background: linear-gradient(45deg, #fbbf24, #f472b6);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 25px;
+            font-weight: bold;
+            display: inline-block;
+            margin-bottom: 20px;
+            font-size: 0.9rem;
+        }
+
+        .journey-title {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, #fbbf24, #f472b6);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
 
-        .episodes-header p {
+        .journey-description {
+            font-size: 1.2rem;
             color: #d1d5db;
-            font-size: 1.1rem;
-            max-width: 600px;
+            max-width: 700px;
             margin: 0 auto;
-            line-height: 1.6;
+            line-height: 1.7;
         }
 
-        .episodes-grid {
+        .journey-content {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            max-width: 1200px;
-            margin: 0 auto;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            margin-top: 60px;
         }
 
-        .episode-card {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-            border-radius: 16px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            overflow: hidden;
-            transition: all 0.3s ease;
-            cursor: pointer;
-            position: relative;
+        .journey-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #e5e7eb;
         }
 
-        .episode-card:hover {
-            transform: translateY(-8px);
-            border-color: #fbbf24;
-            box-shadow: 0 15px 40px rgba(251, 191, 36, 0.15);
+        .journey-text h4 {
+            color: #fbbf24;
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            margin-top: 30px;
         }
 
-        .episode-thumbnail {
-            width: 100%;
-            padding-bottom: 56.25%;
-            position: relative;
-            overflow: hidden;
+        .journey-text h4:first-child {
+            margin-top: 0;
+        }
+
+        .journey-visual {
+            background: linear-gradient(45deg, #fbbf24, #f472b6);
+            height: 400px;
+            border-radius: 20px;
             display: flex;
             align-items: center;
             justify-content: center;
+            font-size: 3rem;
+            color: white;
+            position: relative;
+            overflow: hidden;
         }
 
-        .episode-number {
-            font-size: 4rem;
-            font-weight: 900;
-            color: rgba(255, 255, 255, 0.9);
-            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+        .journey-visual iframe {
+            width: 100%;
+            height: 100%;
+            border-radius: 20px;
         }
 
-        .episode-content {
-            padding: 25px;
+        .cta-section {
+            padding: 100px 0;
+            background: linear-gradient(45deg, #fbbf24, #f472b6);
+            text-align: center;
         }
 
-        .episode-title {
+        .cta-content h2 {
+            font-size: 3rem;
+            margin-bottom: 25px;
+            color: white;
+        }
+
+        .cta-content p {
             font-size: 1.3rem;
-            color: #fbbf24;
-            margin-bottom: 12px;
-            font-weight: 700;
-            line-height: 1.4;
+            margin-bottom: 40px;
+            opacity: 0.9;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
-        .episode-description {
-            color: #d1d5db;
-            line-height: 1.5;
-            margin-bottom: 15px;
-            font-size: 0.95rem;
-        }
-
-        .episode-meta {
+        .cta-buttons {
             display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding-top: 15px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
         }
 
-        .episode-duration {
-            font-size: 0.9rem;
-            font-weight: 600;
-        }
-
-        .episode-explore {
-            color: #fbbf24;
-            font-weight: 600;
+        .cta-button {
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            color: white;
+            padding: 18px 40px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            text-decoration: none;
             transition: all 0.3s ease;
         }
 
-        .episode-card:hover .episode-explore {
-            transform: translateX(5px);
+        .cta-button:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .cta-button.primary {
+            background: rgba(255, 255, 255, 0.9);
+            color: #fbbf24;
+        }
+
+        .cta-button.primary:hover {
+            background: white;
+        }
+
+        .contact-section {
+            padding: 80px 0;
+            background: rgba(0, 0, 0, 0.4);
+            text-align: center;
         }
 
         @media (max-width: 768px) {
-            .season-title-large {
-                font-size: 2.5rem;
-            }
-
-            .nav-links {
-                display: none;
-            }
-
-            .episodes-grid {
-                grid-template-columns: 1fr;
-            }
+            .manifesto-quote { font-size: 1.6rem; }
+            .journey-content { grid-template-columns: 1fr; gap: 40px; }
+            .journey-title { font-size: 2rem; }
+            .cta-content h2 { font-size: 2rem; }
+            .cta-buttons { flex-direction: column; align-items: center; }
+            .nav-links { gap: 15px; font-size: 0.9rem; }
+            .vision-logo img { height: 80px; }
+            .tgr-logo img { height: 60px; }
+            .journey-visual { height: 300px; }
         }
     </style>
 </head>
@@ -338,7 +412,7 @@
             <nav class="nav">
                 <div class="nav-left">
                     <div class="logo-image">
-                        <img src="assets/images/icons/favicon.svg" alt="Asabaal Ventures Logo">
+                        <img src="../assets/images/icons/favicon.svg" alt="Asabaal Ventures Logo">
                     </div>
                     <div class="logo-text">
                         <div class="company-name">Asabaal Ventures</div>
@@ -347,17 +421,18 @@
                 </div>
                 
                 <div class="nav-center">
-                    <img src="assets/images/logos/Asabaal Ventures.png" alt="Asabaal Ventures" class="center-logo">
+                    <img src="../assets/images/logos/Asabaal Ventures.png" alt="Asabaal Ventures" class="center-logo">
                 </div>
                 
                 <div class="nav-right">
                     <ul class="nav-links">
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="vision_2054_page.html">Vision 2054</a></li>
-                        <li><a href="advancements-by-asabaal.html">Advancements</a></li>
-                        <li><a href="index.html#videos">Videos</a></li>
-                        <li><a href="amusements.html">Amusements</a></li>
-                        <li><a href="connect.html">Connect</a></li>
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="../vision_2054_page.html">Vision 2054</a></li>
+                        <li><a href="../advancements-by-asabaal.html">Advancements</a></li>
+                        <li><a href="../index.html#videos">Videos</a></li>
+                        <li><a href="../unity-remix-contest.html">Contest</a></li>
+                        <li><a href="../amusements.html">Amusements</a></li>
+                        <li><a href="../connect.html">Connect</a></li>
                     </ul>
                 </div>
             </nav>
@@ -365,49 +440,525 @@
     </header>
 
     <div class="breadcrumb">
-        <a href="amusements.html" class="breadcrumb-item">Amusements</a>
+        <a href="../amusements.html" class="breadcrumb-item">Amusements</a>
         <span class="breadcrumb-separator">›</span>
-        <a href="life-is-your-word.html" class="breadcrumb-item">Life is your Word</a>
+        <a href="../life-is-your-word.html" class="breadcrumb-item">Life is your Word</a>
         <span class="breadcrumb-separator">›</span>
-        <span class="breadcrumb-current">Season 0</span>
+        <span class="breadcrumb-current">Season 0: Pilot</span>
     </div>
 
-    <section class="season-header">
+    <section class="vision-header">
         <div class="container">
-            <div class="season-banner" style="background: linear-gradient(135deg, #fbbf24 0%, #f472b6 100%);">
-                <div class="season-banner-content">
-                    <h1 class="season-title-large">Season 0: Pilot</h1>
-                    <p class="season-subtitle">Life is your Word</p>
-                </div>
+            <div class="vision-logo">
+                <div style="font-size: 6rem; animation: glow 3s infinite;">🎬</div>
             </div>
-            <div class="season-info">
-                <p class="season-description-large">
-                    The pilot concept exploring authenticity and transformation through 15 intimate episodes. 
-                    This season represents the beginning of a journey toward living authentically and embracing your true self.
-                    Each episode invites you to reflect, transform, and take bold steps toward alignment with your authentic word.
+            <p class="vision-subtitle">
+                Season 0 is the pilot concept exploring authenticity and transformation through 15 intimate episodes.
+                This season represents the beginning of a journey toward living authentically and embracing your true self.
+            </p>
+        </div>
+    </section>
+
+    <section class="manifesto-section">
+        <div class="container">
+            <div class="manifesto-content">
+                <blockquote class="manifesto-quote">
+                    Life is your Word — a declaration of authenticity, commitment, and the sacred power of speaking your truth into existence.
+                </blockquote>
+                <div class="manifesto-author">— The Foundation of Life is your Word</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="journey-section">
+        <div class="container">
+            <div class="journey-header">
+                <div class="journey-week">EPISODE 1</div>
+                <h2 class="journey-title">The Beginning</h2>
+                <p class="journey-description">
+                    Where it all started - exploring the origins of authenticity and the courage to begin living your truth.
                 </p>
             </div>
+            <div class="journey-content">
+                <div class="journey-text">
+                    <h4>The Spark of Awareness</h4>
+                    <p>Every journey begins with a single moment of awareness — a recognition that something must change, that the life you're living is not the life you're meant to live.</p>
+                    
+                    <h4>Taking the First Step</h4>
+                    <p>The first step toward authenticity is often the hardest. It requires letting go of comfortable illusions and embracing the vulnerability of being truly seen.</p>
+                    
+                    <h4>Your Beginning</h4>
+                    <p>What moment sparked your journey toward authenticity? How did you recognize that it was time to speak your word into the world?</p>
+                </div>
+                <div class="journey-visual">
+                    <div style="text-align: center; padding: 20px;">
+                        <div style="font-size: 5rem;">🎥</div>
+                        <p style="font-size: 1.2rem; margin-top: 20px;">Video coming soon</p>
+                        <p style="font-size: 0.9rem; opacity: 0.8;">Duration: 15 min</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
-    <section class="episodes-grid-section">
+    <section class="journey-section">
         <div class="container">
-            <div class="episodes-header">
-                <h2>Episodes</h2>
-                <p>15 episodes exploring the journey of authenticity and transformation</p>
+            <div class="journey-header">
+                <div class="journey-week">EPISODE 2</div>
+                <h2 class="journey-title">First Steps</h2>
+                <p class="journey-description">
+                    Taking the first brave steps toward living authentically and embracing change.
+                </p>
             </div>
-            <div class="episodes-grid" id="episodes-grid">
-                <div class="loading" style="text-align: center; grid-column: 1 / -1; padding: 60px;">Loading episodes...</div>
+            <div class="journey-content">
+                <div class="journey-visual">
+                    <div style="text-align: center; padding: 20px;">
+                        <div style="font-size: 5rem;">🎥</div>
+                        <p style="font-size: 1.2rem; margin-top: 20px;">Video coming soon</p>
+                        <p style="font-size: 0.9rem; opacity: 0.8;">Duration: 18 min</p>
+                    </div>
+                </div>
+                <div class="journey-text">
+                    <h4>Embracing Uncertainty</h4>
+                    <p>The path of authenticity is never certain. Each step requires courage, trust, and the willingness to move forward even when you cannot see the destination.</p>
+                    
+                    <h4>Small Acts of Bravery</h4>
+                    <p>Authenticity doesn't always require grand gestures. Sometimes the bravest thing you can do is speak your truth in a small moment, with a single person.</p>
+                    
+                    <h4>Building Momentum</h4>
+                    <p>Each authentic action builds momentum. What small step can you take today to live more aligned with your word?</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <script src="assets/js/amusements-data.js"></script>
-    <script src="assets/js/amusements-navigation.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            AmusementsNavigation.renderSeason('life-is-your-word', 'season0');
-        });
-    </script>
+    <section class="journey-section">
+        <div class="container">
+            <div class="journey-header">
+                <div class="journey-week">EPISODE 3</div>
+                <h2 class="journey-title">Breaking Through</h2>
+                <p class="journey-description">
+                    Breaking through barriers to find your true voice and authentic expression.
+                </p>
+            </div>
+            <div class="journey-content">
+                <div class="journey-text">
+                    <h4>The Walls We Build</h4>
+                    <p>Over time, we build walls around our authentic selves — layers of protection, compromise, and fear. Breaking through requires confronting these barriers directly.</p>
+                    
+                    <h4>Finding Your Voice</h4>
+                    <p>Your voice is unique to you. It carries the weight of your experiences, the depth of your wisdom, and the truth of your being. Finding it means listening deeply.</p>
+                    
+                    <h4>The Breakthrough Moment</h4>
+                    <p>When you finally speak your word without reservation, something shifts — not just in you, but in the world around you. What is your word waiting to be spoken?</p>
+                </div>
+                <div class="journey-visual">
+                    <div style="text-align: center; padding: 20px;">
+                        <div style="font-size: 5rem;">🎥</div>
+                        <p style="font-size: 1.2rem; margin-top: 20px;">Video coming soon</p>
+                        <p style="font-size: 0.9rem; opacity: 0.8;">Duration: 20 min</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="journey-section">
+        <div class="container">
+            <div class="journey-header">
+                <div class="journey-week">EPISODE 4</div>
+                <h2 class="journey-title">Finding Courage</h2>
+                <p class="journey-description">
+                    Finding courage in the face of uncertainty and the fear of being seen.
+                </p>
+            </div>
+            <div class="journey-content">
+                <div class="journey-visual">
+                    <div style="text-align: center; padding: 20px;">
+                        <div style="font-size: 5rem;">🎥</div>
+                        <p style="font-size: 1.2rem; margin-top: 20px;">Video coming soon</p>
+                        <p style="font-size: 0.9rem; opacity: 0.8;">Duration: 22 min</p>
+                    </div>
+                </div>
+                <div class="journey-text">
+                    <h4>The Fear of Visibility</h4>
+                    <p>Being truly seen is terrifying. It means opening yourself to judgment, rejection, and vulnerability. But it's also the only path to genuine connection.</p>
+                    
+                    <h4>Courage as Practice</h4>
+                    <p>Courage isn't the absence of fear — it's acting in spite of it. Each moment of authentic expression builds the muscle of courage.</p>
+                    
+                    <h4>Your Courageous Moments</h4>
+                    <p>When have you found courage in the face of fear? How did it feel to speak your word despite the uncertainty?</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="journey-section">
+        <div class="container">
+            <div class="journey-header">
+                <div class="journey-week">EPISODE 5</div>
+                <h2 class="journey-title">The Shift</h2>
+                <p class="journey-description">
+                    The pivotal moment when everything changes and transformation begins.
+                </p>
+            </div>
+            <div class="journey-content">
+                <div class="journey-text">
+                    <h4>Recognition and Release</h4>
+                    <p>The shift begins with recognition — seeing clearly what must be released and what must be embraced. It's a moment of profound clarity.</p>
+                    
+                    <h4>Embracing Change</h4>
+                    <p>Change is inevitable, but transformation is a choice. The shift is the moment you choose to step into your word and let go of what no longer serves you.</p>
+                    
+                    <h4>The Ripple Effect</h4>
+                    <p>Your shift creates ripples that touch everyone around you. What transformation is waiting to begin in your life?</p>
+                </div>
+                <div class="journey-visual">
+                    <div style="text-align: center; padding: 20px;">
+                        <div style="font-size: 5rem;">🎥</div>
+                        <p style="font-size: 1.2rem; margin-top: 20px;">Video coming soon</p>
+                        <p style="font-size: 0.9rem; opacity: 0.8;">Duration: 19 min</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="journey-section">
+        <div class="container">
+            <div class="journey-header">
+                <div class="journey-week">EPISODE 6</div>
+                <h2 class="journey-title">Embracing Change</h2>
+                <p class="journey-description">
+                    Learning to embrace and welcome transformation in all its forms.
+                </p>
+            </div>
+            <div class="journey-content">
+                <div class="journey-visual">
+                    <div style="text-align: center; padding: 20px;">
+                        <div style="font-size: 5rem;">🎥</div>
+                        <p style="font-size: 1.2rem; margin-top: 20px;">Video coming soon</p>
+                        <p style="font-size: 0.9rem; opacity: 0.8;">Duration: 21 min</p>
+                    </div>
+                </div>
+                <div class="journey-text">
+                    <h4>The Nature of Change</h4>
+                    <p>Change is the only constant in life. Resisting it only creates suffering; embracing it opens doors to growth and new possibilities.</p>
+                    
+                    <h4>Finding Flow</h4>
+                    <p>When you align with change rather than fight it, you find flow. Movement becomes easier, decisions become clearer, and transformation becomes natural.</p>
+                    
+                    <h4>Your Relationship with Change</h4>
+                    <p>How do you respond when change arrives? What would it look like to welcome transformation as an ally rather than an enemy?</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="journey-section">
+        <div class="container">
+            <div class="journey-header">
+                <div class="journey-week">EPISODE 7</div>
+                <h2 class="journey-title">Authentic Connections</h2>
+                <p class="journey-description">
+                    Building genuine connections from authenticity and deep vulnerability.
+                </p>
+            </div>
+            <div class="journey-content">
+                <div class="journey-text">
+                    <h4>The Power of Authenticity</h4>
+                    <p>Authentic connections are built on truth, not performance. When you show up as your true self, you attract others who value authenticity.</p>
+                    
+                    <h4>Vulnerability as Strength</h4>
+                    <p>Being vulnerable isn't weakness — it's the gateway to genuine connection. Vulnerability invites others to meet you in truth.</p>
+                    
+                    <h4>Building Your Tribe</h4>
+                    <p>Your authentic tribe isn't found — it's built through brave choices and honest expression. Who are the people you can truly be yourself with?</p>
+                </div>
+                <div class="journey-visual">
+                    <div style="text-align: center; padding: 20px;">
+                        <div style="font-size: 5rem;">🎥</div>
+                        <p style="font-size: 1.2rem; margin-top: 20px;">Video coming soon</p>
+                        <p style="font-size: 0.9rem; opacity: 0.8;">Duration: 17 min</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="journey-section">
+        <div class="container">
+            <div class="journey-header">
+                <div class="journey-week">EPISODE 8</div>
+                <h2 class="journey-title">The Journey Within</h2>
+                <p class="journey-description">
+                    Deep exploration of inner transformation and self-discovery.
+                </p>
+            </div>
+            <div class="journey-content">
+                <div class="journey-visual">
+                    <div style="text-align: center; padding: 20px;">
+                        <div style="font-size: 5rem;">🎥</div>
+                        <p style="font-size: 1.2rem; margin-top: 20px;">Video coming soon</p>
+                        <p style="font-size: 0.9rem; opacity: 0.8;">Duration: 24 min</p>
+                    </div>
+                </div>
+                <div class="journey-text">
+                    <h4>The Inner Landscape</h4>
+                    <p>Your inner world is vast and complex. Exploring it requires patience, compassion, and willingness to confront uncomfortable truths.</p>
+                    
+                    <h4>Meeting Yourself</h4>
+                    <p>Who are you when no one is watching? The journey within is about becoming familiar with your true self beneath all the masks.</p>
+                    
+                    <h4>Your Inner Discoveries</h4>
+                    <p>What have you discovered in your inner journey? How has self-awareness changed the way you live your word?</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="journey-section">
+        <div class="container">
+            <div class="journey-header">
+                <div class="journey-week">EPISODE 9</div>
+                <h2 class="journey-title">Speaking Truth</h2>
+                <p class="journey-description">
+                    The power of speaking your truth and living with integrity.
+                </p>
+            </div>
+            <div class="journey-content">
+                <div class="journey-text">
+                    <h4>The Courage of Truth</h4>
+                    <p>Speaking truth requires courage — especially when it's uncomfortable, unpopular, or risky. But truth is the foundation of authentic living.</p>
+                    
+                    <h4>Truth in Action</h4>
+                    <p>Your actions speak louder than words. Living with integrity means aligning what you say with what you do, who you are, and how you show up.</p>
+                    
+                    <h4>Your Truth</h4>
+                    <p>What truth are you ready to speak? How would living your truth transform your relationships and your world?</p>
+                </div>
+                <div class="journey-visual">
+                    <div style="text-align: center; padding: 20px;">
+                        <div style="font-size: 5rem;">🎥</div>
+                        <p style="font-size: 1.2rem; margin-top: 20px;">Video coming soon</p>
+                        <p style="font-size: 0.9rem; opacity: 0.8;">Duration: 18 min</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="journey-section">
+        <div class="container">
+            <div class="journey-header">
+                <div class="journey-week">EPISODE 10</div>
+                <h2 class="journey-title">Finding Purpose</h2>
+                <p class="journey-description">
+                    Discovering your true purpose and calling in life.
+                </p>
+            </div>
+            <div class="journey-content">
+                <div class="journey-visual">
+                    <div style="text-align: center; padding: 20px;">
+                        <div style="font-size: 5rem;">🎥</div>
+                        <p style="font-size: 1.2rem; margin-top: 20px;">Video coming soon</p>
+                        <p style="font-size: 0.9rem; opacity: 0.8;">Duration: 23 min</p>
+                    </div>
+                </div>
+                <div class="journey-text">
+                    <h4>Remembering Purpose</h4>
+                    <p>Purpose isn't something you find — it's something you remember. It's already within you, waiting to be uncovered and activated.</p>
+                    
+                    <h4>Signs and Alignment</h4>
+                    <p>Your purpose shows up in moments of flow, in what brings you alive, and in the impact you naturally have on others.</p>
+                    
+                    <h4>Your Calling</h4>
+                    <p>What makes you feel most alive? How might your word align with your deeper purpose and calling?</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="journey-section">
+        <div class="container">
+            <div class="journey-header">
+                <div class="journey-week">EPISODE 11</div>
+                <h2 class="journey-title">Living Aligned</h2>
+                <p class="journey-description">
+                    Making decisions aligned with your authentic self and values.
+                </p>
+            </div>
+            <div class="journey-content">
+                <div class="journey-text">
+                    <h4>The Alignment Question</h4>
+                    <p>Every decision presents a choice: align with your word or compromise. Alignment brings peace and power; misalignment creates dissonance.</p>
+                    
+                    <h4>Building Alignment Habits</h4>
+                    <p>Living aligned isn't one big choice — it's thousands of daily choices. Building alignment habits creates an authentic life by default.</p>
+                    
+                    <h4>Your Alignment Practice</h4>
+                    <p>What daily choices could you make more aligned? How does living your word change your decisions?</p>
+                </div>
+                <div class="journey-visual">
+                    <div style="text-align: center; padding: 20px;">
+                        <div style="font-size: 5rem;">🎥</div>
+                        <p style="font-size: 1.2rem; margin-top: 20px;">Video coming soon</p>
+                        <p style="font-size: 0.9rem; opacity: 0.8;">Duration: 19 min</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="journey-section">
+        <div class="container">
+            <div class="journey-header">
+                <div class="journey-week">EPISODE 12</div>
+                <h2 class="journey-title">Breaking Patterns</h2>
+                <p class="journey-description">
+                    Identifying and breaking limiting patterns that hold you back.
+                </p>
+            </div>
+            <div class="journey-content">
+                <div class="journey-visual">
+                    <div style="text-align: center; padding: 20px;">
+                        <div style="font-size: 5rem;">🎥</div>
+                        <p style="font-size: 1.2rem; margin-top: 20px;">Video coming soon</p>
+                        <p style="font-size: 0.9rem; opacity: 0.8;">Duration: 21 min</p>
+                    </div>
+                </div>
+                <div class="journey-text">
+                    <h4>Seeing the Patterns</h4>
+                    <p>Patterns are invisible until you notice them. The first step is awareness — recognizing the loops that keep you stuck.</p>
+                    
+                    <h4>The Courage to Break</h4>
+                    <p>Breaking patterns requires disrupting familiar territory. It's uncomfortable, scary, and necessary for authentic growth.</p>
+                    
+                    <h4>Your Patterns</h4>
+                    <p>What patterns are ready to break? How would life be different if you chose a new path?</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="journey-section">
+        <div class="container">
+            <div class="journey-header">
+                <div class="journey-week">EPISODE 13</div>
+                <h2 class="journey-title">The Awakening</h2>
+                <p class="journey-description">
+                    Profound moments of awakening and realization.
+                </p>
+            </div>
+            <div class="journey-content">
+                <div class="journey-text">
+                    <h4>The Moment of Awakening</h4>
+                    <p>Awakening is a moment of profound clarity — suddenly seeing what was always there but unnoticed, understanding what was always true but unexpressed.</p>
+                    
+                    <h4>Living Awakened</h4>
+                    <p>Awakening isn't a destination; it's a way of being. It means seeing clearly, living authentically, and acting with presence.</p>
+                    
+                    <h4>Your Awakening</h4>
+                    <p>What moments of awakening have shaped your journey? How do you stay connected to that clarity?</p>
+                </div>
+                <div class="journey-visual">
+                    <div style="text-align: center; padding: 20px;">
+                        <div style="font-size: 5rem;">🎥</div>
+                        <p style="font-size: 1.2rem; margin-top: 20px;">Video coming soon</p>
+                        <p style="font-size: 0.9rem; opacity: 0.8;">Duration: 20 min</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="journey-section">
+        <div class="container">
+            <div class="journey-header">
+                <div class="journey-week">EPISODE 14</div>
+                <h2 class="journey-title">Integration</h2>
+                <p class="journey-description">
+                    Integrating transformation into daily life and practice.
+                </p>
+            </div>
+            <div class="journey-content">
+                <div class="journey-visual">
+                    <div style="text-align: center; padding: 20px;">
+                        <div style="font-size: 5rem;">🎥</div>
+                        <p style="font-size: 1.2rem; margin-top: 20px;">Video coming soon</p>
+                        <p style="font-size: 0.9rem; opacity: 0.8;">Duration: 22 min</p>
+                    </div>
+                </div>
+                <div class="journey-text">
+                    <h4>Beyond the Moment</h4>
+                    <p>Transformation isn't just a moment — it's how you live after the moment. Integration brings your authentic self into every area of life.</p>
+                    
+                    <h4>Daily Practice</h4>
+                    <p>Authenticity becomes real through daily practice. Each choice, each interaction, each moment is an opportunity to integrate your word.</p>
+                    
+                    <h4>Your Integration</h4>
+                    <p>How are you integrating transformation into your daily life? What practices support your authentic living?</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="journey-section">
+        <div class="container">
+            <div class="journey-header">
+                <div class="journey-week">EPISODE 15</div>
+                <h2 class="journey-title">New Beginnings</h2>
+                <p class="journey-description">
+                    Celebrating transformation and embracing new chapters.
+                </p>
+            </div>
+            <div class="journey-content">
+                <div class="journey-text">
+                    <h4>The Joy of New Beginnings</h4>
+                    <p>New beginnings are sacred — they represent the culmination of transformation and the birth of what's next. Each ending creates space for new life.</p>
+                    
+                    <h4>Carrying Forward</h4>
+                    <p>What you've learned travels with you. The wisdom, courage, and authenticity cultivated in this journey becomes your foundation for what's ahead.</p>
+                    
+                    <h4>Your New Beginning</h4>
+                    <p>What new chapter is beginning? How will you carry your word forward into this next season of life?</p>
+                </div>
+                <div class="journey-visual">
+                    <div style="text-align: center; padding: 20px;">
+                        <div style="font-size: 5rem;">🎥</div>
+                        <p style="font-size: 1.2rem; margin-top: 20px;">Video coming soon</p>
+                        <p style="font-size: 0.9rem; opacity: 0.8;">Duration: 25 min</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+ 
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Season 0 Complete</h2>
+                <p>
+                    You've experienced all 15 episodes of Season 0: Pilot — the journey of authenticity, transformation, and the power of speaking your word into existence.
+                </p>
+                <div class="cta-buttons">
+                    <a href="../life-is-your-word/season-1.html" class="cta-button primary">Explore Season 1</a>
+                    <a href="../life-is-your-word.html" class="cta-button">Back to Seasons</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact-section">
+        <div class="container">
+            <h2 style="font-size: 2.5rem; margin-bottom: 20px; background: linear-gradient(45deg, #fbbf24, #f472b6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Join the Conversation</h2>
+            <p style="color: #d1d5db; font-size: 1.2rem; margin-bottom: 40px;">Share your journey and connect with others walking the path of authenticity.</p>
+            <div class="cta-buttons">
+                <a href="../connect.html" class="cta-button primary">Connect With Us</a>
+                <a href="../unity-remix-contest.html" class="cta-button">Join Remix Contest</a>
+            </div>
+        </div>
+    </section>
 </body>
 </html>
