@@ -90,22 +90,15 @@
             text-align: center;
         }
         
-        .connect-header {
-            margin-bottom: 40px;
-        }
-        
         .connect-title {
-            font-size: 3rem;
-            background: linear-gradient(45deg, #fbbf24, #8b5cf6);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            font-size: 2.5rem;
             margin-bottom: 20px;
+            color: #fbbf24;
         }
         
         .connect-subtitle {
-            color: #d1d5db;
-            font-size: 1.3rem;
+            font-size: 1.2rem;
+            color: #e5e7eb;
             line-height: 1.6;
             margin-bottom: 30px;
         }
@@ -250,6 +243,26 @@
             font-style: italic;
         }
         
+        .email-alternative {
+            color: #9ca3af;
+            font-size: 1.1rem;
+            text-align: center;
+            margin: 30px 0;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .email-alternative a {
+            color: #fbbf24;
+            font-weight: bold;
+            text-decoration: underline;
+            transition: color 0.3s ease;
+        }
+        
+        .email-alternative a:hover {
+            color: #fcd34d;
+        }
+        
         /* Responsive */
         @media (max-width: 768px) {
             .connect-container {
@@ -286,16 +299,16 @@
 <body>
     <header class="header">
         <div class="container">
-            <nav class="nav">
+            <div class="nav">
                 <a href="index.html" class="logo">Asabaal Ventures</a>
                 <ul class="nav-links">
                     <li><a href="index.html">Home</a></li>
-                    <li><a href="blog.html">Blog</a></li>
-                    <li><a href="connect.html">Connect</a></li>
-                    <li><a href="privacy.html">Privacy</a></li>
-                    <li><a href="terms.html">Terms</a></li>
+                    <li><a href="consume.html">Consume</a></li>
+                    <li><a href="interact.html">Interact</a></li>
+                    <li><a href="learn.html">Learn</a></li>
+                    <li><a href="connect.html" style="color: #fbbf24;">Connect</a></li>
                 </ul>
-            </nav>
+            </div>
         </div>
     </header>
 
@@ -309,19 +322,19 @@
                         Connect with purpose-driven creators, get exclusive updates, and help shape the future.
                     </p>
                 </div>
-
+                
                 <div class="discord-benefits">
                     <h3>🌟 Why Join Our Discord?</h3>
                     <ul>
                         <li>🚀 Early access to Vision 2054 updates and Unity Remix Contest</li>
-                        <li>💬 Direct conversations with Asabaal and the community</li>
+                        <li>💬 Direct conversations with Asabaal and community</li>
                         <li>📚 Exclusive behind-the-scenes content and resources</li>
                         <li>🎯 Purpose-driven project collaboration opportunities</li>
                         <li>🏆 Special recognition for active community members</li>
                         <li>🌍 Connect with global change-makers and innovators</li>
                     </ul>
                 </div>
-
+                
                 <form class="discord-form discord-signup-form" data-form-type="discord">
                     <input type="hidden" name="source" value="connect-page">
                     
@@ -347,7 +360,11 @@
                 </form>
                 
                 <p class="privacy-note">
-                    🔒 Your data is protected. You control your Discord notifications and can leave anytime.
+                     🔒 Your data is protected. You control your Discord notifications and can leave anytime.
+                </p>
+                
+                <p class="email-alternative">
+                    or email the founder at <a href="mailto:asabaal@asabaalventures.me">asabaal@asabaalventures.me</a>
                 </p>
             </div>
         </div>

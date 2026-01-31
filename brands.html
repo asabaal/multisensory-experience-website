@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BI Tools | Asabaal Ventures</title>
+    <title>Our Brands | Asabaal Ventures</title>
     <style>
         * {
             margin: 0;
@@ -127,11 +127,39 @@
             color: #fbbf24;
         }
         
+        .breadcrumb {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 20px 0;
+            font-size: 0.9rem;
+            color: #9ca3af;
+        }
+        
+        .breadcrumb-item {
+            color: #e5e7eb;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .breadcrumb-item:hover {
+            color: #fbbf24;
+        }
+        
+        .breadcrumb-separator {
+            color: #6b7280;
+        }
+        
+        .breadcrumb-current {
+            color: #9ca3af;
+            font-weight: 600;
+        }
+        
         .hero-section {
             padding: 100px 0 60px;
             text-align: center;
             position: relative;
-            background: radial-gradient(circle at 50% 50%, rgba(6, 182, 212, 0.15) 0%, transparent 70%);
+            background: radial-gradient(circle at 50% 50%, rgba(244, 114, 182, 0.15) 0%, transparent 70%);
         }
         
         .hero-icon {
@@ -148,7 +176,7 @@
         .hero-title {
             font-size: 3.5rem;
             margin-bottom: 20px;
-            background: linear-gradient(45deg, #06b6d4, #10b981);
+            background: linear-gradient(45deg, #f472b6, #fb7185);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -168,14 +196,14 @@
             padding: 30px;
             background: rgba(255, 255, 255, 0.05);
             border-radius: 20px;
-            border: 2px dashed rgba(6, 182, 212, 0.3);
+            border: 2px dashed rgba(244, 114, 182, 0.3);
             max-width: 600px;
             margin-left: auto;
             margin-right: auto;
         }
         
         .coming-soon h3 {
-            color: #06b6d4;
+            color: #f472b6;
             font-size: 1.5rem;
             margin-bottom: 15px;
         }
@@ -221,8 +249,9 @@
                         <li><a href="index.html">Home</a></li>
                         
                         
-                        <li><a href="unity-remix-contest.html">Contest</a></li>
-                        <li><a href="amusements.html" style="color: #fbbf24;">Amusements</a></li>
+                        <li><a href="consume.html">Consume</a></li>
+                        <li><a href="interact.html">Interact</a></li>
+                        <li><a href="learn.html" style="color: #fbbf24;">Learn</a></li>
                         <li><a href="connect.html">Connect</a></li>
                     </ul>
                 </div>
@@ -230,16 +259,22 @@
         </div>
     </header>
     
+    <div class="breadcrumb">
+        <a href="learn.html" class="breadcrumb-item">Learn Mode</a>
+        <span class="breadcrumb-separator">›</span>
+        <span class="breadcrumb-current">Our Brands</span>
+    </div>
+    
     <section class="hero-section">
         <div class="container">
-            <div class="hero-icon">📊</div>
-            <h1 class="hero-title">Business Intelligence Tools</h1>
+            <div class="hero-icon">🏷️</div>
+            <h1 class="hero-title">Our Brands</h1>
             <p class="hero-subtitle">
-                Reality signals designed to help you analyze data, make informed decisions, and drive growth.
+                A portfolio of reality signals, shows, and experiences designed to inspire authenticity and transform consciousness.
             </p>
             <div class="coming-soon">
                 <h3>Coming Soon</h3>
-                <p>We're developing comprehensive BI tools including data analytics, market insights, performance tracking, and decision support. Check back soon for updates on our tool releases!</p>
+                <p>We're building a comprehensive portfolio of reality signals and shows at Reality Studio. Check back soon to explore our full brand ecosystem!</p>
             </div>
         </div>
     </section>
