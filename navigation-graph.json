@@ -4,7 +4,7 @@
     "website": "multisensory-experience-website",
     "analysisDate": "2026-01-31",
     "totalPages": 70,
-    "totalEdges": 400,
+    "totalEdges": 399,
     "description": "Complete navigation structure analysis for visualization"
   },
   "nodes": [
@@ -1286,14 +1286,6 @@
       "type": "primary",
       "weight": 2,
       "color": "#FFD700"
-    },
-    {
-      "source": "games.html",
-      "target": "unity-remix-contest.html",
-      "label": "Card",
-      "type": "secondary",
-      "weight": 1,
-      "color": "#67E8F9"
     },
     {
       "source": "games.html",
