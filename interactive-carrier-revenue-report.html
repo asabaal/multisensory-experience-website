@@ -878,18 +878,6 @@ footer {
   box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
 }
 
-.sidebar-status {
-  margin-top: 1.5rem;
-  padding-top: 1rem;
-  border-top: 1px solid #e2e8f0;
-  font-size: 0.85rem;
-  color: #64748b;
-}
-
-.sidebar-status.hidden {
-  display: none;
-}
-
 .sidebar-load-counter {
   margin-top: 1.5rem;
   padding-top: 1rem;
@@ -897,10 +885,6 @@ footer {
   font-size: 0.85rem;
   color: #64748b;
   text-align: center;
-}
-
-.sidebar-load-counter.hidden {
-  display: none;
 }
 
 .mobile-sidebar-toggle {
@@ -1121,7 +1105,7 @@ footer {
         <h3>How to Add Loads</h3>
         <p><strong>Option A:</strong> Use "Add Recommended Loads" for instant, realistic scenarios. These demonstrate effective operational patterns in Ohio market.</p>
         <p><strong>Option B:</strong> Use "Add Custom Load" to enter your own data and explore scenarios that matter to you. Maximum 3 custom loads (2 recommended + 3 custom = 5 total).</p>
-        <p><em>When you're ready, close this story to enable demo controls and try adding recommended loads to see how small strategic changes affect the report.</em></p>
+        <p><em>When you're ready, explore the demo controls and try adding recommended loads to see how small strategic changes affect the report.</em></p>
       </div>
       <div class="story-section">
         <h3>Why Recommended Loads Make Sense</h3>
@@ -1316,17 +1300,14 @@ footer {
       Demo Controls
     </div>
     <div class="sidebar-buttons">
-      <button id="btnAddRecommendedSidebar" class="sidebar-btn btn-sidebar-recommended" disabled>
+      <button id="btnAddRecommendedSidebar" class="sidebar-btn btn-sidebar-recommended">
         Add Recommended Loads
       </button>
-      <button id="btnAddCustomSidebar" class="sidebar-btn btn-sidebar-custom" disabled>
+      <button id="btnAddCustomSidebar" class="sidebar-btn btn-sidebar-custom">
         Add Custom Load
       </button>
     </div>
-    <div class="sidebar-status" id="sidebarStatus">
-      <p>Close story above to enable demo controls</p>
-    </div>
-    <div class="sidebar-load-counter hidden" id="sidebarLoadCounter">
+    <div class="sidebar-load-counter" id="sidebarLoadCounter">
       <p>Added: <strong><span id="loadCount">0</span>/5</strong></p>
       <p>(<span id="recommendedCount">0</span> rec + <span id="customCount">0</span> cust)</p>
     </div>
@@ -1915,7 +1896,6 @@ footer {
         const btnCloseStory = document.getElementById('btnCloseStory');
         const btnAddRecommendedSidebar = document.getElementById('btnAddRecommendedSidebar');
         const btnAddCustomSidebar = document.getElementById('btnAddCustomSidebar');
-        const sidebarStatus = document.getElementById('sidebarStatus');
         const sidebarLoadCounter = document.getElementById('sidebarLoadCounter');
         const btnCloseModal = document.getElementById('btnCloseModal');
         const modal = document.getElementById('customLoadModal');
@@ -1927,10 +1907,6 @@ footer {
 
         btnCloseStory.addEventListener('click', () => {
           document.getElementById('storyContext').classList.add('hidden');
-          sidebarStatus.classList.add('hidden');
-          sidebarLoadCounter.classList.remove('hidden');
-          btnAddRecommendedSidebar.disabled = false;
-          btnAddCustomSidebar.disabled = false;
         });
 
         btnAddRecommendedSidebar.addEventListener('click', handleAddRecommendedLoads);
