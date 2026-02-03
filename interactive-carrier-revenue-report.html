@@ -923,8 +923,102 @@ footer {
         align-items: center;
         gap: 10px;
     }
+
+.reflective-narrative {
+    background: rgba(59, 130, 246, 0.1);
+    border: 2px solid rgba(59, 130, 246, 0.3);
+    border-radius: 12px;
+    padding: 30px;
+    margin: 20px 0;
 }
- </style>
+
+.reflective-narrative.hidden {
+    display: none;
+}
+
+.narrative-block {
+    margin-bottom: 30px;
+    padding-bottom: 30px;
+    border-bottom: 1px solid rgba(59, 130, 246, 0.2);
+}
+
+.narrative-block:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.narrative-block h3 {
+    color: #3b82f6;
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+}
+
+.narrative-block p {
+    color: #e5e7eb;
+    line-height: 1.7;
+    margin-bottom: 12px;
+}
+
+.narrative-block ul {
+    list-style: none;
+    padding: 0;
+    margin: 15px 0;
+}
+
+.narrative-block li {
+    padding: 10px 0 10px 25px;
+    color: #d1d5db;
+    border-left: 3px solid #3b82f6;
+    background: rgba(59, 130, 246, 0.05);
+    border-radius: 0 8px;
+}
+
+.custom-load-section {
+    background: rgba(16, 185, 129, 0.1);
+    border: 2px solid rgba(16, 185, 129, 0.3);
+    border-radius: 12px;
+    padding: 30px;
+    margin: 20px 0;
+}
+
+.custom-load-section.hidden {
+    display: none;
+}
+
+.btn-add-custom {
+    background: linear-gradient(45deg, #10b981, #059669);
+    color: white;
+    padding: 14px 30px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.btn-add-custom:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4);
+}
+
+.btn-add-custom .toggle-icon {
+    transition: transform 0.3s ease;
+}
+
+.btn-add-custom.active .toggle-icon {
+    transform: rotate(90deg);
+}
+
+.add-load-form.collapsed {
+    display: none;
+}
+}
+  </style>
 </head>
 <body>
     <div class="demo-mode-banner">
@@ -957,27 +1051,6 @@ footer {
         </div>
     </header>
 
-    <div class="custom-load-toggle">
-        <button id="btnToggleCustom" class="btn-toggle-custom">
-            Custom Load Options
-            <span class="toggle-icon">▶</span>
-        </button>
-        <div id="customLoadOptions" class="custom-load-options collapsed">
-            <div class="custom-options-content">
-                <h4>Custom Load Guidance</h4>
-                <p><strong>Examples of effective local hauls:</strong></p>
-                <ul class="custom-examples">
-                    <li>Short intrastate moves (50-200 miles)</li>
-                    <li>Same-day reloads in strong markets</li>
-                    <li>High-revenue corridors (>$2.50/mile)</li>
-                    <li>Strategic repositioning before leaving region</li>
-                </ul>
-                <p class="custom-tip"><strong>Tip:</strong> Focus on high revenue per mile and low deadhead percentage to maximize profitability.</p>
-                <p><strong>Custom Load Limit:</strong> Maximum 3 custom loads (in addition to 2 recommended loads).</p>
-            </div>
-        </div>
-    </div>
-
     <div id="storyContext" class="story-context visible">
         <button class="btn-close-story" id="btnCloseStory">&times;</button>
         
@@ -1003,8 +1076,82 @@ footer {
                 </ul>
             </div>
         </div>
-        
-        <form id="addLoadForm" class="add-load-form">
+
+        <div id="recommendedLoadsPlaceholder" class="placeholder">
+            <button id="btnAddRecommended" class="btn-recommended disabled" disabled>
+                Add Recommended Loads
+            </button>
+            <p class="btn-info">Reads story above first</p>
+        </div>
+
+        <div class="load-counter">
+            Added: <span id="loadCount">0</span>/5
+            <span class="counter-breakdown">
+                (<span id="recommendedCount">0</span> rec + <span id="customCount">0</span> cust)
+            </span>
+        </div>
+    </div>
+
+    <div id="reflectiveNarrative" class="reflective-narrative hidden">
+        <div class="narrative-block">
+            <h3>You just saw a small strategic adjustment play out.</h3>
+            <p>Nothing dramatic changed. No new markets were added. No major repositioning occurred.</p>
+            <p>Just two short local decisions, placed intentionally, and the entire shape of the week shifted.</p>
+        </div>
+
+        <div class="narrative-block">
+            <h3>Now pause for a moment.</h3>
+            <p>Think about your own operation.</p>
+            <p><strong>If you manage carriers, how often do you have the opportunity to step back and ask:</strong></p>
+            <ul>
+                <li>What patterns am I actually reinforcing?</li>
+                <li>Where am I stabilizing, and where am I just reacting?</li>
+            </ul>
+            <p><strong>If you are a carrier, how often do you get to see:</strong></p>
+            <ul>
+                <li>Not just what you ran</li>
+                <li>But how small changes could have shifted your results?</li>
+            </ul>
+        </div>
+
+        <div class="narrative-block">
+            <h3>If you'd like, you can now add up to three custom loads.</h3>
+            <p>Try modeling something familiar.</p>
+            <ul>
+                <li>A lane you run often</li>
+                <li>A decision you make out of habit</li>
+                <li>Or a small adjustment you've wondered about but never tested</li>
+            </ul>
+            <p>Watch how the report responds.</p>
+        </div>
+
+        <div class="narrative-block">
+            <h3>This is what business intelligence actually looks like.</h3>
+            <p>It's not a static report.</p>
+            <p>It's a living history of your decisions, showing you how strategy, consistency, and timing compound over time.</p>
+            <p>When you receive these reports, you're not just looking at past performance.</p>
+            <p>You're building the ability to think strategically about the future.</p>
+        </div>
+
+        <div class="narrative-block">
+            <h3>Over time, these reports become more than summaries.</h3>
+            <p>They become a record of how your business thinks.</p>
+            <ul>
+                <li>What you prioritize.</li>
+                <li>What you avoid.</li>
+                <li>Where you improve.</li>
+            </ul>
+            <p>That's what turns reporting into real business intelligence.</p>
+        </div>
+    </div>
+
+    <div id="customLoadSection" class="custom-load-section hidden">
+        <button id="btnAddCustom" class="btn-add-custom">
+            Add Custom Load
+            <span class="toggle-icon">▶</span>
+        </button>
+
+        <form id="addLoadForm" class="add-load-form collapsed">
             <div class="form-row">
                 <div class="form-group">
                     <label>Date</label>
@@ -1047,21 +1194,6 @@ footer {
                 <button type="button" id="btnClear" class="btn-clear">Clear Form</button>
             </div>
         </form>
-        
-        <div id="recommendedLoadsPlaceholder" class="placeholder">
-            <button id="btnAddRecommended" class="btn-recommended disabled" disabled>
-                Add Recommended Loads
-            </button>
-            <p class="btn-info">Reads story above first</p>
-        </div>
-
-        <div class="load-counter">
-            Added: <span id="loadCount">0</span>/5
-            <span class="counter-breakdown">
-                (<span id="recommendedCount">0</span> rec + <span id="customCount">0</span> cust)
-            </span>
-        </div>
-    </div>
     </div>
 
     <main>
@@ -1610,17 +1742,28 @@ footer {
             const toCity = to.split(', ')[0].trim();
             return `${fromCity} → ${toCity}`;
         }
-        const MAX_ADDITIONAL_LOADS = 5;
     </script>
     <script>(function() {
     'use strict';
 
     function renderCharts() {
+        console.log('renderCharts called');
+
         const revenueCtx = document.getElementById('revenueChart');
         const brokerCtx = document.getElementById('brokerChart');
         const deadheadCtx = document.getElementById('deadheadChart');
 
-        if (revenueCtx) {
+        console.log('revenueCtx:', revenueCtx);
+        console.log('brokerCtx:', brokerCtx);
+        console.log('deadheadCtx:', deadheadCtx);
+
+        if (!revenueCtx || !brokerCtx || !deadheadCtx) {
+            console.error('One or more canvas elements not found');
+            return;
+        }
+
+        try {
+            if (revenueCtx) {
             const weeklyData = window.weeklyData || [];
             const labels = weeklyData.map(w => w.week);
             const revenue = weeklyData.map(w => w.revenue);
@@ -1738,6 +1881,11 @@ footer {
                 });
             }
         }
+
+        console.log('Charts rendered successfully');
+        } catch (error) {
+        console.error('Error rendering charts:', error);
+        }
     }
 
     function toggleWeekDetails(weekId) {
@@ -1774,18 +1922,18 @@ footer {
             alert('Recommended loads have already been added to this demo session.');
             return;
         }
-    
+
         RECOMMENDED_LOADS.forEach(load => {
             window.userAddedLoads.push(load);
         });
-    
+
         recommendedLoadCount = 2;
         addedLoadCount = customLoadCount + recommendedLoadCount;
-    
+
         document.getElementById('loadCount').textContent = addedLoadCount;
         document.getElementById('recommendedCount').textContent = recommendedLoadCount;
         document.getElementById('customCount').textContent = customLoadCount;
-    
+
         if (addedLoadCount >= MAX_ADDITIONAL_LOADS) {
             document.getElementById('btnAdd').disabled = true;
             document.getElementById('btnAddRecommended').disabled = true;
@@ -1793,7 +1941,20 @@ footer {
                 input.disabled = true;
             });
         }
-    
+
+        // Hide story context
+        document.getElementById('storyContext').classList.add('hidden');
+
+        // Reveal reflective narrative
+        document.getElementById('reflectiveNarrative').classList.remove('hidden');
+
+        // Reveal custom load section
+        document.getElementById('customLoadSection').classList.remove('hidden');
+
+        // Disable recommended loads button
+        document.getElementById('btnAddRecommended').disabled = true;
+        document.getElementById('btnAddRecommended').classList.add('disabled');
+
         recalculateTotals();
         renderWeeklyTable();
         renderCharts();
@@ -1981,11 +2142,11 @@ footer {
 
     document.getElementById('btnClear').addEventListener('click', clearForm);
 
-     // Custom load toggle
-    document.getElementById('btnToggleCustom').addEventListener('click', function() {
+    // Custom load toggle button
+    document.getElementById('btnAddCustom').addEventListener('click', function() {
         this.classList.toggle('active');
-        const options = document.getElementById('customLoadOptions');
-        options.classList.toggle('collapsed');
+        const form = document.getElementById('addLoadForm');
+        form.classList.toggle('collapsed');
     });
 
     // Story close
