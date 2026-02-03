@@ -743,32 +743,32 @@ footer {
     <div class="metrics-grid">
         <div class="metric">
             <div class="metric-label">Total Revenue</div>
-            <div class="metric-value currency">$5,872.74</div>
+            <div class="metric-value currency" id="totalRevenue">$5,872.74</div>
         </div>
         <div class="metric">
             <div class="metric-label">Total Loads</div>
-            <div class="metric-value">14</div>
+            <div class="metric-value" id="totalLoads">14</div>
         </div>
         <div class="metric">
             <div class="metric-label">Paid Miles</div>
-            <div class="metric-value">2,954</div>
+            <div class="metric-value" id="totalPaidMiles">2,954</div>
         </div>
         <div class="metric">
             <div class="metric-label">Deadhead Miles</div>
-            <div class="metric-value">243</div>
+            <div class="metric-value" id="totalDeadheadMiles">243</div>
         </div>
         <div class="metric">
             <div class="metric-label">Revenue per Loaded Mile</div>
-            <div class="metric-value currency">$1.99</div>
+            <div class="metric-value currency" id="revenuePerMile">$1.99</div>
             <div class="progress-bar">
-                <div class="progress-fill" style="width: 66.0%"></div>
+                <div class="progress-fill" id="revenuePerMileBar" style="width: 66.0%"></div>
             </div>
         </div>
         <div class="metric">
             <div class="metric-label">Deadhead Percentage</div>
-            <div class="metric-value warning">7.6%</div>
+            <div class="metric-value warning" id="deadheadPercentage">7.6%</div>
             <div class="progress-bar">
-                <div class="progress-fill warning" style="width: 92.0%"></div>
+                <div class="progress-fill warning" id="deadheadPercentageBar" style="width: 92.0%"></div>
             </div>
         </div>
     </div>
@@ -778,18 +778,18 @@ footer {
     <div class="metrics-grid">
         <div class="metric">
             <div class="metric-label">Capacity Utilization</div>
-            <div class="metric-value success">45%</div>
+            <div class="metric-value success" id="capacityUtilization">45%</div>
             <div class="progress-bar">
-                <div class="progress-fill success" style="width: 45.0%"></div>
+                <div class="progress-fill success" id="capacityUtilizationBar" style="width: 45.0%"></div>
             </div>
         </div>
         <div class="metric">
             <div class="metric-label">Relocations</div>
-            <div class="metric-value">0</div>
+            <div class="metric-value" id="relocations">0</div>
         </div>
         <div class="metric">
             <div class="metric-label">Revenue per Total Mile</div>
-            <div class="metric-value currency">$1.84</div>
+            <div class="metric-value currency" id="revenuePerTotalMile">$1.84</div>
         </div>
     </div>
 </section>
@@ -807,7 +807,7 @@ footer {
                 <th>$ per Mile</th>
             </tr>
         </thead>
-        <tbody>
+        <tbody id="weeklyTableBody">
             
             <tr class="week-row" data-week-id="1">
                 <td>01/05 - 01/11</td>
@@ -1479,7 +1479,7 @@ footer {
     }
 
     function renderWeeklyTable() {
-        const tbody = document.querySelector('.weekly-breakdown tbody') || document.getElementById('weeklyTableBody');
+        const tbody = document.getElementById('weeklyTableBody');
         if (!tbody) return;
 
         tbody.innerHTML = '';
@@ -1548,11 +1548,15 @@ footer {
 
     document.getElementById('btnClear').addEventListener('click', clearForm);
 
-    recalculateTotals();
-    renderWeeklyTable();
     if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', renderCharts);
+        document.addEventListener('DOMContentLoaded', function() {
+            recalculateTotals();
+            renderWeeklyTable();
+            renderCharts();
+        });
     } else {
+        recalculateTotals();
+        renderWeeklyTable();
         renderCharts();
     }
 })();
