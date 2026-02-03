@@ -490,6 +490,21 @@
             transform: scale(1.05);
         }
 
+        .email-alternative {
+            color: #9ca3af;
+            font-size: 1.1rem;
+        }
+
+        .email-alternative a {
+            color: #fbbf24;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        .email-alternative a:hover {
+            color: #fcd34d;
+        }
+
         /* Header Styles */
         .header {
             position: fixed;
@@ -772,6 +787,10 @@
                 <textarea class="contact-textarea" placeholder="Tell us about your vision, questions, or how you'd like to collaborate..." required></textarea>
                 <button type="submit" class="contact-submit">Send Message</button>
             </form>
+
+            <p class="email-alternative">
+                or email founder at <a href="mailto:asabaal@asabaalventures.me">asabaal@asabaalventures.me</a>
+            </p>
         </div>
     </section>
 
