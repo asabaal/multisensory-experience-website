@@ -475,40 +475,6 @@ footer {
   letter-spacing: 1px;
 }
 
-.add-load-section {
-  background: rgba(139, 92, 246, 0.1);
-  border: 2px solid rgba(139, 92, 246, 0.3);
-  border-radius: 15px;
-  padding: 25px;
-  margin: 20px auto;
-  max-width: 1200px;
-}
-
-.add-load-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 20px;
-}
-
-.add-load-title {
-  font-size: 1.5rem;
-  margin: 0;
-  color: #a78bfa;
-}
-
-.add-load-info {
-  font-size: 0.9rem;
-  color: #cbd5e1;
-  margin: 5px 0 0;
-}
-
-.load-counter {
-  font-size: 1rem;
-  font-weight: bold;
-  color: #fbbf24;
-}
-
 .add-load-form {
   display: grid;
   gap: 0;
@@ -565,106 +531,6 @@ footer {
   color: #9ca3af;
   margin-top: 5px;
   font-style: italic;
-}
-
-.custom-load-toggle {
-  margin-bottom: 15px;
-}
-
-.btn-toggle-custom {
-  background: rgba(107, 114, 128, 0.2);
-  color: #9ca3af;
-  border: 1px solid rgba(107, 114, 128, 0.3);
-  padding: 10px 20px;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-size: 0.9rem;
-}
-
-.btn-toggle-custom:hover {
-  background: rgba(107, 114, 128, 0.3);
-  border-color: rgba(107, 114, 128, 0.5);
-}
-
-.btn-toggle-custom.active .toggle-icon {
-  transform: rotate(90deg);
-}
-
-.toggle-icon {
-  transition: transform 0.3s ease;
-  display: inline-block;
-}
-
-.custom-load-options {
-  background: rgba(15, 23, 42, 0.5);
-  border: 1px solid rgba(107, 114, 128, 0.2);
-  border-radius: 8px;
-  padding: 20px;
-  margin-top: 10px;
-  display: none;
-}
-
-.custom-load-options.collapsed {
-  display: none;
-}
-
-.custom-load-options {
-  display: block;
-  animation: slideDown 0.3s ease;
-}
-
-@keyframes slideDown {
-  from { opacity: 0; transform: translateY(-10px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-.custom-options-content {
-  max-width: 600px;
-}
-
-.custom-options-content h4 {
-  color: #fbbf24;
-  font-size: 1.1rem;
-  margin-bottom: 15px;
-}
-
-.custom-options-content p {
-  color: #d1d5db;
-  line-height: 1.7;
-  margin-bottom: 15px;
-}
-
-.custom-examples {
-  list-style: none;
-  padding-left: 20px;
-  margin-bottom: 15px;
-}
-
-.custom-examples li {
-  padding: 8px 0;
-  color: #e5e7eb;
-  position: relative;
-}
-
-.custom-examples li:before {
-  content: "•";
-  position: absolute;
-  left: -20px;
-  color: #8b5cf6;
-  font-weight: bold;
-}
-
-.custom-tip {
-  background: rgba(139, 92, 246, 0.1);
-  border-left: 3px solid #8b5cf6;
-  padding: 10px 15px;
-  border-radius: 0 8px 0 8px;
-  font-style: italic;
-  color: #a78bfa;
 }
 
 .story-context {
@@ -799,69 +665,8 @@ footer {
   border-top: 1px solid rgba(251, 191, 36, 0.2);
 }
 
-.btn-recommended {
-  background: linear-gradient(45deg, #8b5cf6, #7c3aed);
-  color: white;
-  padding: 14px 30px;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  font-weight: bold;
-  font-size: 1rem;
-  transition: all 0.3s ease;
-}
-
-.btn-recommended:hover:not(:disabled) {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(139, 92, 246, 0.4);
-}
-
-.btn-recommended.disabled {
-  background: rgba(139, 92, 246, 0.3);
-  cursor: not-allowed;
-  opacity: 0.6;
-}
-
-.btn-info {
-  font-style: italic;
-  color: #9ca3af;
-  margin-top: 10px;
-  font-size: 0.9rem;
-}
-
 .lane-cell.city-lane {
   font-size: 0.95rem;
-}
-
-.load-counter {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.load-counter-text {
-  font-size: 1rem;
-  color: #e5e7eb;
-}
-
-.load-counter-breakdown {
-  font-size: 0.85rem;
-  color: #9ca3af;
-}
-
-#recommendedCount, #customCount {
-  color: #fbbf24;
-  font-weight: 600;
-}
-
-.lane-cell .lane-full {
-  display: block;
-  font-weight: 500;
-  color: #334155;
-}
-
-.lane-cell .lane-code {
-  display: none;
 }
 
 .lane-cell.recommended-row {
@@ -922,18 +727,6 @@ footer {
   box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3);
 }
 
-.user-added-row {
-  background: #e0f2fe !important;
-  border-left: 4px solid #0ea5e9;
-}
-
-.user-added-row .demo-badge {
-  font-size: 0.7rem;
-  padding: 2px 8px;
-  margin-left: 10px;
-  background: #0ea5e9;
-}
-
 .support-bar {
   display: flex;
   justify-content: flex-end;
@@ -945,12 +738,6 @@ footer {
     flex-direction: column;
     gap: 10px;
     text-align: center;
-  }
-
-  .add-load-header {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 10px;
   }
 
   .form-row {
@@ -1018,48 +805,223 @@ footer {
   border-radius: 0 8px;
 }
 
-.custom-load-section {
-  background: rgba(16, 185, 129, 0.1);
-  border: 2px solid rgba(16, 185, 129, 0.3);
-  border-radius: 12px;
-  padding: 30px;
-  margin: 20px 0;
+.dashboard-container {
+  display: grid;
+  grid-template-columns: 1fr 280px;
+  gap: 2rem;
+  align-items: start;
+  max-width: 1500px;
+  margin: 2rem auto;
+  padding: 0 1rem;
 }
 
-.custom-load-section.hidden {
-  display: none !important;
+.dashboard-sidebar {
+  background: #f8fafc;
+  border: 2px solid rgba(139, 92, 246, 0.3);
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 2rem;
+  height: fit-content;
 }
 
-.btn-add-custom {
-  background: linear-gradient(45deg, #10b981, #059669);
-  color: white;
-  padding: 14px 30px;
+.sidebar-header {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #8b5cf6;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid rgba(139, 92, 246, 0.3);
+  padding-bottom: 0.75rem;
+}
+
+.sidebar-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.sidebar-btn {
+  padding: 14px 20px;
   border: none;
   border-radius: 8px;
   cursor: pointer;
-  font-weight: bold;
-  font-size: 1rem;
+  font-weight: 600;
+  font-size: 0.9rem;
   transition: all 0.3s ease;
-  display: flex;
-  align-items: center;
-  gap: 10px;
+  width: 100%;
 }
 
-.btn-add-custom:hover {
+.sidebar-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  background: #e2e8f0;
+}
+
+.btn-sidebar-recommended {
+  background: linear-gradient(45deg, #8b5cf6, #7c3aed);
+  color: white;
+}
+
+.btn-sidebar-recommended:hover:not(:disabled) {
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4);
+  box-shadow: 0 4px 12px rgba(139, 92, 246, 0.3);
 }
 
-.btn-add-custom .toggle-icon {
-  transition: transform 0.3s ease;
+.btn-sidebar-custom {
+  background: linear-gradient(45deg, #10b981, #059669);
+  color: white;
 }
 
-.btn-add-custom.active .toggle-icon {
-  transform: rotate(90deg);
+.btn-sidebar-custom:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
 }
 
-.add-load-form.collapsed {
+.sidebar-status {
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid #e2e8f0;
+  font-size: 0.85rem;
+  color: #64748b;
+}
+
+.sidebar-status.hidden {
   display: none;
+}
+
+.sidebar-load-counter {
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid #e2e8f0;
+  font-size: 0.85rem;
+  color: #64748b;
+  text-align: center;
+}
+
+.sidebar-load-counter.hidden {
+  display: none;
+}
+
+.mobile-sidebar-toggle {
+  display: none;
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 1600;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: linear-gradient(45deg, #8b5cf6, #7c3aed);
+  color: white;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(139, 92, 246, 0.4);
+  font-size: 1.5rem;
+}
+
+.custom-load-modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 2000;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.custom-load-modal.active {
+  display: flex;
+}
+
+.modal-content {
+  background: #f8fafc;
+  border-radius: 0.5rem;
+  padding: 2rem;
+  max-width: 600px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.modal-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #0f172a;
+}
+
+.modal-close {
+  background: transparent;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #64748b;
+  padding: 5px 10px;
+}
+
+.modal-close:hover {
+  color: #0f172a;
+}
+
+@media (max-width: 1024px) {
+  .dashboard-container {
+    grid-template-columns: 1fr;
+  }
+
+  .dashboard-sidebar {
+    position: fixed;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 280px;
+    z-index: 1500;
+    border-radius: 0;
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+  }
+
+  .dashboard-sidebar.active {
+    transform: translateX(0);
+  }
+
+  .dashboard-sidebar::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1499;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+  }
+
+  .dashboard-sidebar.active::before {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .mobile-sidebar-toggle {
+    display: block;
+  }
+
+  body.sidebar-open {
+    overflow: hidden;
+  }
 }
 </style>
 </head>
@@ -1159,6 +1121,7 @@ footer {
         <h3>How to Add Loads</h3>
         <p><strong>Option A:</strong> Use "Add Recommended Loads" for instant, realistic scenarios. These demonstrate effective operational patterns in Ohio market.</p>
         <p><strong>Option B:</strong> Use "Add Custom Load" to enter your own data and explore scenarios that matter to you. Maximum 3 custom loads (2 recommended + 3 custom = 5 total).</p>
+        <p><em>When you're ready, close this story to enable demo controls and try adding recommended loads to see how small strategic changes affect the report.</em></p>
       </div>
       <div class="story-section">
         <h3>Why Recommended Loads Make Sense</h3>
@@ -1169,17 +1132,6 @@ footer {
           <li><strong>Operational Rhythm:</strong> Both loads on same day, then reposition out of market next day - typical market entry pattern.</li>
         </ul>
       </div>
-    </div>
-    <div id="recommendedLoadsPlaceholder" class="placeholder">
-      <button id="btnAddRecommended" class="btn-recommended">
-        Add Recommended Loads
-      </button>
-    </div>
-    <div class="load-counter">
-      Added: <span id="loadCount">0</span>/5
-      <span class="counter-breakdown">
-        (<span id="recommendedCount">0</span> rec + <span id="customCount">0</span> cust)
-      </span>
     </div>
   </div>
 
@@ -1232,57 +1184,8 @@ footer {
     </div>
   </div>
 
-  <div id="customLoadSection" class="custom-load-section hidden">
-    <button id="btnAddCustom" class="btn-add-custom">
-      Add Custom Load
-      <span class="toggle-icon">▶</span>
-    </button>
-    <form id="addLoadForm" class="add-load-form collapsed">
-      <div class="form-row">
-        <div class="form-group">
-          <label>Date</label>
-          <input type="date" id="loadDate" min="2026-01-05" max="2026-02-01" required>
-          <span class="input-helper">Jan 5 - Feb 1, 2026 only (demo period)</span>
-        </div>
-        <div class="form-group">
-          <label>From Location</label>
-          <input type="text" id="fromLocation" placeholder="e.g., Toledo, OH" required>
-        </div>
-        <div class="form-group">
-          <label>To Location</label>
-          <input type="text" id="toLocation" placeholder="e.g., Chicago, IL" required>
-        </div>
-      </div>
-      <div class="form-row">
-        <div class="form-group">
-          <label>Paid Miles</label>
-          <input type="number" id="paidMiles" min="0" step="0.1" placeholder="245" required>
-        </div>
-        <div class="form-group">
-          <label>Deadhead Miles</label>
-          <input type="number" id="deadheadMiles" min="0" step="0.1" placeholder="18" required>
-        </div>
-      </div>
-      <div class="form-row">
-        <div class="form-group">
-          <label>Rate ($)</label>
-          <input type="number" id="rate" min="0" step="0.01" placeholder="514.50" required>
-        </div>
-      </div>
-      <div class="form-row">
-        <div class="form-group">
-          <label>Broker Name</label>
-          <input type="text" id="brokerName" placeholder="e.g., Alpha" required>
-        </div>
-      </div>
-      <div class="form-actions">
-        <button type="submit" id="btnAdd" class="btn-add">Add Load</button>
-        <button type="button" id="btnClear" class="btn-clear">Clear Form</button>
-      </div>
-    </form>
-  </div>
-
-  <main>
+  <div class="dashboard-container">
+    <main>
     <section class="section summary">
       <h2>Executive Summary</h2>
       <div class="metrics-grid">
@@ -1408,6 +1311,30 @@ footer {
     </section>
   </main>
 
+  <aside class="dashboard-sidebar">
+    <div class="sidebar-header">
+      Demo Controls
+    </div>
+    <div class="sidebar-buttons">
+      <button id="btnAddRecommendedSidebar" class="sidebar-btn btn-sidebar-recommended" disabled>
+        Add Recommended Loads
+      </button>
+      <button id="btnAddCustomSidebar" class="sidebar-btn btn-sidebar-custom" disabled>
+        Add Custom Load
+      </button>
+    </div>
+    <div class="sidebar-status" id="sidebarStatus">
+      <p>Close story above to enable demo controls</p>
+    </div>
+    <div class="sidebar-load-counter hidden" id="sidebarLoadCounter">
+      <p>Added: <strong><span id="loadCount">0</span>/5</strong></p>
+      <p>(<span id="recommendedCount">0</span> rec + <span id="customCount">0</span> cust)</p>
+    </div>
+  </aside>
+</div>
+
+<button id="mobileSidebarToggle" class="mobile-sidebar-toggle">≡</button>
+
   <footer>
     <div class="footer-logo">
       <img
@@ -1418,6 +1345,58 @@ footer {
     </div>
     <p>Prepared for Demo Carrier</p>
   </footer>
+
+  <div id="customLoadModal" class="custom-load-modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title">Add Custom Load</h3>
+        <button id="btnCloseModal" class="modal-close">&times;</button>
+      </div>
+      <form id="modalLoadForm">
+        <div class="form-row">
+          <div class="form-group">
+            <label>Date</label>
+            <input type="date" id="modalLoadDate" min="2026-01-05" max="2026-02-01" required>
+            <span class="input-helper">Jan 5 - Feb 1, 2026 only (demo period)</span>
+          </div>
+          <div class="form-group">
+            <label>From Location</label>
+            <input type="text" id="modalFromLocation" placeholder="e.g., Toledo, OH" required>
+          </div>
+          <div class="form-group">
+            <label>To Location</label>
+            <input type="text" id="modalToLocation" placeholder="e.g., Chicago, IL" required>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Paid Miles</label>
+            <input type="number" id="modalPaidMiles" min="0" step="0.1" placeholder="245" required>
+          </div>
+          <div class="form-group">
+            <label>Deadhead Miles</label>
+            <input type="number" id="modalDeadheadMiles" min="0" step="0.1" placeholder="18" required>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Rate ($)</label>
+            <input type="number" id="modalRate" min="0" step="0.01" placeholder="514.50" required>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Broker Name</label>
+            <input type="text" id="modalBrokerName" placeholder="e.g., Alpha" required>
+          </div>
+        </div>
+        <div class="form-actions">
+          <button type="submit" id="btnModalAdd" class="btn-add">Add Load</button>
+          <button type="button" id="btnModalClear" class="btn-clear">Clear Form</button>
+        </div>
+      </form>
+    </div>
+  </div>
 
   <script>
     (function() {
@@ -1617,10 +1596,6 @@ footer {
         STATE.userLoads.push(newLoad);
         STATE.customLoadCount++;
         renderAll();
-
-        document.getElementById('addLoadForm').reset();
-        document.getElementById('addLoadForm').classList.add('collapsed');
-        document.getElementById('btnAddCustom').classList.remove('active');
       }
 
       function formatCurrency(value) {
@@ -1904,23 +1879,19 @@ footer {
       function renderNarrativeSections() {
         const storyContext = document.getElementById('storyContext');
         const reflectiveNarrative = document.getElementById('reflectiveNarrative');
-        const customLoadSection = document.getElementById('customLoadSection');
-        const btnAddRecommended = document.getElementById('btnAddRecommended');
+        const btnAddRecommendedSidebar = document.getElementById('btnAddRecommendedSidebar');
 
         if (STATE.recommendedLoadsAdded) {
           storyContext.classList.add('hidden');
           reflectiveNarrative.classList.remove('hidden');
-          customLoadSection.classList.remove('hidden');
         } else {
           storyContext.classList.remove('hidden');
           reflectiveNarrative.classList.add('hidden');
-          customLoadSection.classList.add('hidden');
         }
 
         if (STATE.recommendedLoadsAdded) {
-          btnAddRecommended.textContent = 'Recommended Loads Added';
-          btnAddRecommended.disabled = true;
-          btnAddRecommended.classList.add('disabled');
+          btnAddRecommendedSidebar.textContent = 'Recommended Loads Added';
+          btnAddRecommendedSidebar.disabled = true;
         }
       }
 
@@ -1942,48 +1913,85 @@ footer {
 
       function setupEventListeners() {
         const btnCloseStory = document.getElementById('btnCloseStory');
-        const btnAddRecommended = document.getElementById('btnAddRecommended');
-        const btnAddCustom = document.getElementById('btnAddCustom');
-        const addLoadForm = document.getElementById('addLoadForm');
-        const btnClear = document.getElementById('btnClear');
+        const btnAddRecommendedSidebar = document.getElementById('btnAddRecommendedSidebar');
+        const btnAddCustomSidebar = document.getElementById('btnAddCustomSidebar');
+        const sidebarStatus = document.getElementById('sidebarStatus');
+        const sidebarLoadCounter = document.getElementById('sidebarLoadCounter');
+        const btnCloseModal = document.getElementById('btnCloseModal');
+        const modal = document.getElementById('customLoadModal');
+        const modalLoadForm = document.getElementById('modalLoadForm');
+        const btnModalAdd = document.getElementById('btnModalAdd');
+        const btnModalClear = document.getElementById('btnModalClear');
+        const mobileSidebarToggle = document.getElementById('mobileSidebarToggle');
+        const dashboardSidebar = document.querySelector('.dashboard-sidebar');
 
         btnCloseStory.addEventListener('click', () => {
           document.getElementById('storyContext').classList.add('hidden');
-          const btnAddRec = document.getElementById('btnAddRecommended');
-          btnAddRec.disabled = false;
-          btnAddRec.classList.remove('disabled');
+          sidebarStatus.classList.add('hidden');
+          sidebarLoadCounter.classList.remove('hidden');
+          btnAddRecommendedSidebar.disabled = false;
+          btnAddCustomSidebar.disabled = false;
         });
 
-        btnAddRecommended.addEventListener('click', handleAddRecommendedLoads);
+        btnAddRecommendedSidebar.addEventListener('click', handleAddRecommendedLoads);
 
-        btnAddCustom.addEventListener('click', () => {
-          const form = document.getElementById('addLoadForm');
-          form.classList.toggle('collapsed');
-          btnAddCustom.classList.toggle('active');
+        btnAddCustomSidebar.addEventListener('click', () => {
+          modal.classList.add('active');
+          modalLoadForm.reset();
         });
 
-        addLoadForm.addEventListener('submit', (e) => {
+        btnCloseModal.addEventListener('click', () => {
+          modal.classList.remove('active');
+        });
+
+        modalLoadForm.addEventListener('submit', (e) => {
           e.preventDefault();
-          const formData = {
-            date: document.getElementById('loadDate').value,
-            fromLocation: document.getElementById('fromLocation').value,
-            toLocation: document.getElementById('toLocation').value,
-            paidMiles: document.getElementById('paidMiles').value,
-            deadheadMiles: document.getElementById('deadheadMiles').value,
-            rate: document.getElementById('rate').value,
-            brokerName: document.getElementById('brokerName').value
-          };
 
           if (STATE.customLoadCount >= STATE.maxCustomLoads) {
             alert('Maximum 3 custom loads allowed.');
             return;
           }
 
+          const formData = {
+            date: document.getElementById('modalLoadDate').value,
+            fromLocation: document.getElementById('modalFromLocation').value,
+            toLocation: document.getElementById('modalToLocation').value,
+            paidMiles: document.getElementById('modalPaidMiles').value,
+            deadheadMiles: document.getElementById('modalDeadheadMiles').value,
+            rate: document.getElementById('modalRate').value,
+            brokerName: document.getElementById('modalBrokerName').value
+          };
+
           handleAddCustomLoad(formData);
+          modal.classList.remove('active');
         });
 
-        btnClear.addEventListener('click', () => {
-          addLoadForm.reset();
+        btnModalClear.addEventListener('click', () => {
+          modalLoadForm.reset();
+        });
+
+        modal.addEventListener('click', (e) => {
+          if (e.target === modal) {
+            modal.classList.remove('active');
+          }
+        });
+
+        document.addEventListener('keydown', (e) => {
+          if (e.key === 'Escape' && modal.classList.contains('active')) {
+            modal.classList.remove('active');
+          }
+        });
+
+        mobileSidebarToggle.addEventListener('click', () => {
+          dashboardSidebar.classList.toggle('active');
+          document.body.classList.toggle('sidebar-open');
+        });
+
+        dashboardSidebar.addEventListener('click', (e) => {
+          if (window.innerWidth <= 1024 && e.target === dashboardSidebar) {
+            dashboardSidebar.classList.remove('active');
+            document.body.classList.remove('sidebar-open');
+          }
         });
       }
 
