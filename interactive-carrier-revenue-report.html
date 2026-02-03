@@ -1105,8 +1105,25 @@ footer {
         <h3>How to Add Loads</h3>
         <p><strong>Option A:</strong> Use "Add Recommended Loads" for instant, realistic scenarios. These demonstrate effective operational patterns in Ohio market.</p>
         <p><strong>Option B:</strong> Use "Add Custom Load" to enter your own data and explore scenarios that matter to you. Maximum 3 custom loads (2 recommended + 3 custom = 5 total).</p>
-        <p><em>When you're ready, explore the demo controls and try adding recommended loads to see how small strategic changes affect the report.</em></p>
+        <p><em>When you're ready, explore to demo controls and try adding recommended loads to see how small strategic changes affect the report.</em></p>
       </div>
+      <div class="story-section">
+        <h3>Preview: Recommended Loads</h3>
+        <div class="data-preview-table">
+          <table class="preview-table">
+            <thead>
+              <tr>
+                <th>Date</th>
+                <th>Lane</th>
+                <th>Paid Miles</th>
+                <th>Deadhead Miles</th>
+                <th>Revenue</th>
+                <th>RPM</th>
+              </tr>
+            </thead>
+            <tbody id="recommendedLoadsPreview"></tbody>
+          </table>
+        </div>
       <div class="story-section">
         <h3>Why Recommended Loads Make Sense</h3>
         <ul class="story-list">
@@ -1971,9 +1988,30 @@ footer {
         });
       }
 
+      function renderRecommendedLoadsPreview() {
+        const tbody = document.getElementById('recommendedLoadsPreview');
+        tbody.innerHTML = '';
+
+        RECOMMENDED_LOADS.forEach(load => {
+          const row = document.createElement('tr');
+          const rpm = load.paid_miles > 0 ? (load.revenue / load.paid_miles).toFixed(2) : '0.00';
+
+          row.innerHTML = `
+            <td>${load.date}</td>
+            <td>${load.origin_city}, ${load.origin_state} → ${load.destination_city}, ${load.destination_state}</td>
+            <td>${load.paid_miles}</td>
+            <td>${load.deadhead_miles}</td>
+            <td class="currency">$${load.revenue.toFixed(2)}</td>
+            <td class="currency">$${rpm}</td>
+          `;
+          tbody.appendChild(row);
+        });
+      }
+
       function init() {
         setupEventListeners();
         renderAll();
+        renderRecommendedLoadsPreview();
       }
 
       if (document.readyState === 'loading') {
