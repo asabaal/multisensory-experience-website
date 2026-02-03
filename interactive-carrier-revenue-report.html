@@ -561,6 +561,275 @@ footer {
     opacity: 0.6;
 }
 
+.input-helper {
+    display: block;
+    font-size: 0.75rem;
+    color: #9ca3af;
+    margin-top: 5px;
+    font-style: italic;
+}
+
+.custom-load-toggle {
+    margin-bottom: 15px;
+}
+
+.btn-toggle-custom {
+    background: rgba(107, 114, 128, 0.2);
+    color: #9ca3af;
+    border: 1px solid rgba(107, 114, 128, 0.3);
+    padding: 10px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.9rem;
+}
+
+.btn-toggle-custom:hover {
+    background: rgba(107, 114, 128, 0.3);
+    border-color: rgba(107, 114, 128, 0.5);
+}
+
+.btn-toggle-custom.active .toggle-icon {
+    transform: rotate(90deg);
+}
+
+.toggle-icon {
+    transition: transform 0.3s ease;
+    display: inline-block;
+}
+
+.custom-load-options {
+    background: rgba(15, 23, 42, 0.5);
+    border: 1px solid rgba(107, 114, 128, 0.2);
+    border-radius: 8px;
+    padding: 20px;
+    margin-top: 10px;
+    display: none;
+}
+
+.custom-load-options.collapsed {
+    display: none;
+}
+
+.custom-load-options {
+    display: block;
+    animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.custom-options-content {
+    max-width: 600px;
+}
+
+.custom-options-content h4 {
+    color: #fbbf24;
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+}
+
+.custom-options-content p {
+    color: #d1d5db;
+    line-height: 1.7;
+    margin-bottom: 15px;
+}
+
+.custom-examples {
+    list-style: none;
+    padding-left: 20px;
+    margin-bottom: 15px;
+}
+
+.custom-examples li {
+    padding: 8px 0;
+    color: #e5e7eb;
+    position: relative;
+}
+
+.custom-examples li:before {
+    content: "•";
+    position: absolute;
+    left: -20px;
+    color: #8b5cf6;
+    font-weight: bold;
+}
+
+.custom-tip {
+    background: rgba(139, 92, 246, 0.1);
+    border-left: 3px solid #8b5cf6;
+    padding: 10px 15px;
+    border-radius: 0 8px 0 8px;
+    font-style: italic;
+    color: #a78bfa;
+}
+
+.story-context {
+    background: rgba(251, 191, 36, 0.1);
+    border: 2px solid rgba(251, 191, 36, 0.3);
+    border-radius: 12px;
+    padding: 30px;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.story-context.hidden {
+    display: none;
+}
+
+.story-context.collapsed {
+    display: none;
+}
+
+.story-content {
+    max-width: 700px;
+}
+
+.story-section {
+    margin-bottom: 30px;
+}
+
+.story-section h3 {
+    color: #fbbf24;
+    font-size: 1.3rem;
+    margin-bottom: 12px;
+}
+
+.story-section p {
+    color: #e5e7eb;
+    line-height: 1.7;
+    margin-bottom: 12px;
+}
+
+.story-section strong {
+    color: #fbbf24;
+}
+
+.story-section em {
+    color: #f472b6;
+}
+
+.story-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 15px;
+}
+
+.story-list li {
+    padding: 12px 0 12px 25px;
+    color: #d1d5db;
+    border-left: 3px solid #fbbf24;
+    background: rgba(251, 191, 36, 0.05);
+    border-radius: 0 8px;
+}
+
+.story-list li strong {
+    color: #fbbf24;
+}
+
+.btn-close-story {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: transparent;
+    border: none;
+    color: #9ca3af;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 5px 10px;
+    line-height: 1;
+}
+
+.btn-close-story:hover {
+    color: #fbbf24;
+}
+
+.placeholder {
+    padding: 20px;
+    text-align: center;
+    border-top: 1px solid rgba(251, 191, 36, 0.2);
+}
+
+.btn-recommended {
+    background: linear-gradient(45deg, #8b5cf6, #7c3aed);
+    color: white;
+    padding: 14px 30px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.btn-recommended:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(139, 92, 246, 0.4);
+}
+
+.btn-recommended.disabled {
+    background: rgba(139, 92, 246, 0.3);
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+.btn-info {
+    font-style: italic;
+    color: #9ca3af;
+    margin-top: 10px;
+    font-size: 0.9rem;
+}
+
+.lane-cell.city-lane {
+    font-size: 0.95rem;
+}
+
+.load-counter {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.load-counter-text {
+    font-size: 1rem;
+    color: #e5e7eb;
+}
+
+.load-counter-breakdown {
+    font-size: 0.85rem;
+    color: #9ca3af;
+}
+
+#recommendedCount, #customCount {
+    color: #fbbf24;
+    font-weight: 600;
+}
+
+.lane-cell .lane-full {
+    display: block;
+    font-weight: 500;
+    color: #334155;
+}
+
+.lane-cell .lane-code {
+    display: none;
+}
+
+.lane-cell.recommended-row {
+    background: linear-gradient(135deg, rgba(139, 92, 246, 0.15), rgba(124, 58, 237, 0.15));
+    border-left: 4px solid #8b5cf6;
+}
+
+.recommended-row .lane-cell {
+    font-weight: 600;
+    color: #7c3aed;
+}
+
 .form-actions {
     display: flex;
     gap: 10px;
@@ -679,8 +948,8 @@ footer {
                 class="report-logo"
             >
         </div>
-        
-        <div class="header-text">
+         
+         <div class="header-text">
             <h1>Demo Carrier</h1>
             <p></p>
             <p class="report-period">Monthly Revenue Report</p>
@@ -688,18 +957,59 @@ footer {
         </div>
     </header>
 
-    <section class="add-load-section">
-        <div class="add-load-header">
-            <h2 class="add-load-title">Add Demo Load</h2>
-            <p class="add-load-info">Add up to 5 temporary load rows to test analytics. Original data is protected and cannot be edited.</p>
-            <div class="load-counter">Added: <span id="loadCount">0</span>/5</div>
+    <div class="custom-load-toggle">
+        <button id="btnToggleCustom" class="btn-toggle-custom">
+            Custom Load Options
+            <span class="toggle-icon">▶</span>
+        </button>
+        <div id="customLoadOptions" class="custom-load-options collapsed">
+            <div class="custom-options-content">
+                <h4>Custom Load Guidance</h4>
+                <p><strong>Examples of effective local hauls:</strong></p>
+                <ul class="custom-examples">
+                    <li>Short intrastate moves (50-200 miles)</li>
+                    <li>Same-day reloads in strong markets</li>
+                    <li>High-revenue corridors (>$2.50/mile)</li>
+                    <li>Strategic repositioning before leaving region</li>
+                </ul>
+                <p class="custom-tip"><strong>Tip:</strong> Focus on high revenue per mile and low deadhead percentage to maximize profitability.</p>
+                <p><strong>Custom Load Limit:</strong> Maximum 3 custom loads (in addition to 2 recommended loads).</p>
+            </div>
         </div>
+    </div>
 
+    <div id="storyContext" class="story-context visible">
+        <button class="btn-close-story" id="btnCloseStory">&times;</button>
+        
+        <div class="story-content">
+            <div class="story-section">
+                <h3>What This Demo Is</h3>
+                <p>This is a guided exploration sandbox showing how revenue reporting works for logistics carriers. All data is temporary and exists only in your browser session.</p>
+            </div>
+            
+            <div class="story-section">
+                <h3>How to Add Loads</h3>
+                <p><strong>Option A:</strong> Use "Add Recommended Loads" for instant, realistic scenarios. These demonstrate effective operational patterns in the Ohio market.</p>
+                <p><strong>Option B:</strong> Use "Add Custom Load" to enter your own data and explore scenarios that matter to you. Maximum 3 custom loads (2 recommended + 3 custom = 5 total).</p>
+            </div>
+            
+            <div class="story-section">
+                <h3>Why Recommended Loads Make Sense</h3>
+                <ul class="story-list">
+                    <li><strong>Market Entry Strategy:</strong> Columbus → Toledo demonstrates major freight corridor entry from state capital to regional hub.</li>
+                    <li><strong>Stabilization Pattern:</strong> Toledo → Cleveland shows reload strategy in strong Ohio market before longer runs.</li>
+                    <li><strong>Revenue Consistency:</strong> Short hauls maintain target revenue per mile ($2.19-$2.70) consistent with existing data quality.</li>
+                    <li><strong>Operational Rhythm:</strong> Both loads on same day, then reposition out of market next day - typical market entry pattern.</li>
+                </ul>
+            </div>
+        </div>
+        
         <form id="addLoadForm" class="add-load-form">
             <div class="form-row">
                 <div class="form-group">
                     <label>Date</label>
-                    <input type="date" id="loadDate" required>
+                    <input type="date" id="loadDate" min="2026-01-05" max="2026-02-01" required>
+                    <span class="input-helper">Jan 5 - Feb 1, 2026 only (demo period)</span>
                 </div>
                 <div class="form-group">
                     <label>From Location</label>
@@ -719,6 +1029,8 @@ footer {
                     <label>Deadhead Miles</label>
                     <input type="number" id="deadheadMiles" min="0" step="0.1" placeholder="18" required>
                 </div>
+            </div>
+            <div class="form-row">
                 <div class="form-group">
                     <label>Rate ($)</label>
                     <input type="number" id="rate" min="0" step="0.01" placeholder="514.50" required>
@@ -735,7 +1047,22 @@ footer {
                 <button type="button" id="btnClear" class="btn-clear">Clear Form</button>
             </div>
         </form>
-    </section>
+        
+        <div id="recommendedLoadsPlaceholder" class="placeholder">
+            <button id="btnAddRecommended" class="btn-recommended disabled" disabled>
+                Add Recommended Loads
+            </button>
+            <p class="btn-info">Reads story above first</p>
+        </div>
+
+        <div class="load-counter">
+            Added: <span id="loadCount">0</span>/5
+            <span class="counter-breakdown">
+                (<span id="recommendedCount">0</span> rec + <span id="customCount">0</span> cust)
+            </span>
+        </div>
+    </div>
+    </div>
 
     <main>
         <section class="section summary">
@@ -1061,8 +1388,8 @@ footer {
         </thead>
         <tbody>
             
-            <tr>
-                <td>OH-IL</td>
+             <tr>
+                <td class="lane-cell city-lane">Toledo, OH - Chicago, IL</td>
                 <td>3</td>
                 <td class="currency">$1,514.10</td>
                 <td class="currency">$504.70</td>
@@ -1243,9 +1570,46 @@ footer {
     <script>
         window.weeklyData = [{"daily_breakdown": [{"date": "2026-01-05", "deadhead_miles": 18.0, "load_count": 1, "paid_miles": 245.0, "revenue": 514.5}, {"date": "2026-01-07", "deadhead_miles": 14.0, "load_count": 1, "paid_miles": 245.0, "revenue": 490.0}, {"date": "2026-01-09", "deadhead_miles": 22.0, "load_count": 1, "paid_miles": 176.0, "revenue": 352.0}], "deadhead_miles": 54.0, "deadhead_percentage": 7.5, "entries": [{"broker": "Alpha", "deadhead_miles": 18.0, "distance_miles": 245.0, "dropoff_date": "2026-01-05T00:00:00", "from_location": "Toledo, OH", "load_number": "1", "pickup_date": "2026-01-05T00:00:00", "price": 514.5, "to_location": "Chicago, IL", "week": "01/05 - 01/11"}, {"broker": "Beta", "deadhead_miles": 14.0, "distance_miles": 245.0, "dropoff_date": "2026-01-07T00:00:00", "from_location": "Chicago, IL", "load_number": "2", "pickup_date": "2026-01-07T00:00:00", "price": 490.0, "to_location": "Toledo, OH", "week": "01/05 - 01/11"}, {"broker": "Gamma", "deadhead_miles": 22.0, "distance_miles": 176.0, "dropoff_date": "2026-01-09T00:00:00", "from_location": "Toledo, OH", "load_number": "3", "pickup_date": "2026-01-09T00:00:00", "price": 352.0, "to_location": "Indianapolis, IN", "week": "01/05 - 01/11"}], "load_deadhead_miles": 54.0, "loads": 3, "paid_miles": 666.0, "relocation_deadhead_miles": 0.0, "relocations": 0, "revenue": 1356.5, "revenue_per_mile": 1.88, "total_miles": 720.0, "week": "01/05 - 01/11"}, {"daily_breakdown": [{"date": "2026-01-12", "deadhead_miles": 16.0, "load_count": 1, "paid_miles": 176.0, "revenue": 343.2}, {"date": "2026-01-14", "deadhead_miles": 20.0, "load_count": 1, "paid_miles": 245.0, "revenue": 502.25}, {"date": "2026-01-16", "deadhead_miles": 12.0, "load_count": 1, "paid_miles": 245.0, "revenue": 477.75}], "deadhead_miles": 48.0, "deadhead_percentage": 6.72, "entries": [{"broker": "Delta", "deadhead_miles": 16.0, "distance_miles": 176.0, "dropoff_date": "2026-01-12T00:00:00", "from_location": "Indianapolis, IN", "load_number": "4", "pickup_date": "2026-01-12T00:00:00", "price": 343.2, "to_location": "Toledo, OH", "week": "01/12 - 01/18"}, {"broker": "Alpha", "deadhead_miles": 20.0, "distance_miles": 245.0, "dropoff_date": "2026-01-14T00:00:00", "from_location": "Toledo, OH", "load_number": "5", "pickup_date": "2026-01-14T00:00:00", "price": 502.25, "to_location": "Chicago, IL", "week": "01/12 - 01/18"}, {"broker": "Echo", "deadhead_miles": 12.0, "distance_miles": 245.0, "dropoff_date": "2026-01-16T00:00:00", "from_location": "Chicago, IL", "load_number": "6", "pickup_date": "2026-01-16T00:00:00", "price": 477.75, "to_location": "Toledo, OH", "week": "01/12 - 01/18"}], "load_deadhead_miles": 48.0, "loads": 3, "paid_miles": 666.0, "relocation_deadhead_miles": 0.0, "relocations": 0, "revenue": 1323.2, "revenue_per_mile": 1.85, "total_miles": 714.0, "week": "01/12 - 01/18"}, {"daily_breakdown": [{"date": "2026-01-19", "deadhead_miles": 19.0, "load_count": 1, "paid_miles": 176.0, "revenue": 344.96}, {"date": "2026-01-20", "deadhead_miles": 15.0, "load_count": 1, "paid_miles": 176.0, "revenue": 334.4}, {"date": "2026-01-22", "deadhead_miles": 24.0, "load_count": 1, "paid_miles": 214.0, "revenue": 438.7}, {"date": "2026-01-23", "deadhead_miles": 18.0, "load_count": 1, "paid_miles": 214.0, "revenue": 416.0}], "deadhead_miles": 76.0, "deadhead_percentage": 8.88, "entries": [{"broker": "Gamma", "deadhead_miles": 19.0, "distance_miles": 176.0, "dropoff_date": "2026-01-19T00:00:00", "from_location": "Toledo, OH", "load_number": "7", "pickup_date": "2026-01-19T00:00:00", "price": 344.96, "to_location": "Indianapolis, IN", "week": "01/19 - 01/25"}, {"broker": "Beta", "deadhead_miles": 15.0, "distance_miles": 176.0, "dropoff_date": "2026-01-20T00:00:00", "from_location": "Indianapolis, IN", "load_number": "8", "pickup_date": "2026-01-20T00:00:00", "price": 334.4, "to_location": "Toledo, OH", "week": "01/19 - 01/25"}, {"broker": "Alpha", "deadhead_miles": 24.0, "distance_miles": 214.0, "dropoff_date": "2026-01-22T00:00:00", "from_location": "Toledo, OH", "load_number": "9", "pickup_date": "2026-01-22T00:00:00", "price": 438.7, "to_location": "Detroit, MI", "week": "01/19 - 01/25"}, {"broker": "Delta", "deadhead_miles": 18.0, "distance_miles": 214.0, "dropoff_date": "2026-01-23T00:00:00", "from_location": "Detroit, MI", "load_number": "10", "pickup_date": "2026-01-23T00:00:00", "price": 416.0, "to_location": "Toledo, OH", "week": "01/19 - 01/25"}], "load_deadhead_miles": 76.0, "loads": 4, "paid_miles": 780.0, "relocation_deadhead_miles": 0.0, "relocations": 0, "revenue": 1534.06, "revenue_per_mile": 1.79, "total_miles": 856.0, "week": "01/19 - 01/25"}, {"daily_breakdown": [{"date": "2026-01-26", "deadhead_miles": 21.0, "load_count": 1, "paid_miles": 245.0, "revenue": 497.35}, {"date": "2026-01-27", "deadhead_miles": 13.0, "load_count": 1, "paid_miles": 245.0, "revenue": 487.55}, {"date": "2026-01-29", "deadhead_miles": 17.0, "load_count": 1, "paid_miles": 176.0, "revenue": 339.68}, {"date": "2026-01-30", "deadhead_miles": 14.0, "load_count": 1, "paid_miles": 176.0, "revenue": 334.4}], "deadhead_miles": 65.0, "deadhead_percentage": 7.17, "entries": [{"broker": "Alpha", "deadhead_miles": 21.0, "distance_miles": 245.0, "dropoff_date": "2026-01-26T00:00:00", "from_location": "Toledo, OH", "load_number": "11", "pickup_date": "2026-01-26T00:00:00", "price": 497.35, "to_location": "Chicago, IL", "week": "01/26 - 02/01"}, {"broker": "Gamma", "deadhead_miles": 13.0, "distance_miles": 245.0, "dropoff_date": "2026-01-27T00:00:00", "from_location": "Chicago, IL", "load_number": "12", "pickup_date": "2026-01-27T00:00:00", "price": 487.55, "to_location": "Toledo, OH", "week": "01/26 - 02/01"}, {"broker": "Beta", "deadhead_miles": 17.0, "distance_miles": 176.0, "dropoff_date": "2026-01-29T00:00:00", "from_location": "Toledo, OH", "load_number": "13", "pickup_date": "2026-01-29T00:00:00", "price": 339.68, "to_location": "Indianapolis, IN", "week": "01/26 - 02/01"}, {"broker": "Echo", "deadhead_miles": 14.0, "distance_miles": 176.0, "dropoff_date": "2026-01-30T00:00:00", "from_location": "Indianapolis, IN", "load_number": "14", "pickup_date": "2026-01-30T00:00:00", "price": 334.4, "to_location": "Toledo, OH", "week": "01/26 - 02/01"}], "load_deadhead_miles": 65.0, "loads": 4, "paid_miles": 842.0, "relocation_deadhead_miles": 0.0, "relocations": 0, "revenue": 1658.98, "revenue_per_mile": 1.83, "total_miles": 907.0, "week": "01/26 - 02/01"}];
         window.brokerData = {"Alpha": 4, "Beta": 3, "Delta": 2, "Echo": 2, "Gamma": 3};
-        window.deadheadData = [{"daily_breakdown": [{"date": "2026-01-05", "deadhead_miles": 18.0, "load_count": 1, "paid_miles": 245.0, "revenue": 514.5}, {"date": "2026-01-07", "deadhead_miles": 14.0, "load_count": 1, "paid_miles": 245.0, "revenue": 490.0}, {"date": "2026-01-09", "deadhead_miles": 22.0, "load_count": 1, "paid_miles": 176.0, "revenue": 352.0}], "deadhead_miles": 54.0, "deadhead_percentage": 7.5, "entries": [{"broker": "Alpha", "deadhead_miles": 18.0, "distance_miles": 245.0, "dropoff_date": "2026-01-05T00:00:00", "from_location": "Toledo, OH", "load_number": "1", "pickup_date": "2026-01-05T00:00:00", "price": 514.5, "to_location": "Chicago, IL", "week": "01/05 - 01/11"}, {"broker": "Beta", "deadhead_miles": 14.0, "distance_miles": 245.0, "dropoff_date": "2026-01-07T00:00:00", "from_location": "Chicago, IL", "load_number": "2", "pickup_date": "2026-01-07T00:00:00", "price": 490.0, "to_location": "Toledo, OH", "week": "01/05 - 01/11"}, {"broker": "Gamma", "deadhead_miles": 22.0, "distance_miles": 176.0, "dropoff_date": "2026-01-09T00:00:00", "from_location": "Toledo, OH", "load_number": "3", "pickup_date": "2026-01-09T00:00:00", "price": 352.0, "to_location": "Indianapolis, IN", "week": "01/05 - 01/11"}], "load_deadhead_miles": 54.0, "loads": 3, "paid_miles": 666.0, "relocation_deadhead_miles": 0.0, "relocations": 0, "revenue": 1356.5, "revenue_per_mile": 1.88, "total_miles": 720.0, "week": "01/05 - 01/11"}, {"daily_breakdown": [{"date": "2026-01-12", "deadhead_miles": 16.0, "load_count": 1, "paid_miles": 176.0, "revenue": 343.2}, {"date": "2026-01-14", "deadhead_miles": 20.0, "load_count": 1, "paid_miles": 245.0, "revenue": 502.25}, {"date": "2026-01-16", "deadhead_miles": 12.0, "load_count": 1, "paid_miles": 245.0, "revenue": 477.75}], "deadhead_miles": 48.0, "deadhead_percentage": 6.72, "entries": [{"broker": "Delta", "deadhead_miles": 16.0, "distance_miles": 176.0, "dropoff_date": "2026-01-12T00:00:00", "from_location": "Indianapolis, IN", "load_number": "4", "pickup_date": "2026-01-12T00:00:00", "price": 343.2, "to_location": "Toledo, OH", "week": "01/12 - 01/18"}, {"broker": "Alpha", "deadhead_miles": 20.0, "distance_miles": 245.0, "dropoff_date": "2026-01-14T00:00:00", "from_location": "Toledo, OH", "load_number": "5", "pickup_date": "2026-01-14T00:00:00", "price": 502.25, "to_location": "Chicago, IL", "week": "01/12 - 01/18"}, {"broker": "Echo", "deadhead_miles": 12.0, "distance_miles": 245.0, "dropoff_date": "2026-01-16T00:00:00", "from_location": "Chicago, IL", "load_number": "6", "pickup_date": "2026-01-16T00:00:00", "price": 477.75, "to_location": "Toledo, OH", "week": "01/12 - 01/18"}], "load_deadhead_miles": 48.0, "loads": 3, "paid_miles": 666.0, "relocation_deadhead_miles": 0.0, "relocations": 0, "revenue": 1323.2, "revenue_per_mile": 1.85, "total_miles": 714.0, "week": "01/12 - 01/18"}, {"daily_breakdown": [{"date": "2026-01-19", "deadhead_miles": 19.0, "load_count": 1, "paid_miles": 176.0, "revenue": 344.96}, {"date": "2026-01-20", "deadhead_miles": 15.0, "load_count": 1, "paid_miles": 176.0, "revenue": 334.4}, {"date": "2026-01-22", "deadhead_miles": 24.0, "load_count": 1, "paid_miles": 214.0, "revenue": 438.7}, {"date": "2026-01-23", "deadhead_miles": 18.0, "load_count": 1, "paid_miles": 214.0, "revenue": 416.0}], "deadhead_miles": 76.0, "deadhead_percentage": 8.88, "entries": [{"broker": "Gamma", "deadhead_miles": 19.0, "distance_miles": 176.0, "dropoff_date": "2026-01-19T00:00:00", "from_location": "Toledo, OH", "load_number": "7", "pickup_date": "2026-01-19T00:00:00", "price": 344.96, "to_location": "Indianapolis, IN", "week": "01/19 - 01/25"}, {"broker": "Beta", "deadhead_miles": 15.0, "distance_miles": 176.0, "dropoff_date": "2026-01-20T00:00:00", "from_location": "Indianapolis, IN", "load_number": "8", "pickup_date": "2026-01-20T00:00:00", "price": 334.4, "to_location": "Toledo, OH", "week": "01/19 - 01/25"}, {"broker": "Alpha", "deadhead_miles": 24.0, "distance_miles": 214.0, "dropoff_date": "2026-01-22T00:00:00", "from_location": "Toledo, OH", "load_number": "9", "pickup_date": "2026-01-22T00:00:00", "price": 438.7, "to_location": "Detroit, MI", "week": "01/19 - 01/25"}, {"broker": "Delta", "deadhead_miles": 18.0, "distance_miles": 214.0, "dropoff_date": "2026-01-23T00:00:00", "from_location": "Detroit, MI", "load_number": "10", "pickup_date": "2026-01-23T00:00:00", "price": 416.0, "to_location": "Toledo, OH", "week": "01/19 - 01/25"}], "load_deadhead_miles": 76.0, "loads": 4, "paid_miles": 780.0, "relocation_deadhead_miles": 0.0, "relocations": 0, "revenue": 1534.06, "revenue_per_mile": 1.79, "total_miles": 856.0, "week": "01/19 - 01/25"}, {"daily_breakdown": [{"date": "2026-01-26", "deadhead_miles": 21.0, "load_count": 1, "paid_miles": 245.0, "revenue": 497.35}, {"date": "2026-01-27", "deadhead_miles": 13.0, "load_count": 1, "paid_miles": 245.0, "revenue": 487.55}, {"date": "2026-01-29", "deadhead_miles": 17.0, "load_count": 1, "paid_miles": 176.0, "revenue": 339.68}, {"date": "2026-01-30", "deadhead_miles": 14.0, "load_count": 1, "paid_miles": 176.0, "revenue": 334.4}], "deadhead_miles": 65.0, "deadhead_percentage": 7.17, "entries": [{"broker": "Alpha", "deadhead_miles": 21.0, "distance_miles": 245.0, "dropoff_date": "2026-01-26T00:00:00", "from_location": "Toledo, OH", "load_number": "11", "pickup_date": "2026-01-26T00:00:00", "price": 497.35, "to_location": "Chicago, IL", "week": "01/26 - 02/01"}, {"broker": "Gamma", "deadhead_miles": 13.0, "distance_miles": 245.0, "dropoff_date": "2026-01-27T00:00:00", "from_location": "Chicago, IL", "load_number": "12", "pickup_date": "2026-01-27T00:00:00", "price": 487.55, "to_location": "Toledo, OH", "week": "01/26 - 02/01"}, {"broker": "Beta", "deadhead_miles": 17.0, "distance_miles": 176.0, "dropoff_date": "2026-01-29T00:00:00", "from_location": "Toledo, OH", "load_number": "13", "pickup_date": "2026-01-29T00:00:00", "price": 339.68, "to_location": "Indianapolis, IN", "week": "01/26 - 02/01"}, {"broker": "Echo", "deadhead_miles": 14.0, "distance_miles": 176.0, "dropoff_date": "2026-01-30T00:00:00", "from_location": "Indianapolis, IN", "load_number": "14", "pickup_date": "2026-01-30T00:00:00", "price": 334.4, "to_location": "Toledo, OH", "week": "01/26 - 02/01"}], "load_deadhead_miles": 65.0, "loads": 4, "paid_miles": 842.0, "relocation_deadhead_miles": 0.0, "relocations": 0, "revenue": 1658.98, "revenue_per_mile": 1.83, "total_miles": 907.0, "week": "01/26 - 02/01"}];
+        window.deadheadData = window.weeklyData;
+
         window.userAddedLoads = [];
         let addedLoadCount = 0;
+        const MAX_ADDITIONAL_LOADS = 5;
+
+        const RECOMMENDED_LOADS = [
+            {
+                date: "2026-01-21",
+                from_location: "Columbus, OH",
+                to_location: "Toledo, OH",
+                paid_miles: 142,
+                deadhead_miles: 8,
+                revenue: 312.40,
+                broker: "Recommended",
+                is_recommended: true
+            },
+            {
+                date: "2026-01-21",
+                from_location: "Toledo, OH",
+                to_location: "Cleveland, OH",
+                paid_miles: 116,
+                deadhead_miles: 6,
+                revenue: 284.60,
+                broker: "Recommended",
+                is_recommended: true
+            }
+        ];
+
+        let recommendedLoadsAdded = false;
+        let customLoadCount = 0;
+        let recommendedLoadCount = 0;
+        const MAX_CUSTOM_LOADS = 3;
+
+        function formatLaneCities(from, to) {
+            if (!from || !to) return '';
+            const fromCity = from.split(', ')[0].trim();
+            const toCity = to.split(', ')[0].trim();
+            return `${fromCity} → ${toCity}`;
+        }
         const MAX_ADDITIONAL_LOADS = 5;
     </script>
     <script>(function() {
@@ -1398,6 +1762,44 @@ footer {
     }
 
 
+    function formatLane(from, to) {
+        if (!from || !to) return '';
+        const fromState = from.split(', ').pop().trim().substring(0, 2).toUpperCase();
+        const toState = to.split(', ').pop().trim().substring(0, 2).toUpperCase();
+        return fromState + '-' + toState;
+    }
+
+    function addRecommendedLoads() {
+        if (recommendedLoadsAdded) {
+            alert('Recommended loads have already been added to this demo session.');
+            return;
+        }
+    
+        RECOMMENDED_LOADS.forEach(load => {
+            window.userAddedLoads.push(load);
+        });
+    
+        recommendedLoadCount = 2;
+        addedLoadCount = customLoadCount + recommendedLoadCount;
+    
+        document.getElementById('loadCount').textContent = addedLoadCount;
+        document.getElementById('recommendedCount').textContent = recommendedLoadCount;
+        document.getElementById('customCount').textContent = customLoadCount;
+    
+        if (addedLoadCount >= MAX_ADDITIONAL_LOADS) {
+            document.getElementById('btnAdd').disabled = true;
+            document.getElementById('btnAddRecommended').disabled = true;
+            document.querySelectorAll('.add-load-form input').forEach(input => {
+                input.disabled = true;
+            });
+        }
+    
+        recalculateTotals();
+        renderWeeklyTable();
+        renderCharts();
+        document.getElementById('addLoadForm').reset();
+    }
+
     function recalculateTotals() {
         let totalRevenue = 0;
         let totalLoads = 0;
@@ -1439,8 +1841,13 @@ footer {
     }
 
     function addLoad() {
+        if (customLoadCount >= MAX_CUSTOM_LOADS) {
+            alert('Maximum 3 custom loads allowed. Use "Add Recommended Loads" for additional scenarios.');
+            return;
+        }
+
         if (addedLoadCount >= MAX_ADDITIONAL_LOADS) {
-            alert('Maximum 5 additional rows allowed in demo mode.');
+            alert('Maximum 5 additional loads allowed in demo mode.');
             return;
         }
 
@@ -1456,12 +1863,15 @@ footer {
         };
 
         window.userAddedLoads.push(load);
+        customLoadCount++;
         addedLoadCount++;
 
         document.getElementById('loadCount').textContent = addedLoadCount;
+        document.getElementById('customCount').textContent = customLoadCount;
 
         if (addedLoadCount >= MAX_ADDITIONAL_LOADS) {
             document.getElementById('btnAdd').disabled = true;
+            document.getElementById('btnAddRecommended').disabled = true;
             document.querySelectorAll('.add-load-form input').forEach(input => {
                 input.disabled = true;
             });
@@ -1506,9 +1916,12 @@ footer {
 
             let dailyRowsHtml = '';
             if (week.daily_breakdown && week.daily_breakdown.length > 0) {
-                week.daily_breakdown.forEach(day => {
-                    dailyRowsHtml += '<tr>' +
+                week.daily_breakdown.forEach((day, dayIndex) => {
+                    const entry = week.entries ? week.entries[dayIndex] : null;
+                    const lane = entry ? formatLane(entry.from_location, entry.to_location) : '';
+                     dailyRowsHtml += '<tr>' +
                         '<td>' + day.date + '</td>' +
+                        '<td class="lane-cell city-lane">' + formatLaneCities(entry?.from_location, entry?.to_location) + '</td>' +
                         '<td>' + day.load_count + '</td>' +
                         '<td class="currency">$' + day.revenue.toFixed(2) + '</td>' +
                         '<td>' + day.paid_miles.toFixed(0) + '</td>' +
@@ -1517,11 +1930,12 @@ footer {
                 });
             }
 
-            detailRow.innerHTML = '<td colspan="6">' +
+            detailRow.innerHTML = '<td colspan="7">' +
                 '<table class="daily-breakdown-table">' +
                 '<thead>' +
                 '<tr>' +
                 '<th>Date</th>' +
+                '<th>Lane</th>' +
                 '<th>Load Count</th>' +
                 '<th>Revenue</th>' +
                 '<th>Paid Miles</th>' +
@@ -1542,14 +1956,19 @@ footer {
         if (window.userAddedLoads.length > 0) {
             window.userAddedLoads.forEach((load, index) => {
                 const tr = document.createElement('tr');
-                tr.classList.add('week-row', 'user-added-row');
-                tr.innerHTML = '<td>Added ' + (index + 1) + ' <span class="demo-badge">Demo</span></td>' +
+                const badgeText = load.is_recommended ? 'Recommended' : 'Demo';
+                const rowClass = load.is_recommended ? 'recommended-row' : 'user-added-row';
+                
+                tr.classList.add('week-row', rowClass);
+                tr.innerHTML = '<td>Added ' + (index + 1) + ' <span class="demo-badge">' + badgeText + '</span></td>' +
                     '<td class="currency">$' + load.revenue.toFixed(2) + '</td>' +
                     '<td>' + load.paid_miles.toFixed(0) + '</td>' +
                     '<td class="warning">' + load.deadhead_miles.toFixed(0) + '</td>' +
                     '<td>1</td>' +
                     '<td>0</td>' +
-                    '<td class="currency">$' + load.revenue.toFixed(2) + '</td>';
+                    '<td class="currency">$' + load.revenue.toFixed(2) + '</td>' +
+                    '<td class="lane-cell city-lane">' + formatLaneCities(load.from_location, load.to_location) + '</td>';
+                
                 tbody.appendChild(tr);
             });
         }
@@ -1562,6 +1981,23 @@ footer {
 
     document.getElementById('btnClear').addEventListener('click', clearForm);
 
+     // Custom load toggle
+    document.getElementById('btnToggleCustom').addEventListener('click', function() {
+        this.classList.toggle('active');
+        const options = document.getElementById('customLoadOptions');
+        options.classList.toggle('collapsed');
+    });
+
+    // Story close
+    document.getElementById('btnCloseStory').addEventListener('click', function() {
+        document.getElementById('storyContext').classList.add('hidden');
+        document.getElementById('btnAddRecommended').removeAttribute('disabled');
+        document.getElementById('btnAddRecommended').disabled = false;
+    });
+
+    // Recommended loads button
+    document.getElementById('btnAddRecommended').addEventListener('click', addRecommendedLoads);
+
     if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', function() {
             recalculateTotals();
@@ -1571,9 +2007,8 @@ footer {
     } else {
         recalculateTotals();
         renderWeeklyTable();
-        renderCharts();
-    }
-})();
-</script>
+            renderCharts();
+        }
+    })
 </body>
 </html>
