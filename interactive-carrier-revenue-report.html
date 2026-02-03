@@ -1503,6 +1503,20 @@ footer {
             const detailRow = document.createElement('tr');
             detailRow.id = 'daily-' + weekId;
             detailRow.classList.add('daily-breakdown-row');
+
+            let dailyRowsHtml = '';
+            if (week.daily_breakdown && week.daily_breakdown.length > 0) {
+                week.daily_breakdown.forEach(day => {
+                    dailyRowsHtml += '<tr>' +
+                        '<td>' + day.date + '</td>' +
+                        '<td>' + day.load_count + '</td>' +
+                        '<td class="currency">$' + day.revenue.toFixed(2) + '</td>' +
+                        '<td>' + day.paid_miles.toFixed(0) + '</td>' +
+                        '<td class="warning">' + day.deadhead_miles.toFixed(0) + '</td>' +
+                        '</tr>';
+                });
+            }
+
             detailRow.innerHTML = '<td colspan="6">' +
                 '<table class="daily-breakdown-table">' +
                 '<thead>' +
@@ -1514,7 +1528,7 @@ footer {
                 '<th>Deadhead Miles</th>' +
                 '</tr>' +
                 '</thead>' +
-                '<tbody></tbody>' +
+                '<tbody>' + dailyRowsHtml + '</tbody>' +
                 '</table>' +
                 '</td>';
 
