@@ -534,20 +534,36 @@ footer {
 }
 
 .story-context {
-  background: rgba(251, 191, 36, 0.1);
-  border: 2px solid rgba(251, 191, 36, 0.3);
+  background: linear-gradient(135deg, rgba(251, 191, 36, 0.08) 0%, rgba(245, 158, 11, 0.05) 100%);
+  border: 3px solid #fbbf24;
+  box-shadow: 0 4px 20px rgba(251, 191, 36, 0.15);
   border-radius: 12px;
   padding: 30px;
   margin-bottom: 20px;
   position: relative;
 }
 
-.story-context.hidden {
-  display: none !important;
+.story-section h3 {
+  color: #fbbf24;
+  text-shadow: 0 0 2px rgba(251, 191, 36, 0.1);
 }
 
-.story-context.collapsed {
-  display: none !important;
+.data-preview-table {
+  border: 2px solid #fbbf24;
+  box-shadow: 0 2px 8px rgba(251, 191, 36, 0.1);
+}
+
+.story-context.faded {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s ease;
+}
+
+.story-context.collapsed-sm {
+  max-height: 100px;
+  overflow: hidden;
+  opacity: 0.4;
+  transition: all 0.5s ease;
 }
 
 .story-content {
@@ -763,10 +779,6 @@ footer {
   margin: 20px 0;
 }
 
-.reflective-narrative.hidden {
-  display: none !important;
-}
-
 .narrative-block {
   margin-bottom: 30px;
   padding-bottom: 30px;
@@ -885,6 +897,49 @@ footer {
   font-size: 0.85rem;
   color: #64748b;
   text-align: center;
+}
+
+.sidebar-narrative {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+  border-top: 2px solid rgba(139, 92, 246, 0.3);
+  background: #f1f5f9;
+  border-radius: 0.5rem;
+  color: #1e293b;
+  line-height: 1.6;
+}
+
+.sidebar-narrative.hidden {
+  display: none;
+}
+
+.sidebar-narrative h3 {
+  color: #3b82f6;
+  font-size: 1.1rem;
+  margin-bottom: 0.75rem;
+  border-bottom: 1px solid rgba(139, 92, 246, 0.2);
+  padding-bottom: 0.5rem;
+}
+
+.sidebar-narrative p {
+  color: #475569;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  margin-bottom: 0.75rem;
+}
+
+.sidebar-narrative ul {
+  list-style: none;
+  padding: 0;
+  margin: 0.75rem 0;
+}
+
+.sidebar-narrative li {
+  padding: 8px 0 8px 12px;
+  color: #475569;
+  border-left: 3px solid #3b82f6;
+  background: rgba(59, 130, 246, 0.05);
+  border-radius: 0 8px;
 }
 
 .mobile-sidebar-toggle {
@@ -1039,7 +1094,6 @@ footer {
   </header>
 
   <div id="storyContext" class="story-context visible">
-    <button class="btn-close-story" id="btnCloseStory">&times;</button>
     <div class="story-content">
       <div class="story-section">
         <h3>What This Demo Is</h3>
@@ -1133,56 +1187,6 @@ footer {
           <li><strong>Operational Rhythm:</strong> Both loads on same day, then reposition out of market next day - typical market entry pattern.</li>
         </ul>
       </div>
-    </div>
-  </div>
-
-  <div id="reflectiveNarrative" class="reflective-narrative hidden">
-    <div class="narrative-block">
-      <h3>You just saw a small strategic adjustment play out.</h3>
-      <p>Nothing dramatic changed. No new markets were added. No major repositioning occurred.</p>
-      <p>Just two short local decisions, placed intentionally, and entire shape of week shifted.</p>
-    </div>
-    <div class="narrative-block">
-      <h3>Now pause for a moment.</h3>
-      <p>Think about your own operation.</p>
-      <p><strong>If you manage carriers, how often do you have the opportunity to step back and ask:</strong></p>
-      <ul>
-        <li>What patterns am I actually reinforcing?</li>
-        <li>Where am I stabilizing, and where am I just reacting?</li>
-      </ul>
-      <p><strong>If you are a carrier, how often do you get to see:</strong></p>
-      <ul>
-        <li>Not just what you ran</li>
-        <li>But how small changes could have shifted your results?</li>
-      </ul>
-    </div>
-    <div class="narrative-block">
-      <h3>If you'd like, you can now add up to three custom loads.</h3>
-      <p>Try modeling something familiar.</p>
-      <ul>
-        <li>A lane you run often</li>
-        <li>A decision you make out of habit</li>
-        <li>Or a small adjustment you've wondered about but never tested</li>
-      </ul>
-      <p>Watch how report responds.</p>
-    </div>
-    <div class="narrative-block">
-      <h3>This is what business intelligence actually looks like.</h3>
-      <p>It's not a static report.</p>
-      <p>It's a living history of your decisions, showing you how strategy, consistency, and timing compound over time.</p>
-      <p>When you receive these reports, you're not just looking at past performance.</p>
-      <p>You're building the ability to think strategically about the future.</p>
-    </div>
-    <div class="narrative-block">
-      <h3>Over time, these reports become more than summaries.</h3>
-      <p>They become a record of how your business thinks.</p>
-      <ul>
-        <li>What you prioritize.</li>
-        <li>What you avoid.</li>
-        <li>Where you improve.</li>
-      </ul>
-      <p>That's what turns reporting into real business intelligence.</p>
-    </div>
   </div>
 
   <div class="dashboard-container">
@@ -1328,6 +1332,53 @@ footer {
       <p>Added: <strong><span id="loadCount">0</span>/5</strong></p>
       <p>(<span id="recommendedCount">0</span> rec + <span id="customCount">0</span> cust)</p>
     </div>
+    <div class="sidebar-narrative hidden" id="sidebarNarrative">
+      <div class="narrative-block">
+        <h3>You just saw a small strategic adjustment play out.</h3>
+        <p>Nothing dramatic changed. No new markets were added. No major repositioning occurred.</p>
+        <p>Just two short local decisions, placed intentionally, and entire shape of week shifted.</p>
+      </div>
+      <div class="narrative-block">
+        <h3>Now pause for a moment.</h3>
+        <p>Think about your own operation.</p>
+        <p><strong>If you manage carriers, how often do you have the opportunity to step back and ask:</strong></p>
+        <ul>
+          <li>What patterns am I actually reinforcing?</li>
+          <li>Where am I stabilizing, and where am I just reacting?</li>
+        </ul>
+        <p><strong>If you are a carrier, how often do you get to see:</strong></p>
+        <ul>
+          <li>Not just what you ran</li>
+          <li>But how small changes could have shifted your results?</li>
+        </ul>
+      </div>
+      <div class="narrative-block">
+        <h3>If you'd like, you can now add up to three custom loads.</h3>
+        <p>Try modeling something familiar.</p>
+        <ul>
+          <li>A lane you run often</li>
+          <li>A decision you make out of habit</li>
+          <li>Or a small adjustment you've wondered about but never tested</li>
+        </ul>
+        <p>Watch how report responds.</p>
+      </div>
+      <div class="narrative-block">
+        <h3>This is what business intelligence actually looks like.</h3>
+        <p>It's not a static report.</p>
+        <p>It's a living history of your decisions, showing you how strategy, consistency, and timing compound over time.</p>
+        <p>When you receive these reports, you're not just looking at past performance.</p>
+        <p>You're building the ability to think strategically about the future.</p>
+      </div>
+      <div class="narrative-block">
+        <h3>Over time, these reports become more than summaries.</h3>
+        <p>They become a record of how your business thinks.</p>
+        <ul>
+          <li>What you prioritize.</li>
+          <li>What you avoid.</li>
+          <li>Where you improve.</li>
+        </ul>
+        <p>That's what turns reporting into real business intelligence.</p>
+      </div>
   </aside>
 </div>
 
@@ -1559,6 +1610,7 @@ footer {
         STATE.userLoads.push(...STATE.recommendedLoads);
         STATE.recommendedLoadsAdded = true;
         renderAll();
+        document.querySelector('.dashboard-container').scrollIntoView({ behavior: 'smooth', block: 'start' });
       }
 
       function handleAddCustomLoad(formData) {
@@ -1876,15 +1928,15 @@ footer {
 
       function renderNarrativeSections() {
         const storyContext = document.getElementById('storyContext');
-        const reflectiveNarrative = document.getElementById('reflectiveNarrative');
+        const sidebarNarrative = document.getElementById('sidebarNarrative');
         const btnAddRecommendedSidebar = document.getElementById('btnAddRecommendedSidebar');
 
         if (STATE.recommendedLoadsAdded) {
-          storyContext.classList.add('hidden');
-          reflectiveNarrative.classList.remove('hidden');
+          storyContext.classList.add('faded');
+          sidebarNarrative.classList.remove('hidden');
         } else {
-          storyContext.classList.remove('hidden');
-          reflectiveNarrative.classList.add('hidden');
+          storyContext.classList.remove('faded');
+          sidebarNarrative.classList.add('hidden');
         }
 
         if (STATE.recommendedLoadsAdded) {
@@ -1910,7 +1962,6 @@ footer {
       }
 
       function setupEventListeners() {
-        const btnCloseStory = document.getElementById('btnCloseStory');
         const btnAddRecommendedSidebar = document.getElementById('btnAddRecommendedSidebar');
         const btnAddCustomSidebar = document.getElementById('btnAddCustomSidebar');
         const sidebarLoadCounter = document.getElementById('sidebarLoadCounter');
@@ -1921,10 +1972,6 @@ footer {
         const btnModalClear = document.getElementById('btnModalClear');
         const mobileSidebarToggle = document.getElementById('mobileSidebarToggle');
         const dashboardSidebar = document.querySelector('.dashboard-sidebar');
-
-        btnCloseStory.addEventListener('click', () => {
-          document.getElementById('storyContext').classList.add('hidden');
-        });
 
         btnAddRecommendedSidebar.addEventListener('click', handleAddRecommendedLoads);
 
