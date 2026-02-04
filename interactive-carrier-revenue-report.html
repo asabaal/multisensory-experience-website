@@ -3,8 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Demo Carrier - Monthly Revenue Report</title>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+  <title>Interactive Carrier Revenue Report | Coming Soon</title>
   <style>* {
   margin: 0;
   padding: 0;
@@ -12,637 +11,291 @@
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  background: #f8fafc;
-  color: #1e293b;
-  line-height: 1.5;
+  font-family: 'Arial', sans-serif;
+  background: linear-gradient(135deg, #0f0f23 0%, #1a1a3e 25%, #2d1b69 50%, #4c1d95 75%, #6b21a8 100%);
+  color: #ffffff;
+  min-height: 100vh;
+  overflow-x: hidden;
+  line-height: 1.6;
+  padding-top: 70px;
 }
 
-.support-bar {
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.header {
   position: fixed;
   top: 0;
+  left: 0;
   right: 0;
+  background: rgba(15, 15, 35, 0.95);
+  backdrop-filter: blur(10px);
+  padding: 20px 0;
   z-index: 1000;
-  background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
-  padding: 0.75rem 1.5rem;
-  border-bottom-left-radius: 0.5rem;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.support-link {
-  color: white;
-  text-decoration: none;
-  font-size: 0.875rem;
-  font-weight: 600;
-  display: inline-flex;
+.nav {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
   align-items: center;
-  gap: 0.5rem;
-  transition: opacity 0.2s ease;
+  gap: 20px;
 }
 
-.support-link:hover {
-  opacity: 0.85;
-}
-
-header {
-  background: #1e293b;
-  color: #fff;
-  padding: 2rem;
-  padding-top: 3rem;
-}
-
-.report-header {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  gap: 1.5rem;
-}
-
-.logo-container {
-  flex: 0 0 auto;
-  max-width: 200px;
-  max-height: 80px;
+.nav-left {
   display: flex;
   align-items: center;
-  justify-content: center;
-}
-
-.header-text {
-  flex: 1 1 auto;
-  min-width: 0;
-  text-align: center;
-}
-
-.header-text h1 {
-  font-size: 2rem;
-  margin-bottom: 0.5rem;
-}
-
-.header-text p {
-  color: #cbd5e1;
-}
-
-.header-text .report-period {
-  margin-top: 0.5rem;
-  font-size: 0.875rem;
-  color: #94a3b8;
-}
-
-.header-text .report-subtitle {
-  margin-top: 0.25rem;
-  font-size: 0.875rem;
-  color: #cbd5e1;
-  font-style: italic;
-}
-
-.report-logo {
-  max-height: 80px;
-  max-width: 200px;
-  object-fit: contain;
-}
-
-main {
-  max-width: 1200px;
-  margin: 2rem auto;
-  padding: 0 1rem;
-}
-
-.section {
-  background: #f1f5f9;
-  border-radius: 0.5rem;
-  padding: 1.5rem;
-  margin-bottom: 2rem;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-}
-
-.section h2 {
-  font-size: 1.5rem;
-  margin-bottom: 1.5rem;
-  color: #0369a1;
-  border-bottom: 2px solid #0369a1;
-  padding-bottom: 0.5rem;
-}
-
-.metrics-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 1rem;
-}
-
-.metric {
-  background: #f8fafc;
-  border-radius: 0.5rem;
-  padding: 1.25rem;
-  text-align: center;
-}
-
-.metric-label {
-  font-size: 0.75rem;
-  color: #64748b;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  margin-bottom: 0.5rem;
-}
-
-.metric-value {
-  font-size: 1.5rem;
-  font-weight: 600;
-  color: #0f172a;
-}
-
-.metric-value.currency {
-  color: #0369a1;
-}
-
-.metric-value.success {
-  color: #10b981;
-}
-
-.metric-value.warning {
-  color: #ea580c;
-}
-
-td.currency {
-  font-weight: 600;
-  color: #0369a1;
-}
-
-td.warning {
-  font-weight: 600;
-  color: #ea580c;
-}
-
-table {
-  width: 100%;
-  border-collapse: collapse;
-}
-
-thead {
-  background: #f1f5f9;
-}
-
-th {
-  padding: 0.75rem 1rem;
-  text-align: left;
-  font-weight: 600;
-  font-size: 0.875rem;
-  color: #0369a1;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-}
-
-td {
-  padding: 0.75rem 1rem;
-  border-bottom: 1px solid #e2e8f0;
-}
-
-tbody tr:last-child td {
-  border-bottom: none;
-}
-
-tbody tr:hover {
-  background: #f8fafc;
-}
-
-tbody tr.week-row {
-  cursor: pointer;
-}
-
-tbody tr.week-row:hover {
-  background: #f0f9ff;
-}
-
-.daily-breakdown-row {
-  display: none;
-  background: #f8fafc;
-}
-
-.daily-breakdown-row.visible {
-  display: table-row;
-}
-
-.daily-breakdown-table {
-  margin: 0;
-  background: #f1f5f9;
-  border-radius: 0.375rem;
-  overflow: hidden;
-}
-
-.daily-breakdown-table th {
-  color: #475569;
-  font-size: 0.75rem;
-  padding: 0.5rem 0.75rem;
-}
-
-.daily-breakdown-table td {
-  padding: 0.5rem 0.75rem;
-  border-bottom: 1px solid #e2e8f0;
-  font-size: 0.875rem;
-}
-
-.broker-table {
-  margin-top: 1.5rem;
-}
-
-.broker-table td {
-  border-bottom: 1px solid #e2e8f0;
-}
-
-.broker-table tr:last-child td {
-  border-bottom: none;
-}
-
-.charts-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-  gap: 1.5rem;
-}
-
-.chart-wrapper {
-  background: #f8fafc;
-  border-radius: 0.5rem;
-  padding: 1.5rem;
-}
-
-.chart-wrapper h3 {
-  font-size: 1.125rem;
-  color: #475569;
-  margin-bottom: 1rem;
-  text-align: center;
-}
-
-.chart-caption {
-  font-size: 0.75rem;
-  color: #64748b;
-  text-align: center;
-  margin-top: 1rem;
-  font-style: italic;
-}
-
-.insights-list {
-  list-style: none;
-}
-
-.insight-item {
-  background: #f8fafc;
-  border-radius: 0.5rem;
-  padding: 1rem;
-  margin-bottom: 0.75rem;
-  border-left: 4px solid #cbd5e1;
-}
-
-.insight-item.level-excellent {
-  border-left-color: #22c55e;
-}
-
-.insight-item.level-good {
-  border-left-color: #3b82f6;
-}
-
-.insight-item.level-moderate {
-  border-left-color: #f59e0b;
-}
-
-.insight-item.level-needs_attention {
-  border-left-color: #f97316;
-}
-
-.insight-item.level-critical {
-  border-left-color: #ef4444;
-}
-
-.insight-item.level-info {
-  border-left-color: #64748b;
-}
-
-.insight-category {
-  display: block;
-  font-size: 0.75rem;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: #64748b;
-  margin-bottom: 0.25rem;
-}
-
-.insight-severity {
-  display: inline-block;
-  font-size: 0.75rem;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  padding: 0.125rem 0.5rem;
-  border-radius: 0.25rem;
-  background: #e2e8f0;
-  color: #475569;
-  margin-right: 0.5rem;
-}
-
-.insight-item.level-excellent .insight-severity {
-  background: #dcfce7;
-  color: #166534;
-}
-
-.insight-item.level-good .insight-severity {
-  background: #dbeafe;
-  color: #1e40af;
-}
-
-.insight-item.level-moderate .insight-severity {
-  background: #fef3c7;
-  color: #92400e;
-}
-
-.insight-item.level-needs_attention .insight-severity {
-  background: #ffedd5;
-  color: #9a3412;
-}
-
-.insight-item.level-critical .insight-severity {
-  background: #fee2e2;
-  color: #991b1b;
-}
-
-.insight-message {
-  color: #334155;
-}
-
-.insights-intro {
-  margin-bottom: 1.5rem;
-  color: #475569;
-  font-size: 0.875rem;
-  font-style: italic;
-}
-
-footer {
-  text-align: center;
-  padding: 2rem;
-  color: #64748b;
-  font-size: 0.875rem;
-}
-
-.footer-logo {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 1rem;
-}
-
-.footer-logo-image {
-  max-height: 40px;
-  max-width: 150px;
-  object-fit: contain;
-}
-
-@media (max-width: 768px) {
-  .report-header {
-    flex-direction: column;
-    gap: 1rem;
-  }
-
-  .logo-container {
-    order: 0;
-  }
-
-  .header-text {
-    order: 1;
-  }
-
-  .header-text h1 {
-    font-size: 1.5rem;
-  }
-
-  .metrics-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .charts-container {
-    grid-template-columns: 1fr;
-  }
-
-  th, td {
-    padding: 0.5rem;
-    font-size: 0.875rem;
-  }
-
-  table {
-    display: block;
-    overflow-x: auto;
-  }
-}
-
-.progress-bar {
-  height: 8px;
-  background: #e2e8f0;
-  border-radius: 4px;
-  margin-top: 0.5rem;
-  overflow: hidden;
-}
-
-.progress-fill {
-  height: 100%;
-  background: #3b82f6;
-  border-radius: 4px;
-  transition: width 0.3s ease;
-}
-
-.progress-fill.success {
-  background: #10b981;
-}
-
-.progress-fill.warning {
-  background: #f59e0b;
-}
-
-.demo-mode-banner {
-  background: rgba(139, 92, 246, 0.2);
-  border: 2px solid #8b5cf6;
-  border-radius: 10px;
-  padding: 12px 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin: 15px auto 20px;
-  max-width: 1200px;
-}
-
-.demo-badge {
-  background: #8b5cf6;
-  color: white;
-  padding: 5px 15px;
-  border-radius: 20px;
-  font-weight: bold;
-  font-size: 0.85rem;
-  letter-spacing: 1px;
-}
-
-.add-load-form {
-  display: grid;
-  gap: 0;
-}
-
-.form-row {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   gap: 15px;
-  margin-bottom: 15px;
+  justify-self: start;
 }
 
-.form-group {
+.nav-center {
+  justify-self: center;
+}
+
+.center-logo {
+  height: calc(100% - 10px);
+  width: auto;
+  max-height: 80px;
+}
+
+.nav-right {
+  justify-self: end;
+}
+
+.logo-image {
+  width: 40px;
+  height: 40px;
+  background: transparent;
+  border: 2px solid #fbbf24;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #0f0f23;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.logo-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.logo-text {
   display: flex;
   flex-direction: column;
 }
 
-.form-group label {
-  font-size: 0.85rem;
-  color: #d1d5db;
+.company-name {
+  font-size: 24px;
+  font-weight: bold;
+  background: linear-gradient(45deg, #fbbf24, #f59e0b, #d97706);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1;
+}
+
+.company-tagline {
+  font-size: 11px;
+  color: #9ca3af;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-top: 2px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 30px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links a {
+  color: #e5e7eb;
+  text-decoration: none;
+  transition: color 0.3s ease;
   font-weight: 500;
-  margin-bottom: 5px;
+  white-space: nowrap;
 }
 
-.form-group input {
-  padding: 10px 12px;
-  border: 1px solid rgba(139, 92, 246, 0.2);
-  border-radius: 8px;
-  background: rgba(15, 15, 35, 0.95);
-  color: white;
+.nav-links a:hover {
+  color: #fbbf24;
+}
+
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 20px 0;
   font-size: 0.9rem;
-  width: 100%;
-}
-
-.form-group input:focus {
-  outline: none;
-  border-color: #a78bfa;
-  box-shadow: 0 0 0 3px rgba(167, 139, 250, 0.2);
-}
-
-.form-group input::placeholder {
   color: #9ca3af;
 }
 
-.form-group input[disabled] {
-  background: rgba(30, 41, 59, 0.2);
-  cursor: not-allowed;
-  opacity: 0.6;
+.breadcrumb-item {
+  color: #e5e7eb;
+  text-decoration: none;
+  transition: color 0.3s ease;
 }
 
-.input-helper {
-  display: block;
+.breadcrumb-item:hover {
+  color: #fbbf24;
+}
+
+.breadcrumb-separator {
+  color: #6b7280;
+}
+
+.breadcrumb-current {
+  color: #9ca3af;
+  font-weight: 600;
+}
+
+.coming-soon-banner {
+  background: linear-gradient(135deg, rgba(139, 92, 246, 0.3), rgba(59, 130, 246, 0.3));
+  border: 2px solid rgba(139, 92, 246, 0.5);
+  border-radius: 20px;
+  padding: 40px;
+  margin: 40px 0;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.coming-soon-banner::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  width: 100%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(251, 191, 36, 0.1) 0%, transparent 70%);
+  animation: pulse 8s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.5; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.05); }
+}
+
+.coming-soon-badge {
+  display: inline-block;
+  background: linear-gradient(45deg, #f59e0b, #d97706);
+  color: white;
+  padding: 8px 20px;
+  border-radius: 25px;
+  font-weight: bold;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 20px;
+}
+
+.coming-soon-title {
+  font-size: 3rem;
+  margin-bottom: 15px;
+  background: linear-gradient(45deg, #fbbf24, #f472b6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1.2;
+}
+
+.coming-soon-description {
+  font-size: 1.1rem;
+  color: #d1d5db;
+  max-width: 600px;
+  margin: 0 auto 30px;
+  line-height: 1.7;
+}
+
+.preview-section {
+  padding: 60px 0;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  background: linear-gradient(45deg, #8b5cf6, #ec4899);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.section-description {
+  text-align: center;
+  color: #d1d5db;
+  max-width: 700px;
+  margin: 0 auto 40px;
+  font-size: 1.1rem;
+}
+
+.preview-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  margin-bottom: 40px;
+}
+
+.preview-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  padding: 25px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  text-align: center;
+}
+
+.preview-label {
   font-size: 0.75rem;
   color: #9ca3af;
-  margin-top: 5px;
-  font-style: italic;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
 }
 
-.story-context {
-  background: linear-gradient(135deg, rgba(251, 191, 36, 0.08) 0%, rgba(245, 158, 11, 0.05) 100%);
-  border: 3px solid #fbbf24;
-  box-shadow: 0 4px 20px rgba(251, 191, 36, 0.15);
-  border-radius: 12px;
+.preview-value {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #fbbf24;
+}
+
+.preview-table-container {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
   padding: 30px;
-  margin-bottom: 20px;
-  position: relative;
-}
-
-.story-section h3 {
-  color: #fbbf24;
-  text-shadow: 0 0 2px rgba(251, 191, 36, 0.1);
-}
-
-.data-preview-table {
-  border: 2px solid #fbbf24;
-  box-shadow: 0 2px 8px rgba(251, 191, 36, 0.1);
-}
-
-.story-context.faded {
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.5s ease;
-}
-
-.story-context.collapsed-sm {
-  max-height: 100px;
-  overflow: hidden;
-  opacity: 0.4;
-  transition: all 0.5s ease;
-}
-
-.story-content {
-  max-width: 700px;
-}
-
-.story-section {
-  margin-bottom: 30px;
-}
-
-.story-section h3 {
-  color: #fbbf24;
-  font-size: 1.3rem;
-  margin-bottom: 12px;
-}
-
-.story-section p {
-  color: #e5e7eb;
-  line-height: 1.7;
-  margin-bottom: 12px;
-}
-
-.story-section strong {
-  color: #fbbf24;
-}
-
-.story-section em {
-  color: #f472b6;
-}
-
-.story-list {
-  list-style: none;
-  padding: 0;
-  margin-top: 15px;
-}
-
-.story-list li {
-  padding: 12px 0 12px 25px;
-  color: #d1d5db;
-  border-left: 3px solid #fbbf24;
-  background: rgba(251, 191, 36, 0.05);
-  border-radius: 0 8px;
-}
-
-.story-list li strong {
-  color: #fbbf24;
-}
-
-.data-preview-table {
-  margin: 20px 0;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  margin-bottom: 40px;
   overflow-x: auto;
 }
 
 .preview-table {
   width: 100%;
   border-collapse: collapse;
-  font-size: 0.85rem;
-  background: rgba(251, 191, 36, 0.05);
-  border-radius: 8px;
-  overflow: hidden;
-}
-
-.preview-table thead {
-  background: rgba(251, 191, 36, 0.2);
 }
 
 .preview-table th {
-  padding: 12px 8px;
   text-align: left;
-  font-weight: 600;
+  padding: 15px;
   color: #fbbf24;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
   border-bottom: 2px solid rgba(251, 191, 36, 0.3);
 }
 
 .preview-table td {
-  padding: 10px 8px;
-  border-bottom: 1px solid rgba(251, 191, 36, 0.1);
+  padding: 15px;
   color: #e5e7eb;
-  vertical-align: top;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .preview-table tbody tr:last-child td {
@@ -650,1423 +303,328 @@ footer {
 }
 
 .preview-table tbody tr:hover {
-  background: rgba(251, 191, 36, 0.1);
+  background: rgba(251, 191, 36, 0.05);
 }
 
-.preview-table small {
-  color: #9ca3af;
-  font-size: 0.8rem;
+.feature-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  margin: 40px 0;
 }
 
-.btn-close-story {
-  position: absolute;
-  top: 15px;
-  right: 15px;
-  background: transparent;
-  border: none;
-  color: #9ca3af;
-  font-size: 1.5rem;
-  cursor: pointer;
-  padding: 5px 10px;
-  line-height: 1;
+.feature-item {
+  background: rgba(139, 92, 246, 0.1);
+  border-radius: 15px;
+  padding: 25px;
+  border: 1px solid rgba(139, 92, 246, 0.2);
 }
 
-.btn-close-story:hover {
-  color: #fbbf24;
+.feature-item h3 {
+  color: #8b5cf6;
+  font-size: 1.25rem;
+  margin-bottom: 10px;
 }
 
-.placeholder {
-  padding: 20px;
-  text-align: center;
-  border-top: 1px solid rgba(251, 191, 36, 0.2);
-}
-
-.lane-cell.city-lane {
+.feature-item p {
+  color: #d1d5db;
   font-size: 0.95rem;
+  line-height: 1.6;
 }
 
-.lane-cell.recommended-row {
-  background: linear-gradient(135deg, rgba(139, 92, 246, 0.15), rgba(124, 58, 237, 0.15));
-  border-left: 4px solid #8b5cf6;
-}
-
-.recommended-row .lane-cell {
-  font-weight: 600;
-  color: #7c3aed;
-}
-
-.form-actions {
-  display: flex;
-  gap: 10px;
+.back-button {
+  display: inline-flex;
   align-items: center;
+  gap: 10px;
+  color: #fbbf24;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 15px 25px;
+  background: rgba(251, 191, 36, 0.1);
+  border: 2px solid rgba(251, 191, 36, 0.3);
+  border-radius: 10px;
+  transition: all 0.3s ease;
   margin-top: 20px;
 }
 
-.btn-add {
-  padding: 12px 25px;
-  background: linear-gradient(45deg, #10b981, #059669);
-  color: white;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  font-weight: bold;
-  font-size: 0.9rem;
-  transition: all 0.3s ease;
-}
-
-.btn-add:hover:not(:disabled) {
+.back-button:hover {
+  background: rgba(251, 191, 36, 0.2);
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+  box-shadow: 0 5px 15px rgba(251, 191, 36, 0.2);
 }
 
-.btn-add:disabled {
-  background: rgba(107, 114, 128, 0.3);
-  cursor: not-allowed;
-  opacity: 0.6;
+.footer {
+  padding: 60px 0 40px;
+  background: rgba(0, 0, 0, 0.6);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  text-align: center;
+  margin-top: 60px;
 }
 
-.btn-clear {
-  padding: 12px 25px;
-  background: rgba(239, 68, 68, 0.8);
-  color: white;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  font-weight: bold;
-  font-size: 0.9rem;
-  transition: all 0.3s ease;
+.footer p {
+  color: #6b7280;
+  font-size: 1rem;
 }
 
-.btn-clear:hover {
-  background: rgba(220, 38, 38, 1);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3);
+.footer a {
+  color: #9ca3af;
+  text-decoration: none;
+  transition: color 0.3s ease;
 }
 
-.support-bar {
-  display: flex;
-  justify-content: flex-end;
-  gap: 15px;
+.footer a:hover {
+  color: #fbbf24;
 }
 
 @media (max-width: 768px) {
-  .demo-mode-banner {
-    flex-direction: column;
-    gap: 10px;
-    text-align: center;
+  .nav-links {
+    display: none;
   }
 
-  .form-row {
+  .coming-soon-title {
+    font-size: 2rem;
+  }
+
+  .preview-grid {
     grid-template-columns: 1fr;
   }
 
-  .form-actions {
-    flex-direction: column;
-  }
-
-  .support-bar {
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-  }
-}
-
-.reflective-narrative {
-  background: rgba(59, 130, 246, 0.1);
-  border: 2px solid rgba(59, 130, 246, 0.3);
-  border-radius: 12px;
-  padding: 30px;
-  margin: 20px 0;
-}
-
-.narrative-block {
-  margin-bottom: 30px;
-  padding-bottom: 30px;
-  border-bottom: 1px solid rgba(59, 130, 246, 0.2);
-}
-
-.narrative-block:last-child {
-  border-bottom: none;
-  margin-bottom: 0;
-  padding-bottom: 0;
-}
-
-.narrative-block h3 {
-  color: #3b82f6;
-  font-size: 1.3rem;
-  margin-bottom: 15px;
-}
-
-.narrative-block p {
-  color: #e5e7eb;
-  line-height: 1.7;
-  margin-bottom: 12px;
-}
-
-.narrative-block ul {
-  list-style: none;
-  padding: 0;
-  margin: 15px 0;
-}
-
-.narrative-block li {
-  padding: 10px 0 10px 25px;
-  color: #d1d5db;
-  border-left: 3px solid #3b82f6;
-  background: rgba(59, 130, 246, 0.05);
-  border-radius: 0 8px;
-}
-
-.dashboard-container {
-  display: grid;
-  grid-template-columns: 1fr 280px;
-  gap: 2rem;
-  align-items: start;
-  max-width: 1500px;
-  margin: 2rem auto;
-  padding: 0 1rem;
-}
-
-.dashboard-sidebar {
-  background: #f8fafc;
-  border: 2px solid rgba(139, 92, 246, 0.3);
-  border-radius: 0.5rem;
-  padding: 1.5rem;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  position: sticky;
-  top: 2rem;
-  height: fit-content;
-}
-
-.sidebar-header {
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: #8b5cf6;
-  margin-bottom: 1.5rem;
-  border-bottom: 1px solid rgba(139, 92, 246, 0.3);
-  padding-bottom: 0.75rem;
-}
-
-.sidebar-buttons {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-
-.sidebar-btn {
-  padding: 14px 20px;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  font-weight: 600;
-  font-size: 0.9rem;
-  transition: all 0.3s ease;
-  width: 100%;
-}
-
-.sidebar-btn:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
-  background: #e2e8f0;
-}
-
-.btn-sidebar-recommended {
-  background: linear-gradient(45deg, #8b5cf6, #7c3aed);
-  color: white;
-}
-
-.btn-sidebar-recommended:hover:not(:disabled) {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(139, 92, 246, 0.3);
-}
-
-.btn-sidebar-custom {
-  background: linear-gradient(45deg, #10b981, #059669);
-  color: white;
-}
-
-.btn-sidebar-custom:hover:not(:disabled) {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
-}
-
-.sidebar-load-counter {
-  margin-top: 1.5rem;
-  padding-top: 1rem;
-  border-top: 1px solid #e2e8f0;
-  font-size: 0.85rem;
-  color: #64748b;
-  text-align: center;
-}
-
-.sidebar-narrative {
-  margin-top: 1.5rem;
-  padding: 1.5rem;
-  border-top: 2px solid rgba(139, 92, 246, 0.3);
-  background: #f1f5f9;
-  border-radius: 0.5rem;
-  color: #1e293b;
-  line-height: 1.6;
-}
-
-.sidebar-narrative.hidden {
-  display: none;
-}
-
-.sidebar-narrative h3 {
-  color: #3b82f6;
-  font-size: 1.1rem;
-  margin-bottom: 0.75rem;
-  border-bottom: 1px solid rgba(139, 92, 246, 0.2);
-  padding-bottom: 0.5rem;
-}
-
-.sidebar-narrative p {
-  color: #475569;
-  font-size: 0.9rem;
-  line-height: 1.6;
-  margin-bottom: 0.75rem;
-}
-
-.sidebar-narrative ul {
-  list-style: none;
-  padding: 0;
-  margin: 0.75rem 0;
-}
-
-.sidebar-narrative li {
-  padding: 8px 0 8px 12px;
-  color: #475569;
-  border-left: 3px solid #3b82f6;
-  background: rgba(59, 130, 246, 0.05);
-  border-radius: 0 8px;
-}
-
-.mobile-sidebar-toggle {
-  display: none;
-  position: fixed;
-  bottom: 2rem;
-  right: 2rem;
-  z-index: 1600;
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  background: linear-gradient(45deg, #8b5cf6, #7c3aed);
-  color: white;
-  border: none;
-  cursor: pointer;
-  box-shadow: 0 4px 12px rgba(139, 92, 246, 0.4);
-  font-size: 1.5rem;
-}
-
-.custom-load-modal {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.5);
-  z-index: 2000;
-  align-items: center;
-  justify-content: center;
-  padding: 2rem;
-}
-
-.custom-load-modal.active {
-  display: flex;
-}
-
-.modal-content {
-  background: #f8fafc;
-  border-radius: 0.5rem;
-  padding: 2rem;
-  max-width: 600px;
-  width: 100%;
-  max-height: 90vh;
-  overflow-y: auto;
-  position: relative;
-}
-
-.modal-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 1.5rem;
-}
-
-.modal-title {
-  font-size: 1.25rem;
-  font-weight: 600;
-  color: #0f172a;
-}
-
-.modal-close {
-  background: transparent;
-  border: none;
-  font-size: 1.5rem;
-  cursor: pointer;
-  color: #64748b;
-  padding: 5px 10px;
-}
-
-.modal-close:hover {
-  color: #0f172a;
-}
-
-@media (max-width: 1024px) {
-  .dashboard-container {
-    grid-template-columns: 1fr;
-  }
-
-  .dashboard-sidebar {
-    position: fixed;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    width: 280px;
-    z-index: 1500;
-    border-radius: 0;
-    transform: translateX(100%);
-    transition: transform 0.3s ease;
-  }
-
-  .dashboard-sidebar.active {
-    transform: translateX(0);
-  }
-
-  .dashboard-sidebar::before {
-    content: '';
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.5);
-    z-index: 1499;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    pointer-events: none;
-  }
-
-  .dashboard-sidebar.active::before {
-    opacity: 1;
-    pointer-events: auto;
-  }
-
-  .mobile-sidebar-toggle {
-    display: block;
-  }
-
-  body.sidebar-open {
-    overflow: hidden;
+  .section-title {
+    font-size: 2rem;
   }
 }
 </style>
 </head>
 <body>
-  <div class="demo-mode-banner">
-    <span class="demo-badge">DEMO MODE</span>
-    <span>Changes are temporary and not saved to any backend</span>
-  </div>
-  <div class="support-bar">
-    <a href="dispatch-revenue-reporting.html" class="support-link">
-      &larr; Back to Pricing
-    </a>
-    <a href="https://asabaalventures.me/advancements-by-asabaal.html" target="_blank" class="support-link">
-      Need Help? Have Questions?
-    </a>
-  </div>
-  <header class="report-header">
-    <div class="logo-container">
-      <img
-        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZAAAAGQCAYAAACAvzbMAAAACXBIWXMAAAXYAAAF2AEJGiq9AAADfmlUWHRYTUw6Y29tLmFkb2JlLnhtcAAAAAAAPD94cGFja2V0IGJlZ2luPSfvu78nIGlkPSdXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQnPz4KPHg6eG1wbWV0YSB4bWxuczp4PSdhZG9iZTpuczptZXRhLyc+CjxyZGY6UkRGIHhtbG5zOnJkZj0naHR0cDovL3d3dy53My5vcmcvMTk5OS8wMi8yMi1yZGYtc3ludGF4LW5zJyc+CgogPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9JycKICB4bWxuczpBdHRyaWI9J2h0dHA6Ly9ucy5hdHRyaWJ1dGlvbi5jb20vYWRzLzEuMC8nPgogIDxBdHRyaWI6QWRzPgogICA8cmRmOlNlcT4KICAgIDxyZGY6bGkgcmRmOnBhcnNlVHlwZT0nUmVzb3VyY2UnPgogICAgIDxBdHRyaWI6Q3JlYXRlZD4yMDI1LTA3LTIwPC9BdHRyaWI6Q3JlYXRlZD4KICAgICA8QXR0cmliOkV4dElkPmQ2MWFmYzc2LTcwZTUtNDUyZS04MjU3LTRhYTRiYTllODA0NzwvQXR0cmliOkV4dElkPgogICAgIDxBdHRyaWI6RmJJZD41MjUyNjU5MTQxNzk1ODA8L0F0dHJpYjpGYklkPgogICAgIDxBdHRyaWI6VG91Y2hUeXBlPjI8L0F0dHJpYjpUb3VjaFR5cGU+CiAgICA8L3JkZjpsaT4KICAgPC9yZGY6U2VxPgogIDwvQXR0cmliOkFkcz4KIDwvcmRmOkRlc2NyaXB0aW9uPgoKIDxyZGY6RGVzY3JpcHRpb24gcmRmOmFib3V0PScnCiAgeG1sbnM6ZGM9J2h0dHA6Ly9wdXJsLm9yZy9kYy9lbGVtZW50cy8xLjEvJz4KICA8ZGM6dGl0bGU+CiAgIDxyZGY6QWx0PgogICAgPHJkZjpsaSB4bWw6bGFuZz0neC1kZWZhdWx0Jz5NaW5pbWFsaXN0IEJsdWUgTG9nbyBmb3IgVFNIaWxsIExvZ2lzdGljcyBMTEMgLSAxPC9yZGY6bGk+CiAgIDwvcmRmOkFsdD4KICA8L2RjOnRpdGxlPgogPC9yZGY6RGVzY3JpcHRpb24+CjwvcmRmOlJERj4KPC94OnhtcG1ldGE+Cjw/eHBhY2tldCBlbmQ9J3InPz5ZniwsAAGDU0lEQVR4nOy9WawsSXrf9/sisqrOuVvfe/ve3nt6mWmxh0MOZdIkLFEcyzAsioJkW4AfbAEGJOjBL7aeBAMGLIC2LMCCDVuGNj+IlgQ9+NWiCMESRJEWKQ4pLuIynH2GPd3T09vdl7NUZcTnh4jIjMzKqsw6p845de6tf/e5tWVGRkZGfPv3hTz/6k+oiCAi9CE/QjS8qiigoM3fAVS1t10TzsZnF1CJn+Pvg6DdRwoeje3mfRGt72GuKV3wwxqhEu87din13iAL+zWo3TX3ve8Zas+0WeVeUt+HzMVlbSw7vz1LfOdR67veSSOtnzTMHm08E5Ew0SRbnwrVh+PMNcief8f6X+n89Lk1nsv6N2Tc2+shP2fIWumbL+uc/0PQHp/Tur6qds71YijzWNxyOFeY7+nQdiX+qaY3cIZr8sRRLfhzcI99z3CdC2QdhLivjeMyjFWvdxrQ7FVEmvOqg7A31tqaLn7UptrzRxA6SMmZoW++rJtB9KE9307r+jmfyBlvYYyZ+3Klhqt/tWIEOVZZsPnErgbm7NfnWlExjmydSP7jE3a/W5wscubRNXcWTadqrR0T0np/nPX/tOGstddVISJzfKLIf+xtgG6VMKjHlqhAN34bOktzVVyy/vSpaH2Mb04iG4ClJpvjrrq0yqRmvSb76bg4i"
-        alt="TS Hill Logistics LLC logo"
-        class="report-logo"
-      >
-    </div>
-    <div class="header-text">
-      <h1>Demo Carrier</h1>
-      <p></p>
-      <p class="report-period">Monthly Revenue Report</p>
-      <p class="report-subtitle">Auto-generated Revenue Performance Report</p>
+  <header class="header">
+    <div class="container">
+      <nav class="nav">
+        <div class="nav-left">
+          <div class="logo-image">
+            <img src="assets/images/icons/favicon.svg" alt="Asabaal Ventures Logo">
+          </div>
+          <div class="logo-text">
+            <div class="company-name">Asabaal Ventures</div>
+            <div class="company-tagline">Reality Studio</div>
+          </div>
+        </div>
+        
+        <div class="nav-center">
+          <img src="assets/images/logos/Asabaal Ventures.png" alt="Asabaal Ventures" class="center-logo">
+        </div>
+        
+        <div class="nav-right">
+          <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="consume.html">Consume</a></li>
+            <li><a href="interact.html">Interact</a></li>
+            <li><a href="learn.html">Learn</a></li>
+            <li><a href="do-business.html">Do Business</a></li>
+            <li><a href="connect.html">Connect</a></li>
+          </ul>
+        </div>
+      </nav>
     </div>
   </header>
 
-  <div id="storyContext" class="story-context visible">
-    <div class="story-content">
-      <div class="story-section">
-        <h3>What This Demo Is</h3>
-        <p>This is a guided exploration sandbox showing how revenue reporting works for logistics carriers. All data is temporary and exists only in your browser session.</p>
-      </div>
-      <div class="story-section">
-        <h3>What's in This Report</h3>
-        <p>This demo contains <strong>4 weeks of actual carrier data</strong> (Jan 5 - Feb 1, 2026) showing a realistic Midwest operation.</p>
-        <p><strong>Here's what you'll see:</strong></p>
-        <div class="data-preview-table">
-          <table class="preview-table">
-            <thead>
-              <tr>
-                <th>Week</th>
-                <th>Routes</th>
-                <th>Loads</th>
-                <th>Revenue</th>
-                <th>RPM ($)</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Week 1<br><small>Jan 5-11</small></td>
-                <td>Toledo→Chicago<br>Chicago→Toledo<br>Toledo→Indy</td>
-                <td>3</td>
-                <td>$1,356.50</td>
-                <td>$1.88</td>
-              </tr>
-              <tr>
-                <td>Week 2<br><small>Jan 12-18</small></td>
-                <td>Indy→Toledo<br>Toledo→Detroit<br>Detroit→Columbus</td>
-                <td>3</td>
-                <td>$1,323.15</td>
-                <td>$1.91</td>
-              </tr>
-              <tr>
-                <td>Week 3<br><small>Jan 19-25</small></td>
-                <td>Columbus→Cincy (×2)<br>Columbus→Cleveland<br>Cleveland→Columbus</td>
-                <td>4</td>
-                <td>$1,397.00</td>
-                <td>$1.97</td>
-              </tr>
-              <tr>
-                <td>Week 4<br><small>Jan 26 - Feb 1</small></td>
-                <td>Columbus→Pittsburgh (×2)<br>Columbus→Detroit<br>Detroit→Toledo</td>
-                <td>4</td>
-                <td>$1,796.00</td>
-                <td>$2.00</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <p><strong>Performance Patterns:</strong></p>
-        <ul class="story-list">
-          <li><strong>Strong Ohio Market:</strong> Frequent intra-state hauls (Columbus-Cincinnati-Cleveland) show established regional presence</li>
-          <li><strong>Consistent Corridors:</strong> Toledo-Detroit-Chicago lane appears regularly (3 loads across 4 weeks)</li>
-          <li><strong>Revenue Range:</strong> $306.00 (short Ohio runs) to $514.50 (Toledo-Chicago)</li>
-          <li><strong>Broker Diversity:</strong> 5 brokers with 2-4 loads each (Alpha: 4, Beta: 3, Gamma: 3, Delta: 2, Echo: 2)</li>
-          <li><strong>Efficiency:</strong> Deadhead 6-8%, RPM $1.88-$2.00 - consistent but room for improvement</li>
-        </ul>
-      </div>
-      <div class="story-section">
-        <h3>How to Add Loads</h3>
-        <p><strong>Option A:</strong> Use "Add Recommended Loads" for instant, realistic scenarios. These demonstrate effective operational patterns in Ohio market.</p>
-        <p><strong>Option B:</strong> Use "Add Custom Load" to enter your own data and explore scenarios that matter to you. Maximum 3 custom loads (2 recommended + 3 custom = 5 total).</p>
-        <p><em>When you're ready, explore to demo controls and try adding recommended loads to see how small strategic changes affect the report.</em></p>
-      </div>
-      <div class="story-section">
-        <h3>Preview: Recommended Loads</h3>
-        <div class="data-preview-table">
-          <table class="preview-table">
-            <thead>
-              <tr>
-                <th>Date</th>
-                <th>Lane</th>
-                <th>Paid Miles</th>
-                <th>Deadhead Miles</th>
-                <th>Revenue</th>
-                <th>RPM</th>
-              </tr>
-            </thead>
-            <tbody id="recommendedLoadsPreview"></tbody>
-          </table>
-        </div>
-      <div class="story-section">
-        <h3>Why Recommended Loads Make Sense</h3>
-        <ul class="story-list">
-          <li><strong>Market Entry Strategy:</strong> Columbus → Toledo demonstrates major freight corridor entry from state capital to regional hub.</li>
-          <li><strong>Stabilization Pattern:</strong> Toledo → Cleveland shows reload strategy in strong Ohio market before longer runs.</li>
-          <li><strong>Revenue Consistency:</strong> Short hauls maintain target revenue per mile ($2.19-$2.70) consistent with existing data quality.</li>
-          <li><strong>Operational Rhythm:</strong> Both loads on same day, then reposition out of market next day - typical market entry pattern.</li>
-        </ul>
-      </div>
-  </div>
-
-  <div class="dashboard-container">
-    <main>
-    <section class="section summary">
-      <h2>Executive Summary</h2>
-      <div class="metrics-grid">
-        <div class="metric">
-          <div class="metric-label">Total Revenue</div>
-          <div class="metric-value currency" id="totalRevenue">$0.00</div>
-        </div>
-        <div class="metric">
-          <div class="metric-label">Total Loads</div>
-          <div class="metric-value" id="totalLoads">0</div>
-        </div>
-        <div class="metric">
-          <div class="metric-label">Paid Miles</div>
-          <div class="metric-value" id="totalPaidMiles">0</div>
-        </div>
-        <div class="metric">
-          <div class="metric-label">Deadhead Miles</div>
-          <div class="metric-value" id="totalDeadheadMiles">0</div>
-        </div>
-        <div class="metric">
-          <div class="metric-label">Revenue per Loaded Mile</div>
-          <div class="metric-value currency" id="revenuePerMile">$0.00</div>
-          <div class="progress-bar">
-            <div class="progress-fill" id="revenuePerMileBar" style="width: 0%"></div>
-          </div>
-        </div>
-        <div class="metric">
-          <div class="metric-label">Deadhead Percentage</div>
-          <div class="metric-value warning" id="deadheadPercentage">0.0%</div>
-          <div class="progress-bar">
-            <div class="progress-fill warning" id="deadheadPercentageBar" style="width: 0%"></div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section class="section metrics">
-      <h2>Metrics</h2>
-      <div class="metrics-grid">
-        <div class="metric">
-          <div class="metric-label">Capacity Utilization</div>
-          <div class="metric-value success" id="capacityUtilization">0%</div>
-          <div class="progress-bar">
-            <div class="progress-fill success" id="capacityUtilizationBar" style="width: 0%"></div>
-          </div>
-        </div>
-        <div class="metric">
-          <div class="metric-label">Relocations</div>
-          <div class="metric-value" id="relocations">0</div>
-        </div>
-        <div class="metric">
-          <div class="metric-label">Revenue per Total Mile</div>
-          <div class="metric-value currency" id="revenuePerTotalMile">$0.00</div>
-        </div>
-      </div>
-    </section>
-    <section class="section tables">
-      <h2>Weekly Breakdown</h2>
-      <table>
-        <thead>
-          <tr>
-            <th>Week</th>
-            <th>Revenue</th>
-            <th>Paid Miles</th>
-            <th>Deadhead Miles</th>
-            <th>Loads</th>
-            <th>Relocations</th>
-            <th>$ per Mile</th>
-          </tr>
-        </thead>
-        <tbody id="weeklyTableBody"></tbody>
-      </table>
-    </section>
-    <section class="section tables">
-      <h2>Lane Performance</h2>
-      <table>
-        <thead>
-          <tr>
-            <th>Lane</th>
-            <th>Loads</th>
-            <th>Total Revenue</th>
-            <th>Avg Revenue/Load</th>
-            <th>Total Miles</th>
-            <th>Revenue/Mile</th>
-          </tr>
-        </thead>
-        <tbody id="laneTableBody"></tbody>
-      </table>
-    </section>
-    <section class="section charts">
-      <h2>Charts</h2>
-      <div class="charts-container">
-        <div class="chart-wrapper">
-          <h3>Weekly Revenue</h3>
-          <canvas id="revenueChart"></canvas>
-        </div>
-        <div class="chart-wrapper">
-          <h3>Broker Distribution</h3>
-          <canvas id="brokerChart"></canvas>
-          <p class="chart-caption">Broker distribution reflects load count, not total revenue contribution.</p>
-        </div>
-        <div class="chart-wrapper">
-          <h3>Deadhead Percentage</h3>
-          <canvas id="deadheadChart"></canvas>
-        </div>
-      </div>
-      <h3 style="margin-top: 2rem; margin-bottom: 1rem; font-size: 1.125rem; color: #475569;">Broker Distribution Details</h3>
-      <table class="broker-table">
-        <thead>
-          <tr>
-            <th>Broker</th>
-            <th>Load Count</th>
-            <th>Percentage</th>
-          </tr>
-        </thead>
-        <tbody id="brokerTableBody"></tbody>
-      </table>
-    </section>
-    <section class="section insights">
-      <h2>Insights</h2>
-      <h3>Opportunities</h3>
-      <p class="insights-intro">The insights below highlight operational strengths and targeted opportunities to improve revenue efficiency and consistency.</p>
-      <ul class="insights-list" id="insightsList"></ul>
-    </section>
-  </main>
-
-  <aside class="dashboard-sidebar">
-    <div class="sidebar-header">
-      Demo Controls
+  <div class="container">
+    <div class="breadcrumb">
+      <a href="index.html" class="breadcrumb-item">Home</a>
+      <span class="breadcrumb-separator">&rsaquo;</span>
+      <a href="do-business.html" class="breadcrumb-item">Do Business</a>
+      <span class="breadcrumb-separator">&rsaquo;</span>
+      <a href="dispatch-revenue-reporting.html" class="breadcrumb-item">Pricing</a>
+      <span class="breadcrumb-separator">&rsaquo;</span>
+      <span class="breadcrumb-current">Interactive Demo</span>
     </div>
-    <div class="sidebar-buttons">
-      <button id="btnAddRecommendedSidebar" class="sidebar-btn btn-sidebar-recommended">
-        Add Recommended Loads
-      </button>
-      <button id="btnAddCustomSidebar" class="sidebar-btn btn-sidebar-custom">
-        Add Custom Load
-      </button>
+
+    <div class="coming-soon-banner">
+      <div class="coming-soon-badge">Coming Soon</div>
+      <h1 class="coming-soon-title">Interactive Carrier Revenue Report</h1>
+      <p class="coming-soon-description">
+        We're building a fully interactive demo that will let you explore revenue reporting capabilities in real-time. 
+        Add loads, adjust parameters, and see instant insights about carrier performance.
+      </p>
+      <a href="dispatch-revenue-reporting.html" class="back-button">
+        <span>&larr;</span>
+        <span>Back to Pricing</span>
+      </a>
     </div>
-    <div class="sidebar-load-counter" id="sidebarLoadCounter">
-      <p>Added: <strong><span id="loadCount">0</span>/5</strong></p>
-      <p>(<span id="recommendedCount">0</span> rec + <span id="customCount">0</span> cust)</p>
-    </div>
-    <div class="sidebar-narrative hidden" id="sidebarNarrative">
-      <div class="narrative-block">
-        <h3>You just saw a small strategic adjustment play out.</h3>
-        <p>Nothing dramatic changed. No new markets were added. No major repositioning occurred.</p>
-        <p>Just two short local decisions, placed intentionally, and entire shape of week shifted.</p>
-      </div>
-      <div class="narrative-block">
-        <h3>Now pause for a moment.</h3>
-        <p>Think about your own operation.</p>
-        <p><strong>If you manage carriers, how often do you have the opportunity to step back and ask:</strong></p>
-        <ul>
-          <li>What patterns am I actually reinforcing?</li>
-          <li>Where am I stabilizing, and where am I just reacting?</li>
-        </ul>
-        <p><strong>If you are a carrier, how often do you get to see:</strong></p>
-        <ul>
-          <li>Not just what you ran</li>
-          <li>But how small changes could have shifted your results?</li>
-        </ul>
-      </div>
-      <div class="narrative-block">
-        <h3>If you'd like, you can now add up to three custom loads.</h3>
-        <p>Try modeling something familiar.</p>
-        <ul>
-          <li>A lane you run often</li>
-          <li>A decision you make out of habit</li>
-          <li>Or a small adjustment you've wondered about but never tested</li>
-        </ul>
-        <p>Watch how report responds.</p>
-      </div>
-      <div class="narrative-block">
-        <h3>This is what business intelligence actually looks like.</h3>
-        <p>It's not a static report.</p>
-        <p>It's a living history of your decisions, showing you how strategy, consistency, and timing compound over time.</p>
-        <p>When you receive these reports, you're not just looking at past performance.</p>
-        <p>You're building the ability to think strategically about the future.</p>
-      </div>
-      <div class="narrative-block">
-        <h3>Over time, these reports become more than summaries.</h3>
-        <p>They become a record of how your business thinks.</p>
-        <ul>
-          <li>What you prioritize.</li>
-          <li>What you avoid.</li>
-          <li>Where you improve.</li>
-        </ul>
-        <p>That's what turns reporting into real business intelligence.</p>
-      </div>
-  </aside>
-</div>
 
-<button id="mobileSidebarToggle" class="mobile-sidebar-toggle">≡</button>
+    <section class="preview-section">
+      <h2 class="section-title">What to Expect</h2>
+      <p class="section-description">
+        This interactive demo will showcase how our revenue reporting system helps carriers optimize their operations 
+        through data-driven insights and real-time analytics.
+      </p>
 
-  <footer>
-    <div class="footer-logo">
-      <img
-        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZAAAAGQCAYAAACAvzbMAAAACXBIWXMAAAXYAAAF2AEJGiq9AAADfmlUWHRYTUw6Y29tLmFkb2JlLnhtcAAAAAAAPD94cGFja2V0IGJlZ2luPSfvu78nIGlkPSdXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQnPz4KPHg6eG1wbWV0YSB4bWxuczp4PSdhZG9iZTpuczptZXRhLyc+CjxyZGY6UkRGIHhtbG5zOnJkZj0naHR0cDovL3d3dy53My5vcmcvMTk5OS8wMi8yMi1yZGYtc3ludGF4LW5zJyc+CgogPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9JycKICB4bWxuczpBdHRyaWI9J2h0dHA6Ly9ucy5hdHRyaWJ1dGlvbi5jb20vYWRzLzEuMC8nPgogIDxBdHRyaWI6QWRzPgogICA8cmRmOlNlcT4KICAgIDxyZGY6bGkgcmRmOnBhcnNlVHlwZT0nUmVzb3VyY2UnPgogICAgIDxBdHRyaWI6Q3JlYXRlZD4yMDI1LTA3LTIwPC9BdHRyaWI6Q3JlYXRlZD4KICAgICA8QXR0cmliOkV4dElkPmQ2MWFmYzc2LTcwZTUtNDUyZS04MjU3LTRhYTRiYTllODA0NzwvQXR0cmliOkV4dElkPgogICAgIDxBdHRyaWI6RmJJZD41MjUyNjU5MTQxNzk1ODA8L0F0dHJpYjpGYklkPgogICAgIDxBdHRyaWI6VG91Y2hUeXBlPjI8L0F0dHJpYjpUb3VjaFR5cGU+CiAgICA8L3JkZjpsaT4KICAgPC9yZGY6U2VxPgogIDwvQXR0cmliOkFkcz4KIDwvcmRmOkRlc2NyaXB0aW9uPgoKIDxyZGY6RGVzY3JpcHRpb24gcmRmOmFib3V0PScnCiAgeG1sbnM6ZGM9J2h0dHA6Ly9wdXJsLm9yZy9kYy9lbGVtZW50cy8xLjEvJz4KICA8ZGM6dGl0bGU+CiAgIDxyZGY6QWx0PgogICAgPHJkZjpsaSB4bWw6bGFuZz0neC1kZWZhdWx0Jz5NaW5pbWFsaXN0IEJsdWUgTG9nbyBmb3IgVFNIaWxsIExvZ2lzdGljcyBMTEMgLSAxPC9yZGY6bGk+CiAgIDwvcmRmOkFsdD4KICA8L2RjOnRpdGxlPgogPC9yZGY6RGVzY3JpcHRpb24+CjwvcmRmOlJERj4KPC94OnhtcG1ldGE+Cjw/eHBhY2tldCBlbmQ9J3InPz5ZniwsAAGDU0lEQVR4nOy9WawsSXrf9/sisqrOuVvfe/ve3nt6mWmxh0MOZdIkLFEcyzAsioJkW4AfbAEGJOjBL7aeBAMGLIC2LMCCDVuGNj+IlgQ9+NWiCMESRJEWKQ4pLuIynH2GPd3T09vdl7NUZcTnh4jIjMzKqsw6p845de6tf/e5tWVGRkZGfPv3hTz/6k+oiCAi9CE/QjS8qiigoM3fAVS1t10TzsZnF1CJn+Pvg6DdRwoeje3mfRGt72GuKV3wwxqhEu87din13iAL+zWo3TX3ve8Zas+0WeVeUt+HzMVlbSw7vz1LfOdR67veSSOtnzTMHm08E5Ew0SRbnwrVh+PMNcief8f6X+n89Lk1nsv6N2Tc2+shP2fIWumbL+uc/0PQHp/Tur6qds71YijzWNxyOFeY7+nQdiX+qaY3cIZr8sRRLfhzcI99z3CdC2QdhLivjeMyjFWvdxrQ7FVEmvOqg7A31tqaLn7UptrzRxA6SMmZoW++rJtB9KE9307r+jmfyBlvYYyZ+3Klhqt/tWIEOVZZsPnErgbm7NfnWlExjmydSP7jE3a/W5wscubRNXcWTadqrR0T0np/nPX/tOGstddVISJzfKLIf+xtgG6VMKjHlqhAN34bOktzVVyy/vSpaH2Mb04iG4ClJpvjrrq0yqRmvSb76bg4i"
-        alt="TS Hill Logistics LLC logo"
-        class="footer-logo-image"
-      >
-    </div>
-    <p>Prepared for Demo Carrier</p>
-  </footer>
-
-  <div id="customLoadModal" class="custom-load-modal">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h3 class="modal-title">Add Custom Load</h3>
-        <button id="btnCloseModal" class="modal-close">&times;</button>
-      </div>
-      <form id="modalLoadForm">
-        <div class="form-row">
-          <div class="form-group">
-            <label>Date</label>
-            <input type="date" id="modalLoadDate" min="2026-01-05" max="2026-02-01" required>
-            <span class="input-helper">Jan 5 - Feb 1, 2026 only (demo period)</span>
-          </div>
-          <div class="form-group">
-            <label>From Location</label>
-            <input type="text" id="modalFromLocation" placeholder="e.g., Toledo, OH" required>
-          </div>
-          <div class="form-group">
-            <label>To Location</label>
-            <input type="text" id="modalToLocation" placeholder="e.g., Chicago, IL" required>
-          </div>
+      <div class="feature-list">
+        <div class="feature-item">
+          <h3>Real-Time Metrics</h3>
+          <p>Instantly view key performance indicators including revenue per mile, deadhead percentage, and capacity utilization.</p>
         </div>
-        <div class="form-row">
-          <div class="form-group">
-            <label>Paid Miles</label>
-            <input type="number" id="modalPaidMiles" min="0" step="0.1" placeholder="245" required>
-          </div>
-          <div class="form-group">
-            <label>Deadhead Miles</label>
-            <input type="number" id="modalDeadheadMiles" min="0" step="0.1" placeholder="18" required>
-          </div>
+        <div class="feature-item">
+          <h3>Load Management</h3>
+          <p>Add custom loads or explore recommended scenarios to understand their impact on overall performance.</p>
         </div>
-        <div class="form-row">
-          <div class="form-group">
-            <label>Rate ($)</label>
-            <input type="number" id="modalRate" min="0" step="0.01" placeholder="514.50" required>
-          </div>
+        <div class="feature-item">
+          <h3>Interactive Charts</h3>
+          <p>Visualize revenue trends, broker distribution, and operational patterns with dynamic, responsive charts.</p>
         </div>
-        <div class="form-row">
-          <div class="form-group">
-            <label>Broker Name</label>
-            <input type="text" id="modalBrokerName" placeholder="e.g., Alpha" required>
-          </div>
+        <div class="feature-item">
+          <h3>Actionable Insights</h3>
+          <p>Receive personalized recommendations to improve revenue efficiency and optimize route planning.</p>
         </div>
-        <div class="form-actions">
-          <button type="submit" id="btnModalAdd" class="btn-add">Add Load</button>
-          <button type="button" id="btnModalClear" class="btn-clear">Clear Form</button>
+        <div class="feature-item">
+          <h3>Weekly Breakdown</h3>
+          <p>Analyze performance week by week with detailed daily breakdowns and trend analysis.</p>
         </div>
-      </form>
-    </div>
-  </div>
+        <div class="feature-item">
+          <h3>Lane Performance</h3>
+          <p>Compare revenue across different routes and identify the most profitable lanes in your operation.</p>
+        </div>
+      </div>
+    </section>
 
-  <script>
-    (function() {
-      'use strict';
+    <section class="preview-section">
+      <h2 class="section-title">Preview Dashboard</h2>
+      <p class="section-description">
+        Here's a preview of the metrics and data you'll see in the full interactive demo.
+      </p>
 
-      const BASELINE_LOADS = [
-        { date: '2026-01-05', origin_city: 'Toledo', origin_state: 'OH', destination_city: 'Chicago', destination_state: 'IL', load_count: 1, paid_miles: 245, deadhead_miles: 18, revenue: 514.50, broker: 'Alpha' },
-        { date: '2026-01-07', origin_city: 'Chicago', origin_state: 'IL', destination_city: 'Toledo', destination_state: 'OH', load_count: 1, paid_miles: 245, deadhead_miles: 14, revenue: 490.00, broker: 'Beta' },
-        { date: '2026-01-09', origin_city: 'Toledo', origin_state: 'OH', destination_city: 'Indianapolis', destination_state: 'IN', load_count: 1, paid_miles: 176, deadhead_miles: 22, revenue: 352.00, broker: 'Gamma' },
-        { date: '2026-01-12', origin_city: 'Indianapolis', origin_state: 'IN', destination_city: 'Toledo', destination_state: 'OH', load_count: 1, paid_miles: 176, deadhead_miles: 16, revenue: 343.20, broker: 'Delta' },
-        { date: '2026-01-14', origin_city: 'Toledo', origin_state: 'OH', destination_city: 'Chicago', destination_state: 'IL', load_count: 1, paid_miles: 245, deadhead_miles: 20, revenue: 502.25, broker: 'Alpha' },
-        { date: '2026-01-16', origin_city: 'Chicago', origin_state: 'IL', destination_city: 'Toledo', destination_state: 'OH', load_count: 1, paid_miles: 245, deadhead_miles: 12, revenue: 477.75, broker: 'Echo' },
-        { date: '2026-01-19', origin_city: 'Toledo', origin_state: 'OH', destination_city: 'Indianapolis', destination_state: 'IN', load_count: 1, paid_miles: 176, deadhead_miles: 19, revenue: 344.96, broker: 'Gamma' },
-        { date: '2026-01-20', origin_city: 'Indianapolis', origin_state: 'IN', destination_city: 'Toledo', destination_state: 'OH', load_count: 1, paid_miles: 176, deadhead_miles: 15, revenue: 334.40, broker: 'Beta' },
-        { date: '2026-01-22', origin_city: 'Toledo', origin_state: 'OH', destination_city: 'Detroit', destination_state: 'MI', load_count: 1, paid_miles: 214, deadhead_miles: 24, revenue: 438.70, broker: 'Alpha' },
-        { date: '2026-01-23', origin_city: 'Detroit', origin_state: 'MI', destination_city: 'Toledo', destination_state: 'OH', load_count: 1, paid_miles: 214, deadhead_miles: 18, revenue: 416.00, broker: 'Delta' },
-        { date: '2026-01-26', origin_city: 'Toledo', origin_state: 'OH', destination_city: 'Chicago', destination_state: 'IL', load_count: 1, paid_miles: 245, deadhead_miles: 21, revenue: 497.35, broker: 'Alpha' },
-        { date: '2026-01-27', origin_city: 'Chicago', origin_state: 'IL', destination_city: 'Toledo', destination_state: 'OH', load_count: 1, paid_miles: 245, deadhead_miles: 13, revenue: 487.55, broker: 'Gamma' },
-        { date: '2026-01-29', origin_city: 'Toledo', origin_state: 'OH', destination_city: 'Indianapolis', destination_state: 'IN', load_count: 1, paid_miles: 176, deadhead_miles: 17, revenue: 339.68, broker: 'Beta' },
-        { date: '2026-01-30', origin_city: 'Indianapolis', origin_state: 'IN', destination_city: 'Toledo', destination_state: 'OH', load_count: 1, paid_miles: 176, deadhead_miles: 14, revenue: 334.40, broker: 'Echo' }
-      ];
+      <div class="preview-grid">
+        <div class="preview-card">
+          <div class="preview-label">Total Revenue</div>
+          <div class="preview-value">$5,872.60</div>
+        </div>
+        <div class="preview-card">
+          <div class="preview-label">Total Loads</div>
+          <div class="preview-value">14</div>
+        </div>
+        <div class="preview-card">
+          <div class="preview-label">Revenue per Mile</div>
+          <div class="preview-value">$1.93</div>
+        </div>
+        <div class="preview-card">
+          <div class="preview-label">Deadhead %</div>
+          <div class="preview-value">7.4%</div>
+        </div>
+      </div>
 
-      const RECOMMENDED_LOADS = [
-        { date: '2026-01-21', origin_city: 'Columbus', origin_state: 'OH', destination_city: 'Toledo', destination_state: 'OH', load_count: 1, paid_miles: 142, deadhead_miles: 8, revenue: 312.40, broker: 'Recommended', is_recommended: true },
-        { date: '2026-01-21', origin_city: 'Toledo', origin_state: 'OH', destination_city: 'Cleveland', destination_state: 'OH', load_count: 1, paid_miles: 116, deadhead_miles: 6, revenue: 284.60, broker: 'Recommended', is_recommended: true }
-      ];
-
-      const STATE = {
-        baselineLoads: [...BASELINE_LOADS],
-        userLoads: [],
-        recommendedLoadsAdded: false,
-        customLoadCount: 0,
-        recommendedLoads: [...RECOMMENDED_LOADS],
-        maxCustomLoads: 3,
-        totalLoadLimit: 5
-      };
-
-      function getAllLoads() {
-        return [...STATE.baselineLoads, ...STATE.userLoads];
-      }
-
-      function computeTotals() {
-        const loads = getAllLoads();
-        return loads.reduce((acc, load) => {
-          acc.totalRevenue += load.revenue;
-          acc.totalLoads += load.load_count;
-          acc.totalPaidMiles += load.paid_miles;
-          acc.totalDeadheadMiles += load.deadhead_miles;
-          return acc;
-        }, { totalRevenue: 0, totalLoads: 0, totalPaidMiles: 0, totalDeadheadMiles: 0 });
-      }
-
-      function computeWeeklyBreakdown() {
-        const loads = getAllLoads();
-        const weeks = {
-          '01/05 - 01/11': { start: new Date('2026-01-05'), end: new Date('2026-01-11'), loads: [] },
-          '01/12 - 01/18': { start: new Date('2026-01-12'), end: new Date('2026-01-18'), loads: [] },
-          '01/19 - 01/25': { start: new Date('2026-01-19'), end: new Date('2026-01-25'), loads: [] },
-          '01/26 - 02/01': { start: new Date('2026-01-26'), end: new Date('2026-02-01'), loads: [] }
-        };
-
-        loads.forEach(load => {
-          const loadDate = new Date(load.date);
-          for (const [weekLabel, week] of Object.entries(weeks)) {
-            if (loadDate >= week.start && loadDate <= week.end) {
-              week.loads.push(load);
-              break;
-            }
-          }
-        });
-
-        return Object.entries(weeks).map(([weekLabel, week]) => {
-          const revenue = week.loads.reduce((sum, l) => sum + l.revenue, 0);
-          const paidMiles = week.loads.reduce((sum, l) => sum + l.paid_miles, 0);
-          const deadheadMiles = week.loads.reduce((sum, l) => sum + l.deadhead_miles, 0);
-          const loads = week.loads.reduce((sum, l) => sum + l.load_count, 0);
-          const relocations = 0;
-          const revenuePerMile = paidMiles > 0 ? revenue / paidMiles : 0;
-
-          return {
-            week: weekLabel,
-            revenue,
-            paidMiles,
-            deadheadMiles,
-            loads,
-            relocations,
-            revenuePerMile,
-            dailyBreakdown: computeDailyBreakdown(week.loads)
-          };
-        });
-      }
-
-      function computeDailyBreakdown(loads) {
-        const byDate = {};
-        loads.forEach(load => {
-          if (!byDate[load.date]) {
-            byDate[load.date] = { load_count: 0, revenue: 0, paid_miles: 0, deadhead_miles: 0 };
-          }
-          byDate[load.date].load_count += load.load_count;
-          byDate[load.date].revenue += load.revenue;
-          byDate[load.date].paid_miles += load.paid_miles;
-          byDate[load.date].deadhead_miles += load.deadhead_miles;
-        });
-        return Object.entries(byDate)
-          .sort((a, b) => a[0].localeCompare(b[0]))
-          .map(([date, data]) => ({ date, ...data }));
-      }
-
-      function computeLanePerformance() {
-        const loads = getAllLoads();
-        const lanes = {};
-
-        loads.forEach(load => {
-          const laneKey = `${load.origin_city}, ${load.origin_state} - ${load.destination_city}, ${load.destination_state}`;
-          if (!lanes[laneKey]) {
-            lanes[laneKey] = { loads: 0, revenue: 0, miles: 0 };
-          }
-          lanes[laneKey].loads += load.load_count;
-          lanes[laneKey].revenue += load.revenue;
-          lanes[laneKey].miles += load.paid_miles;
-        });
-
-        return Object.entries(lanes).map(([lane, data]) => ({
-          lane,
-          loads: data.loads,
-          totalRevenue: data.revenue,
-          avgRevenuePerLoad: data.loads > 0 ? data.revenue / data.loads : 0,
-          totalMiles: data.miles,
-          revenuePerMile: data.miles > 0 ? data.revenue / data.miles : 0
-        })).sort((a, b) => b.revenuePerMile - a.revenuePerMile);
-      }
-
-      function computeBrokerDistribution() {
-        const loads = getAllLoads();
-        const brokers = {};
-
-        loads.forEach(load => {
-          const broker = load.broker || 'Unknown';
-          if (!brokers[broker]) {
-            brokers[broker] = 0;
-          }
-          brokers[broker]++;
-        });
-
-        const total = Object.values(brokers).reduce((sum, count) => sum + count, 0);
-        return Object.entries(brokers)
-          .map(([broker, count]) => ({ broker, count, percentage: total > 0 ? (count / total) * 100 : 0 }))
-          .sort((a, b) => b.count - a.count);
-      }
-
-      function parseLocation(locationStr) {
-        const parts = locationStr.split(',').map(p => p.trim());
-        if (parts.length >= 2) {
-          return { city: parts[0], state: parts[1] };
-        }
-        return { city: parts[0] || '', state: '' };
-      }
-
-      function handleAddRecommendedLoads() {
-        if (STATE.recommendedLoadsAdded) return;
-
-        STATE.userLoads.push(...STATE.recommendedLoads);
-        STATE.recommendedLoadsAdded = true;
-        renderAll();
-        document.querySelector('.dashboard-container').scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
-
-      function handleAddCustomLoad(formData) {
-        const totalUserLoads = STATE.userLoads.length;
-        if (totalUserLoads >= STATE.totalLoadLimit) {
-          alert(`Maximum ${STATE.totalLoadLimit} user loads allowed.`);
-          return;
-        }
-
-        const customLoadsRemaining = STATE.maxCustomLoads - STATE.customLoadCount;
-        if (customLoadsRemaining <= 0) {
-          alert('Maximum 3 custom loads allowed.');
-          return;
-        }
-
-        const from = parseLocation(formData.fromLocation);
-        const to = parseLocation(formData.toLocation);
-
-        const newLoad = {
-          date: formData.date,
-          origin_city: from.city,
-          origin_state: from.state,
-          destination_city: to.city,
-          destination_state: to.state,
-          load_count: 1,
-          paid_miles: parseFloat(formData.paidMiles),
-          deadhead_miles: parseFloat(formData.deadheadMiles),
-          revenue: parseFloat(formData.rate),
-          broker: formData.brokerName,
-          is_custom: true
-        };
-
-        STATE.userLoads.push(newLoad);
-        STATE.customLoadCount++;
-        renderAll();
-      }
-
-      function formatCurrency(value) {
-        return '$' + value.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,');
-      }
-
-      function renderSummaryMetrics() {
-        const totals = computeTotals();
-        const allLoads = getAllLoads();
-        const totalMiles = totals.totalPaidMiles + totals.totalDeadheadMiles;
-        const revenuePerMile = totals.totalPaidMiles > 0 ? totals.totalRevenue / totals.totalPaidMiles : 0;
-        const deadheadPercentage = totalMiles > 0 ? (totals.totalDeadheadMiles / totalMiles) * 100 : 0;
-        const revenuePerTotalMile = totalMiles > 0 ? totals.totalRevenue / totalMiles : 0;
-
-        const totalDays = 28;
-        const capacityUtilization = totalDays > 0 ? Math.round((totals.totalLoads / totalDays) * 100) : 0;
-
-        document.getElementById('totalRevenue').textContent = formatCurrency(totals.totalRevenue);
-        document.getElementById('totalLoads').textContent = totals.totalLoads;
-        document.getElementById('totalPaidMiles').textContent = totals.totalPaidMiles.toLocaleString();
-        document.getElementById('totalDeadheadMiles').textContent = totals.totalDeadheadMiles.toLocaleString();
-        document.getElementById('revenuePerMile').textContent = formatCurrency(revenuePerMile);
-        document.getElementById('revenuePerMileBar').style.width = Math.min((revenuePerMile / 3) * 100, 100) + '%';
-        document.getElementById('deadheadPercentage').textContent = deadheadPercentage.toFixed(1) + '%';
-        document.getElementById('deadheadPercentageBar').style.width = Math.min((deadheadPercentage / 15) * 100, 100) + '%';
-        document.getElementById('capacityUtilization').textContent = capacityUtilization + '%';
-        document.getElementById('capacityUtilizationBar').style.width = capacityUtilization + '%';
-        document.getElementById('relocations').textContent = '0';
-        document.getElementById('revenuePerTotalMile').textContent = formatCurrency(revenuePerTotalMile);
-      }
-
-      function renderWeeklyTable() {
-        const weeklyData = computeWeeklyBreakdown();
-        const tbody = document.getElementById('weeklyTableBody');
-        tbody.innerHTML = '';
-
-        weeklyData.forEach((week, index) => {
-          const weekRow = document.createElement('tr');
-          weekRow.className = 'week-row';
-          weekRow.dataset.weekId = index + 1;
-          weekRow.innerHTML = `
-            <td>${week.week}</td>
-            <td class="currency">${formatCurrency(week.revenue)}</td>
-            <td>${week.paidMiles.toLocaleString()}</td>
-            <td class="warning">${week.deadheadMiles.toLocaleString()}</td>
-            <td>${week.loads}</td>
-            <td>${week.relocations}</td>
-            <td class="currency">${formatCurrency(week.revenuePerMile)}</td>
-          `;
-          tbody.appendChild(weekRow);
-
-          const dailyRow = document.createElement('tr');
-          dailyRow.id = `daily-${index + 1}`;
-          dailyRow.className = 'daily-breakdown-row';
-          const dailyTableRows = week.dailyBreakdown.map(daily => `
+      <div class="preview-table-container">
+        <h3 style="color: #fbbf24; margin-bottom: 20px; font-size: 1.5rem;">Weekly Breakdown</h3>
+        <table class="preview-table">
+          <thead>
             <tr>
-              <td>${daily.date}</td>
-              <td>${daily.load_count}</td>
-              <td class="currency">${formatCurrency(daily.revenue)}</td>
-              <td>${daily.paid_miles.toLocaleString()}</td>
-              <td class="warning">${daily.deadhead_miles.toLocaleString()}</td>
+              <th>Week</th>
+              <th>Revenue</th>
+              <th>Paid Miles</th>
+              <th>Deadhead Miles</th>
+              <th>Loads</th>
+              <th>$ per Mile</th>
             </tr>
-          `).join('');
-          dailyRow.innerHTML = `
-            <td colspan="7">
-              <table class="daily-breakdown-table">
-                <thead>
-                  <tr>
-                    <th>Date</th>
-                    <th>Load Count</th>
-                    <th>Revenue</th>
-                    <th>Paid Miles</th>
-                    <th>Deadhead Miles</th>
-                  </tr>
-                </thead>
-                <tbody>${dailyTableRows}</tbody>
-              </table>
-            </td>
-          `;
-          tbody.appendChild(dailyRow);
-        });
+          </thead>
+          <tbody>
+            <tr>
+              <td>Jan 5-11</td>
+              <td>$1,356.50</td>
+              <td>666</td>
+              <td>54</td>
+              <td>3</td>
+              <td>$1.88</td>
+            </tr>
+            <tr>
+              <td>Jan 12-18</td>
+              <td>$1,323.15</td>
+              <td>635</td>
+              <td>48</td>
+              <td>3</td>
+              <td>$1.91</td>
+            </tr>
+            <tr>
+              <td>Jan 19-25</td>
+              <td>$1,397.00</td>
+              <td>710</td>
+              <td>73</td>
+              <td>4</td>
+              <td>$1.97</td>
+            </tr>
+            <tr>
+              <td>Jan 26 - Feb 1</td>
+              <td>$1,796.00</td>
+              <td>898</td>
+              <td>61</td>
+              <td>4</td>
+              <td>$2.00</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
 
-        tbody.querySelectorAll('.week-row').forEach(row => {
-          row.addEventListener('click', () => {
-            const weekId = row.dataset.weekId;
-            const dailyRow = document.getElementById(`daily-${weekId}`);
-            dailyRow.classList.toggle('visible');
-          });
-        });
-      }
+      <div class="preview-table-container">
+        <h3 style="color: #fbbf24; margin-bottom: 20px; font-size: 1.5rem;">Lane Performance</h3>
+        <table class="preview-table">
+          <thead>
+            <tr>
+              <th>Lane</th>
+              <th>Loads</th>
+              <th>Total Revenue</th>
+              <th>Avg Revenue/Load</th>
+              <th>Revenue/Mile</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Toledo, OH - Chicago, IL</td>
+              <td>3</td>
+              <td>$1,514.10</td>
+              <td>$504.70</td>
+              <td>$2.06</td>
+            </tr>
+            <tr>
+              <td>Chicago, IL - Toledo, OH</td>
+              <td>2</td>
+              <td>$967.55</td>
+              <td>$483.78</td>
+              <td>$1.97</td>
+            </tr>
+            <tr>
+              <td>Toledo, OH - Indianapolis, IN</td>
+              <td>2</td>
+              <td>$696.96</td>
+              <td>$348.48</td>
+              <td>$1.98</td>
+            </tr>
+            <tr>
+              <td>Indianapolis, IN - Toledo, OH</td>
+              <td>2</td>
+              <td>$677.60</td>
+              <td>$338.80</td>
+              <td>$1.93</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
 
-      function renderLanePerformanceTable() {
-        const laneData = computeLanePerformance();
-        const tbody = document.getElementById('laneTableBody');
-        tbody.innerHTML = '';
+      <div style="text-align: center; margin-top: 40px;">
+        <a href="dispatch-revenue-reporting.html" class="back-button">
+          <span>&larr;</span>
+          <span>Return to Pricing Page</span>
+        </a>
+      </div>
+    </section>
+  </div>
 
-        laneData.forEach(lane => {
-          const row = document.createElement('tr');
-          const isRecommended = STATE.userLoads.some(l => l.is_recommended);
-          const laneClass = isRecommended ? 'recommended-row' : '';
-          row.innerHTML = `
-            <td class="lane-cell city-lane ${laneClass}">${lane.lane}</td>
-            <td>${lane.loads}</td>
-            <td class="currency">${formatCurrency(lane.totalRevenue)}</td>
-            <td class="currency">${formatCurrency(lane.avgRevenuePerLoad)}</td>
-            <td>${lane.totalMiles.toLocaleString()}</td>
-            <td class="currency">${lane.revenuePerMile.toFixed(2)}</td>
-          `;
-          tbody.appendChild(row);
-        });
-      }
-
-      function renderCharts() {
-        const weeklyData = computeWeeklyBreakdown();
-        const brokerData = computeBrokerDistribution();
-
-        const revenueCtx = document.getElementById('revenueChart');
-        const brokerCtx = document.getElementById('brokerChart');
-        const deadheadCtx = document.getElementById('deadheadChart');
-
-        if (!revenueCtx || !brokerCtx || !deadheadCtx) return;
-
-        const revenueChart = new Chart(revenueCtx, {
-          type: 'bar',
-          data: {
-            labels: weeklyData.map(w => w.week),
-            datasets: [{
-              label: 'Revenue',
-              data: weeklyData.map(w => w.revenue),
-              backgroundColor: 'rgba(59, 130, 246, 0.7)',
-              borderColor: 'rgba(59, 130, 246, 1)',
-              borderWidth: 2
-            }]
-          },
-          options: {
-            responsive: true,
-            plugins: { legend: { labels: { color: '#475569' } } },
-            scales: {
-              y: { beginAtZero: true, ticks: { color: '#64748b' }, grid: { color: '#e2e8f0' } },
-              x: { ticks: { color: '#64748b' }, grid: { color: '#e2e8f0' } }
-            }
-          }
-        });
-
-        const brokerChart = new Chart(brokerCtx, {
-          type: 'doughnut',
-          data: {
-            labels: brokerData.map(b => b.broker),
-            datasets: [{
-              data: brokerData.map(b => b.count),
-              backgroundColor: [
-                'rgba(59, 130, 246, 0.7)',
-                'rgba(16, 185, 129, 0.7)',
-                'rgba(245, 158, 11, 0.7)',
-                'rgba(239, 68, 68, 0.7)',
-                'rgba(139, 92, 246, 0.7)',
-                'rgba(236, 72, 153, 0.7)'
-              ],
-              borderColor: [
-                'rgba(59, 130, 246, 1)',
-                'rgba(16, 185, 129, 1)',
-                'rgba(245, 158, 11, 1)',
-                'rgba(239, 68, 68, 1)',
-                'rgba(139, 92, 246, 1)',
-                'rgba(236, 72, 153, 1)'
-              ],
-              borderWidth: 2
-            }]
-          },
-          options: {
-            responsive: true,
-            plugins: { legend: { position: 'bottom', labels: { color: '#475569' } } }
-          }
-        });
-
-        const deadheadChart = new Chart(deadheadCtx, {
-          type: 'line',
-          data: {
-            labels: weeklyData.map(w => w.week),
-            datasets: [{
-              label: 'Deadhead %',
-              data: weeklyData.map(w => ((w.deadheadMiles / (w.paidMiles + w.deadheadMiles)) * 100).toFixed(1)),
-              backgroundColor: 'rgba(245, 158, 11, 0.2)',
-              borderColor: 'rgba(245, 158, 11, 1)',
-              borderWidth: 2,
-              fill: true,
-              tension: 0.4
-            }]
-          },
-          options: {
-            responsive: true,
-            plugins: { legend: { labels: { color: '#475569' } } },
-            scales: {
-              y: { beginAtZero: true, ticks: { color: '#64748b' }, grid: { color: '#e2e8f0' } },
-              x: { ticks: { color: '#64748b' }, grid: { color: '#e2e8f0' } }
-            }
-          }
-        });
-
-        window.charts = { revenueChart, brokerChart, deadheadChart };
-      }
-
-      function renderBrokerTable() {
-        const brokerData = computeBrokerDistribution();
-        const tbody = document.getElementById('brokerTableBody');
-        tbody.innerHTML = '';
-
-        brokerData.forEach(broker => {
-          const row = document.createElement('tr');
-          row.innerHTML = `
-            <td>${broker.broker}</td>
-            <td>${broker.count}</td>
-            <td>${broker.percentage.toFixed(1)}%</td>
-          `;
-          tbody.appendChild(row);
-        });
-      }
-
-      function renderInsights() {
-        const totals = computeTotals();
-        const totalMiles = totals.totalPaidMiles + totals.totalDeadheadMiles;
-        const revenuePerMile = totals.totalPaidMiles > 0 ? totals.totalRevenue / totals.totalPaidMiles : 0;
-        const deadheadPercentage = totalMiles > 0 ? (totals.totalDeadheadMiles / totalMiles) * 100 : 0;
-        const totalDays = 28;
-        const capacityUtilization = totalDays > 0 ? Math.round((totals.totalLoads / totalDays) * 100) : 0;
-        const weeklyData = computeWeeklyBreakdown();
-        const avgWeeklyRevenue = weeklyData.length > 0 ? weeklyData.reduce((sum, w) => sum + w.revenue, 0) / weeklyData.length : 0;
-        const revenueVariance = weeklyData.length > 1 ? Math.max(...weeklyData.map(w => w.revenue)) - Math.min(...weeklyData.map(w => w.revenue)) : 0;
-        const consistencyRating = revenueVariance < 200 ? 'excellent' : revenueVariance < 400 ? 'good' : 'moderate';
-
-        const insights = [];
-
-        if (revenuePerMile >= 1.50) {
-          insights.push({ category: 'Revenue Efficiency', severity: 'good', message: `Your revenue per mile of ${formatCurrency(revenuePerMile)} is above our target of $1.50.` });
-        } else {
-          insights.push({ category: 'Revenue Efficiency', severity: 'needs_attention', message: `Your revenue per mile of ${formatCurrency(revenuePerMile)} is below our target of $1.50.` });
-        }
-
-        if (deadheadPercentage <= 10) {
-          insights.push({ category: 'Deadhead Optimization', severity: 'excellent', message: `Your deadhead rate of ${deadheadPercentage.toFixed(1)}% is excellent - well within optimal range.` });
-        } else if (deadheadPercentage <= 15) {
-          insights.push({ category: 'Deadhead Optimization', severity: 'good', message: `Your deadhead rate of ${deadheadPercentage.toFixed(1)}% is good but could be improved.` });
-        } else {
-          insights.push({ category: 'Deadhead Optimization', severity: 'needs_attention', message: `Your deadhead rate of ${deadheadPercentage.toFixed(1)}% is above optimal range.` });
-        }
-
-        insights.push({ category: 'Consistency', severity: consistencyRating, message: 'Your weekly revenue is very consistent.' });
-
-        if (capacityUtilization < 50) {
-          insights.push({ category: 'Capacity Utilization', severity: 'needs_attention', message: `Your capacity utilization of ${capacityUtilization}% indicates many days without loads.` });
-        } else {
-          insights.push({ category: 'Capacity Utilization', severity: 'good', message: `Your capacity utilization of ${capacityUtilization}% is reasonable.` });
-        }
-
-        insights.push({ category: 'Relocation Moves', severity: 'excellent', message: 'No unpaid relocation moves this period.' });
-
-        const list = document.getElementById('insightsList');
-        list.innerHTML = '';
-
-        insights.forEach(insight => {
-          const li = document.createElement('li');
-          li.className = `insight-item level-${insight.severity}`;
-          li.innerHTML = `
-            <span class="insight-category">${insight.category}</span>
-            <span class="insight-severity">${insight.severity.replace('_', ' ')}</span>
-            <span class="insight-message">${insight.message}</span>
-          `;
-          list.appendChild(li);
-        });
-      }
-
-      function updateLoadCounter() {
-        const totalUserLoads = STATE.userLoads.length;
-        const recommendedCount = STATE.recommendedLoadsAdded ? 2 : 0;
-        const customCount = STATE.customLoadCount;
-        document.getElementById('loadCount').textContent = totalUserLoads;
-        document.getElementById('recommendedCount').textContent = recommendedCount;
-        document.getElementById('customCount').textContent = customCount;
-      }
-
-      function renderNarrativeSections() {
-        const storyContext = document.getElementById('storyContext');
-        const sidebarNarrative = document.getElementById('sidebarNarrative');
-        const btnAddRecommendedSidebar = document.getElementById('btnAddRecommendedSidebar');
-
-        if (STATE.recommendedLoadsAdded) {
-          storyContext.classList.add('faded');
-          sidebarNarrative.classList.remove('hidden');
-        } else {
-          storyContext.classList.remove('faded');
-          sidebarNarrative.classList.add('hidden');
-        }
-
-        if (STATE.recommendedLoadsAdded) {
-          btnAddRecommendedSidebar.textContent = 'Recommended Loads Added';
-          btnAddRecommendedSidebar.disabled = true;
-        }
-      }
-
-      function renderAll() {
-        renderSummaryMetrics();
-        renderWeeklyTable();
-        renderLanePerformanceTable();
-        renderBrokerTable();
-        if (window.charts) {
-          window.charts.revenueChart.destroy();
-          window.charts.brokerChart.destroy();
-          window.charts.deadheadChart.destroy();
-        }
-        renderCharts();
-        renderInsights();
-        updateLoadCounter();
-        renderNarrativeSections();
-      }
-
-      function setupEventListeners() {
-        const btnAddRecommendedSidebar = document.getElementById('btnAddRecommendedSidebar');
-        const btnAddCustomSidebar = document.getElementById('btnAddCustomSidebar');
-        const sidebarLoadCounter = document.getElementById('sidebarLoadCounter');
-        const btnCloseModal = document.getElementById('btnCloseModal');
-        const modal = document.getElementById('customLoadModal');
-        const modalLoadForm = document.getElementById('modalLoadForm');
-        const btnModalAdd = document.getElementById('btnModalAdd');
-        const btnModalClear = document.getElementById('btnModalClear');
-        const mobileSidebarToggle = document.getElementById('mobileSidebarToggle');
-        const dashboardSidebar = document.querySelector('.dashboard-sidebar');
-
-        btnAddRecommendedSidebar.addEventListener('click', handleAddRecommendedLoads);
-
-        btnAddCustomSidebar.addEventListener('click', () => {
-          modal.classList.add('active');
-          modalLoadForm.reset();
-        });
-
-        btnCloseModal.addEventListener('click', () => {
-          modal.classList.remove('active');
-        });
-
-        modalLoadForm.addEventListener('submit', (e) => {
-          e.preventDefault();
-
-          if (STATE.customLoadCount >= STATE.maxCustomLoads) {
-            alert('Maximum 3 custom loads allowed.');
-            return;
-          }
-
-          const formData = {
-            date: document.getElementById('modalLoadDate').value,
-            fromLocation: document.getElementById('modalFromLocation').value,
-            toLocation: document.getElementById('modalToLocation').value,
-            paidMiles: document.getElementById('modalPaidMiles').value,
-            deadheadMiles: document.getElementById('modalDeadheadMiles').value,
-            rate: document.getElementById('modalRate').value,
-            brokerName: document.getElementById('modalBrokerName').value
-          };
-
-          handleAddCustomLoad(formData);
-          modal.classList.remove('active');
-        });
-
-        btnModalClear.addEventListener('click', () => {
-          modalLoadForm.reset();
-        });
-
-        modal.addEventListener('click', (e) => {
-          if (e.target === modal) {
-            modal.classList.remove('active');
-          }
-        });
-
-        document.addEventListener('keydown', (e) => {
-          if (e.key === 'Escape' && modal.classList.contains('active')) {
-            modal.classList.remove('active');
-          }
-        });
-
-        mobileSidebarToggle.addEventListener('click', () => {
-          dashboardSidebar.classList.toggle('active');
-          document.body.classList.toggle('sidebar-open');
-        });
-
-        dashboardSidebar.addEventListener('click', (e) => {
-          if (window.innerWidth <= 1024 && e.target === dashboardSidebar) {
-            dashboardSidebar.classList.remove('active');
-            document.body.classList.remove('sidebar-open');
-          }
-        });
-      }
-
-      function renderRecommendedLoadsPreview() {
-        const tbody = document.getElementById('recommendedLoadsPreview');
-        tbody.innerHTML = '';
-
-        RECOMMENDED_LOADS.forEach(load => {
-          const row = document.createElement('tr');
-          const rpm = load.paid_miles > 0 ? (load.revenue / load.paid_miles).toFixed(2) : '0.00';
-
-          row.innerHTML = `
-            <td>${load.date}</td>
-            <td>${load.origin_city}, ${load.origin_state} → ${load.destination_city}, ${load.destination_state}</td>
-            <td>${load.paid_miles}</td>
-            <td>${load.deadhead_miles}</td>
-            <td class="currency">$${load.revenue.toFixed(2)}</td>
-            <td class="currency">$${rpm}</td>
-          `;
-          tbody.appendChild(row);
-        });
-      }
-
-      function init() {
-        setupEventListeners();
-        renderAll();
-        renderRecommendedLoadsPreview();
-      }
-
-      if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', init);
-      } else {
-        init();
-      }
-    })();
-  </script>
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2026 Asabaal Ventures. Reality Studio.</p>
+      <p>
+        <a href="connect.html">Connect with us</a> • 
+        <a href="links.html">All social links</a> • 
+        <a href="privacy.html">Privacy Policy</a>
+      </p>
+    </div>
+  </footer>
 </body>
 </html>
