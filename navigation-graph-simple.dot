@@ -1,0 +1,136 @@
+digraph WebsiteNavigationSimple {
+    // Simplified navigation graph - main pages only
+    rankdir=LR;
+    splines=ortho;
+    overlap=scale;
+    dpi=150;
+    fontname="Arial";
+    fontsize=10;
+    bgcolor="#1a1a2e";
+
+    // Global Attributes
+    node [fontname="Arial", fontsize=10, shape=box, style="rounded,filled", width=1.8, height=0.7];
+    edge [fontname="Arial", fontsize=8, color="#6B7280"];
+
+    // Entry Points
+    index [label="index.html", fillcolor="#FFD700", fontcolor="black", fontsize=12, penwidth=2];
+    brands [label="brands.html", fillcolor="#E5E7EB", fontcolor="black", fontsize=11, penwidth=1];
+
+    // Primary Modes
+    consume [label="consume.html", fillcolor="#8B5CF6", fontcolor="white", fontsize=11, penwidth=2];
+    interact [label="interact.html", fillcolor="#06B6D4", fontcolor="white", fontsize=11, penwidth=2];
+    learn [label="learn.html", fillcolor="#10B981", fontcolor="white", fontsize=11, penwidth=2];
+    dobusiness [label="do-business.html", fillcolor="#F59E0B", fontcolor="white", fontsize=11, penwidth=2];
+
+    // Utility Pages
+    connect [label="connect.html", fillcolor="#6B7280", fontcolor="white"];
+    links [label="links.html", fillcolor="#6B7280", fontcolor="white"];
+    privacy [label="privacy.html", fillcolor="#6B7280", fontcolor="white"];
+    terms [label="terms.html", fillcolor="#6B7280", fontcolor="white"];
+
+    // Consume Branch
+    amusements [label="amusements.html", fillcolor="#A78BFA", fontcolor="white"];
+    bloglisting [label="blog-listing.html", fillcolor="#A78BFA", fontcolor="white"];
+    blogsselection [label="blogs-selection.html", fillcolor="#A78BFA", fontcolor="white"];
+    shows [label="shows.html", fillcolor="#C4B5FD", fontcolor="white"];
+    games [label="games.html", fillcolor="#C4B5FD", fontcolor="white"];
+
+    // Interact Branch
+    dispatch [label="dispatch-revenue-reporting.html", fillcolor="#67E8F9", fontcolor="white"];
+    tictactoe [label="tic-tac-toe.html", fillcolor="#67E8F9", fontcolor="white"];
+    unityremix [label="unity-remix-contest.html", fillcolor="#67E8F9", fontcolor="white"];
+
+    // Learn Branch
+    aboutfounder [label="about-founder.html", fillcolor="#34D399", fontcolor="white"];
+    whatwedo [label="what-we-do.html", fillcolor="#34D399", fontcolor="white"];
+
+    // Business Branch
+    products [label="products.html", fillcolor="#FBBF24", fontcolor="black"];
+    services [label="services.html", fillcolor="#FBBF24", fontcolor="black"];
+    partner [label="partner.html", fillcolor="#FBBF24", fontcolor="black"];
+
+    // About/Brand Pages
+    asabaal [label="asabaal.html", fillcolor="#F472B6", fontcolor="white"];
+    advancements [label="advancements-by-asabaal.html", fillcolor="#F472B6", fontcolor="white"];
+    asabaalprojects [label="asabaal-projects.html", fillcolor="#FBCFE8", fontcolor="black"];
+    playlists [label="playlists.html", fillcolor="#FBCFE8", fontcolor="black"];
+
+    // Special Content
+    vision2054 [label="vision_2054_page.html", fillcolor="#C084FC", fontcolor="white"];
+    opensource [label="open-source-model.html", fillcolor="#C084FC", fontcolor="white"];
+    blog [label="blog.html", fillcolor="#E879F9", fontcolor="white"];
+
+    // External (simplified)
+    extern_social [label="Social Platforms", shape=ellipse, fillcolor="#D1D5DB", fontcolor="black"];
+    extern_music [label="Music Platforms", shape=ellipse, fillcolor="#D1D5DB", fontcolor="black"];
+    extern_email [label="Email Contact", shape=ellipse, fillcolor="#D1D5DB", fontcolor="black"];
+
+    // brands.html navigation (not an entry point)
+    brands -> consume [color="#8B5CF6", penwidth=1];
+    brands -> interact [color="#06B6D4", penwidth=1];
+    brands -> learn [color="#10B981", penwidth=1];
+    brands -> dobusiness [color="#F59E0B", penwidth=1];
+    brands -> connect [color="#6B7280", penwidth=1];
+    brands -> asabaal [color="#F472B6"];
+    brands -> advancements [color="#F472B6"];
+    brands -> amusements [color="#A78BFA"];
+
+    // Consume Mode Navigation
+    consume -> amusements [color="#A78BFA", penwidth=2];
+    consume -> bloglisting [color="#A78BFA"];
+    consume -> blogsselection [color="#A78BFA"];
+
+    amusements -> shows [color="#C4B5FD"];
+    amusements -> games [color="#C4B5FD"];
+
+    shows -> vision2054 [color="#C084FC"];
+
+    // games.html does NOT link to unity-remix-contest.html
+
+    // Interact Mode Navigation
+    interact -> dispatch [color="#67E8F9"];
+    interact -> tictactoe [color="#67E8F9"];
+    interact -> unityremix [color="#67E8F9", penwidth=2];
+
+    // Learn Mode Navigation
+    learn -> aboutfounder [color="#34D399"];
+    learn -> whatwedo [color="#34D399"];
+
+    // Business Mode Navigation
+    dobusiness -> products [color="#FBBF24"];
+    dobusiness -> services [color="#FBBF24"];
+    dobusiness -> partner [color="#FBBF24"];
+
+    // About/Brand Navigation
+    asabaal -> asabaalprojects [color="#FBCFE8"];
+    asabaal -> playlists [color="#FBCFE8"];
+    asabaal -> extern_music [color="#9CA3AF", style=dashed];
+
+    advancements -> vision2054 [color="#C084FC"];
+    advancements -> blog [color="#E879F9"];
+    advancements -> opensource [color="#C084FC"];
+
+    // External Links
+    links -> extern_social [color="#9CA3AF", style=dashed, penwidth=2];
+    links -> extern_music [color="#9CA3AF", style=dashed, penwidth=2];
+    connect -> extern_email [color="#9CA3AF", style=dashed];
+
+    // Cross-links
+    vision2054 -> blog [color="#E879F9"];
+    unityremix -> blog [color="#E879F9"];
+
+    // Legend
+    subgraph cluster_legend {
+        rank=source;
+        label="Navigation Types";
+        style=filled;
+        color="#E5E7EB";
+        fillcolor="#2D3748";
+        fontcolor="white";
+
+        legend_title [label="Key:", shape=none, fillcolor="none", fontcolor="white"];
+        legend_primary [label="Primary Nav (thick)", shape=none, fillcolor="none", fontcolor="white"];
+        legend_secondary [label="Content Links", shape=none, fillcolor="none", fontcolor="white"];
+        legend_external [label="External Links (dashed)", shape=none, fillcolor="none", fontcolor="white"];
+    }
+}

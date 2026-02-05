@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Do Business | Asabaal Ventures</title>
+    <link rel="icon" type="image/svg+xml" href="assets/images/icons/favicon.svg">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #0f0f23 0%, #1a1a3e 25%, #2d1b69 50%, #4c1d95 75%, #6b21a8 100%);
+            color: #ffffff;
+            min-height: 100vh;
+            overflow-x: hidden;
+            padding-top: 70px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(15, 15, 35, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 20px 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .nav {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            align-items: center;
+            gap: 20px;
+        }
+        
+        .nav-left {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            justify-self: start;
+        }
+        
+        .nav-center {
+            justify-self: center;
+        }
+        
+        .center-logo {
+            height: calc(100% - 10px);
+            width: auto;
+            max-height: 80px;
+        }
+        
+        .nav-right {
+            justify-self: end;
+        }
+        
+        .logo-image {
+            width: 40px;
+            height: 40px;
+            background: transparent;
+            border: 2px solid #fbbf24;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #0f0f23;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+        
+        .logo-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+        
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .company-name {
+            font-size: 24px;
+            font-weight: bold;
+            background: linear-gradient(45deg, #fbbf24, #f59e0b, #d97706);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1;
+        }
+        
+        .company-tagline {
+            font-size: 11px;
+            color: #9ca3af;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 2px;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            color: #e5e7eb;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-weight: 500;
+            white-space: nowrap;
+        }
+        
+        .nav-links a:hover {
+            color: #fbbf24;
+        }
+        
+        .breadcrumb {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 20px 0;
+            font-size: 0.9rem;
+            color: #9ca3af;
+        }
+        
+        .breadcrumb-item {
+            color: #e5e7eb;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .breadcrumb-item:hover {
+            color: #fbbf24;
+        }
+        
+        .breadcrumb-separator {
+            color: #6b7280;
+        }
+        
+        .breadcrumb-current {
+            color: #9ca3af;
+            font-weight: 600;
+        }
+        
+        .hero-section {
+            padding: 80px 0 60px;
+            text-align: center;
+            position: relative;
+            background: radial-gradient(circle at 50% 50%, rgba(245, 158, 11, 0.15) 0%, transparent 70%);
+        }
+        
+        .hero-icon {
+            font-size: 6rem;
+            margin-bottom: 30px;
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+        }
+        
+        .hero-title {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, #f59e0b, #ef4444);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.2;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.3rem;
+            color: #d1d5db;
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+        
+        .business-grid {
+            padding: 60px 0;
+        }
+        
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .business-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+            position: relative;
+            text-decoration: none;
+            color: inherit;
+        }
+        
+        .business-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transition: left 0.6s ease;
+        }
+        
+        .business-card:hover::before {
+            left: 100%;
+        }
+        
+        .business-card:hover {
+            transform: translateY(-10px) scale(1.02);
+        }
+        
+        .business-card.products {
+            border-color: rgba(6, 182, 212, 0.2);
+        }
+        
+        .business-card.products:hover {
+            border-color: #06b6d4;
+            box-shadow: 0 20px 40px rgba(6, 182, 212, 0.3);
+        }
+        
+        .business-card.services {
+            border-color: rgba(139, 92, 246, 0.2);
+        }
+        
+        .business-card.services:hover {
+            border-color: #8b5cf6;
+            box-shadow: 0 20px 40px rgba(139, 92, 246, 0.3);
+        }
+        
+        .business-card.partner {
+            border-color: rgba(245, 158, 11, 0.2);
+        }
+        
+        .business-card.partner:hover {
+            border-color: #f59e0b;
+            box-shadow: 0 20px 40px rgba(245, 158, 11, 0.3);
+        }
+        
+        .card-visual {
+            height: 200px;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .card-visual.products {
+            background: linear-gradient(135deg, #06b6d4 0%, #10b981 100%);
+        }
+        
+        .card-visual.services {
+            background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+        }
+        
+        .card-visual.partner {
+            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+        }
+        
+        .card-icon {
+            font-size: 5rem;
+            filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.3));
+            animation: float 6s ease-in-out infinite;
+            animation-delay: 0.5s;
+        }
+        
+        .card-content {
+            padding: 35px;
+        }
+        
+        .card-badge {
+            display: inline-block;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 0.75rem;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .business-card.products .card-badge {
+            background: linear-gradient(45deg, #06b6d4, #10b981);
+            color: white;
+        }
+        
+        .business-card.services .card-badge {
+            background: linear-gradient(45deg, #8b5cf6, #7c3aed);
+            color: white;
+        }
+        
+        .business-card.partner .card-badge {
+            background: linear-gradient(45deg, #f59e0b, #d97706);
+            color: white;
+        }
+        
+        .card-title {
+            font-size: 1.8rem;
+            margin-bottom: 12px;
+            line-height: 1.3;
+        }
+        
+        .business-card.products .card-title {
+            background: linear-gradient(45deg, #06b6d4, #34d399);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .business-card.services .card-title {
+            background: linear-gradient(45deg, #8b5cf6, #a78bfa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .business-card.partner .card-title {
+            background: linear-gradient(45deg, #f59e0b, #fcd34d);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .card-description {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #d1d5db;
+            margin-bottom: 20px;
+        }
+        
+        .card-features {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 20px;
+        }
+        
+        .card-features li {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+            font-size: 0.9rem;
+            color: #e5e7eb;
+        }
+        
+        .card-features li::before {
+            content: '✓';
+            color: inherit;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+        
+        .card-arrow {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #fbbf24;
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+        
+        .card-arrow span {
+            font-size: 1.3rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .business-card:hover .card-arrow span {
+            transform: translateX(8px);
+        }
+        
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .grid-container {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+        }
+    }
+
+    .footer {
+        background: rgba(15, 15, 35, 0.9);
+        padding: 40px 0;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        margin-top: 60px;
+    }
+
+    .footer p {
+        text-align: center;
+        color: #d1d5db;
+        margin: 10px 0;
+        line-height: 1.6;
+    }
+
+    .footer a {
+        color: #fbbf24;
+        text-decoration: none;
+        transition: color 0.3s ease;
+    }
+
+    .footer a:hover {
+        color: #f472b6;
+    }
+</style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                <div class="nav-left">
+                    <div class="logo-image">
+                        <img src="assets/images/icons/favicon.svg" alt="Asabaal Ventures Logo">
+                    </div>
+                    <div class="logo-text">
+                        <div class="company-name">Asabaal Ventures</div>
+                        <div class="company-tagline">Reality Studio</div>
+                    </div>
+                </div>
+                
+                <div class="nav-center">
+                    <img src="assets/images/logos/Asabaal Ventures.png" alt="Asabaal Ventures" class="center-logo">
+                </div>
+                
+                <div class="nav-right">
+                    <ul class="nav-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="consume.html">Consume</a></li>
+                        <li><a href="interact.html">Interact</a></li>
+                        <li><a href="learn.html">Learn</a></li>
+                        <li><a href="do-business.html" style="color: #f59e0b;">Do Business</a></li>
+                        <li><a href="connect.html">Connect</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+    
+    <div class="breadcrumb">
+        <a href="index.html" class="breadcrumb-item">Home</a>
+        <span class="breadcrumb-separator">›</span>
+        <span class="breadcrumb-current">Do Business</span>
+    </div>
+    
+    <section class="hero-section">
+        <div class="container">
+            <div class="hero-icon">💼</div>
+            <h1 class="hero-title">Do Business With Us</h1>
+            <p class="hero-subtitle">
+                Partner with Asabaal Ventures for purpose-driven solutions. Explore our products, services, and partnership opportunities.
+            </p>
+        </div>
+    </section>
+    
+    <section style="padding: 60px 0;">
+        <div class="container">
+            <h2 style="font-size: 2.2rem; color: #f59e0b; margin-bottom: 40px; text-align: center;">Professional Approach</h2>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; max-width: 900px; margin: 0 auto;">
+                <div style="background: rgba(139, 92, 246, 0.1); padding: 40px; border-radius: 15px; border: 2px solid rgba(139, 92, 246, 0.3);">
+                    <h3 style="font-size: 1.6rem; color: #8b5cf6; margin-bottom: 15px;">Professional Positioning</h3>
+                    <p style="color: #e5e7eb; line-height: 1.7;">
+                        • Reality studio owner-operator — Not staff, not employee<br>
+                        • Paid consulting — Not favor, not volunteer-adjacent<br>
+                        • Defined scope — With clear boundaries and exit logic
+                    </p>
+                </div>
+                
+                <div style="background: rgba(16, 185, 129, 0.1); padding: 40px; border-radius: 15px; border: 2px solid rgba(16, 185, 129, 0.3);">
+                    <h3 style="font-size: 1.6rem; color: #10b981; margin-bottom: 15px;">Rate Justification</h3>
+                    <p style="color: #e5e7eb; line-height: 1.7;">
+                        • $100/hr target — Professional compensation for civilizational-stakes work<br>
+                        • Rate framework — Anchored in value, not market rates<br>
+                        • Exit as success — Making yourself unnecessary is not goal
+                    </p>
+                </div>
+            </div>
+            
+            <div style="background: rgba(6, 182, 212, 0.1); padding: 40px; border-radius: 20px; border: 2px solid rgba(6, 182, 212, 0.3); margin-top: 30px; max-width: 800px; margin-left: auto; margin-right: auto;">
+                <h3 style="font-size: 1.4rem; color: #06b6d4; margin-bottom: 15px; text-align: center;">Internal Grounding</h3>
+                <p style="color: #e5e7eb; font-style: italic; line-height: 1.7; text-align: center;">
+                    "I'm here to build something that can stand without me, and I'm being paid to do that well."
+                </p>
+            </div>
+        </div>
+    </section>
+    
+    <section class="business-grid">
+        <div class="container">
+            <div class="grid-container">
+                <a href="products.html" class="business-card products">
+                    <div class="card-visual products">
+                        <div class="card-icon">🛍️</div>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-badge">Coming Soon</div>
+                        <h3 class="card-title">Merch Store</h3>
+                        <p class="card-description">
+                            Browse our collection of branded merchandise including apparel, accessories, and collectibles.
+                        </p>
+                        <ul class="card-features">
+                            <li>Apparel & Wearables</li>
+                            <li>Accessories</li>
+                            <li>Collectibles</li>
+                            <li>Branded Items</li>
+                        </ul>
+                        <div class="card-arrow">
+                            <span>→</span>
+                            <span>Shop Merch</span>
+                        </div>
+                    </div>
+                </a>
+                
+                <a href="services.html" class="business-card services">
+                    <div class="card-visual services">
+                        <div class="card-icon">⚙️</div>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-badge">Professional</div>
+                        <h3 class="card-title">Services</h3>
+                        <p class="card-description">
+                            Leverage our expertise in technology, consulting, and creative solutions for your organization.
+                        </p>
+                        <ul class="card-features">
+                            <li>Technical Consulting</li>
+                            <li>System Development</li>
+                            <li>Data Analytics</li>
+                            <li>Strategic Planning</li>
+                        </ul>
+                        <div class="card-arrow">
+                            <span>→</span>
+                            <span>View Services</span>
+                        </div>
+                    </div>
+                </a>
+                
+                <a href="partner.html" class="business-card partner">
+                    <div class="card-visual partner">
+                        <div class="card-icon">🤝</div>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-badge">Collaboration</div>
+                        <h3 class="card-title">Partner With Us</h3>
+                        <p class="card-description">
+                            Join our network of purpose-driven partners and collaborate on transformative projects.
+                        </p>
+                        <ul class="card-features">
+                            <li>Strategic Partnerships</li>
+                            <li>Joint Ventures</li>
+                            <li>Network Opportunities</li>
+                            <li>Growth Together</li>
+                        </ul>
+                        <div class="card-arrow">
+                            <span>→</span>
+                            <span>Explore Partnerships</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+<footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Asabaal Ventures. Reality Studio.</p>
+            <p><em>"I don't promise perfection; I promise reality."</em></p>
+            <p><a href="connect.html">Connect with us</a> • <a href="links.html">All social links</a></p>
+        </div>
+    </footer>
+</body>
+</html>

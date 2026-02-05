@@ -1,0 +1,627 @@
+digraph WebsiteNavigationGraph {
+    // Graph Settings
+    rankdir=LR;
+    splines=splines;
+    overlap=scale;
+    dpi=150;
+    fontname="Arial";
+    fontsize=10;
+
+    // Global Node Attributes
+    node [fontname="Arial", fontsize=10, shape=box, style="rounded,filled", width=1.5, height=0.6];
+
+    // Global Edge Attributes
+    edge [fontname="Arial", fontsize=8];
+
+    // ==================== SUBGRAPHS: MAIN SECTIONS ====================
+
+    // Entry Points Cluster
+    subgraph cluster_entry {
+        label="Entry Points";
+        style=filled;
+        color="#FFD700";
+        fillcolor="#FFD70022";
+
+        index [label="index.html\n(Mode Selection)", fillcolor="#FFD700", fontsize=12, fontcolor="black"];
+        brands [label="brands.html\n(Main Home)", fillcolor="#FFD700", fontsize=12, fontcolor="black"];
+    }
+
+    // Primary Modes Cluster
+    subgraph cluster_modes {
+        label="Primary Modes";
+        style=filled;
+        color="#8B5CF6";
+        fillcolor="#8B5CF622";
+
+        consume [label="consume.html", fillcolor="#8B5CF6", fontcolor="white"];
+        interact [label="interact.html", fillcolor="#06B6D4", fontcolor="white"];
+        learn [label="learn.html", fillcolor="#10B981", fontcolor="white"];
+        dobusiness [label="do-business.html", fillcolor="#F59E0B", fontcolor="white"];
+    }
+
+    // Utility Pages Cluster
+    subgraph cluster_utilities {
+        label="Utilities";
+        style=filled;
+        color="#6B7280";
+        fillcolor="#6B728022";
+
+        connect [label="connect.html", fillcolor="#6B7280"];
+        links [label="links.html", fillcolor="#6B7280"];
+        privacy [label="privacy.html", fillcolor="#6B7280"];
+        terms [label="terms.html", fillcolor="#6B7280"];
+    }
+
+    // Consume Mode Sub-sections
+    subgraph cluster_consume {
+        label="Consume Branch";
+        style=filled;
+        color="#8B5CF6";
+        fillcolor="#8B5CF611";
+
+        amusements [label="amusements.html", fillcolor="#A78BFA"];
+        bloglisting [label="blog-listing.html", fillcolor="#A78BFA"];
+        blogsselection [label="blogs-selection.html", fillcolor="#A78BFA"];
+        shows [label="shows.html", fillcolor="#C4B5FD"];
+        games [label="games.html", fillcolor="#C4B5FD"];
+    }
+
+    // Interact Mode Sub-sections
+    subgraph cluster_interact {
+        label="Interact Branch";
+        style=filled;
+        color="#06B6D4";
+        fillcolor="#06B6D411";
+
+        dispatch [label="dispatch-revenue-reporting.html", fillcolor="#67E8F9"];
+        tictactoe [label="tic-tac-toe.html", fillcolor="#67E8F9"];
+        unityremix [label="unity-remix-contest.html", fillcolor="#67E8F9"];
+    }
+
+    // Learn Mode Sub-sections
+    subgraph cluster_learn {
+        label="Learn Branch";
+        style=filled;
+        color="#10B981";
+        fillcolor="#10B98111";
+
+        aboutfounder [label="about-founder.html", fillcolor="#34D399"];
+        whatwedo [label="what-we-do.html", fillcolor="#34D399"];
+    }
+
+    // Business Mode Sub-sections
+    subgraph cluster_business {
+        label="Business Branch";
+        style=filled;
+        color="#F59E0B";
+        fillcolor="#F59E0B11";
+
+        products [label="products.html", fillcolor="#FBBF24"];
+        services [label="services.html", fillcolor="#FBBF24"];
+        partner [label="partner.html", fillcolor="#FBBF24"];
+        buildwithme [label="build-with-me.html", fillcolor="#FCD34D"];
+        buildwithyou [label="build-with-you.html", fillcolor="#FCD34D"];
+    }
+
+    // Brand/About Pages
+    subgraph cluster_about {
+        label="About/Brand Pages";
+        style=filled;
+        color="#EC4899";
+        fillcolor="#EC489911";
+
+        asabaal [label="asabaal.html", fillcolor="#F472B6"];
+        advancements [label="advancements-by-asabaal.html", fillcolor="#F472B6"];
+        actsofasabaal [label="acts-of-asabaal.html", fillcolor="#FBCFE8"];
+        asabaalprojects [label="asabaal-projects.html", fillcolor="#FBCFE8"];
+        playlists [label="playlists.html", fillcolor="#FBCFE8"];
+    }
+
+    // Special Content
+    subgraph cluster_special {
+        label="Special Content";
+        style=filled;
+        color="#A855F7";
+        fillcolor="#A855F711";
+
+        vision2054 [label="vision_2054_page.html", fillcolor="#C084FC"];
+        opensource [label="open-source-model.html", fillcolor="#C084FC"];
+        blog [label="blog.html", fillcolor="#E879F9"];
+    }
+
+    // Series Pages
+    subgraph cluster_series {
+        label="Series & Episodes";
+        style=filled;
+        color="#F97316";
+        fillcolor="#F9731611";
+
+        musicalpoetry [label="musical-poetry.html", fillcolor="#FB923C"];
+        season1 [label="musical-poetry/season-1.html", fillcolor="#FDBA74"];
+        episode1 [label="musical-poetry/season-1/episode-1.html", fillcolor="#FED7AA"];
+        lifeisyourword [label="life-is-your-word.html", fillcolor="#FB923C"];
+        liyw_season0 [label="life-is-your-word/season-0.html", fillcolor="#FDBA74"];
+        liyw_season1 [label="life-is-your-word/season-1.html", fillcolor="#FDBA74"];
+    }
+
+    // Resume/CV
+    subgraph cluster_resume {
+        label="Documentation";
+        style=filled;
+        color="#3B82F6";
+        fillcolor="#3B82F611";
+
+        resume [label="resume_cv/asabaal_horan_cv_202507.html", fillcolor="#60A5FA"];
+    }
+
+    // Visualizations
+    subgraph cluster_visualizations {
+        label="Visualizations";
+        style=filled;
+        color="#0EA5E9";
+        fillcolor="#0EA5E911";
+
+        v1 [label="visualizations/cooperative-kingdom-ecosystem-fixed.html", fillcolor="#38BDF8"];
+        v2 [label="visualizations/complete-implementation-timeline.html", fillcolor="#38BDF8"];
+        v3 [label="visualizations/implementation-timeline.html", fillcolor="#38BDF8"];
+        v4 [label="visualizations/kingdom-power-distribution-model.html", fillcolor="#38BDF8"];
+        va1 [label="visualizations-archive/enhanced-ecosystem-with-finance.html", fillcolor="#7DD3FC"];
+        va2 [label="visualizations-archive/enhanced-ecosystem-with-gaming.html", fillcolor="#7DD3FC"];
+    }
+
+    // Prototypes
+    subgraph cluster_prototypes {
+        label="Prototypes";
+        style=filled;
+        color="#6366F1";
+        fillcolor="#6366F111";
+
+        p1 [label="prototypes/ecosystem-diagram.html", fillcolor="#818CF8"];
+        p2 [label="prototypes/full-co-creator-platform-vision-concept.html", fillcolor="#818CF8"];
+        p3 [label="prototypes/phase-1.html", fillcolor="#A5B4FC"];
+        p4 [label="prototypes/phase-2.html", fillcolor="#A5B4FC"];
+        p5 [label="prototypes/phase-3.html", fillcolor="#A5B4FC"];
+        p6 [label="prototypes/phase-4.html", fillcolor="#A5B4FC"];
+        p7 [label="prototypes/phase-5.html", fillcolor="#A5B4FC"];
+        p8 [label="prototypes/Pitch Deck Updated 20250714.html", fillcolor="#A5B4FC"];
+    }
+
+    // External Platforms
+    subgraph cluster_external {
+        label="External Platforms";
+        style=filled;
+        color="#9CA3AF";
+        fillcolor="#9CA3AF11";
+
+        extern_tiktok [label="TikTok\n(@asabaalhoran)", shape=ellipse, fillcolor="#D1D5DB", fontcolor="black"];
+        extern_youtube [label="YouTube\n(@asabaal)", shape=ellipse, fillcolor="#D1D5DB", fontcolor="black"];
+        extern_instagram [label="Instagram\n(@asabaalhoran)", shape=ellipse, fillcolor="#D1D5DB", fontcolor="black"];
+        extern_spotify [label="Spotify", shape=ellipse, fillcolor="#D1D5DB", fontcolor="black"];
+        extern_suno [label="Suno\n(@asabaal)", shape=ellipse, fillcolor="#D1D5DB", fontcolor="black"];
+        extern_linkedin [label="LinkedIn", shape=ellipse, fillcolor="#D1D5DB", fontcolor="black"];
+        extern_facebook [label="Facebook", shape=ellipse, fillcolor="#D1D5DB", fontcolor="black"];
+        extern_x [label="X/Twitter\n(@asabaalventures)", shape=ellipse, fillcolor="#D1D5DB", fontcolor="black"];
+        extern_applemusic [label="Apple Music", shape=ellipse, fillcolor="#D1D5DB", fontcolor="black"];
+        extern_ymusic [label="YouTube Music", shape=ellipse, fillcolor="#D1D5DB", fontcolor="black"];
+        extern_tshill [label="TSHill Logistics", shape=ellipse, fillcolor="#D1D5DB", fontcolor="black"];
+        extern_main [label="asabaalventures.me", shape=ellipse, fillcolor="#D1D5DB", fontcolor="black"];
+        extern_email [label="Email\n(asabaal@...)", shape=ellipse, fillcolor="#D1D5DB", fontcolor="black"];
+    }
+
+    // Blog Posts (Representative samples - showing pattern)
+    subgraph cluster_blog {
+        label="Blog Posts (26+)";
+        style=filled;
+        color="#EC4899";
+        fillcolor="#EC489911";
+
+        blog_post_1 [label="blog/post-asabaal-ventures-dawn-new-era.html", fillcolor="#F9A8D4"];
+        blog_post_2 [label="blog/post-by-my-hand-discarding-hurt-for-unity.html", fillcolor="#F9A8D4"];
+        blog_post_3 [label="blog/post-charting-the-course-for-a-more-fulfilling-future.html", fillcolor="#F9A8D4"];
+        blog_posts_other [label="... (23 more blog posts)", shape=none, fillcolor="none"];
+    }
+
+    // ==================== EDGES: NAVIGATION LINKS ====================
+
+    // Index Page Links
+    index -> brands [label="Main Nav", penwidth=3, color="#FFD700"];
+    index -> consume [label="Mode Card", penwidth=2];
+    index -> interact [label="Mode Card", penwidth=2];
+    index -> learn [label="Mode Card", penwidth=2];
+    index -> dobusiness [label="Mode Card", penwidth=2];
+    index -> connect [label="Main Nav", penwidth=2];
+    index -> links [label="Footer"];
+
+    // Brands Page Links
+    brands -> consume [label="Nav", penwidth=2];
+    brands -> interact [label="Nav", penwidth=2];
+    brands -> learn [label="Nav", penwidth=2];
+    brands -> dobusiness [label="Nav", penwidth=2];
+    brands -> connect [label="Nav", penwidth=2];
+    brands -> asabaal [label="Brand Card"];
+    brands -> advancements [label="Brand Card"];
+    brands -> amusements [label="Brand Card"];
+    brands -> actsofasabaal [label="Brand Card"];
+
+    // Consume Mode Links
+    consume -> brands [label="Nav", penwidth=2];
+    consume -> interact [label="Nav", penwidth=2];
+    consume -> learn [label="Nav", penwidth=2];
+    consume -> dobusiness [label="Nav", penwidth=2];
+    consume -> connect [label="Nav", penwidth=2];
+    consume -> amusements [label="Content Card"];
+    consume -> bloglisting [label="Content"];
+    consume -> blogsselection [label="Content"];
+    consume -> links [label="Social"];
+    consume -> privacy [label="Footer"];
+    consume -> terms [label="Footer"];
+
+    // Amusements Links
+    amusements -> brands [label="Nav", penwidth=2];
+    amusements -> consume [label="Nav", penwidth=2];
+    amusements -> interact [label="Nav", penwidth=2];
+    amusements -> learn [label="Nav", penwidth=2];
+    amusements -> dobusiness [label="Nav", penwidth=2];
+    amusements -> connect [label="Nav", penwidth=2];
+    amusements -> blogsselection [label="Card"];
+    amusements -> shows [label="Card"];
+    amusements -> games [label="Card"];
+
+    // Shows Links
+    shows -> brands [label="Nav", penwidth=2];
+    shows -> consume [label="Nav", penwidth=2];
+    shows -> interact [label="Nav", penwidth=2];
+    shows -> learn [label="Nav", penwidth=2];
+    shows -> vision2054 [label="Card"];
+    shows -> lifeisyourword [label="Card"];
+
+    // Games Links
+    games -> brands [label="Nav", penwidth=2];
+    games -> unityremix [label="Card"];
+    games -> amusements [label="Back"];
+
+    // Interact Mode Links
+    interact -> brands [label="Nav", penwidth=2];
+    interact -> consume [label="Nav", penwidth=2];
+    interact -> learn [label="Nav", penwidth=2];
+    interact -> dobusiness [label="Nav", penwidth=2];
+    interact -> connect [label="Nav", penwidth=2];
+    interact -> brands [label="Back"];
+    interact -> dispatch [label="Card"];
+    interact -> tictactoe [label="Card"];
+    interact -> unityremix [label="Card"];
+
+    // Learn Mode Links
+    learn -> brands [label="Nav", penwidth=2];
+    learn -> consume [label="Nav", penwidth=2];
+    learn -> interact [label="Nav", penwidth=2];
+    learn -> dobusiness [label="Nav", penwidth=2];
+    learn -> connect [label="Nav", penwidth=2];
+    learn -> brands [label="Back"];
+    learn -> aboutfounder [label="Card"];
+    learn -> whatwedo [label="Card"];
+
+    // About Founder Links
+    aboutfounder -> brands [label="Nav", penwidth=2];
+    aboutfounder -> consume [label="Nav", penwidth=2];
+    aboutfounder -> interact [label="Nav", penwidth=2];
+    aboutfounder -> learn [label="Nav", penwidth=2];
+    aboutfounder -> connect [label="Nav", penwidth=2];
+    aboutfounder -> learn [label="Breadcrumb"];
+    aboutfounder -> resume [label="Card"];
+    aboutfounder -> extern_tiktok [label="External", style=dashed, color="#9CA3AF"];
+
+    // Do Business Mode Links
+    dobusiness -> brands [label="Nav", penwidth=2];
+    dobusiness -> consume [label="Nav", penwidth=2];
+    dobusiness -> interact [label="Nav", penwidth=2];
+    dobusiness -> learn [label="Nav", penwidth=2];
+    dobusiness -> connect [label="Nav", penwidth=2];
+    dobusiness -> brands [label="Back"];
+    dobusiness -> products [label="Card"];
+    dobusiness -> services [label="Card"];
+    dobusiness -> partner [label="Card"];
+
+    // Products Links
+    products -> brands [label="Nav", penwidth=2];
+    products -> consume [label="Nav", penwidth=2];
+    products -> interact [label="Nav", penwidth=2];
+    products -> learn [label="Nav", penwidth=2];
+    products -> dobusiness [label="Breadcrumb"];
+    products -> advancements [label="Card"];
+    products -> connect [label="Action"];
+
+    // Services Links
+    services -> brands [label="Nav", penwidth=2];
+    services -> consume [label="Nav", penwidth=2];
+    services -> interact [label="Nav", penwidth=2];
+    services -> learn [label="Nav", penwidth=2];
+    services -> dobusiness [label="Breadcrumb"];
+    services -> dispatch [label="Card"];
+    services -> buildwithme [label="Card"];
+    services -> buildwithyou [label="Card"];
+
+    // Partner Links
+    partner -> brands [label="Nav", penwidth=2];
+    partner -> consume [label="Nav", penwidth=2];
+    partner -> interact [label="Nav", penwidth=2];
+    partner -> learn [label="Nav", penwidth=2];
+    partner -> dobusiness [label="Nav", penwidth=2];
+    partner -> dobusiness [label="Breadcrumb"];
+    partner -> connect [label="Action"];
+    partner -> connect [label="Action"];
+
+    // Dispatch Revenue Reporting Links
+    dispatch -> brands [label="Nav", penwidth=2];
+    dispatch -> consume [label="Nav", penwidth=2];
+    dispatch -> interact [label="Nav", penwidth=2];
+    dispatch -> learn [label="Nav", penwidth=2];
+    dispatch -> dobusiness [label="Breadcrumb"];
+    dispatch -> services [label="Card"];
+    dispatch -> connect [label="Action"];
+    dispatch -> advancements [label="Card"];
+
+    // Build With Me Links
+    buildwithme -> brands [label="Nav", penwidth=2];
+    buildwithme -> consume [label="Nav", penwidth=2];
+    buildwithme -> interact [label="Nav", penwidth=2];
+    buildwithme -> learn [label="Nav", penwidth=2];
+    buildwithme -> dobusiness [label="Breadcrumb"];
+    buildwithme -> services [label="Breadcrumb"];
+    buildwithme -> connect [label="Action"];
+
+    // Build With You Links
+    buildwithyou -> brands [label="Nav", penwidth=2];
+    buildwithyou -> consume [label="Nav", penwidth=2];
+    buildwithyou -> interact [label="Nav", penwidth=2];
+    buildwithyou -> learn [label="Nav", penwidth=2];
+    buildwithyou -> dobusiness [label="Breadcrumb"];
+    buildwithyou -> services [label="Breadcrumb"];
+    buildwithyou -> connect [label="Action"];
+
+    // Connect Links
+    connect -> index [label="Home"];
+    connect -> consume [label="Nav"];
+    connect -> interact [label="Nav"];
+    connect -> learn [label="Nav"];
+    connect -> dobusiness [label="Nav"];
+    connect -> privacy [label="Footer"];
+    connect -> terms [label="Footer"];
+    connect -> extern_email [label="Contact", style=dashed, color="#9CA3AF"];
+
+    // Links Page Links
+    links -> index [label="Home"];
+    links -> unityremix [label="Featured"];
+    links -> extern_tiktok [label="Social", style=dashed, color="#9CA3AF"];
+    links -> extern_youtube [label="Social", style=dashed, color="#9CA3AF"];
+    links -> extern_instagram [label="Social", style=dashed, color="#9CA3AF"];
+    links -> extern_facebook [label="Social", style=dashed, color="#9CA3AF"];
+    links -> extern_linkedin [label="Social", style=dashed, color="#9CA3AF"];
+    links -> extern_x [label="Social", style=dashed, color="#9CA3AF"];
+    links -> extern_spotify [label="Music", style=dashed, color="#9CA3AF"];
+    links -> extern_applemusic [label="Music", style=dashed, color="#9CA3AF"];
+    links -> extern_ymusic [label="Music", style=dashed, color="#9CA3AF"];
+    links -> extern_suno [label="Music", style=dashed, color="#9CA3AF"];
+
+    // Privacy/Terms Links
+    privacy -> index [label="Home"];
+    privacy -> blog [label="Nav"];
+    privacy -> connect [label="Nav"];
+    privacy -> extern_supabase [label="External", style=dashed, color="#9CA3AF", label="Supabase"];
+
+    terms -> index [label="Home"];
+    terms -> blog [label="Nav"];
+    terms -> connect [label="Nav"];
+    terms -> privacy [label="Related"];
+
+    // Asabaal Page Links
+    asabaal -> brands [label="Nav", penwidth=2];
+    asabaal -> index [label="Home"];
+    asabaal -> consume [label="Nav", penwidth=2];
+    asabaal -> interact [label="Nav", penwidth=2];
+    asabaal -> learn [label="Nav", penwidth=2];
+    asabaal -> dobusiness [label="Nav", penwidth=2];
+    asabaal -> connect [label="Nav", penwidth=2];
+    asabaal -> extern_suno [label="Profile", style=dashed, color="#9CA3AF"];
+    asabaal -> asabaalprojects [label="Card"];
+    asabaal -> playlists [label="Card"];
+
+    // Advancements Page Links
+    advancements -> brands [label="Nav", penwidth=2];
+    advancements -> consume [label="Nav", penwidth=2];
+    advancements -> interact [label="Nav", penwidth=2];
+    advancements -> learn [label="Nav", penwidth=2];
+    advancements -> dobusiness [label="Nav", penwidth=2];
+    advancements -> connect [label="Nav", penwidth=2];
+    advancements -> extern_tshill [label="External", style=dashed, color="#9CA3AF"];
+    advancements -> extern_email [label="Contact", style=dashed, color="#9CA3AF"];
+    advancements -> vision2054 [label="Card"];
+    advancements -> v1 [label="Visualization"];
+    advancements -> p8 [label="Prototype"];
+    advancements -> blog [label="Blog"];
+    advancements -> unityremix [label="Contest"];
+    advancements -> opensource [label="Model"];
+    advancements -> resume [label="Resume"];
+    advancements -> links [label="Social"];
+
+    // Acts of Asabaal Links
+    actsofasabaal -> brands [label="Nav", penwidth=2];
+    actsofasabaal -> consume [label="Nav", penwidth=2];
+    actsofasabaal -> interact [label="Nav", penwidth=2];
+    actsofasabaal -> learn [label="Nav", penwidth=2];
+    actsofasabaal -> dobusiness [label="Nav", penwidth=2];
+    actsofasabaal -> connect [label="Nav", penwidth=2];
+    actsofasabaal -> brands [label="Breadcrumb"];
+    actsofasabaal -> brands [label="Breadcrumb"];
+    actsofasabaal -> amusements [label="Card"];
+    actsofasabaal -> connect [label="Action"];
+
+    // Asabaal Projects Links
+    asabaalprojects -> brands [label="Nav", penwidth=2];
+    asabaalprojects -> index [label="Home"];
+    asabaalprojects -> consume [label="Nav", penwidth=2];
+    asabaalprojects -> interact [label="Nav", penwidth=2];
+    asabaalprojects -> learn [label="Nav", penwidth=2];
+    asabaalprojects -> dobusiness [label="Nav", penwidth=2];
+    asabaalprojects -> connect [label="Nav", penwidth=2];
+    asabaalprojects -> asabaal [label="Breadcrumb"];
+    asabaalprojects -> extern_suno [label="14+ Playlists", style=dashed, color="#9CA3AF"];
+
+    // Playlists Links
+    playlists -> brands [label="Nav", penwidth=2];
+    playlists -> index [label="Home"];
+    playlists -> consume [label="Nav", penwidth=2];
+    playlists -> interact [label="Nav", penwidth=2];
+    playlists -> learn [label="Nav", penwidth=2];
+    playlists -> dobusiness [label="Nav", penwidth=2];
+    playlists -> connect [label="Nav", penwidth=2];
+    playlists -> asabaal [label="Breadcrumb"];
+    playlists -> extern_suno [label="14+ Playlists", style=dashed, color="#9CA3AF"];
+
+    // Blog Listing Links
+    bloglisting -> index [label="Home"];
+    bloglisting -> vision2054 [label="Featured"];
+    bloglisting -> unityremix [label="Featured"];
+    bloglisting -> amusements [label="Back"];
+    bloglisting -> extern_email [label="Contact", style=dashed, color="#9CA3AF"];
+
+    // Blog Selection Links
+    blogsselection -> brands [label="Nav", penwidth=2];
+    blogsselection -> consume [label="Nav", penwidth=2];
+    blogsselection -> interact [label="Nav", penwidth=2];
+    blogsselection -> learn [label="Nav", penwidth=2];
+    blogsselection -> connect [label="Nav", penwidth=2];
+    blogsselection -> amusements [label="Breadcrumb"];
+    blogsselection -> bloglisting [label="Card"];
+    blogsselection -> musicalpoetry [label="Card"];
+
+    // Blog Page Links
+    blog -> amusements [label="Back"];
+
+    // Blog Post Links (Representative pattern)
+    blog_post_1 -> index [label="Home"];
+    blog_post_1 -> vision2054 [label="Related"];
+    blog_post_1 -> unityremix [label="Related"];
+    blog_post_1 -> blog [label="Blog"];
+    blog_post_1 -> extern_email [label="Contact", style=dashed, color="#9CA3AF"];
+
+    blog_post_2 -> index [label="Home"];
+    blog_post_2 -> vision2054 [label="Related"];
+    blog_post_2 -> unityremix [label="Related"];
+    blog_post_2 -> blog [label="Blog"];
+
+    blog_post_3 -> index [label="Home"];
+    blog_post_3 -> vision2054 [label="Related"];
+    blog_post_3 -> unityremix [label="Related"];
+    blog_post_3 -> blog [label="Blog"];
+
+    // Musical Poetry Links
+    musicalpoetry -> brands [label="Nav", penwidth=2];
+    musicalpoetry -> vision2054 [label="Related"];
+    musicalpoetry -> advancements [label="Related"];
+    musicalpoetry -> amusements [label="Back"];
+    musicalpoetry -> connect [label="Action"];
+    musicalpoetry -> amusements [label="Breadcrumb"];
+    musicalpoetry -> season1 [label="Season"];
+
+    // Season 1 Links
+    season1 -> index [label="Home"];
+    season1 -> vision2054 [label="Related"];
+    season1 -> advancements [label="Related"];
+    season1 -> amusements [label="Back"];
+    season1 -> connect [label="Action"];
+    season1 -> amusements [label="Breadcrumb"];
+    season1 -> musicalpoetry [label="Back"];
+
+    // Episode 1 Links
+    episode1 -> index [label="Home"];
+    episode1 -> vision2054 [label="Related"];
+    episode1 -> advancements [label="Related"];
+    episode1 -> amusements [label="Back"];
+    episode1 -> connect [label="Action"];
+    episode1 -> amusements [label="Breadcrumb"];
+    episode1 -> musicalpoetry [label="Back"];
+    episode1 -> season1 [label="Season"];
+
+    // Life is Your Word Links
+    lifeisyourword -> brands [label="Nav", penwidth=2];
+    lifeisyourword -> vision2054 [label="Related"];
+    lifeisyourword -> advancements [label="Related"];
+    lifeisyourword -> unityremix [label="Related"];
+    lifeisyourword -> amusements [label="Back"];
+    lifeisyourword -> connect [label="Action"];
+    lifeisyourword -> amusements [label="Breadcrumb"];
+
+    // LIYW Season 0 Links
+    liyw_season0 -> index [label="Home"];
+    liyw_season0 -> vision2054 [label="Related"];
+    liyw_season0 -> advancements [label="Related"];
+    liyw_season0 -> unityremix [label="Related"];
+    liyw_season0 -> amusements [label="Back"];
+    liyw_season0 -> connect [label="Action"];
+    liyw_season0 -> amusements [label="Breadcrumb"];
+    liyw_season0 -> lifeisyourword [label="Main"];
+    liyw_season0 -> liyw_season1 [label="Next"];
+
+    // LIYW Season 1 Links
+    liyw_season1 -> index [label="Home"];
+    liyw_season1 -> vision2054 [label="Related"];
+    liyw_season1 -> advancements [label="Related"];
+    liyw_season1 -> amusements [label="Back"];
+    liyw_season1 -> connect [label="Action"];
+    liyw_season1 -> amusements [label="Breadcrumb"];
+    liyw_season1 -> lifeisyourword [label="Main"];
+
+    // Vision 2054 Page Links
+    vision2054 -> index [label="Home"];
+    vision2054 -> blog [label="Blog"];
+    vision2054 -> unityremix [label="Contest"];
+    vision2054 -> extern_email [label="Contact", style=dashed, color="#9CA3AF"];
+    vision2054 -> unityremix [label="CTA"];
+    vision2054 -> extern_email [label="CTA"];
+
+    // Unity Remix Contest Links
+    unityremix -> index [label="Home"];
+    unityremix -> vision2054 [label="Related"];
+    unityremix -> blog [label="Blog"];
+    unityremix -> extern_email [label="Contact", style=dashed, color="#9CA3AF"];
+
+    // Open Source Model Links
+    opensource -> index [label="Home"];
+    opensource -> vision2054 [label="Related"];
+    opensource -> blog [label="Blog"];
+    opensource -> links [label="Social"];
+    opensource -> index [label="Join"];
+    opensource -> v1 [label="Visualization"];
+
+    // What We Do Links
+    whatwedo -> brands [label="Nav", penwidth=2];
+    whatwedo -> consume [label="Nav", penwidth=2];
+    whatwedo -> interact [label="Nav", penwidth=2];
+    whatwedo -> learn [label="Nav", penwidth=2];
+    whatwedo -> connect [label="Nav", penwidth=2];
+    whatwedo -> learn [label="Breadcrumb"];
+
+    // ==================== LEGEND ====================
+
+    subgraph cluster_legend {
+        label="Legend";
+        rank=source;
+        style=filled;
+        color="#E5E7EB";
+        fillcolor="#F3F4F6";
+        fontsize=12;
+
+        legend_title [label="Node Types:", shape=none, fillcolor="none", fontcolor="black"];
+        legend_entry [label="● Entry Points", shape=none, fillcolor="none", fontcolor="black"];
+        legend_mode [label="● Primary Modes", shape=none, fillcolor="none", fontcolor="black"];
+        legend_utility [label="● Utility Pages", shape=none, fillcolor="none", fontcolor="black"];
+        legend_content [label="● Content Hubs", shape=none, fillcolor="none", fontcolor="black"];
+        legend_external [label="○ External Platforms", shape=none, fillcolor="none", fontcolor="black"];
+
+        edge_legend_title [label="Edge Types:", shape=none, fillcolor="none", fontcolor="black", pos="10,0!"];
+        legend_primary [label="── Primary Navigation (thick)", shape=none, fillcolor="none", fontcolor="black", pos="11,0!"];
+        legend_secondary [label="── Secondary Navigation", shape=none, fillcolor="none", fontcolor="black", pos="12,0!"];
+        legend_external_edge [label="- - External Links", shape=none, fillcolor="none", fontcolor="black", pos="13,0!"];
+    }
+}

@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic Tac Toe | Asabaal Ventures</title>
+    <link rel="icon" type="image/svg+xml" href="assets/images/icons/favicon.svg">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #0f0f23 0%, #1a1a3e 25%, #2d1b69 50%, #4c1d95 75%, #6b21a8 100%);
+            color: #ffffff;
+            min-height: 100vh;
+            overflow-x: hidden;
+            padding-top: 70px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(15, 15, 35, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 20px 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .nav {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            align-items: center;
+            gap: 20px;
+        }
+        
+        .nav-left {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            justify-self: start;
+        }
+        
+        .nav-center {
+            justify-self: center;
+        }
+        
+        .center-logo {
+            height: calc(100% - 10px);
+            width: auto;
+            max-height: 80px;
+        }
+        
+        .nav-right {
+            justify-self: end;
+        }
+        
+        .logo-image {
+            width: 40px;
+            height: 40px;
+            background: transparent;
+            border: 2px solid #fbbf24;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #0f0f23;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+        
+        .logo-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+        
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .company-name {
+            font-size: 24px;
+            font-weight: bold;
+            background: linear-gradient(45deg, #fbbf24, #f59e0b, #d97706);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1;
+        }
+        
+        .company-tagline {
+            font-size: 11px;
+            color: #9ca3af;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 2px;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            color: #e5e7eb;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-weight: 500;
+            white-space: nowrap;
+        }
+        
+        .nav-links a:hover {
+            color: #fbbf24;
+        }
+        
+        .game-section {
+            padding: 60px 0;
+        }
+        
+        .game-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .game-title {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, #10b981, #f59e0b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.2;
+        }
+        
+        .game-subtitle {
+            font-size: 1.3rem;
+            color: #d1d5db;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+        
+        .game-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .setup-panel {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            padding: 40px;
+            margin-bottom: 30px;
+        }
+        
+        .setup-panel.hidden {
+            display: none;
+        }
+        
+        .setup-title {
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+            text-align: center;
+            color: #10b981;
+        }
+        
+        .setup-options {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .setup-group {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        
+        .setup-label {
+            font-size: 1.1rem;
+            color: #e5e7eb;
+            font-weight: 600;
+        }
+        
+        .setup-buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        
+        .setup-btn {
+            flex: 1;
+            min-width: 150px;
+            padding: 15px 25px;
+            border: 2px solid rgba(16, 185, 129, 0.3);
+            background: rgba(16, 185, 129, 0.1);
+            color: #10b981;
+            border-radius: 15px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .setup-btn:hover {
+            background: rgba(16, 185, 129, 0.2);
+            transform: translateY(-2px);
+        }
+        
+        .setup-btn.selected {
+            background: rgba(16, 185, 129, 0.3);
+            border-color: #10b981;
+            box-shadow: 0 0 20px rgba(16, 185, 129, 0.3);
+        }
+        
+        .start-btn {
+            width: 100%;
+            margin-top: 20px;
+            padding: 18px 30px;
+            background: linear-gradient(45deg, #10b981, #f59e0b);
+            border: none;
+            border-radius: 15px;
+            color: white;
+            font-size: 1.2rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .start-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(16, 185, 129, 0.4);
+        }
+        
+        .game-panel {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            padding: 40px;
+            display: none;
+        }
+        
+        .game-panel.active {
+            display: block;
+        }
+        
+        .game-status {
+            text-align: center;
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+            color: #10b981;
+            font-weight: 600;
+        }
+        
+        .game-board {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            max-width: 400px;
+            margin: 0 auto 30px;
+        }
+        
+        .cell {
+            aspect-ratio: 1;
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .cell:hover:not(.taken) {
+            background: rgba(255, 255, 255, 0.1);
+            transform: scale(1.02);
+        }
+        
+        .cell.taken {
+            cursor: not-allowed;
+        }
+        
+        .cell.x {
+            color: #10b981;
+        }
+        
+        .cell.o {
+            color: #f59e0b;
+        }
+        
+        .cell.winning {
+            background: rgba(16, 185, 129, 0.3);
+            border-color: #10b981;
+            box-shadow: 0 0 30px rgba(16, 185, 129, 0.5);
+            animation: pulse 1s ease-in-out infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        
+        .game-controls {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+        
+        .control-btn {
+            padding: 15px 30px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            color: #e5e7eb;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .control-btn:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-2px);
+        }
+        
+        .cta-section {
+            text-align: center;
+            padding: 30px;
+            background: rgba(16, 185, 129, 0.1);
+            border-radius: 15px;
+            border: 2px solid rgba(16, 185, 129, 0.3);
+        }
+        
+        .cta-text {
+            font-size: 1.2rem;
+            color: #d1d5db;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            padding: 18px 50px;
+            background: linear-gradient(45deg, #f59e0b, #fcd34d);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(245, 158, 11, 0.4);
+        }
+        
+        @media (max-width: 768px) {
+            .game-title {
+                font-size: 2.5rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .setup-buttons {
+                flex-direction: column;
+            }
+            
+            .setup-btn {
+                min-width: 100%;
+            }
+            
+            .game-board {
+                max-width: 300px;
+            }
+            
+            .cell {
+                font-size: 3rem;
+            }
+            
+            .game-controls {
+                flex-direction: column;
+            }
+        }
+    }
+
+    .footer {
+        background: rgba(15, 15, 35, 0.9);
+        padding: 40px 0;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        margin-top: 60px;
+    }
+
+    .footer p {
+        text-align: center;
+        color: #d1d5db;
+        margin: 10px 0;
+        line-height: 1.6;
+    }
+
+    .footer a {
+        color: #fbbf24;
+        text-decoration: none;
+        transition: color 0.3s ease;
+    }
+
+    .footer a:hover {
+        color: #f472b6;
+    }
+</style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                <div class="nav-left">
+                    <div class="logo-image">
+                        <img src="assets/images/icons/favicon.svg" alt="Asabaal Ventures Logo">
+                    </div>
+                    <div class="logo-text">
+                        <div class="company-name">Asabaal Ventures</div>
+                        <div class="company-tagline">Reality Studio</div>
+                    </div>
+                </div>
+                
+                <div class="nav-center">
+                    <a href="brands.html">
+                        <img src="assets/images/logos/Asabaal Ventures.png" alt="Asabaal Ventures" class="center-logo">
+                    </a>
+                </div>
+                
+                <div class="nav-right">
+                    <ul class="nav-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="consume.html">Consume</a></li>
+                        <li><a href="interact.html">Interact</a></li>
+                        <li><a href="learn.html">Learn</a></li>
+                        <li><a href="do-business.html" style="color: #f59e0b;">Do Business</a></li>
+                        <li><a href="connect.html">Connect</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+    
+    <section class="game-section">
+        <div class="container">
+            <div class="game-header">
+                <h1 class="game-title">⭕ Tic Tac Toe</h1>
+                <p class="game-subtitle">Challenge yourself against the computer. Choose your move and difficulty to begin!</p>
+            </div>
+            
+            <div class="game-container">
+                <div id="setupPanel" class="setup-panel">
+                    <h2 class="setup-title">Game Setup</h2>
+                    <div class="setup-options">
+                        <div class="setup-group">
+                            <div class="setup-label">Do you want to play as:</div>
+                            <div class="setup-buttons" id="playerChoice">
+                                <button class="setup-btn selected" data-player="X">X (First)</button>
+                                <button class="setup-btn" data-player="O">O (Second)</button>
+                            </div>
+                        </div>
+                        
+                        <div class="setup-group">
+                            <div class="setup-label">AI Difficulty:</div>
+                            <div class="setup-buttons" id="difficultyChoice">
+                                <button class="setup-btn selected" data-difficulty="random">Random</button>
+                                <button class="setup-btn" data-difficulty="basic">Basic</button>
+                                <button class="setup-btn" data-difficulty="unbeatable">Unbeatable</button>
+                            </div>
+                        </div>
+                        
+                        <button class="start-btn" id="startGame">Start Game</button>
+                    </div>
+                </div>
+                
+                <div id="gamePanel" class="game-panel">
+                    <div id="gameStatus" class="game-status">Your Turn (X)</div>
+                    <div id="gameBoard" class="game-board"></div>
+                    <div class="game-controls">
+                        <button class="control-btn" id="newGame">New Game</button>
+                        <button class="control-btn" id="changeSettings">Change Settings</button>
+                    </div>
+                    <div class="cta-section">
+                        <p class="cta-text">Want to explore the code behind this game?</p>
+                        <a href="https://github.com/asabaal/asabaals-amusements/tree/main/tic-tac-toe" class="cta-button" id="githubCta" target="_blank">Want to download local AI version?</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+ 
+    <script>
+        const setupPanel = document.getElementById('setupPanel');
+        const gamePanel = document.getElementById('gamePanel');
+        const gameStatus = document.getElementById('gameStatus');
+        const gameBoard = document.getElementById('gameBoard');
+        const startBtn = document.getElementById('startGame');
+        const newGameBtn = document.getElementById('newGame');
+        const changeSettingsBtn = document.getElementById('changeSettings');
+        const githubCtaBtn = document.getElementById('githubCta');
+        
+        let playerSymbol = 'X';
+        let aiSymbol = 'O';
+        let difficulty = 'random';
+        let board = ['', '', '', '', '', '', '', '', ''];
+        let gameActive = false;
+        let currentPlayer = 'X';
+        
+        document.querySelectorAll('#playerChoice .setup-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('#playerChoice .setup-btn').forEach(b => b.classList.remove('selected'));
+                btn.classList.add('selected');
+                playerSymbol = btn.dataset.player;
+                aiSymbol = playerSymbol === 'X' ? 'O' : 'X';
+            });
+        });
+        
+        document.querySelectorAll('#difficultyChoice .setup-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('#difficultyChoice .setup-btn').forEach(b => b.classList.remove('selected'));
+                btn.classList.add('selected');
+                difficulty = btn.dataset.difficulty;
+            });
+        });
+        
+        startBtn.addEventListener('click', startGame);
+        newGameBtn.addEventListener('click', startGame);
+        changeSettingsBtn.addEventListener('click', showSetup);
+        
+        function startGame() {
+            setupPanel.classList.add('hidden');
+            gamePanel.classList.add('active');
+            
+            board = ['', '', '', '', '', '', '', '', ''];
+            gameActive = true;
+            currentPlayer = playerSymbol;
+            
+            renderBoard();
+            updateStatus();
+            
+            if (playerSymbol === 'O') {
+                setTimeout(aiMove, 500);
+            }
+        }
+        
+        function showSetup() {
+            gamePanel.classList.remove('active');
+            setupPanel.classList.remove('hidden');
+        }
+        
+        function renderBoard() {
+            gameBoard.innerHTML = '';
+            board.forEach((cell, index) => {
+                const cellElement = document.createElement('div');
+                cellElement.classList.add('cell');
+                if (cell) {
+                    cellElement.classList.add('taken', cell.toLowerCase());
+                    cellElement.textContent = cell;
+                }
+                cellElement.addEventListener('click', () => handleCellClick(index));
+                gameBoard.appendChild(cellElement);
+            });
+        }
+        
+        function handleCellClick(index) {
+            if (!gameActive || board[index] || currentPlayer !== playerSymbol) return;
+            
+            makeMove(index, playerSymbol);
+            
+            if (gameActive) {
+                setTimeout(aiMove, 500);
+            }
+        }
+        
+        function makeMove(index, player) {
+            board[index] = player;
+            renderBoard();
+            
+            const winner = checkWinner();
+            if (winner) {
+                gameActive = false;
+                highlightWinningCells(winner.indexes);
+                updateStatus(winner);
+                return;
+            }
+            
+            if (board.every(cell => cell)) {
+                gameActive = false;
+                updateStatus(null);
+                return;
+            }
+            
+            currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
+            updateStatus();
+        }
+        
+        function aiMove() {
+            if (!gameActive) return;
+            
+            let move;
+            switch (difficulty) {
+                case 'random':
+                    move = getRandomMove();
+                    break;
+                case 'basic':
+                    move = getBasicMove();
+                    break;
+                case 'unbeatable':
+                    move = getMinimaxMove();
+                    break;
+            }
+            
+            makeMove(move, aiSymbol);
+        }
+        
+        function getRandomMove() {
+            const available = board.map((cell, index) => cell === '' ? index : -1).filter(i => i !== -1);
+            return available[Math.floor(Math.random() * available.length)];
+        }
+        
+        function getBasicMove() {
+            if (Math.random() < 0.3) return getRandomMove();
+            return getMinimaxMove();
+        }
+        
+        function getMinimaxMove() {
+            let bestScore = -Infinity;
+            let bestMove;
+            
+            for (let i = 0; i < 9; i++) {
+                if (board[i] === '') {
+                    board[i] = aiSymbol;
+                    const score = minimax(board, 0, false);
+                    board[i] = '';
+                    
+                    if (score > bestScore) {
+                        bestScore = score;
+                        bestMove = i;
+                    }
+                }
+            }
+            
+            return bestMove;
+        }
+        
+        function minimax(board, depth, isMaximizing) {
+            const winner = checkWinner();
+            
+            if (winner === aiSymbol) return 10 - depth;
+            if (winner === playerSymbol) return depth - 10;
+            if (board.every(cell => cell)) return 0;
+            
+            if (isMaximizing) {
+                let bestScore = -Infinity;
+                for (let i = 0; i < 9; i++) {
+                    if (board[i] === '') {
+                        board[i] = aiSymbol;
+                        const score = minimax(board, depth +1, false);
+                        board[i] = '';
+                        
+                        bestScore = Math.max(score, bestScore);
+                    }
+                }
+                return bestScore;
+            } else {
+                let bestScore = Infinity;
+                for (let i = 0; i < 9; i++) {
+                    if (board[i] === '') {
+                        board[i] = playerSymbol;
+                        const score = minimax(board, depth +1, true);
+                        board[i] = '';
+                        
+                        bestScore = Math.min(score, bestScore);
+                    }
+                }
+                return bestScore;
+            }
+        }
+        
+        function checkWinner() {
+            const lines = [
+                [[0, 1, 2], [0, 1, 2]],
+                [[3, 4, 5], [3, 4, 5]],
+                [[6, 7, 8], [6, 7, 8]],
+                [[0, 3, 6], [0, 3, 6]],
+                [[1, 4, 7], [1, 4, 7]],
+                [[2, 5, 8], [2, 5, 8]],
+                [[0, 4, 8], [0, 4, 8]],
+                [[2, 4, 6], [2, 4, 6]]
+            ];
+            
+            for (const [cells, indexes] of lines) {
+                const [a, b, c] = cells;
+                if (board[a] && board[a] === board[b] && board[a] === board[c]) {
+                    return { winner: board[a], indexes };
+                }
+            }
+            
+            return null;
+        }
+        
+        function highlightWinningCells(indexes) {
+            const cells = document.querySelectorAll('.cell');
+            indexes.forEach(i => cells[i].classList.add('winning'));
+        }
+        
+        function updateStatus(winner) {
+            if (winner) {
+                if (winner.winner === playerSymbol) {
+                    gameStatus.textContent = `You Win! 🎉`;
+                    gameStatus.style.color = '#10b981';
+                } else {
+                    gameStatus.textContent = `${aiSymbol} Wins!`;
+                    gameStatus.style.color = '#f59e0b';
+                }
+            } else if (!gameActive) {
+                gameStatus.textContent = `It's a Draw!`;
+                gameStatus.style.color = '#9ca3af';
+            } else {
+                if (currentPlayer === playerSymbol) {
+                    gameStatus.textContent = `Your Turn (${playerSymbol})`;
+                    gameStatus.style.color = '#10b981';
+                } else {
+                    gameStatus.textContent = `${aiSymbol}'s Turn...`;
+                    gameStatus.style.color = '#f59e0b';
+                }
+            }
+        }
+    </script>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Asabaal Ventures. Reality Studio.</p>
+            <p><em>"I don't promise perfection; I promise reality."</em></p>
+            <p><a href="connect.html">Connect with us</a> • <a href="links.html">All social links</a></p>
+        </div>
+    </footer>
+</body>
+</html>

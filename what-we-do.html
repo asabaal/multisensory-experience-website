@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What We Do | Asabaal Ventures</title>
+    <link rel="icon" type="image/svg+xml" href="assets/images/icons/favicon.svg">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #0f0f23 0%, #1a1a3e 25%, #2d1b69 50%, #4c1d95 75%, #6b21a8 100%);
+            color: #ffffff;
+            min-height: 100vh;
+            overflow-x: hidden;
+            padding-top: 70px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(15, 15, 35, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 20px 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .nav {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            align-items: center;
+            gap: 20px;
+        }
+        
+        .nav-left {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            justify-self: start;
+        }
+        
+        .nav-center {
+            justify-self: center;
+        }
+        
+        .center-logo {
+            height: calc(100% - 10px);
+            width: auto;
+            max-height: 80px;
+        }
+        
+        .nav-right {
+            justify-self: end;
+        }
+        
+        .logo-image {
+            width: 40px;
+            height: 40px;
+            background: transparent;
+            border: 2px solid #fbbf24;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #0f0f23;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+        
+        .logo-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+        
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .company-name {
+            font-size: 24px;
+            font-weight: bold;
+            background: linear-gradient(45deg, #fbbf24, #f59e0b, #d97706);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1;
+        }
+        
+        .company-tagline {
+            font-size: 11px;
+            color: #9ca3af;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 2px;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            color: #e5e7eb;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-weight: 500;
+            white-space: nowrap;
+        }
+        
+        .nav-links a:hover {
+            color: #fbbf24;
+        }
+        
+        .breadcrumb {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 20px 0;
+            font-size: 0.9rem;
+            color: #9ca3af;
+        }
+        
+        .breadcrumb-item {
+            color: #e5e7eb;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .breadcrumb-item:hover {
+            color: #fbbf24;
+        }
+        
+        .breadcrumb-separator {
+            color: #6b7280;
+        }
+        
+        .breadcrumb-current {
+            color: #9ca3af;
+            font-weight: 600;
+        }
+        
+        .hero-section {
+            padding: 100px 0 60px;
+            text-align: center;
+            position: relative;
+            background: radial-gradient(circle at 50% 50%, rgba(251, 191, 36, 0.1) 0%, transparent 70%);
+        }
+        
+        .hero-icon {
+            font-size: 5rem;
+            margin-bottom: 30px;
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-12px); }
+        }
+        
+        .hero-title {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, #fbbf24, #f59e0b, #d97706);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.2;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.3rem;
+            color: #d1d5db;
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+        
+        .section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            font-size: 2.2rem;
+            background: linear-gradient(45deg, #fbbf24, #f59e0b, #d97706);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 30px;
+        }
+        
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            padding: 40px;
+            border-radius: 20px;
+            margin-bottom: 40px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .content-text {
+            font-size: 1.15rem;
+            line-height: 1.9;
+            color: #d1d5db;
+            margin-bottom: 25px;
+        }
+        
+        .quote-text {
+            font-style: italic;
+            font-size: 1.3rem;
+            line-height: 1.9;
+            color: #e5e7eb;
+            margin-bottom: 30px;
+            padding-left: 20px;
+            border-left: 4px solid #fbbf24;
+        }
+        
+        .pillars-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .pillar-card {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(10px);
+            padding: 35px;
+            border-radius: 15px;
+            border: 1px solid rgba(251, 191, 36, 0.2);
+            transition: box-shadow 0.3s ease;
+        }
+        
+        .pillar-card:hover {
+            box-shadow: 0 8px 32px rgba(251, 191, 36, 0.15);
+        }
+        
+        .pillar-title {
+            font-size: 1.5rem;
+            color: #fbbf24;
+            margin-bottom: 15px;
+        }
+        
+        .pillar-description {
+            color: #e5e7eb;
+            line-height: 1.7;
+        }
+        
+        .discipline-section {
+            margin-bottom: 50px;
+        }
+        
+        .discipline-title {
+            font-size: 1.6rem;
+            color: #fbbf24;
+            margin-bottom: 15px;
+        }
+        
+        .governing-panel {
+            background: rgba(251, 191, 36, 0.08);
+            backdrop-filter: blur(10px);
+            padding: 50px;
+            border-radius: 20px;
+            border: 2px solid rgba(251, 191, 36, 0.3);
+            margin: 40px 0;
+        }
+        
+        .governing-title {
+            font-size: 1.9rem;
+            color: #fbbf24;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
+        }
+        
+        .comparison-card {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(10px);
+            padding: 40px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .comparison-card.highlight {
+            border: 2px solid rgba(251, 191, 36, 0.3);
+            background: rgba(251, 191, 36, 0.05);
+        }
+        
+        .comparison-title {
+            font-size: 1.6rem;
+            margin-bottom: 25px;
+        }
+        
+        .comparison-title.studio {
+            color: #fbbf24;
+        }
+        
+        .comparison-title.traditional {
+            color: #9ca3af;
+        }
+        
+        .comparison-list {
+            list-style: none;
+        }
+        
+        .comparison-list li {
+            color: #e5e7eb;
+            line-height: 2.2;
+            margin-bottom: 12px;
+        }
+        
+        .comparison-list li strong {
+            color: #fbbf24;
+        }
+        
+        .closing-panel {
+            background: rgba(251, 191, 36, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 60px 40px;
+            border-radius: 20px;
+            border: 2px solid rgba(251, 191, 36, 0.4);
+            text-align: center;
+            margin: 60px 0;
+        }
+        
+        .closing-quote {
+            font-size: 2rem;
+            color: #fbbf24;
+            font-weight: bold;
+            line-height: 1.5;
+            margin-bottom: 25px;
+        }
+        
+        .closing-note {
+            color: #d1d5db;
+            font-size: 1.1rem;
+            line-height: 1.7;
+        }
+        
+        .footer {
+            background: rgba(15, 15, 35, 0.9);
+            padding: 40px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            margin-top: 80px;
+        }
+        
+        .footer p {
+            text-align: center;
+            color: #d1d5db;
+            margin: 10px 0;
+            line-height: 1.6;
+        }
+        
+        .footer a {
+            color: #fbbf24;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer a:hover {
+            color: #d97706;
+        }
+        
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .pillars-grid,
+            .comparison-grid {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+            
+            .glass-panel {
+                padding: 30px 20px;
+            }
+            
+            .governing-panel {
+                padding: 35px 25px;
+            }
+            
+            .closing-panel {
+                padding: 40px 25px;
+            }
+            
+            .closing-quote {
+                font-size: 1.5rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                <div class="nav-left">
+                    <div class="logo-image">
+                        <img src="assets/images/icons/favicon.svg" alt="Asabaal Ventures Logo">
+                    </div>
+                    <div class="logo-text">
+                        <div class="company-name">Asabaal Ventures</div>
+                        <div class="company-tagline">Reality Studio</div>
+                    </div>
+                </div>
+                
+                <div class="nav-center">
+                    <a href="brands.html">
+                        <img src="assets/images/logos/Asabaal Ventures.png" alt="Asabaal Ventures" class="center-logo">
+                    </a>
+                </div>
+                
+                <div class="nav-right">
+                    <ul class="nav-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="consume.html">Consume</a></li>
+                        <li><a href="interact.html">Interact</a></li>
+                        <li><a href="learn.html">Learn</a></li>
+                        <li><a href="do-business.html" style="color: #f59e0b;">Do Business</a></li>
+                        <li><a href="connect.html">Connect</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+    
+    <div class="breadcrumb">
+        <a href="learn.html" class="breadcrumb-item">Learn Mode</a>
+        <span class="breadcrumb-separator">›</span>
+        <span class="breadcrumb-current">What We Do</span>
+    </div>
+    
+    <section class="hero-section">
+        <div class="container">
+            <div class="hero-icon">✦</div>
+            <h1 class="hero-title">What We Do</h1>
+            <p class="hero-subtitle">
+                A Reality Studio builds systems and stories that help people engage reality with clarity, agency, and meaning.
+            </p>
+        </div>
+    </section>
+    
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">What Is a Reality Studio</h2>
+            <div class="glass-panel">
+                <p class="content-text">
+                    A reality studio is not a factory. It is not a lab. It is not a platform.
+                </p>
+                <p class="content-text">
+                    A studio is where form, meaning, and execution meet. A reality studio works inside reality, with it, and against it until something true stands.
+                </p>
+                <p class="content-text">
+                    Reality studios build systems and stories that help people engage reality with clarity, agency, and meaning. Some of that work scales. Some of it shouldn't. All of it has to be real.
+                </p>
+            </div>
+        </div>
+    </section>
+    
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Core Identity</h2>
+            <div class="glass-panel">
+                <p class="quote-text">
+                    "It's a reality studio. I build systems and stories that help people engage reality with clarity, agency, and meaning."
+                </p>
+                
+                <div class="pillars-grid">
+                    <div class="pillar-card">
+                        <h3 class="pillar-title">Clarity</h3>
+                        <p class="pillar-description">
+                            Systems that reveal what's actually happening, not what should happen.
+                        </p>
+                    </div>
+                    
+                    <div class="pillar-card">
+                        <h3 class="pillar-title">Agency</h3>
+                        <p class="pillar-description">
+                            Tools that empower meaningful choice, not automation that removes it.
+                        </p>
+                    </div>
+                    
+                    <div class="pillar-card">
+                        <h3 class="pillar-title">Meaning</h3>
+                        <p class="pillar-description">
+                            Stories that make life worth living, not content that fills attention.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">The Two Disciplines</h2>
+            <div class="glass-panel">
+                <div class="discipline-section">
+                    <h3 class="discipline-title">Meaning Discipline</h3>
+                    <p class="content-text">
+                        Creative work that gives life significance: albums, narrative worlds, rituals, and meaning-making infrastructure. This work protects against instrumentalization.
+                    </p>
+                </div>
+                
+                <div class="discipline-section">
+                    <h3 class="discipline-title">Systems Discipline</h3>
+                    <p class="content-text">
+                        Operational work that makes life possible: reporting systems, automation, feedback loops, and capability infrastructure. This work protects against detachment from consequence.
+                    </p>
+                </div>
+                
+                <p class="content-text" style="margin-top: 30px; padding-top: 30px; border-top: 1px solid rgba(255, 255, 255, 0.1);">
+                    Meaning and systems discipline each other. Neither can exist in isolation. The meaning core protects against instrumentalization. The systems core protects against detachment from consequence.
+                </p>
+            </div>
+        </div>
+    </section>
+    
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Governing Stance</h2>
+            <div class="governing-panel">
+                <h3 class="governing-title">Reality Stewardship Paradigm</h3>
+                <p class="content-text">
+                    I understand the present moment as a phase transition in human and civilizational capability, driven by agentic augmentation and accelerating intelligence.
+                </p>
+                <p class="content-text">
+                    This paradigm organizes reality along an axis of stewardship versus exploitation, emphasizing long-horizon responsibility, dignity, and alignment over short-term extraction.
+                </p>
+                <p class="content-text">
+                    I treat this framework as true because it has proven coherent across technical, ethical, and cultural domains, and because it enables action that reduces harm while expanding meaningful possibility.
+                </p>
+                <p class="content-text">
+                    I remain open to better models that demonstrate greater explanatory power, predictive accuracy, and capacity for responsible action.
+                </p>
+            </div>
+        </div>
+    </section>
+    
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Why This Distinction Matters</h2>
+            <div class="glass-panel">
+                <p class="content-text">
+                    The reality studio identity resolves tensions that traditional models cannot.
+                </p>
+                
+                <div class="comparison-grid">
+                    <div class="comparison-card highlight">
+                        <h3 class="comparison-title studio">Reality Studio</h3>
+                        <ul class="comparison-list">
+                            <li>Protects meaning from instrumentalization</li>
+                            <li>Validates systems against reality</li>
+                            <li>Optimizes for reality, not markets</li>
+                            <li>Some work scales, some must not</li>
+                            <li>Exit is success condition</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="comparison-card">
+                        <h3 class="comparison-title traditional">Traditional Business</h3>
+                        <ul class="comparison-list">
+                            <li>Focuses on market extraction</li>
+                            <li>Flattens meaning to content</li>
+                            <li>Detaches from lived reality</li>
+                            <li>Optimizes for markets, not reality</li>
+                            <li>Everything must scale</li>
+                            <li>Growth is only metric</li>
+                            <li>Exit is abandonment</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="section">
+        <div class="container">
+            <div class="closing-panel">
+                <p class="closing-quote">
+                    I do not optimize for markets. I optimize for reality.
+                </p>
+                <p class="closing-note">
+                    This is not anti-market. It is prioritizing reality alignment as a foundation for sustainable value.
+                </p>
+            </div>
+        </div>
+    </section>
+    
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Asabaal Ventures. Reality Studio.</p>
+            <p><em>"I don't promise perfection; I promise reality."</em></p>
+            <p><a href="connect.html">Connect with us</a> • <a href="links.html">All social links</a></p>
+        </div>
+    </footer>
+</body>
+</html>

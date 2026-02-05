@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demos/Previews | Asabaal's Amusements</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #0f0f23 0%, #1a1a3e 25%, #2d1b69 50%, #4c1d95 75%, #6b21a8 100%);
+            color: #ffffff;
+            min-height: 100vh;
+            overflow-x: hidden;
+            padding-top: 70px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(15, 15, 35, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 20px 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .nav {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .nav-links a {
+            color: #e5e7eb;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-weight: 500;
+        }
+        
+        .nav-links a:hover {
+            color: #fbbf24;
+        }
+
+        .blog-header {
+            padding: 100px 0 80px;
+            text-align: center;
+            position: relative;
+            background: radial-gradient(circle at 50% 50%, rgba(139, 92, 246, 0.15) 0%, transparent 70%);
+        }
+
+        .blog-title {
+            font-size: 4rem;
+            font-weight: 900;
+            margin-bottom: 25px;
+            background: linear-gradient(45deg, #8b5cf6, #06b6d4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.1;
+        }
+
+        .blog-subtitle {
+            font-size: 1.5rem;
+            color: #d1d5db;
+            margin-bottom: 40px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+        }
+
+        .blog-grid {
+            padding: 80px 0;
+            background: rgba(0, 0, 0, 0.2);
+        }
+
+        .posts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .post-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .post-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transition: left 0.5s;
+        }
+
+        .post-card:hover::before {
+            left: 100%;
+        }
+
+        .post-card:hover {
+            transform: translateY(-10px);
+            border-color: #8b5cf6;
+        }
+
+        .post-image {
+            width: 100%;
+            padding-bottom: 56.25%;
+            background: linear-gradient(45deg, #8b5cf6, #06b6d4);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .post-image img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .post-content {
+            padding: 30px;
+        }
+
+        .post-title {
+            font-size: 1.5rem;
+            color: #fbbf24;
+            margin-bottom: 15px;
+            font-weight: 700;
+            line-height: 1.3;
+        }
+
+        .post-excerpt {
+            color: #d1d5db;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .post-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: #9ca3af;
+            font-size: 0.9rem;
+        }
+
+        .post-date {
+            background: linear-gradient(45deg, #8b5cf6, #06b6d4);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+        }
+
+        .read-more {
+            color: #06b6d4;
+            font-weight: 500;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .read-more:hover {
+            color: #fbbf24;
+        }
+
+        .back-link {
+            text-align: center;
+            padding: 40px 0;
+        }
+
+        .back-button {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 15px 30px;
+            border-radius: 50px;
+            color: #e5e7eb;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .back-button:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: #8b5cf6;
+            transform: translateY(-2px);
+        }
+
+        .footer {
+            background: rgba(15, 15, 35, 0.9);
+            padding: 40px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            margin-top: 60px;
+        }
+
+        .footer p {
+            text-align: center;
+            color: #d1d5db;
+            margin: 10px 0;
+            line-height: 1.6;
+        }
+
+        .footer a {
+            color: #fbbf24;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer a:hover {
+            color: #f472b6;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 60px 0;
+            color: #9ca3af;
+        }
+
+        @media (max-width: 768px) {
+            .blog-title { font-size: 2.5rem; }
+            .posts-grid { grid-template-columns: 1fr; gap: 30px; }
+            .nav-links { gap: 15px; font-size: 0.9rem; }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                <ul class="nav-links">
+                    <li><a href="index.html" style="color: #fbbf24;">Home</a></li>
+                    <li><a href="consume.html">Consume</a></li>
+                    <li><a href="interact.html">Interact</a></li>
+                    <li><a href="learn.html">Learn</a></li>
+                    <li><a href="do-business.html" style="color: #f59e0b;">Do Business</a></li>
+                    <li><a href="connect.html">Connect</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="blog-header">
+        <div class="container">
+            <h1 class="blog-title">Demos/Previews</h1>
+            <p class="blog-subtitle">
+                Explore the journey of purpose-driven creation, unity consciousness, and the evolution of collaborative innovation. 
+                Each post is a piece of the larger vision coming to life.
+            </p>
+        </div>
+    </div>
+
+    <div class="blog-grid">
+        <div class="container">
+            <div class="posts-grid" id="posts-grid">
+                <div class="loading">Loading blog posts...</div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Asabaal Ventures. Reality Studio.</p>
+            <p><em>"I don't promise perfection; I promise reality."</em></p>
+            <p><a href="connect.html">Connect with us</a> • <a href="links.html">All social links</a></p>
+        </div>
+    </footer>
+
+    <script src="assets/js/blog-data.js"></script>
+    <script>
+        let blogPosts = [];
+
+        function initializeBlog() {
+            const postsGrid = document.getElementById('posts-grid');
+            postsGrid.innerHTML = '<div class="loading">Loading blog posts...</div>';
+
+            blogPosts = blogPostsData || [];
+            renderBlogPosts();
+        }
+
+        function renderBlogPosts() {
+            const postsGrid = document.getElementById('posts-grid');
+            
+            if (blogPosts.length === 0) {
+                postsGrid.innerHTML = '<div class="loading">No blog posts found.</div>';
+                return;
+            }
+
+            const postsHTML = blogPosts.map(post => {
+                return `
+                <article class="post-card" onclick="openPost('${post.slug}')">
+                    <div class="post-image">
+                        <img src="${post.image}" alt="${post.title}" loading="lazy">
+                    </div>
+                    <div class="post-content">
+                        <h2 class="post-title">${post.title}</h2>
+                        <p class="post-excerpt">${post.excerpt}</p>
+                        <div class="post-meta">
+                            <span class="post-date">${formatDate(post.date)}</span>
+                            <a href="#" class="read-more" onclick="event.stopPropagation(); openPost('${post.slug}')">Read More →</a>
+                        </div>
+                    </div>
+                </article>
+                `;
+            }).join('');
+
+            postsGrid.innerHTML = postsHTML;
+        }
+
+        function formatDate(dateString) {
+            const options = { year: 'numeric', month: 'short', day: 'numeric' };
+            return new Date(dateString).toLocaleDateString('en-US', options);
+        }
+
+        function openPost(slug) {
+            window.location.href = `blog/post-${slug}.html`;
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeBlog();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Navigation Graph - Interactive Visualization</title>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #1a1a2e;
+            color: #e5e7eb;
+            overflow: hidden;
+        }
+
+        #graph-container {
+            width: 100vw;
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            left: 0;
+        }
+
+        svg {
+            width: 100%;
+            height: 100%;
+            cursor: grab;
+        }
+
+        svg:active {
+            cursor: grabbing;
+        }
+
+        .node circle {
+            stroke: #e5e7eb;
+            stroke-width: 1.5px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .node circle:hover {
+            stroke: #fbbf24;
+            stroke-width: 3px;
+            filter: drop-shadow(0 0 8px rgba(251, 191, 36, 0.5));
+        }
+
+        .node text {
+            font-size: 10px;
+            font-weight: 500;
+            pointer-events: none;
+            text-anchor: middle;
+            dominant-baseline: middle;
+            fill: #e5e7eb;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
+        }
+
+        .link {
+            stroke-opacity: 0.4;
+            transition: all 0.3s ease;
+        }
+
+        .link:hover {
+            stroke-opacity: 0.8;
+            stroke-width: 3px;
+        }
+
+        #controls {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background: rgba(26, 26, 46, 0.95);
+            padding: 20px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            max-width: 300px;
+        }
+
+        h1 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            background: linear-gradient(45deg, #fbbf24, #f472b6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .control-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 0.9rem;
+            color: #d1d5db;
+        }
+
+        select, button {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            color: #e5e7eb;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        select:hover, button:hover {
+            background: rgba(255, 255, 255, 0.15);
+            border-color: rgba(251, 191, 36, 0.5);
+        }
+
+        button {
+            background: linear-gradient(45deg, #8b5cf6, #06b6d4);
+            font-weight: bold;
+            margin-top: 5px;
+        }
+
+        button:hover {
+            background: linear-gradient(45deg, #9f7aea, #22d3ee);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(139, 92, 246, 0.4);
+        }
+
+        #legend {
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 8px;
+            font-size: 0.85rem;
+        }
+
+        .legend-color {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            border: 2px solid #e5e7eb;
+        }
+
+        #stats {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background: rgba(26, 26, 46, 0.95);
+            padding: 15px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            font-size: 0.85rem;
+            color: #d1d5db;
+        }
+
+        #stats strong {
+            color: #fbbf24;
+        }
+
+        #tooltip {
+            position: fixed;
+            background: rgba(26, 26, 46, 0.98);
+            padding: 12px 16px;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 1000;
+            max-width: 300px;
+        }
+
+        #tooltip.visible {
+            opacity: 1;
+        }
+
+        #tooltip h3 {
+            font-size: 1rem;
+            margin-bottom: 5px;
+            color: #fbbf24;
+        }
+
+        #tooltip p {
+            font-size: 0.85rem;
+            color: #d1d5db;
+            margin-bottom: 3px;
+        }
+
+        .tooltip-meta {
+            font-size: 0.75rem;
+            color: #9ca3af;
+            margin-top: 8px;
+            padding-top: 8px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+    .footer a:hover {
+    color: #f472b6;
+}
+</style>
+</head>
+<body>
+    <div id="graph-container"></div>
+
+    <div id="controls">
+        <h1>Website Navigation Graph</h1>
+
+        <div class="control-group">
+            <label for="categoryFilter">Filter by Category:</label>
+            <select id="categoryFilter">
+                <option value="all">All Pages</option>
+                <option value="entry">Entry Points</option>
+                <option value="mode">Primary Modes</option>
+                <option value="content">Content Hubs</option>
+                <option value="business">Business</option>
+                <option value="about">About Pages</option>
+                <option value="interactive">Interactive</option>
+                <option value="external">External Links</option>
+            </select>
+        </div>
+
+        <div class="control-group">
+            <label for="layoutSelect">Layout:</label>
+            <select id="layoutSelect">
+                <option value="force">Force-Directed</option>
+                <option value="radial">Radial</option>
+                <option value="circular">Circular</option>
+            </select>
+        </div>
+
+        <div class="control-group">
+            <button onclick="resetZoom()">Reset View</button>
+            <button onclick="toggleLabels()">Toggle Labels</button>
+        </div>
+
+        <div id="legend">
+            <div class="legend-item">
+                <div class="legend-color" style="background: #FFD700;"></div>
+                <span>Entry Points</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background: #8B5CF6;"></div>
+                <span>Consume Mode</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background: #06B6D4;"></div>
+                <span>Interact Mode</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background: #10B981;"></div>
+                <span>Learn Mode</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background: #F59E0B;"></div>
+                <span>Business Mode</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background: #6B7280;"></div>
+                <span>Utility Pages</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background: #F472B6;"></div>
+                <span>About/Brand Pages</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background: #C084FC;"></div>
+                <span>Special Content</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background: #D1D5DB; border-style: dashed;"></div>
+                <span>External Links</span>
+            </div>
+        </div>
+    </div>
+
+    <div id="stats">
+        <p><strong>Nodes:</strong> <span id="nodeCount">0</span></p>
+        <p><strong>Links:</strong> <span id="linkCount">0</span></p>
+        <p><strong>Showing:</strong> <span id="filteredCount">0</span></p>
+    </div>
+
+    <div id="tooltip">
+        <h3 id="tooltip-title"></h3>
+        <p id="tooltip-description"></p>
+        <p id="tooltip-type"></p>
+        <div class="tooltip-meta" id="tooltip-meta"></div>
+    </div>
+
+    <script>
+        let graphData = { nodes: [], edges: [] };
+        let currentLayout = 'force';
+        let showLabels = true;
+        let simulation;
+        let svg, g, zoom;
+
+        async function loadGraphData() {
+            const response = await fetch('navigation-graph.json');
+            graphData = await response.json();
+
+            document.getElementById('nodeCount').textContent = graphData.nodes.length;
+            document.getElementById('linkCount').textContent = graphData.edges.length;
+            document.getElementById('filteredCount').textContent = graphData.nodes.length;
+
+            initializeGraph();
+        }
+
+        function initializeGraph() {
+            const container = document.getElementById('graph-container');
+            const width = window.innerWidth;
+            const height = window.innerHeight;
+
+            svg = d3.select('#graph-container')
+                .append('svg')
+                .attr('viewBox', [0, 0, width, height]);
+
+            g = svg.append('g');
+
+            zoom = d3.zoom()
+                .scaleExtent([0.1, 4])
+                .on('zoom', (event) => {
+                    g.attr('transform', event.transform);
+                });
+
+            svg.call(zoom);
+
+            createSimulation();
+        }
+
+        function createSimulation() {
+            const filteredNodes = filterNodes();
+            const filteredEdges = filterEdges(filteredNodes);
+
+            document.getElementById('filteredCount').textContent = filteredNodes.length;
+
+            if (simulation) {
+                simulation.stop();
+            }
+
+            const width = window.innerWidth;
+            const height = window.innerHeight;
+
+            simulation = d3.forceSimulation(filteredNodes)
+                .force('charge', d3.forceManyBody().strength(-400))
+                .force('collide', d3.forceCollide().radius(40))
+                .force('x', d3.forceX(width / 2).strength(0.1))
+                .force('y', d3.forceY(height / 2).strength(0.1));
+
+            if (currentLayout === 'radial') {
+                simulation.force('radial', d3.forceRadial(300, width / 2, height / 2).strength(0.5));
+            }
+
+            createVisualElements(filteredNodes, filteredEdges);
+            simulation.on('tick', updatePositions);
+        }
+
+        function filterNodes() {
+            const category = document.getElementById('categoryFilter').value;
+            if (category === 'all') {
+                return graphData.nodes.filter(n => !n.isExternal);
+            }
+            return graphData.nodes.filter(n =>
+                n.type === category ||
+                n.category === category ||
+                (category === 'external' && n.isExternal)
+            );
+        }
+
+        function filterEdges(nodes) {
+            const nodeIds = new Set(nodes.map(n => n.id));
+            return graphData.edges.filter(e =>
+                nodeIds.has(e.source) && nodeIds.has(e.target)
+            );
+        }
+
+        function createVisualElements(nodes, edges) {
+            g.selectAll('*').remove();
+
+            const linkSelection = g.selectAll('.link')
+                .data(edges, d => d.source + '-' + d.target)
+                .join('line')
+                .attr('class', 'link')
+                .attr('stroke', d => d.color)
+                .attr('stroke-width', d => d.weight)
+                .attr('stroke-dasharray', d => d.dashed ? '5,5' : 'none');
+
+            const nodeSelection = g.selectAll('.node')
+                .data(nodes, d => d.id)
+                .join('g')
+                .attr('class', 'node')
+                .call(d3.drag()
+                    .on('start', dragstarted)
+                    .on('drag', dragged)
+                    .on('end', dragended));
+
+            nodeSelection.append('circle')
+                .attr('r', d => getNodeSize(d))
+                .attr('fill', d => d.color);
+
+            nodeSelection.append('text')
+                .text(d => showLabels ? truncateLabel(d.label, 20) : '')
+                .attr('dx', 0)
+                .attr('dy', 0);
+
+            nodeSelection.on('mouseover', showTooltip)
+                     .on('mouseout', hideTooltip)
+                     .on('click', (event, d) => {
+                         if (d.url && !d.isExternal) {
+                             window.open(d.url, '_blank');
+                         }
+                     });
+        }
+
+        function updatePositions() {
+            g.selectAll('.link')
+                .attr('x1', d => d.source.x)
+                .attr('y1', d => d.source.y)
+                .attr('x2', d => d.target.x)
+                .attr('y2', d => d.target.y);
+
+            g.selectAll('.node')
+                .attr('transform', d => `translate(${d.x},${d.y})`);
+        }
+
+        function getNodeSize(d) {
+            if (d.type === 'entry') return 35;
+            if (d.type === 'mode') return 30;
+            if (d.isExternal) return 20;
+            return 25;
+        }
+
+        function truncateLabel(label, maxLength) {
+            if (label.length <= maxLength) return label;
+            return label.substring(0, maxLength) + '...';
+        }
+
+        function showTooltip(event, d) {
+            const tooltip = document.getElementById('tooltip');
+            document.getElementById('tooltip-title').textContent = d.label;
+            document.getElementById('tooltip-description').textContent = d.description || '';
+            document.getElementById('tooltip-type').textContent = `Type: ${d.type} | Category: ${d.category}`;
+            document.getElementById('tooltip-meta').textContent =
+                `Level: ${d.level} | ${d.isExternal ? 'External Link' : 'Internal Page'}`;
+
+            tooltip.style.left = (event.pageX + 15) + 'px';
+            tooltip.style.top = (event.pageY + 15) + 'px';
+            tooltip.classList.add('visible');
+        }
+
+        function hideTooltip() {
+            document.getElementById('tooltip').classList.remove('visible');
+        }
+
+        function dragstarted(event, d) {
+            if (!event.active) simulation.alphaTarget(0.3).restart();
+            d.fx = d.x;
+            d.fy = d.y;
+        }
+
+        function dragged(event, d) {
+            d.fx = event.x;
+            d.fy = event.y;
+        }
+
+        function dragended(event, d) {
+            if (!event.active) simulation.alphaTarget(0);
+            d.fx = null;
+            d.fy = null;
+        }
+
+        function resetZoom() {
+            svg.transition().duration(750).call(
+                zoom.transform,
+                d3.zoomIdentity
+            );
+        }
+
+        function toggleLabels() {
+            showLabels = !showLabels;
+            g.selectAll('.node text')
+                .text(d => showLabels ? truncateLabel(d.label, 20) : '');
+        }
+
+        document.getElementById('categoryFilter').addEventListener('change', createSimulation);
+        document.getElementById('layoutSelect').addEventListener('change', (event) => {
+            currentLayout = event.target.value;
+            createSimulation();
+        });
+
+        window.addEventListener('resize', () => {
+            svg.attr('viewBox', [0, 0, window.innerWidth, window.innerHeight]);
+            createSimulation();
+        });
+
+        loadGraphData();
+    </script>
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Asabaal Ventures. Reality Studio.</p>
+            <p><em>"I don't promise perfection; I promise reality."</em></p>
+            <p><a href="connect.html">Connect with us</a> • <a href="links.html">All social links</a></p>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Legal Documents | Asabaal Ventures</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #0f0f23 0%, #1a1a3e 25%, #2d1b69 50%, #4c1d95 75%, #6b21a8 100%);
+            color: #ffffff;
+            min-height: 100vh;
+            overflow-x: hidden;
+            padding-top: 70px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(15, 15, 35, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 20px 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .nav {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .nav-links a {
+            color: #e5e7eb;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-weight: 500;
+        }
+        
+        .nav-links a:hover {
+            color: #fbbf24;
+        }
+
+        .legal-header {
+            text-align: center;
+            padding: 100px 0 60px;
+        }
+
+        .legal-title {
+            font-size: 3.5rem;
+            font-weight: 900;
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, #fbbf24, #f472b6, #8b5cf6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.1;
+        }
+
+        .legal-subtitle {
+            font-size: 1.2rem;
+            color: #d1d5db;
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .legal-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            padding: 60px 0;
+        }
+
+        .legal-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 40px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .legal-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(139, 92, 246, 0.3);
+        }
+
+        .card-icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .card-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #fbbf24;
+            margin-bottom: 15px;
+        }
+
+        .card-description {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #d1d5db;
+            margin-bottom: 25px;
+        }
+
+        .card-button {
+            display: inline-block;
+            background: linear-gradient(45deg, #8b5cf6, #06b6d4);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: bold;
+            text-decoration: none;
+            transition: transform 0.3s ease;
+        }
+
+        .card-button:hover {
+            transform: scale(1.05);
+        }
+
+        .footer {
+            background: rgba(15, 15, 35, 0.9);
+            padding: 40px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            margin-top: 60px;
+        }
+
+        .footer p {
+            text-align: center;
+            color: #d1d5db;
+            margin: 10px 0;
+            line-height: 1.6;
+        }
+
+        .footer a {
+            color: #fbbf24;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer a:hover {
+            color: #f472b6;
+        }
+
+        @media (max-width: 768px) {
+            .legal-title { font-size: 2.5rem; }
+            .legal-cards { grid-template-columns: 1fr; gap: 20px; }
+            .nav-links { gap: 15px; font-size: 0.9rem; }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                <ul class="nav-links">
+                    <li><a href="index.html" style="color: #fbbf24;">Home</a></li>
+                    <li><a href="consume.html">Consume</a></li>
+                    <li><a href="interact.html">Interact</a></li>
+                    <li><a href="learn.html" style="color: #f59e0b;">Learn</a></li>
+                    <li><a href="do-business.html">Do Business</a></li>
+                    <li><a href="connect.html">Connect</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="legal-header">
+        <div class="container">
+            <h1 class="legal-title">Legal Documents</h1>
+            <p class="legal-subtitle">
+                Our commitment to transparency and ethical practices. Review our legal policies and terms of service.
+            </p>
+        </div>
+    </section>
+
+    <section class="legal-cards">
+        <div class="container">
+            <div class="legal-card">
+                <span class="card-icon">🔒</span>
+                <h2 class="card-title">Privacy Policy</h2>
+                <p class="card-description">
+                    Learn how we collect, use, and protect your personal information. Your privacy is our top priority.
+                </p>
+                <a href="privacy.html" class="card-button">View Privacy Policy →</a>
+            </div>
+
+            <div class="legal-card">
+                <span class="card-icon">📜</span>
+                <h2 class="card-title">Terms of Service</h2>
+                <p class="card-description">
+                    Review the terms and conditions governing your use of our services and platforms.
+                </p>
+                <a href="terms.html" class="card-button">View Terms of Service →</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Asabaal Ventures. Reality Studio.</p>
+            <p><em>"I don't promise perfection; I promise reality."</em></p>
+            <p><a href="connect.html">Connect with us</a> • <a href="links.html">All social links</a></p>
+        </div>
+    </footer>
+</body>
+</html>
