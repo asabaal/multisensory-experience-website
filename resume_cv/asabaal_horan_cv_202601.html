@@ -319,23 +319,280 @@
         }
 
         @media print {
-            * {
+            @page {
+                size: US Letter;
+                margin: 0.5in;
+            }
+
+            html,
+            body {
+                margin: 0 !important;
+                padding: 0 !important;
+                overflow: visible !important;
+                width: 100% !important;
                 -webkit-print-color-adjust: exact !important;
                 print-color-adjust: exact !important;
             }
-            
+
+            * {
+                box-sizing: border-box !important;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+
+            .site-header,
+            .site-nav,
+            .site-nav-links {
+                display: none !important;
+            }
+
             .container {
+                margin: 0 !important;
+                padding: 10px !important;
+                max-width: 100% !important;
+                page-break-after: auto;
+                page-break-inside: auto;
+            }
+
+            .header {
+                margin: 0 0 10px 0 !important;
+                padding: 10px !important;
+                break-inside: avoid;
                 page-break-inside: avoid;
+            }
+
+            .name {
+                font-size: 2em !important;
+                line-height: 1.2 !important;
+                margin: 0 0 2px 0 !important;
+            }
+
+            .title {
+                font-size: 1.05em !important;
+                line-height: 1.3 !important;
+                margin: 0 0 8px 0 !important;
+            }
+
+            .logo-section {
+                margin: 8px 0 !important;
+            }
+
+            .main-logo {
+                height: 40px !important;
+                display: block;
+            }
+
+            .secondary-logos {
+                display: flex;
+                justify-content: center;
+                gap: 20px;
+                flex-wrap: wrap;
+            }
+
+            .secondary-logo {
+                height: 18px !important;
+            }
+
+            .credential-item {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 4px;
+            }
+
+            .credential-label {
+                font-size: 0.75em !important;
+                margin: 0;
+            }
+
+            .contact-info {
+                display: flex;
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: 8px !important;
+                margin: 6px 0 0 0 !important;
+            }
+
+            .contact-item {
+                display: flex;
+                align-items: center;
+                gap: 4px;
+                margin: 0;
+            }
+
+            .section {
+                margin: 8px 0 !important;
+                padding: 8px !important;
+                break-inside: avoid;
+                page-break-inside: avoid;
+                min-height: auto !important;
+            }
+
+            .section-title {
+                font-size: 1.4em !important;
+                line-height: 1.3 !important;
+                margin: 0 0 6px 0 !important;
+                padding-bottom: 4px !important;
+                break-after: avoid;
                 page-break-after: avoid;
             }
-            
-            .section:last-child {
-                page-break-after: avoid;
-                margin-bottom: 0;
+
+            .skills-grid,
+            .awards-grid {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 8px !important;
+                margin: 6px 0 0 0 !important;
+                break-inside: avoid;
+                page-break-inside: avoid;
             }
-            
-            body {
-                overflow: hidden;
+
+            .skill-category,
+            .award-item {
+                margin: 0 !important;
+                padding: 6px !important;
+                break-inside: avoid;
+                page-break-inside: avoid;
+                min-height: auto !important;
+            }
+
+            .skill-category h4 {
+                font-size: 1em !important;
+                line-height: 1.2 !important;
+                margin: 0 0 4px 0 !important;
+            }
+
+            .skill-category p,
+            .award-item {
+                font-size: 0.9em !important;
+                line-height: 1.3 !important;
+                margin: 0 !important;
+            }
+
+            .experience-item,
+            .education-item {
+                margin: 0 0 8px 0 !important;
+                padding: 6px !important;
+                break-inside: avoid;
+                page-break-inside: avoid;
+                min-height: auto !important;
+            }
+
+            .experience-item:last-child,
+            .education-item:last-child {
+                margin-bottom: 0 !important;
+            }
+
+            .experience-header {
+                display: flex;
+                align-items: flex-start;
+                gap: 10px !important;
+                margin-bottom: 6px !important;
+            }
+
+            .company-logo {
+                height: 35px !important;
+                flex-shrink: 0;
+            }
+
+            .job-info {
+                flex: 1;
+            }
+
+            .job-header {
+                display: flex;
+                justify-content: space-between;
+                align-items: flex-start;
+                flex-wrap: wrap;
+                gap: 4px;
+                margin: 0;
+            }
+
+            .job-title {
+                font-size: 1.1em !important;
+                line-height: 1.3 !important;
+                margin: 0 0 2px 0 !important;
+            }
+
+            .company {
+                font-size: 1em !important;
+                line-height: 1.2 !important;
+                margin: 0 !important;
+            }
+
+            .date {
+                font-size: 0.9em !important;
+                line-height: 1.2 !important;
+                margin: 0 !important;
+            }
+
+            .job-description {
+                margin: 6px 0 0 0 !important;
+            }
+
+            .job-description p {
+                font-size: 0.95em !important;
+                line-height: 1.4 !important;
+                margin: 0 0 4px 0 !important;
+            }
+
+            .job-description h4 {
+                font-size: 0.95em !important;
+                line-height: 1.3 !important;
+                margin: 8px 0 4px 0 !important;
+                break-after: avoid;
+                page-break-after: avoid;
+            }
+
+            .job-description ul {
+                margin: 4px 0 0 16px !important;
+                padding: 0;
+            }
+
+            .job-description li {
+                font-size: 0.9em !important;
+                line-height: 1.4 !important;
+                margin: 0 0 4px 0 !important;
+                padding: 0;
+            }
+
+            .degree {
+                font-size: 1em !important;
+                line-height: 1.2 !important;
+                margin: 0 0 2px 0 !important;
+            }
+
+            .school {
+                font-size: 0.95em !important;
+                line-height: 1.2 !important;
+                margin: 0 !important;
+            }
+
+            .gpa {
+                font-size: 0.85em !important;
+                line-height: 1.2 !important;
+                margin: 0 !important;
+            }
+
+            .education-item p {
+                font-size: 0.9em !important;
+                line-height: 1.3 !important;
+                margin: 4px 0 0 0 !important;
+            }
+
+            h2,
+            h3,
+            h4,
+            p,
+            ul,
+            li {
+                margin: 0;
+                padding: 0;
+            }
+
+            p,
+            li {
+                line-height: 1.4 !important;
             }
         }        
 
@@ -356,80 +613,13 @@
         ::-webkit-scrollbar-thumb:hover {
             background: #4ecdc4;
         }
-
-        @page { margin: 0; }
-        body { page-break-after: avoid; }
-        .container { page-break-after: avoid; }
-
-        /* Header Navigation Ribbon */
-        .site-header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            background: rgba(15, 15, 35, 0.95);
-            backdrop-filter: blur(10px);
-            padding: 20px 0;
-            z-index: 1000;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        
-        .site-nav {
-            display: flex;
-            justify-content: flex-end;
-            align-items: center;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        .site-nav-links {
-            display: flex;
-            gap: 30px;
-            list-style: none;
-            margin: 0;
-            padding: 0;
-        }
-        
-        .site-nav-links a {
-            color: #e5e7eb;
-            text-decoration: none;
-            transition: color 0.3s ease;
-            font-weight: 500;
-        }
-        
-        .site-nav-links a:hover {
-            color: #fbbf24;
-        }
-
-        /* Adjust body padding for fixed header */
-        body {
-            padding-top: 70px;
-        }
-
-        @media (max-width: 768px) {
-            .site-nav-links { gap: 15px; font-size: 0.9rem; }
-        }
     </style>
 </head>
 <body>
-    <!-- Site Navigation Header -->
-    <header class="site-header">
-        <nav class="site-nav">
-            <ul class="site-nav-links">
-                <li><a href="../index.html">Home</a></li>
-                <li><a href="../vision_2054_page.html">Vision 2054</a></li>
-                
-                <li><a href="../blog.html">Blog</a></li>
-                <li><a href="../unity-remix-contest.html">Contest</a></li>
-                <li><a href="../index.html#contact">Connect</a></li>
-            </ul>
-        </nav>
-    </header>
     <div class="container">
         <header class="header">
             <h1 class="name">Asabaal Horan, Ph.D.</h1>
-            <p class="title">Data Scientist | Entrepreneur | Educator</p>
+            <p class="title">Reality Studio Owner-Operator</p>
             
             <!-- LOGO SECTION -->
             <div class="logo-section">
@@ -457,7 +647,7 @@
                 </div>
                 <div class="contact-item">
                     <span>📱</span>
-                    <span>509-720-3189</span>
+                    <span>414-350-0346</span>
                 </div>
                 <div class="contact-item">
                     <span>💼</span>
@@ -467,23 +657,28 @@
         </header>
 
         <section class="section">
+            <h2 class="section-title">Professional Summary</h2>
+            <p style="margin-top: 10px; color: #d8d8d8;">Reality studio owner-operator designing and stewarding real-world systems at both human and technical scales. My work spans the creation of scalable technology platforms, data and analytics infrastructure, and operational systems, alongside non-scalable human-centered work such as meaning-making, direction-setting, and narrative coherence. I intentionally work across scalable systems and non-scalable human domains, recognizing when automation is appropriate and when meaning, judgment, and care must remain human. I operate as a steward rather than owner of systems, prioritizing stability, legibility, and responsible evolution while navigating ambiguity and maintaining forward momentum.</p>
+        </section>
+
+        <section class="section">
             <h2 class="section-title">Core Competencies</h2>
             <div class="skills-grid">
                 <div class="skill-category">
-                    <h4>Leadership & Communication</h4>
-                    <p>Educating, storytelling, leadership, research, customer relationship development, conflict resolution, problem solving</p>
+                    <h4>Systems & Platform Design</h4>
+                    <p>Socio-technical system design, Data and analytics platforms, Operational infrastructure, System lifecycle stewardship</p>
                 </div>
                 <div class="skill-category">
-                    <h4>Programming & Development</h4>
-                    <p>Python, Java, SQL, Mathematica, Generative AI prompt engineering, Software Design/Vibe Engineering, Full Stack AI-Native System Design</p>
+                    <h4>Human-Centered & Non-Scalable Work</h4>
+                    <p>Meaning-making and narrative coherence, Direction-setting under ambiguity, Human judgment and ethical restraint, Cultural and symbolic systems</p>
                 </div>
                 <div class="skill-category">
-                    <h4>Machine Learning & AI</h4>
-                    <p>Supervised/Unsupervised Learning, Deep Learning, Timeseries Modeling, Sampling Techniques, GNNs, GenAI, Agentic System Design, AI-Era Debugging Workflows</p>
+                    <h4>Leadership & Integration</h4>
+                    <p>Cross-domain integration, Complexity management, Transitional and interim leadership, Decision-making under constraint</p>
                 </div>
                 <div class="skill-category">
-                    <h4>Cloud & Big Data</h4>
-                    <p>GitHub/GitLab, AWS (EC2, S3, Athena), GPU acceleration, Scrum/Agile</p>
+                    <h4>Execution & Delivery</h4>
+                    <p>Translating abstract goals into operational systems, Balancing scale with care, Building for durability not novelty, Aligning systems with real-world use</p>
                 </div>
             </div>
         </section>
@@ -498,27 +693,41 @@
                     <div class="job-info">
                         <div class="job-header">
                             <div>
-                                <div class="job-title">Co-Founder & Creative Visionary</div>
-                                <div class="company">Asabaal Ventures | The Abundance Revolution</div>
+                                <div class="job-title">Reality Studio Owner-Operator</div>
+                                <div class="company">Asabaal Ventures | Reality Studio</div>
                             </div>
                             <div class="date">April 2024 - Present</div>
                         </div>
                     </div>
                 </div>
                 <div class="job-description">
-                    <p>Building AI-native infrastructure for human flourishing in the post-scarcity economy. <strong style="color: #ffd700;">Currently raising $125,000</strong> to scale platform transforming underutilized professionals into successful AI-powered entrepreneurs.</p>
-                    
-                    <h4 style="color: #4ecdc4; margin-top: 15px;">🚀 The Abundance Revolution Platform:</h4>
+                    <p>Reality studio designing and operating socio-technical systems that produce actionable intelligence and support decision-making in real-world contexts. Work spans both scalable technical systems and non-scalable human-centered domains.</p>
+
+                    <h4 style="color: #4ecdc4; margin-top: 15px;">Systems & Platforms (Scalable Work)</h4>
                     <ul>
-                        <li><span class="highlight">AI-Native Business Creation:</span> 90-day transformation program with automated systems, regenerative funding model</li>
-                        <li><span class="highlight">Multimedia Ecosystem:</span> Music production, immersive experiences, and software tools powered by AI</li>
-                        <li><span class="highlight">Community Infrastructure:</span> Peer acceleration achieving 85%+ completion rates vs. 3-15% industry standard</li>
-                        <li><span class="highlight">Systematic Impact:</span> Each success creates 3x viral multiplier effect, targeting $15.7T AI transformation market</li>
+                        <li>Designing and deploying data, analytics, and reporting systems used for real-world operational decision-making</li>
+                        <li>Building and stewarding technology platforms under real constraints including time, budget, and organizational complexity</li>
+                        <li>Translating abstract goals into durable system architectures that can be maintained and evolved over time</li>
                     </ul>
-                    
-                    <p><strong>Current Status:</strong> Pitch deck completed for InvestFest 2025, co-founder partnership established, proven personal transformation model (physicist → AI-powered creative entrepreneur)</p>
+
+                    <h4 style="color: #4ecdc4; margin-top: 15px;">Meaning, Direction & Human-Centered Work (Non-Scalable Work)</h4>
+                    <ul>
+                        <li>Led non-scalable, human-centered work including direction-setting, narrative coherence, and meaning-making to guide system design and organizational decisions</li>
+                        <li>Produced artistic and narrative artifacts as part of broader systems work to support alignment, cultural clarity, and long-term orientation</li>
+                        <li>Applied judgment to determine when problems required automation versus human presence, care, or interpretation</li>
+                    </ul>
+
+                    <h4 style="color: #4ecdc4; margin-top: 15px;">Integration & Stewardship</h4>
+                    <ul>
+                        <li>Operated across technical, human, and organizational domains to maintain coherence between systems, values, and lived reality</li>
+                        <li>Acted as steward rather than owner of systems, prioritizing stability, legibility, and responsible evolution</li>
+                        <li>Navigated ambiguity and incomplete information while maintaining forward momentum and trust</li>
+                    </ul>
+
+                    <p style="margin-top: 15px;"><strong style="color: #ffd700;">Selected case studies available at:</strong> <a href="../advancements-by-asabaal.html" style="color: #4ecdc4;">Advancements by Asabaal</a></p>
                 </div>
-            </div>            
+            </div>
+            
             <!-- SIFT HEALTHCARE - Combined Roles -->
             <div class="experience-item">
                 <div class="experience-header">

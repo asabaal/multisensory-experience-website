@@ -359,81 +359,31 @@
             margin-bottom: 15px;
             font-size: 1.05rem;
         }
-
+        
         .footer {
-            padding: 60px 0 40px;
-            background: rgba(0, 0, 0, 0.6);
+            background: rgba(15, 15, 35, 0.9);
+            padding: 40px 0;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
+            margin-top: 60px;
         }
 
-        .footer-content {
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr 1fr 1fr 1fr;
-            gap: 40px;
-            margin-bottom: 40px;
+        .footer p {
+            text-align: center;
+            color: #d1d5db;
+            margin: 10px 0;
+            line-height: 1.6;
         }
 
-        .footer-brand {
-            display: flex;
-            align-items: flex-start;
-            gap: 15px;
-        }
-
-        .footer-logo {
-            width: 50px;
-            height: 50px;
-            background: transparent;
-            border: 2px solid #fbbf24;
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #0f0f23;
-            font-weight: bold;
-            font-size: 1.5rem;
-        }
-
-        .footer-brand-text h3 {
+        .footer a {
             color: #fbbf24;
-            margin-bottom: 8px;
-        }
-
-        .footer-brand-text p {
-            color: #9ca3af;
-            font-size: 0.9rem;
-            line-height: 1.5;
-        }
-
-        .footer-section h4 {
-            color: #e5e7eb;
-            margin-bottom: 20px;
-        }
-
-        .footer-section ul {
-            list-style: none;
-        }
-
-        .footer-section ul li {
-            margin-bottom: 10px;
-        }
-
-        .footer-section ul li a {
-            color: #9ca3af;
             text-decoration: none;
             transition: color 0.3s ease;
         }
 
-        .footer-section ul li a:hover {
-            color: #fbbf24;
+        .footer a:hover {
+            color: #f472b6;
         }
-
-        .footer-bottom {
-            text-align: center;
-            padding-top: 40px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            color: #6b7280;
-        }
-
+        
         @media (max-width: 1024px) {
             .grid-container {
                 gap: 20px;
@@ -443,37 +393,6 @@
                 flex: 1 1;
                 max-width: 500px;
             }
-
-            .footer-content {
-                grid-template-columns: 1fr 1fr;
-                gap: 30px;
-            }
-        }
-        
-        @media (max-width: 768px) {
-            .hero-title {
-                font-size: 2rem;
-            }
-
-            .nav-links {
-                display: none;
-            }
-
-            .grid-container {
-                gap: 15px;
-            }
-
-            .show-card {
-                flex: 1 1;
-                min-width: 250px;
-                max-width: 350px;
-            }
-
-            .footer-content {
-                grid-template-columns: 1fr;
-                gap: 30px;
-            }
-
             .amusements-logo {
                 width: 90px;
                 height: 90px;
@@ -563,59 +482,9 @@
 
     <footer class="footer">
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-brand">
-                    <div class="footer-logo">AV</div>
-                    <div class="footer-brand-text">
-                        <h3>Asabaal Ventures</h3>
-                        <p>Reality Studio</p>
-                    </div>
-                </div>
-
-                <div class="footer-section">
-                    <h4>Navigation</h4>
-                    <ul>
-                        
-                        
-                    </ul>
-                </div>
-
-                <div class="footer-section">
-                    <h4>Content</h4>
-                    <ul>
-                        <li><a href="amusements.html">Amusements</a></li>
-                        
-                    </ul>
-                </div>
-
-                <div class="footer-section">
-                    <h4>Connect</h4>
-                    <ul>
-                        <li><a href="connect.html">Contact</a></li>
-                        <li><a href="links.html">Social Links</a></li>
-                    </ul>
-                </div>
-
-                <div class="footer-section">
-                    <h4>Legal</h4>
-                    <ul>
-                        <li><a href="privacy.html">Privacy Policy</a></li>
-                        <li><a href="terms.html">Terms of Service</a></li>
-                    </ul>
-                </div>
-
-                <div class="footer-section">
-                    <h4>About</h4>
-                    <ul>
-                        <li><a href="resume_cv/asabaal_horan_cv_202507.html">CV</a></li>
-                        <li><a href="index.html#about">About</a></li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="footer-bottom">
-                <p>&copy; 2025 Asabaal Ventures. All rights reserved. | Reality Studio</p>
-            </div>
+            <p>&copy; 2026 Asabaal Ventures. Reality Studio.</p>
+            <p><em>"I don't promise perfection; I promise reality."</em></p>
+            <p><a href="connect.html">Connect with us</a> • <a href="links.html">All social links</a></p>
         </div>
     </footer>
 

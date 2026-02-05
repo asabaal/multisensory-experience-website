@@ -409,7 +409,32 @@
                 gap: 25px;
             }
         }
-    </style>
+    }
+
+    .footer {
+        background: rgba(15, 15, 35, 0.9);
+        padding: 40px 0;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        margin-top: 60px;
+    }
+
+    .footer p {
+        text-align: center;
+        color: #d1d5db;
+        margin: 10px 0;
+        line-height: 1.6;
+    }
+
+    .footer a {
+        color: #fbbf24;
+        text-decoration: none;
+        transition: color 0.3s ease;
+    }
+
+    .footer a:hover {
+        color: #f472b6;
+    }
+</style>
 </head>
 <body>
     <header class="header">
@@ -459,28 +484,61 @@
         </div>
     </section>
     
+    <section style="padding: 60px 0;">
+        <div class="container">
+            <h2 style="font-size: 2.2rem; color: #f59e0b; margin-bottom: 40px; text-align: center;">Professional Approach</h2>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; max-width: 900px; margin: 0 auto;">
+                <div style="background: rgba(139, 92, 246, 0.1); padding: 40px; border-radius: 15px; border: 2px solid rgba(139, 92, 246, 0.3);">
+                    <h3 style="font-size: 1.6rem; color: #8b5cf6; margin-bottom: 15px;">Professional Positioning</h3>
+                    <p style="color: #e5e7eb; line-height: 1.7;">
+                        • Reality studio owner-operator — Not staff, not employee<br>
+                        • Paid consulting — Not favor, not volunteer-adjacent<br>
+                        • Defined scope — With clear boundaries and exit logic
+                    </p>
+                </div>
+                
+                <div style="background: rgba(16, 185, 129, 0.1); padding: 40px; border-radius: 15px; border: 2px solid rgba(16, 185, 129, 0.3);">
+                    <h3 style="font-size: 1.6rem; color: #10b981; margin-bottom: 15px;">Rate Justification</h3>
+                    <p style="color: #e5e7eb; line-height: 1.7;">
+                        • $100/hr target — Professional compensation for civilizational-stakes work<br>
+                        • Rate framework — Anchored in value, not market rates<br>
+                        • Exit as success — Making yourself unnecessary is not goal
+                    </p>
+                </div>
+            </div>
+            
+            <div style="background: rgba(6, 182, 212, 0.1); padding: 40px; border-radius: 20px; border: 2px solid rgba(6, 182, 212, 0.3); margin-top: 30px; max-width: 800px; margin-left: auto; margin-right: auto;">
+                <h3 style="font-size: 1.4rem; color: #06b6d4; margin-bottom: 15px; text-align: center;">Internal Grounding</h3>
+                <p style="color: #e5e7eb; font-style: italic; line-height: 1.7; text-align: center;">
+                    "I'm here to build something that can stand without me, and I'm being paid to do that well."
+                </p>
+            </div>
+        </div>
+    </section>
+    
     <section class="business-grid">
         <div class="container">
             <div class="grid-container">
                 <a href="products.html" class="business-card products">
                     <div class="card-visual products">
-                        <div class="card-icon">📦</div>
+                        <div class="card-icon">🛍️</div>
                     </div>
                     <div class="card-content">
-                        <div class="card-badge">Available</div>
-                        <h3 class="card-title">Products</h3>
+                        <div class="card-badge">Coming Soon</div>
+                        <h3 class="card-title">Merch Store</h3>
                         <p class="card-description">
-                            Explore our range of purpose-driven products designed to enhance your business operations and personal growth.
+                            Browse our collection of branded merchandise including apparel, accessories, and collectibles.
                         </p>
                         <ul class="card-features">
-                            <li>Revenue Reporting Systems</li>
-                            <li>Analytics Tools</li>
-                            <li>Business Intelligence</li>
-                            <li>Custom Solutions</li>
+                            <li>Apparel & Wearables</li>
+                            <li>Accessories</li>
+                            <li>Collectibles</li>
+                            <li>Branded Items</li>
                         </ul>
                         <div class="card-arrow">
                             <span>→</span>
-                            <span>View Products</span>
+                            <span>Shop Merch</span>
                         </div>
                     </div>
                 </a>
@@ -533,5 +591,12 @@
             </div>
         </div>
     </section>
+<footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Asabaal Ventures. Reality Studio.</p>
+            <p><em>"I don't promise perfection; I promise reality."</em></p>
+            <p><a href="connect.html">Connect with us</a> • <a href="links.html">All social links</a></p>
+        </div>
+    </footer>
 </body>
 </html>

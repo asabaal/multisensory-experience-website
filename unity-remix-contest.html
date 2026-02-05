@@ -585,7 +585,56 @@
             .comparison-grid { grid-template-columns: 1fr; }
             .nav-links { gap: 15px; font-size: 0.9rem; }
         }
-    </style>
+    .footer a:hover {
+    color: #f472b6;
+    }
+
+    .footer {
+        background: rgba(15, 15, 35, 0.9);
+        padding: 40px 0;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        margin-top: 60px;
+    }
+
+    .footer p {
+        text-align: center;
+        color: #d1d5db;
+        margin: 10px 0;
+        line-height: 1.6;
+    }
+
+    .footer a {
+        color: #fbbf24;
+        text-decoration: none;
+        transition: color 0.3s ease;
+    }
+
+    }
+
+    .footer {
+        background: rgba(15, 15, 35, 0.9);
+        padding: 40px 0;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        margin-top: 60px;
+    }
+
+    .footer p {
+        text-align: center;
+        color: #d1d5db;
+        margin: 10px 0;
+        line-height: 1.6;
+    }
+
+    .footer a {
+        color: #fbbf24;
+        text-decoration: none;
+        transition: color 0.3s ease;
+    }
+
+    .footer a:hover {
+        color: #f472b6;
+    }
+</style>
 </head>
 <body>
     <!-- Header -->
@@ -612,7 +661,7 @@
         <div class="hero-content">
             <!-- Unity Remix Logo -->
             <div class="logo-container">
-                <img src="./unity-remix-logo.png" alt="Unity Remix Logo" class="unity-logo">
+                <img src="assets/images/logos/unity-remix-logo.png" alt="Unity Remix Logo" class="unity-logo">
             </div>
             
             <h2 class="contest-title">CONTEST</h2>
@@ -834,5 +883,12 @@
             animateOnScroll();
         });
     </script>
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Asabaal Ventures. Reality Studio.</p>
+            <p><em>"I don't promise perfection; I promise reality."</em></p>
+            <p><a href="connect.html">Connect with us</a> • <a href="links.html">All social links</a></p>
+        </div>
+    </footer>
 </body>
 </html>
