@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Season 0: Pilot | Life is your Word</title>
-    <link rel="icon" type="image/svg+xml" href="../assets/images/icons/favicon.svg">
     <style>
         * {
             margin: 0;
@@ -155,82 +154,280 @@
             font-weight: 600;
         }
 
-        .placeholder-section {
-            padding: 120px 20px;
+        .vision-header {
+            padding: 100px 0 80px;
             text-align: center;
+            position: relative;
             background: radial-gradient(circle at 50% 50%, rgba(251, 191, 36, 0.15) 0%, transparent 70%);
-            min-height: 60vh;
-            display: flex;
-            align-items: center;
         }
 
-        .placeholder-content {
+        .vision-logo {
+            margin-bottom: 20px;
+        }
+
+        .vision-logo img {
+            height: 120px;
+            width: auto;
+            max-width: 100%;
+        }
+
+        .tgr-logo {
+            margin-bottom: 30px;
+        }
+
+        .tgr-logo img {
+            height: 80px;
+            width: auto;
+            max-width: 100%;
+        }
+
+        @keyframes glow {
+            0%, 100% { box-shadow: 0 0 20px rgba(251, 191, 36, 0.3); }
+            50% { box-shadow: 0 0 40px rgba(251, 191, 36, 0.6); }
+        }
+
+        .vision-subtitle {
+            font-size: 1.5rem;
+            color: #d1d5db;
+            margin-bottom: 40px;
             max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+        }
+
+        .manifesto-section {
+            padding: 100px 0;
+            background: rgba(0, 0, 0, 0.3);
+            position: relative;
+        }
+
+        .manifesto-content {
+            max-width: 900px;
             margin: 0 auto;
+            text-align: center;
         }
 
-        .placeholder-icon {
-            font-size: 6rem;
-            margin-bottom: 30px;
-            animation: float 4s ease-in-out infinite;
+        .manifesto-quote {
+            font-size: 2.2rem;
+            line-height: 1.4;
+            color: #e5e7eb;
+            margin-bottom: 40px;
+            font-style: italic;
+            position: relative;
         }
 
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-15px); }
+        .manifesto-quote::before,
+        .manifesto-quote::after {
+            content: '"';
+            font-size: 4rem;
+            color: #fbbf24;
+            position: absolute;
         }
 
-        .placeholder-title {
-            font-size: 3.5rem;
-            margin-bottom: 30px;
+        .manifesto-quote::before {
+            top: -20px;
+            left: -40px;
+        }
+
+        .manifesto-quote::after {
+            bottom: -40px;
+            right: -40px;
+        }
+
+        .manifesto-author {
+            font-size: 1.2rem;
+            color: #9ca3af;
+            font-weight: 500;
+        }
+
+        .journey-section {
+            padding: 80px 0;
+            position: relative;
+        }
+
+        .journey-section:nth-child(even) {
+            background: rgba(251, 191, 36, 0.05);
+        }
+
+        .journey-section:nth-child(odd) {
+            background: rgba(244, 114, 182, 0.05);
+        }
+
+        .journey-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .journey-week {
+            background: linear-gradient(45deg, #fbbf24, #f472b6);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 25px;
+            font-weight: bold;
+            display: inline-block;
+            margin-bottom: 20px;
+            font-size: 0.9rem;
+        }
+
+        .journey-title {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
             background: linear-gradient(45deg, #fbbf24, #f472b6);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
 
-        .placeholder-message {
-            font-size: 1.5rem;
+        .journey-description {
+            font-size: 1.2rem;
             color: #d1d5db;
-            line-height: 1.8;
-            margin-bottom: 50px;
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.7;
         }
 
-        .placeholder-in-the-meantime {
-            font-size: 1.2rem;
-            color: #9ca3af;
+        .journey-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            margin-top: 60px;
+        }
+
+        .journey-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #e5e7eb;
+        }
+
+        .journey-text h4 {
+            color: #fbbf24;
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            margin-top: 30px;
+        }
+
+        .journey-text h4:first-child {
+            margin-top: 0;
+        }
+
+        .journey-visual {
+            background: linear-gradient(45deg, #fbbf24, #f472b6);
+            height: auto;
+            min-height: 400px;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .journey-visual iframe {
+            width: 100%;
+            height: 100%;
+            border-radius: 20px;
+        }
+
+        .video-embed {
+            position: relative;
+            width: 100%;
+            height: 0;
+            padding-bottom: 56.25%;
+            border-radius: 20px;
+            overflow: hidden;
+            margin: 20px 0;
+        }
+
+        .video-embed iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .tiktok-embed {
+            max-width: 400px;
+            min-width: 325px;
+            border-radius: 20px;
+            overflow: hidden;
+        }
+
+        .cta-section {
+            padding: 100px 0;
+            background: linear-gradient(45deg, #fbbf24, #f472b6);
+            text-align: center;
+        }
+
+        .cta-content h2 {
+            font-size: 3rem;
             margin-bottom: 25px;
+            color: white;
+        }
+
+        .cta-content p {
+            font-size: 1.3rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
         }
 
         .cta-button {
-            display: inline-block;
-            background: linear-gradient(45deg, #fbbf24, #f472b6);
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
             color: white;
-            padding: 18px 50px;
-            border: none;
+            padding: 18px 40px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
             border-radius: 50px;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             font-weight: bold;
             text-decoration: none;
             transition: all 0.3s ease;
         }
 
         .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(251, 191, 36, 0.4);
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .cta-button.primary {
+            background: rgba(255, 255, 255, 0.9);
+            color: #fbbf24;
+        }
+
+        .cta-button.primary:hover {
+            background: white;
+        }
+
+        .contact-section {
+            padding: 80px 0;
+            background: rgba(0, 0, 0, 0.4);
+            text-align: center;
         }
 
         @media (max-width: 768px) {
-            .placeholder-title { font-size: 2.5rem; }
-            .placeholder-message { font-size: 1.2rem; }
-            .placeholder-icon { font-size: 4rem; }
-            .cta-button { 
-                padding: 15px 35px; 
-                font-size: 1.1rem; 
-            }
-            .nav-links {
-                display: none;
-            }
+            .manifesto-quote { font-size: 1.6rem; }
+            .journey-content { grid-template-columns: 1fr; gap: 40px; }
+            .journey-title { font-size: 2rem; }
+            .cta-content h2 { font-size: 2rem; }
+            .cta-buttons { flex-direction: column; align-items: center; }
+            .nav-links { gap: 15px; font-size: 0.9rem; }
+            .vision-logo img { height: 80px; }
+            .tgr-logo img { height: 60px; }
+            .journey-visual { height: 300px; }
         }
     </style>
 </head>
@@ -274,22 +471,584 @@
         <span class="breadcrumb-current">Season 0: Pilot</span>
     </div>
 
-    <section class="placeholder-section">
+    <section class="vision-header">
         <div class="container">
-            <div class="placeholder-content">
-                <div class="placeholder-icon">📺</div>
-                <h1 class="placeholder-title">Season 0: Pilot</h1>
-                <p class="placeholder-message">
-                    This season has streamed. Episodes will be appearing here soon.
+            <div class="vision-logo">
+                <div style="font-size: 6rem; animation: glow 3s infinite;">🎬</div>
+            </div>
+            <p class="vision-subtitle">
+                Season 0 is the pilot concept exploring authenticity and transformation through 15 intimate episodes.
+                This season represents the beginning of a journey toward living authentically and embracing your true self.
+            </p>
+        </div>
+    </section>
+
+    <section class="manifesto-section">
+        <div class="container">
+            <div class="manifesto-content">
+                <blockquote class="manifesto-quote">
+                    Life is your Word — a declaration of authenticity, commitment, and the sacred power of speaking your truth into existence.
+                </blockquote>
+                <div class="manifesto-author">— The Foundation of Life is your Word</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="journey-section">
+        <div class="container">
+            <div class="journey-header">
+                <div class="journey-week">EPISODE 1</div>
+                <h2 class="journey-title">The Beginning</h2>
+                <p class="journey-description">
+                    Where it all started - exploring the origins of authenticity and the courage to begin living your truth.
                 </p>
-                <div class="placeholder-cta">
-                    <p class="placeholder-in-the-meantime">
-                        In the meantime, check out content on socials
-                    </p>
-                    <a href="../links.html" class="cta-button">Find the content on my socials</a>
+            </div>
+            <div class="journey-content">
+                <div class="journey-text">
+                    <p><em>Episode summary coming soon - check back later for detailed content about this episode.</em></p>
+                </div>
+                <div class="journey-visual" style="padding: 0; display: flex; align-items: center; justify-content: center; background: transparent;">
+                    <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@asabaalhoran/video/7557053231315094815" data-video-id="7557053231315094815" style="max-width: 400px; min-width: 325px; border-radius: 20px; overflow: hidden;">
+                        <section>
+                            <a target="_blank" title="@asabaalhoran" href="https://www.tiktok.com/@asabaalhoran/video/7557053231315094815">@asabaalhoran</a>
+                        </section>
+                    </blockquote>
+                    <script async src="https://www.tiktok.com/embed.js"></script>
                 </div>
             </div>
         </div>
     </section>
+
+    <section class="journey-section">
+        <div class="container">
+            <div class="journey-header">
+                <div class="journey-week">EPISODE 2</div>
+                <h2 class="journey-title">Daughter</h2>
+                <p class="journey-description">
+                    When religious leaders called a bleeding woman "unclean" for twelve years, Jesus broke every rule to meet her. This episode explores the difference between human labels and God's calling.
+                </p>
+            </div>
+            <div class="journey-content">
+                <div class="journey-text">
+                    <h4>Biblical Reading</h4>
+                    <p><strong>Mark 5:25-34</strong> - The story of the woman who suffered from bleeding for twelve years and was healed by touching Jesus' cloak. Jesus called her "daughter" instead of "unclean."</p>
+                    
+                    <h4>Personal Journey</h4>
+                    <p>The host shares their experience as a queer person rejected by those who claim Christ's name. Despite trauma that made scripture and worship music painful, Jesus restored their relationship with Him and His Word—not through religious condemnation, but through authentic faith.</p>
+                    
+                    <h4>Key Insights</h4>
+                    <ul>
+                        <li>Human labels of "unclean" don't match God's calling of "daughter"</li>
+                        <li>Religion can steal from your relationship with God, but faith restores it</li>
+                        <li>Trauma from false followers doesn't mean God has rejected you</li>
+                        <li>Jesus meets us in our brokenness, not our perfection</li>
+                    </ul>
+                    
+                    <h4>Reflection</h4>
+                    <p><em>What false label have false followers of Christ put on you? What has religion stolen from your relationship with God?</em></p>
+                </div>
+                <div class="journey-visual" style="padding: 0; display: flex; align-items: center; justify-content: center; background: transparent;">
+                    <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@asabaalhoran/video/7559667031105162527" data-video-id="7559667031105162527" style="max-width: 400px; min-width: 325px; border-radius: 20px; overflow: hidden;">
+                        <section>
+                            <a target="_blank" title="@asabaalhoran" href="https://www.tiktok.com/@asabaalhoran/video/7559667031105162527">@asabaalhoran</a>
+                        </section>
+                    </blockquote>
+                    <script async src="https://www.tiktok.com/embed.js"></script>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="journey-section">
+        <div class="container">
+            <div class="journey-header">
+                <div class="journey-week">EPISODE 3</div>
+                <h2 class="journey-title">Creation</h2>
+                <p class="journey-description">
+                    "God spoke, and then there was light." This episode explores the creative power of God's Word to bring life out of chaos, transforming darkness into light.
+                </p>
+            </div>
+            <div class="journey-content">
+                <div class="journey-text">
+                    <h4>Biblical Reading</h4>
+                    <p><strong>Genesis 1:1-28</strong> - The creation narrative where God speaks the universe into being, separates light from darkness, creates humans in His image, and blesses them with fruitfulness.</p>
+                    
+                    <h4>Personal Journey</h4>
+                    <p>The host describes living in "complete chaos" with depression covering their face, stopped listening to God's voice and trying to run their race in their own strength. But then God spoke—life filled them with peace beyond understanding and joy that defied worldly authorities.</p>
+                    
+                    <h4>Key Insights</h4>
+                    <ul>
+                        <li>God's Word has creative power to transform chaos into order</li>
+                        <li>Living in your own strength leads to darkness; living in Christ brings light</li>
+                        <li>When God speaks life into you, you become compelled to share it with others</li>
+                        <li>Creation is an invitation to participate in God's ongoing work</li>
+                    </ul>
+                    
+                    <h4>Reflection</h4>
+                    <p><em>What death have you experienced, and how did God speak you into being and life?</em></p>
+                </div>
+                <div class="journey-visual" style="padding: 0; display: flex; align-items: center; justify-content: center; background: transparent;">
+                    <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@asabaalhoran/video/7562259777942850846" data-video-id="7562259777942850846" style="max-width: 400px; min-width: 325px; border-radius: 20px; overflow: hidden;">
+                        <section>
+                            <a target="_blank" title="@asabaalhoran" href="https://www.tiktok.com/@asabaalhoran/video/7562259777942850846">@asabaalhoran</a>
+                        </section>
+                    </blockquote>
+                    <script async src="https://www.tiktok.com/embed.js"></script>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="journey-section">
+        <div class="container">
+            <div class="journey-header">
+                <div class="journey-week">EPISODE 4</div>
+                <h2 class="journey-title">Hearing God's Voice</h2>
+                <p class="journey-description">
+                    In a world filled with competing voices, Jesus teaches that His sheep know His voice. This episode explores recognizing God's voice amidst the noise.
+                </p>
+            </div>
+            <div class="journey-content">
+                <div class="journey-text">
+                    <h4>Biblical Reading</h4>
+                    <p><strong>John 10:22-30</strong> - Jesus teaching that His sheep hear His voice, He knows them, and they follow Him. He gives them eternal life, and no one can snatch them from His or the Father's hand.</p>
+                    
+                    <h4>Personal Journey</h4>
+                    <p>The host shares their journey of becoming intentional about what they allow into their lives—every voice speaks either life or death. They stopped chasing trends and started chasing awe of the Lord, creating music that reminds them of God's presence and pulls them back into stillness.</p>
+                    
+                    <h4>Key Insights</h4>
+                    <ul>
+                        <li>Every voice that speaks into you either speaks life or death</li>
+                        <li>Being intentional about what you allow into your life is spiritual practice</li>
+                        <li>God's voice becomes recognizable when you clear the noise</li>
+                        <li>The word is alive, and life is His word</li>
+                    </ul>
+                    
+                    <h4>Reflection</h4>
+                    <p><em>How has God led you to be intentional about the things you welcome into your life?</em></p>
+                </div>
+                <div class="journey-visual">
+                    <div class="video-embed">
+                        <iframe src="https://www.youtube.com/embed/VAneVXIM-6M" frameborder="0" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="journey-section">
+        <div class="container">
+            <div class="journey-header">
+                <div class="journey-week">EPISODE 5</div>
+                <h2 class="journey-title">Blessing</h2>
+                <p class="journey-description">
+                    "Blessed is the one who comes in the name of the Lord." This episode challenges us to examine whether we're judging others or blessing them.
+                </p>
+            </div>
+            <div class="journey-content">
+                <div class="journey-text">
+                    <h4>Biblical Reading</h4>
+                    <p><strong>Luke 13:22-35</strong> - Jesus teaching about the narrow door, weeping over Jerusalem, and declaring that we won't see Him again until we say, "Blessed is the one who comes in the name of the Lord."</p>
+                    
+                    <h4>Personal Journey</h4>
+                    <p>The host shares experiences of being hated and kicked out of churches simply for being different—people judging rather than blessing. Jesus calls us to grow into those who look at the heart rather than the outside, asking: "Does this person come in the name of the Lord?"</p>
+                    
+                    <h4>Key Insights</h4>
+                    <ul>
+                        <li>Christlikeness means blessing those who say they come in God's name</li>
+                        <li>Instead of asking about sin, ask how you can bless others</li>
+                        <li>Judging by externals blocks us from seeing where God is at work</li>
+                        <li>We won't see Jesus again until we learn to bless others</li>
+                    </ul>
+                    
+                    <h4>Reflection</h4>
+                    <p><em>How has God taught you to bless those who come in His name?</em></p>
+                </div>
+                <div class="journey-visual" style="padding: 0; display: flex; align-items: center; justify-content: center; background: transparent;">
+                    <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@asabaalhoran/video/7567488773852908830" data-video-id="7567488773852908830" style="max-width: 400px; min-width: 325px; border-radius: 20px; overflow: hidden;">
+                        <section>
+                            <a target="_blank" title="@asabaalhoran" href="https://www.tiktok.com/@asabaalhoran/video/7567488773852908830">@asabaalhoran</a>
+                        </section>
+                    </blockquote>
+                    <script async src="https://www.tiktok.com/embed.js"></script>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="journey-section">
+        <div class="container">
+            <div class="journey-header">
+                <div class="journey-week">EPISODE 6</div>
+                <h2 class="journey-title">Meekness</h2>
+                <p class="journey-description">
+                    True strength isn't found in domination but in trust, humility, and patience. This episode explores how the meek inherit the earth.
+                </p>
+            </div>
+            <div class="journey-content">
+                <div class="journey-text">
+                    <h4>Biblical Reading</h4>
+                    <p><strong>Psalm 37</strong> - A psalm sung for generations declaring that the meek will inherit the earth, not the powerful. It teaches patience, refraining from anger, and trusting that the wicked will be cut off while those who wait for the Lord will prosper.</p>
+                    
+                    <h4>Personal Journey</h4>
+                    <p>The host reflects on how pride thought it inherited the earth, but humility rediscovered God—from ancient Israel forgetting God's ways to King Josiah rediscovering the law after hundreds of years. History keeps repeating this pattern.</p>
+                    
+                    <h4>Key Insights</h4>
+                    <ul>
+                        <li>The meek don't conquer the land; they cultivate it with grace</li>
+                        <li>Hidden humility is sacred stewardship, not weakness</li>
+                        <li>The proud build empires; the humble build Eden</li>
+                        <li>Rediscovering God's way means remembering ancient truths forgotten by pride</li>
+                    </ul>
+                    
+                    <h4>Reflection</h4>
+                    <p><em>How has God given you your inheritance through your meekness?</em></p>
+                </div>
+                <div class="journey-visual" style="padding: 0; display: flex; align-items: center; justify-content: center; background: transparent;">
+                    <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@asabaalhoran/video/7570094069645315358" data-video-id="7570094069645315358" style="max-width: 400px; min-width: 325px; border-radius: 20px; overflow: hidden;">
+                        <section>
+                            <a target="_blank" title="@asabaalhoran" href="https://www.tiktok.com/@asabaalhoran/video/7570094069645315358">@asabaalhoran</a>
+                        </section>
+                    </blockquote>
+                    <script async src="https://www.tiktok.com/embed.js"></script>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="journey-section">
+        <div class="container">
+            <div class="journey-header">
+                <div class="journey-week">EPISODE 7</div>
+                <h2 class="journey-title">Love</h2>
+                <p class="journey-description">
+                    The first fruit of the Spirit transforms everything. This episode explores how love—rooted in Christ—destroys all human distinctions and becomes the foundation for authentic community.
+                </p>
+            </div>
+            <div class="journey-content">
+                <div class="journey-text">
+                    <h4>Biblical Reading</h4>
+                    <p><strong>Colossians 3:1-17</strong> - Paul teaching that in Christ, all human distinctions are destroyed because "Christ is all and in all." Above all, clothe yourselves with love, which binds everything together in perfect harmony.</p>
+                    
+                    <h4>Personal Journey</h4>
+                    <p>The host shares how learning to love others meant stopping the attempt to be right and others being wrong. The first step was having their heart on God, truly understanding who they are because of who God is—that's what healing and forgiveness look like.</p>
+                    
+                    <h4>Key Insights</h4>
+                    <ul>
+                        <li>Love flows from understanding who you are in Christ</li>
+                        <li>In Christ, all human distinctions are destroyed</li>
+                        <li>Anything done without giving thanks to God shows a lack of love in the heart</li>
+                        <li>It's by our love that we're made known to be Jesus' disciples</li>
+                    </ul>
+                    
+                    <h4>Reflection</h4>
+                    <p><em>If you have been hurt, join me in the process of healing through God's love.</em></p>
+                </div>
+                <div class="journey-visual" style="padding: 0; display: flex; align-items: center; justify-content: center; background: transparent;">
+                    <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@asabaalhoran/video/7572753700309962015" data-video-id="7572753700309962015" style="max-width: 400px; min-width: 325px; border-radius: 20px; overflow: hidden;">
+                        <section>
+                            <a target="_blank" title="@asabaalhoran" href="https://www.tiktok.com/@asabaalhoran/video/7572753700309962015">@asabaalhoran</a>
+                        </section>
+                    </blockquote>
+                    <script async src="https://www.tiktok.com/embed.js"></script>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="journey-section">
+        <div class="container">
+            <div class="journey-header">
+                <div class="journey-week">EPISODE 8</div>
+                <h2 class="journey-title">Joy</h2>
+                <p class="journey-description">
+                    "The joy of the Lord is your strength." This episode explores true joy—not as happiness based on circumstances, but as supernatural strength.
+                </p>
+            </div>
+            <div class="journey-content">
+                <div class="journey-text">
+                    <h4>Biblical Reading</h4>
+                    <p><strong>Nehemiah 8:10</strong> - "Do not grieve, for the joy of the Lord is your strength." The host includes a poetic reading from their song "Fruit" expressing how depression was destroyed and anxiety annihilated as God moves.</p>
+                    
+                    <h4>Personal Journey</h4>
+                    <p>The host shares embracing the truth that God's joy is our fullest strength. When things don't go as expected, they let go of pride, come before God, and ask what He actually wants to happen—then rejoice in what God has done, is doing, and will yet do.</p>
+                    
+                    <h4>Key Insights</h4>
+                    <ul>
+                        <li>Joy is supernatural strength, not circumstantial happiness</li>
+                        <li>When we stop grieving what's not going our way and start rejoicing in God's work, joy emerges</li>
+                        <li>The joy of the Lord includes depression destroyed and anxiety annihilated</li>
+                        <li>True joy produces praise that can't be contained</li>
+                    </ul>
+                    
+                    <h4>Reflection</h4>
+                    <p><em>How has God taught you what true joy really feels like?</em></p>
+                </div>
+                <div class="journey-visual" style="padding: 0; display: flex; align-items: center; justify-content: center; background: transparent;">
+                    <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@asabaalhoran/video/7575570174493986078" data-video-id="7575570174493986078" style="max-width: 400px; min-width: 325px; border-radius: 20px; overflow: hidden;">
+                        <section>
+                            <a target="_blank" title="@asabaalhoran" href="https://www.tiktok.com/@asabaalhoran/video/7575570174493986078">@asabaalhoran</a>
+                        </section>
+                    </blockquote>
+                    <script async src="https://www.tiktok.com/embed.js"></script>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="journey-section">
+        <div class="container">
+            <div class="journey-header">
+                <div class="journey-week">EPISODE 9</div>
+                <h2 class="journey-title">Peace</h2>
+                <p class="journey-description">
+                    "Let the peace of Christ rule in your hearts." This episode reveals peace as prophetic—the feeling when your spirit stops arguing with God and becomes obedient to your God-given purpose.
+                </p>
+            </div>
+            <div class="journey-content">
+                <div class="journey-text">
+                    <h4>Biblical Reading</h4>
+                    <p><strong>Colossians 3:15</strong> - "Let the peace of Christ rule in your hearts, to which indeed you were called in one body. And be thankful."</p>
+                    
+                    <h4>Personal Journey</h4>
+                    <p>The host defines peace as what happens when your spirit stops arguing with God and becomes obedient to your God-given purpose—where you understand reality through God's eyes. Peace is what you feel as your "yes" matches the word God has spoken over you.</p>
+                    
+                    <h4>Key Insights</h4>
+                    <ul>
+                        <li>Peace means your spirit stops arguing with God</li>
+                        <li>Peace is alignment with your God-given purpose</li>
+                        <li>Peace is prophetic—what you feel when your yes matches God's word over you</li>
+                        <li>Peace comes from remaining in Christ and walking in it</li>
+                    </ul>
+                    
+                    <h4>Reflection</h4>
+                    <p><em>Let the peace of Christ rule in your hearts. Share your prayer requests or praise reports of God's peace in your life!</em></p>
+                </div>
+                <div class="journey-visual" style="padding: 0; display: flex; align-items: center; justify-content: center; background: transparent;">
+                    <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@asabaalhoran/video/7580482518755888415" data-video-id="7580482518755888415" style="max-width: 400px; min-width: 325px; border-radius: 20px; overflow: hidden;">
+                        <section>
+                            <a target="_blank" title="@asabaalhoran" href="https://www.tiktok.com/@asabaalhoran/video/7580482518755888415">@asabaalhoran</a>
+                        </section>
+                    </blockquote>
+                    <script async src="https://www.tiktok.com/embed.js"></script>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="journey-section">
+        <div class="container">
+            <div class="journey-header">
+                <div class="journey-week">EPISODE 10</div>
+                <h2 class="journey-title">Patience</h2>
+                <p class="journey-description">
+                    Patience has never been about waiting—it's about becoming a place where life can fully form. This episode uses the parable of the sower to reveal the problem isn't the seed, but the soil.
+                </p>
+            </div>
+            <div class="journey-content">
+                <div class="journey-text">
+                    <h4>Biblical Reading</h4>
+                    <p><strong>Luke 8:4-15</strong> - The parable of the sower where the seed (God's Word) falls on different soils: path, rock, thorns, and good soil. Only the good soil produces fruit with endurance.</p>
+                    
+                    <h4>Personal Journey</h4>
+                    <p>The host shares growing up in the church, knowing God's Word well, yet having their life crowded with selfish desires that choked out the Word. Patience came not by learning to wait better, but by tending to their own life—making space, letting God work deeper, allowing growth to take time.</p>
+                    
+                    <h4>Key Insights</h4>
+                    <ul>
+                        <li>Jesus never blames the seed; He points to the soil</li>
+                        <li>The problem isn't God's Word—it's the conditions of our lives</li>
+                        <li>Patience isn't waiting; it's becoming a place where life can fully form</li>
+                        <li>When the word couldn't take root, fruit couldn't mature</li>
+                    </ul>
+                    
+                    <h4>Reflection</h4>
+                    <p><em>How has God taught you about patience?</em></p>
+                </div>
+                <div class="journey-visual" style="padding: 0; display: flex; align-items: center; justify-content: center; background: transparent;">
+                    <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@asabaalhoran/video/7583429986988739871" data-video-id="7583429986988739871" style="max-width: 400px; min-width: 325px; border-radius: 20px; overflow: hidden;">
+                        <section>
+                            <a target="_blank" title="@asabaalhoran" href="https://www.tiktok.com/@asabaalhoran/video/7583429986988739871">@asabaalhoran</a>
+                        </section>
+                    </blockquote>
+                    <script async src="https://www.tiktok.com/embed.js"></script>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="journey-section">
+        <div class="container">
+            <div class="journey-header">
+                <div class="journey-week">EPISODE 11</div>
+                <h2 class="journey-title">Kindness</h2>
+                <p class="journey-description">
+                    "Overcome evil with good." This raw, vulnerable episode explores the painful journey of being excommunicated from a church that claimed to welcome them, and the transformative work of learning to truly be kind.
+                </p>
+            </div>
+            <div class="journey-content">
+                <div class="journey-text">
+                    <h4>Biblical Reading</h4>
+                    <p><strong>Romans 12:21</strong> - "Do not be overcome by evil, but overcome evil with good." The host includes a poetic reading from their song "Fruit" about decreasing so Christ can increase.</p>
+                    
+                    <h4>Personal Journey</h4>
+                    <p>The host was welcomed into a church, rejoiced at finding a place to worship and grow, only to be excommunicated two months later and labeled "morally reprehensible" for refusing to submit to abusive power dynamics. Yet they forgave immediately and are now learning to truly be kind.</p>
+                    
+                    <h4>Key Insights</h4>
+                    <ul>
+                        <li>Forgiveness doesn't mean accepting abuse or submitting to wrongful authority</li>
+                        <li>Some who claim God's name create dangerous places that keep God's people away</li>
+                        <li>Speaking truth to power is often seen as rebellion by those in control</li>
+                        <li>Kindness emerges from the painful work of refusing to let evil make you bitter</li>
+                    </ul>
+                    
+                    <h4>Reflection</h4>
+                    <p><em>How has God taught you kindness?</em></p>
+                </div>
+                <div class="journey-visual" style="padding: 0; display: flex; align-items: center; justify-content: center; background: transparent;">
+                    <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@asabaalhoran/video/7588269866080144671" data-video-id="7588269866080144671" style="max-width: 400px; min-width: 325px; border-radius: 20px; overflow: hidden;">
+                        <section>
+                            <a target="_blank" title="@asabaalhoran" href="https://www.tiktok.com/@asabaalhoran/video/7588269866080144671">@asabaalhoran</a>
+                        </section>
+                    </blockquote>
+                    <script async src="https://www.tiktok.com/embed.js"></script>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="journey-section">
+        <div class="container">
+            <div class="journey-header">
+                <div class="journey-week">EPISODE 12</div>
+                <h2 class="journey-title">Goodness</h2>
+                <p class="journey-description">
+                    "Let no unwholesome talk come out of your mouth, but only what is useful for building others up." This episode explores how the words we speak can create peace or chaos in our homes.
+                </p>
+            </div>
+            <div class="journey-content">
+                <div class="journey-text">
+                    <h4>Biblical Reading</h4>
+                    <p><strong>Ephesians 4:29</strong> - Paul's exhortation to speak only what is useful for building others up according to their needs, that it may benefit those who listen. The passage also warns that those who enjoy the power of the fruit of the tongue will eat it.</p>
+                    
+                    <h4>Personal Journey</h4>
+                    <p>The host admits that when life gets stressful, it's easy to forget God is with them and project frustrations into their living space. They've seen their home transform into dysfunction and chaos when they allow evil to come out of their mouth instead of goodness.</p>
+                    
+                    <h4>Key Insights</h4>
+                    <ul>
+                        <li>Intentional efforts to speak with goodness create more peace in home and family</li>
+                        <li>When we speak wickedness, we create dysfunction; when we speak goodness, we see more success, love, and God</li>
+                        <li>We must be careful how we speak to each other—the fruit of the tongue affects those who speak it</li>
+                        <li>Walking in the fruit of the spirit is a journey of learning together</li>
+                    </ul>
+                    
+                    <h4>Reflection</h4>
+                    <p><em>Do not let any... How has God been teaching you about goodness, how to truly be good?</em></p>
+                </div>
+                <div class="journey-visual" style="padding: 0; display: flex; align-items: center; justify-content: center; background: transparent;">
+                    <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@asabaalhoran/video/7594215310098517278" data-video-id="7594215310098517278" style="max-width: 400px; min-width: 325px; border-radius: 20px; overflow: hidden;">
+                        <section>
+                            <a target="_blank" title="@asabaalhoran" href="https://www.tiktok.com/@asabaalhoran/video/7594215310098517278">@asabaalhoran</a>
+                        </section>
+                    </blockquote>
+                    <script async src="https://www.tiktok.com/embed.js"></script>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="journey-section">
+        <div class="container">
+            <div class="journey-header">
+                <div class="journey-week">EPISODE 13</div>
+                <h2 class="journey-title">The Awakening</h2>
+                <p class="journey-description">
+                    Profound moments of awakening and realization.
+                </p>
+            </div>
+            <div class="journey-content">
+                <div class="journey-text">
+                    <p><em>Episode content coming soon.</em></p>
+                </div>
+                <div class="journey-visual" style="padding: 0; display: flex; align-items: center; justify-content: center; background: transparent;">
+                    <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@asabaalhoran/video/7596814717537078558" data-video-id="7596814717537078558" style="max-width: 400px; min-width: 325px; border-radius: 20px; overflow: hidden;">
+                        <section>
+                            <a target="_blank" title="@asabaalhoran" href="https://www.tiktok.com/@asabaalhoran/video/7596814717537078558">@asabaalhoran</a>
+                        </section>
+                    </blockquote>
+                    <script async src="https://www.tiktok.com/embed.js"></script>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="journey-section">
+        <div class="container">
+            <div class="journey-header">
+                <div class="journey-week">EPISODE 14</div>
+                <h2 class="journey-title">Integration</h2>
+                <p class="journey-description">
+                    Integrating transformation into daily life and practice.
+                </p>
+            </div>
+            <div class="journey-content">
+                <div class="journey-text">
+                    <p><em>Episode content coming soon.</em></p>
+                </div>
+                <div class="journey-visual">
+                    <div class="video-embed">
+                        <iframe src="https://www.youtube.com/embed/iKsyX0dHf7I" frameborder="0" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="journey-section">
+        <div class="container">
+            <div class="journey-header">
+                <div class="journey-week">EPISODE 15</div>
+                <h2 class="journey-title">New Beginnings</h2>
+                <p class="journey-description">
+                    Celebrating transformation and embracing new chapters.
+                </p>
+            </div>
+            <div class="journey-content">
+                <div class="journey-text">
+                    <p><em>Episode content coming soon.</em></p>
+                </div>
+                <div class="journey-visual">
+                    <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@asabaalhoran/video/7601575336916110622" data-video-id="7601575336916110622" style="max-width: 400px; min-width: 325px; border-radius: 20px; overflow: hidden;">
+                        <section>
+                            <a target="_blank" title="@asabaalhoran" href="https://www.tiktok.com/@asabaalhoran/video/7601575336916110622">@asabaalhoran</a>
+                        </section>
+                    </blockquote>
+                    <script async src="https://www.tiktok.com/embed.js"></script>
+                </div>
+            </div>
+        </div>
+    </section>
+ 
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Season 0 Complete</h2>
+                <p>
+                    You've experienced all 15 episodes of Season 0: Pilot — the journey of authenticity, transformation, and the power of speaking your word into existence.
+                </p>
+                <div class="cta-buttons">
+                    <a href="../life-is-your-word/season-1.html" class="cta-button primary">Explore Season 1</a>
+                    <a href="../life-is-your-word.html" class="cta-button">Back to Seasons</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Asabaal Ventures. Reality Studio.</p>
+            <p><em>"I don't promise perfection; I promise reality."</em></p>
+            <p><a href="../connect.html">Connect with us</a> • <a href="../links.html">All social links</a></p>
+        </div>
+    </footer>
 </body>
 </html>

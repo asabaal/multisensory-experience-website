@@ -161,7 +161,7 @@
 
         .show-banner {
             width: 100%;
-            height: 400px;
+            height: 280px;
             border-radius: 20px;
             display: flex;
             align-items: center;
@@ -271,6 +271,12 @@
             justify-content: center;
         }
 
+        .season-image-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
         .season-overlay {
             position: absolute;
             top: 20px;
@@ -368,9 +374,30 @@
                 grid-template-columns: 1fr;
             }
         }
-    .footer a:hover {
-    color: #f472b6;
-}
+
+        .footer {
+            background: rgba(15, 15, 35, 0.9);
+            padding: 40px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            margin-top: 60px;
+        }
+
+        .footer p {
+            text-align: center;
+            color: #d1d5db;
+            margin: 10px 0;
+            line-height: 1.6;
+        }
+
+        .footer a {
+            color: #fbbf24;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer a:hover {
+            color: #f472b6;
+        }
 </style>
 </head>
 <body>
@@ -413,8 +440,8 @@
 
     <section class="show-header">
         <div class="container">
-            <div class="show-banner" style="background: linear-gradient(135deg, #06b6d4 0%, #10b981 100%);">
-                <div style="font-size: 6rem; color: white; text-shadow: 0 4px 20px rgba(0,0,0,0.5);">🎵</div>
+            <div class="show-banner">
+                <img src="assets/shows/musical-poetry/logos/logo.png" alt="Musical Poetry with Asabaal" class="show-logo-large">
             </div>
             <div class="show-info">
                 <h1 class="show-title-large">Musical Poetry with Asabaal</h1>
@@ -433,19 +460,28 @@
                 <h2>Seasons</h2>
                 <p>Explore the poetic journey through consciousness, emotion, and spiritual awakening.</p>
             </div>
-            <div class="seasons-container" id="seasons-container">
-                <div class="loading" style="text-align: center; grid-column: 1 / -1; padding: 60px;">Loading seasons...</div>
+            <div class="seasons-container">
+                <div class="season-card" onclick="window.location.href='musical-poetry/season-1.html'">
+                    <div class="season-image">
+                        <img src="assets/shows/musical-poetry/logos/card.png" alt="Season 1" class="season-image-img">
+                    </div>
+                    </div>
+                    <div class="season-content">
+                        <h3 class="season-title">Season 1</h3>
+                        <p class="season-description">The inaugural season of musical poetry experiences - a journey through consciousness, emotion, and spiritual awakening.</p>
+                        <p class="season-stats">1 episode</p>
+                    </div>
+                    <div class="season-explore">
+                        <span class="explore-text">Engage with First Season Now</span>
+                        <span class="explore-arrow">→</span>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
     <script src="assets/js/amusements-data.js"></script>
     <script src="assets/js/amusements-navigation.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            AmusementsNavigation.renderShowOverview('musical-poetry');
-        });
-    </script>
     <footer class="footer">
         <div class="container">
             <p>&copy; 2026 Asabaal Ventures. Reality Studio.</p>
