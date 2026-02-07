@@ -13,7 +13,7 @@ const AmusementsNavigation = {
       return `
       <div class="show-card" data-show-id="${show.id}" onclick="window.location.href='${show.link}'">
         <div class="show-image" style="background: ${show.gradient || show.colorTheme}">
-          ${show.logo ? `<img src="${show.logo}" alt="${show.title} Logo">` : ''}
+          ${show.image ? `<img src="${show.image}" alt="${show.title} Card">` : ''}
           <div class="show-overlay">
             <span class="show-status ${show.status}">${show.status === 'active' ? 'Now Streaming' : 'Coming Soon'}</span>
           </div>

@@ -18,7 +18,6 @@ const amusementsData = {
       subtitle: "The Great Reconciliation",
       description: "A blueprint for humanity's collective awakening to unity consciousness. Where division becomes connection, where separation becomes remembrance of our interconnectedness.",
       link: "vision_2054_page.html",
-      image: "assets/shows/amusements/banners/vision-2054.jpg",
       status: "active",
       colorTheme: "#f59e0b",
       gradient: "linear-gradient(45deg, #f59e0b, #fbbf24)"
@@ -27,9 +26,10 @@ const amusementsData = {
       id: 'life-is-your-word',
       title: "Life is your Word",
       subtitle: "A Reality Series",
-      description: "Experience the journey of transformation, authenticity, and awakening through intimate conversations and real-life moments. Life is your Word explores what it means to truly live in alignment with your authentic self.",
+      description: "Experience journey of transformation, authenticity, and awakening through intimate conversations and real-life moments. Life is your Word explores what it means to truly live in alignment with your authentic self.",
       link: "life-is-your-word.html",
-      logo: "assets/shows/life-is-your-word/logos/logo.png",
+      logo: "LiyW Logo.png",
+      image: "LiyW Logo.png",
       banner: "assets/shows/life-is-your-word/banners/banner.jpg",
       status: "active",
       colorTheme: "#fbbf24",
@@ -73,10 +73,11 @@ const amusementsData = {
       id: 'musical-poetry',
       title: "Musical Poetry with Asabaal",
       subtitle: "Poetic Awakening",
-      description: "Experience the fusion of spoken word, music, and visual poetry in this transformative audio-visual journey. Each episode weaves together poetry, melody, and imagery to create a multisensory meditation experience.",
+      description: "Experience fusion of spoken word, music, and visual poetry in this transformative audio-visual journey. Each episode weaves together poetry, melody, and imagery to create a multisensory meditation experience.",
       link: "musical-poetry.html",
       logo: "assets/shows/musical-poetry/logos/logo.png",
-      banner: "assets/shows/musical-poetry/banners/banner.jpg",
+      image: "assets/shows/musical-poetry/logos/card-16-9.png",
+      banner: "assets/shows/musical-poetry/logos/logo.png",
       status: "active",
       colorTheme: "#06b6d4",
       gradient: "linear-gradient(45deg, #06b6d4, #10b981)",
@@ -90,20 +91,8 @@ const amusementsData = {
           episodes: [
             {
               number: 1,
-              title: "First Light",
-              description: "The first poem in the series - exploring the dawn of consciousness and the awakening of awareness.",
-              duration: "8 min",
-              poemLines: [
-                "In the darkness before dawn,",
-                "A spark begins to form,",
-                "The first light of awareness,",
-                "Transforming into warmth.",
-                "",
-                "Each breath a revelation,",
-                "Each moment a discovery,",
-                "The universe awakens within,",
-                "And we remember our truth."
-              ]
+              title: "Who do you think I am?",
+              description: "Exploring identity from a faith-aware perspective - what truly makes us who we are?"
             }
           ]
         }

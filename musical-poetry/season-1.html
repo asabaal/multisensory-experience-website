@@ -90,7 +90,7 @@
             display: flex;
             flex-direction: column;
         }
-        
+
         .company-name {
             font-size: 24px;
             font-weight: bold;
@@ -100,7 +100,7 @@
             background-clip: text;
             line-height: 1;
         }
-        
+
         .company-tagline {
             font-size: 11px;
             color: #9ca3af;
@@ -113,6 +113,8 @@
             display: flex;
             gap: 30px;
             list-style: none;
+            margin: 0;
+            padding: 0;
         }
         
         .nav-links a {
@@ -156,30 +158,16 @@
         }
 
         .season-header {
-            padding: 60px 0 40px;
-        }
-
-        .season-banner {
-            width: 100%;
-            height: 350px;
-            border-radius: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-            margin-bottom: 40px;
-            position: relative;
-        }
-
-        .season-banner-content {
+            padding: 100px 0 80px;
             text-align: center;
-            padding: 40px;
+            position: relative;
+            background: radial-gradient(circle at 50% 50%, rgba(139, 92, 246, 0.15) 0%, transparent 70%);
         }
 
-        .season-title-large {
-            font-size: 3.5rem;
+        .season-title {
+            font-size: 4rem;
             font-weight: 900;
-            margin-bottom: 15px;
+            margin-bottom: 25px;
             background: linear-gradient(45deg, #06b6d4, #10b981);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -188,84 +176,92 @@
         }
 
         .season-subtitle {
-            font-size: 1.3rem;
+            font-size: 1.5rem;
             color: #d1d5db;
-            font-weight: 600;
-        }
-
-        .season-info {
-            text-align: center;
             max-width: 900px;
-            margin: 0 auto 40px;
-        }
-
-        .season-description-large {
-            color: #d1d5db;
-            line-height: 1.7;
-            font-size: 1.15rem;
-            margin-bottom: 20px;
-        }
-
-        .episodes-grid-section {
-            padding: 80px 0;
-            background: rgba(0, 0, 0, 0.2);
-        }
-
-        .episodes-header {
-            text-align: center;
-            margin-bottom: 60px;
-        }
-
-        .episodes-header h2 {
-            font-size: 2.5rem;
-            margin-bottom: 15px;
-            background: linear-gradient(45deg, #06b6d4, #10b981);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .episodes-header p {
-            color: #d1d5db;
-            font-size: 1.1rem;
-            max-width: 600px;
             margin: 0 auto;
             line-height: 1.6;
         }
 
+        .season-description {
+            font-size: 1.3rem;
+            color: #e5e7eb;
+            max-width: 700px;
+            margin: 0 auto 40px;
+            line-height: 1.6;
+        }
+
+        .release-badge {
+            background: linear-gradient(45deg, #8b5cf6, #ec4899);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 25px;
+            font-weight: bold;
+            font-size: 0.9rem;
+            display: inline-block;
+            margin: 20px 0;
+        }
+
+        .episodes-section {
+            padding: 80px 0;
+        }
+
         .episodes-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            max-width: 1200px;
-            margin: 0 auto;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 60px;
         }
 
         .episode-card {
             background: rgba(255, 255, 255, 0.05);
             backdrop-filter: blur(10px);
-            border-radius: 16px;
+            border-radius: 20px;
             border: 1px solid rgba(255, 255, 255, 0.1);
             overflow: hidden;
             transition: all 0.3s ease;
             cursor: pointer;
             position: relative;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        .episode-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transition: left 0.5s;
+        }
+
+        .episode-card:hover::before {
+            left: 100%;
         }
 
         .episode-card:hover {
-            transform: translateY(-8px);
+            transform: translateY(-10px);
             border-color: #06b6d4;
-            box-shadow: 0 15px 40px rgba(6, 182, 212, 0.15);
+            box-shadow: 0 20px 50px -10px rgba(6, 182, 212, 0.2);
         }
 
-        .episode-thumbnail {
+        .episode-image {
             width: 100%;
             padding-bottom: 56.25%;
+            background: linear-gradient(45deg, #06b6d4, #10b981);
             position: relative;
             overflow: hidden;
             display: flex;
             align-items: center;
             justify-content: center;
+        }
+
+        .episode-image-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         .episode-number {
@@ -276,60 +272,122 @@
         }
 
         .episode-content {
-            padding: 25px;
+            padding: 20px;
         }
 
         .episode-title {
-            font-size: 1.3rem;
+            font-size: 1.5rem;
             color: #06b6d4;
-            margin-bottom: 12px;
+            margin-bottom: 8px;
             font-weight: 700;
-            line-height: 1.4;
+            line-height: 1.3;
         }
 
         .episode-description {
             color: #d1d5db;
-            line-height: 1.5;
-            margin-bottom: 15px;
-            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 12px;
+            font-size: 1rem;
         }
 
         .episode-meta {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding-top: 15px;
+            margin-top: 15px;
+            padding-top: 12px;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
         }
 
-        .episode-duration {
-            font-size: 0.9rem;
+        .episode-date {
+            background: linear-gradient(45deg, #8b5cf6, #06b6d4);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 0.8rem;
             font-weight: 600;
-            color: #06b6d4;
         }
 
-        .episode-explore {
+        .read-more {
             color: #06b6d4;
+            font-weight: 500;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .read-more:hover {
+            color: #fbbf24;
+        }
+
+        .episode-coming-soon {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .episode-coming-soon .episode-card:hover {
+            transform: none;
+            box-shadow: none;
+            border-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .episode-coming-soon .read-more {
+            color: #9ca3af;
+            cursor: default;
+            text-decoration: none;
+        }
+
+        .back-link {
+            text-align: center;
+            padding: 40px 0;
+        }
+
+        .back-button {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 15px 30px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 50px;
+            color: #e5e7eb;
+            text-decoration: none;
             font-weight: 600;
             transition: all 0.3s ease;
+            display: inline-block;
         }
 
-        .episode-card:hover .episode-explore {
-            transform: translateX(5px);
+        .back-button:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: #06b6d4;
+            transform: translateY(-2px);
+        }
+
+        .footer {
+            background: rgba(15, 15, 35, 0.9);
+            padding: 40px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            margin-top: 60px;
+        }
+
+        .footer p {
+            text-align: center;
+            color: #d1d5db;
+            margin: 10px 0;
+            line-height: 1.6;
+        }
+
+        .footer a {
+            color: #fbbf24;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer a:hover {
+            color: #f472b6;
         }
 
         @media (max-width: 768px) {
-            .season-title-large {
-                font-size: 2.5rem;
-            }
-
-            .nav-links {
-                display: none;
-            }
-
-            .episodes-grid {
-                grid-template-columns: 1fr;
-            }
+            .season-title { font-size: 2.5rem; }
+            .nav-links { gap: 15px; font-size: 0.9rem; }
+            .episodes-grid { grid-template-columns: 1fr; gap: 30px; }
+            .back-link { padding: 20px 0; }
         }
     </style>
 </head>
@@ -339,18 +397,18 @@
             <nav class="nav">
                 <div class="nav-left">
                     <div class="logo-image">
-                        <img src="assets/images/icons/favicon.svg" alt="Asabaal Ventures Logo">
+                        <img src="../assets/images/icons/favicon.svg" alt="Asabaal Ventures Logo">
                     </div>
                     <div class="logo-text">
                         <div class="company-name">Asabaal Ventures</div>
                         <div class="company-tagline">Reality Studio</div>
                     </div>
                 </div>
-                
+
                 <div class="nav-center">
-                    <img src="assets/images/logos/Asabaal Ventures.png" alt="Asabaal Ventures" class="center-logo">
+                    <img src="../assets/images/logos/Asabaal Ventures.png" alt="Asabaal Ventures" class="center-logo">
                 </div>
-                
+
                 <div class="nav-right">
                     <ul class="nav-links">
                         <li><a href="../index.html" style="color: #fbbf24;">Home</a></li>
@@ -365,49 +423,52 @@
         </div>
     </header>
 
-    <div class="breadcrumb">
-        <a href="amusements.html" class="breadcrumb-item">Amusements</a>
-        <span class="breadcrumb-separator">›</span>
-        <a href="musical-poetry.html" class="breadcrumb-item">Musical Poetry with Asabaal</a>
-        <span class="breadcrumb-separator">›</span>
-        <span class="breadcrumb-current">Season 1</span>
-    </div>
-
     <section class="season-header">
         <div class="container">
-            <div class="season-banner" style="background: linear-gradient(135deg, #06b6d4 0%, #10b981 100%);">
-                <div class="season-banner-content">
-                    <h1 class="season-title-large">Season 1</h1>
-                    <p class="season-subtitle">Musical Poetry with Asabaal</p>
-                </div>
-            </div>
-            <div class="season-info">
-                <p class="season-description-large">
-                    The inaugural season of musical poetry experiences - a journey through consciousness, emotion, and spiritual awakening. 
-                    Each episode weaves together spoken word, original music, and visual poetry to create a truly multisensory meditation experience.
-                </p>
-            </div>
+            <h1 class="season-title">Season 1</h1>
+            <p class="season-subtitle">Musical Poetry with Asabaal</p>
+            <p class="season-description">
+                The inaugural season of musical poetry experiences - a journey through consciousness, emotion, and spiritual awakening.
+                Each episode weaves together spoken word, original music, and visual poetry to create a truly multisensory meditation experience.
+            </p>
+            <div class="release-badge">Released: 2026-02-07</div>
         </div>
     </section>
 
-    <section class="episodes-grid-section">
+    <section class="episodes-section">
         <div class="container">
-            <div class="episodes-header">
-                <h2>Episodes</h2>
-                <p>Poetic journeys through consciousness, emotion, and spiritual awakening</p>
-            </div>
-            <div class="episodes-grid" id="episodes-grid">
-                <div class="loading" style="text-align: center; grid-column: 1 / -1; padding: 60px;">Loading episodes...</div>
+            <div class="episodes-grid">
+                <article class="episode-card" onclick="window.location.href='season-1/episode-1.html'">
+                <div class="episode-image">
+                    <img src="../assets/shows/musical-poetry/logos/logo.png" alt="Episode 1" class="episode-image-img">
+                </div>
+                    <div class="episode-content">
+                        <h2 class="episode-title">Who do you think I am?</h2>
+                        <p class="episode-description">
+                            Exploring identity from a faith-aware perspective - what truly makes us who we are?
+                        </p>
+                        <div class="episode-meta">
+                            <span class="episode-date">2026-02-07</span>
+                            <a href="#" class="read-more">Listen →</a>
+                        </div>
+                    </div>
+                </article>
             </div>
         </div>
     </section>
 
-    <script src="assets/js/amusements-data.js"></script>
-    <script src="assets/js/amusements-navigation.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            AmusementsNavigation.renderSeason('musical-poetry', 'season1');
-        });
-    </script>
+    <div class="back-link">
+        <div class="container">
+            <a href="../musical-poetry.html" class="back-button">← Back to Season Overview</a>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Asabaal Ventures. Reality Studio.</p>
+            <p><em>"I don't promise perfection; I promise reality."</em></p>
+            <p><a href="../connect.html">Connect with us</a> • <a href="../links.html">All social links</a></p>
+        </div>
+    </footer>
 </body>
 </html>
