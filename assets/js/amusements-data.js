@@ -85,7 +85,7 @@ const amusementsData = {
         season1: {
           title: "Season 1",
           description: "The inaugural season of musical poetry experiences - a journey through consciousness, emotion, and spiritual awakening.",
-          episodeCount: 1,
+          episodeCount: 2,
           status: "active",
           releaseDate: "2025",
           episodes: [
@@ -93,6 +93,11 @@ const amusementsData = {
               number: 1,
               title: "Who do you think I am?",
               description: "Exploring identity from a faith-aware perspective - what truly makes us who we are?"
+            },
+            {
+              number: 2,
+              title: "CHILD OF GOD (WHO YOU BE)",
+              description: "A declaration of identity rooted in Scripture - all who are led by the Spirit are children of God, beyond labels of male and female."
             }
           ]
         }
