@@ -172,7 +172,7 @@ def build_navigation_graph():
     page_info = {}
     
     for root, dirs, files in os.walk(BASE_DIR):
-        dirs[:] = [d for d in dirs if d not in ['node_modules', '.git', '__pycache__', 'prototypes', 'development-archive', 'visualizations-archive', 'blog']]
+        dirs[:] = [d for d in dirs if d not in ['node_modules', '.git', '__pycache__', 'prototypes', 'development-archive', 'visualizations-archive']]
         
         for file in files:
             if file.endswith('.html'):
@@ -236,11 +236,18 @@ def generate_dot_file(graph, page_info):
         'Content Hubs',
         'Utility',
         'About',
+        'About Sub-pages',
         'Series',
         'Special',
         'Blog Posts',
         'Prototypes',
         'Visualizations',
+        'Learn',
+        'Learn Sub-pages',
+        'Business',
+        'Business Sub-pages',
+        'Interact',
+        'Interact Sub-pages',
         'Other'
     ]
     
@@ -250,11 +257,18 @@ def generate_dot_file(graph, page_info):
         'Content Hubs': '#A78BFA',
         'Utility': '#6B7280',
         'About': '#F472B6',
+        'About Sub-pages': '#FBCFE8',
         'Series': '#FB923C',
         'Special': '#C084FC',
         'Blog Posts': '#F9A8D4',
         'Prototypes': '#818CF8',
         'Visualizations': '#38BDF8',
+        'Learn': '#10B981',
+        'Learn Sub-pages': '#34D399',
+        'Business': '#F59E0B',
+        'Business Sub-pages': '#FBBF24',
+        'Interact': '#06B6D4',
+        'Interact Sub-pages': '#67E8F9',
         'Other': '#E5E7EB'
     }
     
@@ -344,12 +358,9 @@ def main():
     print(f"✓ Organized into clusters")
     print(f"✓ DOT file: {DOT_OUTPUT}")
     
-    try:
-        cmd = f'dot -Tpng -Gdpi={DPI} -Gratio=3.0 -Gbgcolor="#1a1a2e" {DOT_OUTPUT} -o {IMAGE_OUTPUT}'
-        os.system(cmd)
-        print(f"✓ PNG image: {IMAGE_OUTPUT}")
-    except Exception as e:
-        print(f"Error generating PNG: {e}", file=sys.stderr)
+    # Visualization disabled - PNG generation skipped
+    # Uncomment to enable: dot -Tpng -Gdpi={DPI} -Gratio=3.0 -Gbgcolor="#1a1a2e" {DOT_OUTPUT} -o {IMAGE_OUTPUT}
+    print("✓ Visualization disabled - run manually: dot -Tpng website-nav.dot -o website-nav-graph.png")
 
 if __name__ == '__main__':
     main()

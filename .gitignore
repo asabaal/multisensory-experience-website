@@ -44,3 +44,6 @@ Thumbs.db
 
 # PR analysis debug outputs
 pr_analysis_output/debug_outputs/
+
+#site ops images
+site_ops/screenshots/

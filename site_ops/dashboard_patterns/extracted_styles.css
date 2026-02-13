@@ -1,0 +1,1152 @@
+/*
+    ========================================
+    VISUAL DATABASE CSS PATTERNS
+    ========================================
+
+    This file contains all CSS patterns required for
+    implementing the visual database system.
+
+    Copy this file to: css/styles.css
+
+    Modify CSS variables in :root to customize theme.
+
+    ========================================
+*/
+
+/*
+    ========================================
+    CSS VARIABLES (THEMING SYSTEM)
+    ========================================
+
+    Define in :root for global access.
+
+    REQUIRED VARIABLES:
+    - Background colors (primary, secondary, tertiary)
+    - Accent colors (at least 4 recommended)
+    - Text colors (primary, secondary)
+    - Border color
+
+    USAGE:
+    var(--variable-name) anywhere in CSS
+
+    CUSTOMIZATION:
+    Change hex values to match your brand colors.
+*/
+
+:root {
+    /* Background Colors */
+
+    /*
+        Primary background - darkest color
+        Used for: body background gradient start
+        Example: Dark blue-purple
+    */
+    --bg-primary: #1a1a2e;
+
+    /*
+        Secondary background - medium dark
+        Used for: table row default, media elements, detail items
+        Example: Medium blue
+    */
+    --bg-secondary: #16213e;
+
+    /*
+        Tertiary background - lighter
+        Used for: filters sidebar, hover states
+        Example: Light blue
+    */
+    --bg-tertiary: #0f3460;
+
+    /* Accent Colors */
+
+    /*
+        Accent purple
+        Used for: header gradient start, row selection, borders
+        Example: Purple
+    */
+    --accent-purple: #7b2cbf;
+
+    /*
+        Accent pink
+        Used for: header gradient end, close button, detail labels
+        Example: Pink-red
+    */
+    --accent-pink: #c9184a;
+
+    /*
+        Accent orange
+        Used for: selected row border, media section heading
+        Example: Orange
+    */
+    --accent-orange: #f77f00;
+
+    /*
+        Accent teal
+        Used for: header text, filter headers, table headers
+        Example: Teal-blue
+    */
+    --accent-teal: #00b4d8;
+
+    /* Text Colors */
+
+    /*
+        Primary text - main content
+        Used for: body text, table data, detail values
+        Example: Off-white
+    */
+    --text-primary: #e8e8e8;
+
+    /*
+        Secondary text - less prominent
+        Used for: filter labels, empty states, media link text
+        Example: Light gray
+    */
+    --text-secondary: #b8b8b8;
+
+    /* Border Color */
+
+    /*
+        Border color - consistent across UI
+        Used for: section borders, filter borders, media link borders
+        Example: Medium gray-purple
+    */
+    --border-color: #4a4e69;
+}
+
+/*
+    ========================================
+    GLOBAL RESET
+    ========================================
+
+    Remove default browser margins and padding.
+    Set box-sizing to border-box for consistent sizing.
+*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/*
+    ========================================
+    BODY STYLES
+    ========================================
+
+    Body is the root of page content.
+
+    Font family: System fonts fallback to Segoe UI
+    Background: Gradient from primary to secondary
+    Text color: Primary text color
+    Minimum height: Full viewport height
+*/
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+    color: var(--text-primary);
+    min-height: 100vh;
+}
+
+/*
+    ========================================
+    APP CONTAINER
+    ========================================
+
+    ID: app (REQUIRED)
+    Purpose: Root container for entire application
+
+    Layout: Flexbox column
+    Height: Full viewport height (100vh)
+
+    This ensures the app fills the screen and
+    proper scrolling behavior within sections.
+*/
+
+#app {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+/*
+    ========================================
+    HEADER
+    ========================================
+
+    Header displays application title.
+
+    Background: Gradient from accent-purple to accent-pink
+    Padding: 1.5rem horizontal, 2rem vertical
+    Box shadow: Soft drop shadow for depth
+*/
+
+header {
+    background: linear-gradient(90deg, var(--accent-purple) 0%, var(--accent-pink) 100%);
+    padding: 1.5rem 2rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+/*
+    Header heading
+    Font size: 2rem
+    Font weight: 300 (light)
+    Letter spacing: 2px (slightly expanded)
+*/
+
+header h1 {
+    font-size: 2rem;
+    font-weight: 300;
+    letter-spacing: 2px;
+}
+
+/*
+    ========================================
+    MAIN CONTAINER
+    ========================================
+
+    Main contains filters, content table, and details panel.
+
+    Layout: Flexbox row
+    Flex: 1 (takes remaining vertical space)
+    Overflow: hidden (scroll inside child sections)
+
+    This creates the three-panel layout:
+    [ Filters ] [ Content Table ] [ Details ]
+*/
+
+main {
+    display: flex;
+    flex: 1;
+    overflow: hidden;
+}
+
+/*
+    ========================================
+    FILTERS SIDEBAR
+    ========================================
+
+    ID: filters (REQUIRED)
+    Purpose: Display filter dropdowns
+
+    Width: Fixed 280px
+    Background: Tertiary color
+    Padding: 1.5rem on all sides
+    Overflow: Auto (vertical scroll if filters overflow)
+    Border: 2px solid border color on right
+*/
+
+#filters {
+    width: 280px;
+    background: var(--bg-tertiary);
+    padding: 1.5rem;
+    overflow-y: auto;
+    border-right: 2px solid var(--border-color);
+}
+
+/*
+    Filters heading
+    Font size: 1.2rem
+    Margin bottom: 1.5rem
+    Color: Accent teal
+    Text transform: Uppercase
+    Letter spacing: 1px
+*/
+
+#filters h2 {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+    color: var(--accent-teal);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/*
+    ========================================
+    FILTER GROUP
+    ========================================
+
+    Class: filter-group
+    Purpose: Container for single filter dropdown
+
+    Each filter group contains:
+    - Label element
+    - Select element
+
+    Margin bottom: 1.5rem (spacing between filters)
+*/
+
+.filter-group {
+    margin-bottom: 1.5rem;
+}
+
+/*
+    Filter group label
+    Display: Block (takes full width)
+    Margin bottom: 0.5rem
+    Color: Secondary text
+    Font size: 0.9rem
+*/
+
+.filter-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+/*
+    Filter dropdown (select element)
+    Width: 100% of container
+    Padding: 0.75rem all sides
+    Background: Secondary color
+    Border: 1px solid border color
+    Color: Primary text
+    Border radius: 5px
+    Font size: 0.95rem
+    Cursor: Pointer (indicates clickable)
+
+    Focus state:
+    - Outline removed
+    - Border color changes to accent teal
+*/
+
+.filter-group select {
+    width: 100%;
+    padding: 0.75rem;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+    border-radius: 5px;
+    font-size: 0.95rem;
+    cursor: pointer;
+}
+
+.filter-group select:focus {
+    outline: none;
+    border-color: var(--accent-teal);
+}
+
+/*
+    ========================================
+    CONTENT SECTION
+    ========================================
+
+    ID: content (REQUIRED)
+    Purpose: Display table of filtered entries
+
+    Flex: 1 (takes remaining horizontal space)
+    Padding: 2rem on all sides
+    Overflow: Auto (vertical scroll if table is long)
+*/
+
+#content {
+    flex: 1;
+    padding: 2rem;
+    overflow-y: auto;
+}
+
+/*
+    Content list container
+    Purpose: Container for table or no-content message
+
+    Overflow: Auto (enables scrolling)
+*/
+
+#content-list {
+    overflow: auto;
+}
+
+/*
+    ========================================
+    TABLE STYLES
+    ========================================
+
+    Class: content-table
+    Purpose: Main data table
+
+    Width: 100% of container
+    Border collapse: Collapse (single borders)
+    Font size: 0.9rem
+*/
+
+.content-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+}
+
+/*
+    ========================================
+    TABLE HEADER (STICKY)
+    ========================================
+
+    CRITICAL: position: sticky is REQUIRED for sticky headers
+
+    Position: Sticky at top: 0
+    Background: Gradient from primary to secondary
+    Z-index: 10 (stays above scrolling content)
+
+    This makes the header stay visible while scrolling.
+*/
+
+.content-table thead {
+    position: sticky;
+    top: 0;
+    background: linear-gradient(90deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+    z-index: 10;
+}
+
+/*
+    Table header cells (th)
+    Padding: 1rem horizontal, 1.5rem vertical
+    Text align: Left
+    Font weight: 600 (semi-bold)
+    Color: Accent teal
+    Text transform: Uppercase
+    Letter spacing: 1px
+    Font size: 0.8rem
+    Border bottom: 2px solid accent-purple
+    White space: No wrap (prevent header wrapping)
+*/
+
+.content-table th {
+    padding: 1rem 1.5rem;
+    text-align: left;
+    font-weight: 600;
+    color: var(--accent-teal);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.8rem;
+    border-bottom: 2px solid var(--accent-purple);
+    white-space: nowrap;
+}
+
+/*
+    Table data cells (td)
+    Padding: 0.75rem horizontal, 1.5rem vertical
+    Color: Primary text
+    Border bottom: 1px solid border color
+*/
+
+.content-table td {
+    padding: 0.75rem 1.5rem;
+    color: var(--text-primary);
+    border-bottom: 1px solid var(--border-color);
+}
+
+/*
+    ========================================
+    TABLE ROW STYLES
+    ========================================
+
+    Class: table-row (REQUIRED)
+    Purpose: Interactive data rows
+
+    Cursor: Pointer (indicates clickable)
+    Transition: Background color 0.2s ease (smooth hover)
+    Background: Secondary color (default state)
+*/
+
+.table-row {
+    cursor: pointer;
+    transition: background 0.2s ease;
+    background: var(--bg-secondary);
+}
+
+/*
+    Hover state for table rows
+
+    Background: Gradient from tertiary to secondary
+    This provides visual feedback on hover.
+*/
+
+.table-row:hover {
+    background: linear-gradient(90deg, rgba(15, 52, 96, 0.6) 0%, var(--bg-secondary) 100%);
+}
+
+/*
+    Selected state (added by JavaScript)
+
+    Class: selected (REQUIRED)
+    Purpose: Highlight currently selected row
+
+    Background: Gradient from accent-purple to tertiary
+    Border left: 4px solid accent-orange (visual indicator)
+*/
+
+.table-row.selected {
+    background: linear-gradient(90deg, var(--accent-purple) 0%, var(--bg-tertiary) 100%);
+    border-left: 4px solid var(--accent-orange);
+}
+
+/*
+    Selected row cells
+    Color: White (stands out)
+    Font weight: 500 (medium)
+*/
+
+.table-row.selected td {
+    color: white;
+    font-weight: 500;
+}
+
+/*
+    IMPORTANT: Preserve colored cells in selected rows
+
+    If a cell has inline background-color style,
+    override with semi-transparent purple.
+
+    This ensures color-coded cells remain visible
+    when row is selected.
+*/
+
+.table-row.selected td[style*="background-color"] {
+    background: rgba(123, 44, 191, 0.25) !important;
+}
+
+/*
+    ========================================
+    DETAILS PANEL
+    ========================================
+
+    ID: details-panel (REQUIRED)
+    Purpose: Display detailed information about selected entry
+
+    Width: Fixed 400px
+    Background: Gradient from secondary to tertiary
+    Border left: 2px solid border color
+    Padding: 2rem on all sides
+    Overflow: Auto (vertical scroll if content is long)
+    Position: Relative (for close button positioning)
+*/
+
+#details-panel {
+    width: 400px;
+    background: linear-gradient(180deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%);
+    border-left: 2px solid var(--border-color);
+    padding: 2rem;
+    overflow-y: auto;
+    position: relative;
+}
+
+/*
+    ========================================
+    HIDDEN STATE
+    ========================================
+
+    Class: hidden (REQUIRED)
+    Purpose: Hide elements
+
+    Display: None (completely removes from layout)
+
+    Applied to: #details-panel when no entry is selected
+
+    Toggled by JavaScript: remove/add 'hidden' class
+*/
+
+#details-panel.hidden {
+    display: none;
+}
+
+/*
+    ========================================
+    CLOSE BUTTON
+    ========================================
+
+    ID: close-details (REQUIRED)
+    Purpose: Close button for details panel
+
+    Position: Absolute (relative to #details-panel)
+    Top: 1rem from top edge
+    Right: 1rem from right edge
+
+    Width/Height: 35px (circular button)
+    Background: Accent pink
+    Color: White
+    Border: None
+    Border radius: 50% (makes it circular)
+    Font size: 1.5rem
+    Cursor: Pointer
+    Display: Flex (centers content)
+    Align items: Center (vertical centering)
+    Justify content: Center (horizontal centering)
+    Transition: All 0.3s ease (smooth animation)
+*/
+
+.close-btn {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    width: 35px;
+    height: 35px;
+    background: var(--accent-pink);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+/*
+    Close button hover state
+
+    Background: Accent orange (color change)
+    Transform: Rotate 90deg (rotation animation)
+*/
+
+.close-btn:hover {
+    background: var(--accent-orange);
+    transform: rotate(90deg);
+}
+
+/*
+    ========================================
+    DETAILS TITLE
+    ========================================
+
+    ID: details-title (REQUIRED)
+    Purpose: Display entry title/identifier
+
+    Font size: 1.8rem
+    Margin bottom: 2rem
+    Color: Accent teal
+    Padding bottom: 1rem
+    Border bottom: 2px solid border color
+*/
+
+#details-title {
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+    color: var(--accent-teal);
+    padding-bottom: 1rem;
+    border-bottom: 2px solid var(--border-color);
+}
+
+/*
+    ========================================
+    DETAIL ITEM
+    ========================================
+
+    Class: detail-item (REQUIRED)
+    Purpose: Container for single field-value pair
+
+    Margin bottom: 1.5rem (spacing between items)
+    Padding: 1rem on all sides
+    Background: Primary color
+    Border radius: 8px (rounded corners)
+    Border left: 4px solid accent-purple (visual accent)
+*/
+
+.detail-item {
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    background: var(--bg-primary);
+    border-radius: 8px;
+    border-left: 4px solid var(--accent-purple);
+}
+
+/*
+    Detail label (field name)
+
+    Class: detail-label (REQUIRED)
+    Purpose: Display field name
+
+    Font size: 0.85rem
+    Color: Accent pink
+    Text transform: Uppercase
+    Letter spacing: 1px
+    Margin bottom: 0.5rem
+*/
+
+.detail-label {
+    font-size: 0.85rem;
+    color: var(--accent-pink);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 0.5rem;
+}
+
+/*
+    Detail value (field value)
+
+    Class: detail-value (REQUIRED)
+    Purpose: Display field value
+
+    Font size: 1.1rem
+    Color: Primary text
+*/
+
+.detail-value {
+    font-size: 1.1rem;
+    color: var(--text-primary);
+}
+
+/*
+    ========================================
+    ATTACHED CONTENT SECTION
+    ========================================
+
+    ID: attached-content (REQUIRED)
+    Purpose: Section for media attachments
+
+    Margin top: 2.5rem (spacing from detail items)
+    Padding top: 2rem
+    Border top: 2px solid border color (visual separator)
+*/
+
+#attached-content {
+    margin-top: 2.5rem;
+    padding-top: 2rem;
+    border-top: 2px solid var(--border-color);
+}
+
+/*
+    Attached content heading
+
+    Font size: 1.2rem
+    Color: Accent orange
+    Margin bottom: 1rem
+    Text transform: Uppercase
+    Letter spacing: 1px
+*/
+
+#attached-content h3 {
+    font-size: 1.2rem;
+    color: var(--accent-orange);
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/*
+    Attached content items container
+
+    ID: attached-content-items (REQUIRED)
+    Purpose: Container for media elements
+
+    Color: Secondary text
+    Font style: Italic
+    Padding: 1rem on all sides
+    Background: Primary color
+    Border radius: 8px
+    Border left: 4px solid accent-orange
+*/
+
+#attached-content-items {
+    color: var(--text-secondary);
+    font-style: italic;
+    padding: 1rem;
+    background: var(--bg-primary);
+    border-radius: 8px;
+    border-left: 4px solid var(--accent-orange);
+}
+
+/*
+    ========================================
+    MEDIA WRAPPER
+    ========================================
+
+    Class: media-wrapper (REQUIRED)
+    Purpose: Container for single media element
+
+    Margin bottom: 1.5rem (spacing between media)
+    Padding: 1rem on all sides
+    Background: Primary color
+    Border radius: 8px
+    Border left: 4px solid accent-teal
+*/
+
+.media-wrapper {
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    background: var(--bg-primary);
+    border-radius: 8px;
+    border-left: 4px solid var(--accent-teal);
+}
+
+/*
+    Media type label
+
+    Class: media-type-label (REQUIRED)
+    Purpose: Display media type and source
+
+    Font size: 0.75rem
+    Color: Accent pink
+    Text transform: Uppercase
+    Letter spacing: 1px
+    Margin bottom: 0.5rem
+    Font weight: 600
+*/
+
+.media-type-label {
+    font-size: 0.75rem;
+    color: var(--accent-pink);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+/*
+    Media elements (video, audio, image)
+
+    Background: Secondary color
+    Border radius: 6px
+
+    These are inline elements inside media-wrapper.
+*/
+
+.media-wrapper video,
+.media-wrapper audio,
+.media-wrapper img {
+    background: var(--bg-secondary);
+    border-radius: 6px;
+}
+
+/*
+    ========================================
+    MEDIA LINK
+    ========================================
+
+    Class: media-link (REQUIRED)
+    Purpose: Link to external media file
+
+    Display: Flex
+    Align items: Center
+    Gap: 0.75rem (space between icon and text)
+    Padding: 1rem on all sides
+    Background: Tertiary color
+    Border radius: 8px
+    Text decoration: None (no underline)
+    Transition: All 0.2s ease
+    Border: 1px solid border color
+*/
+
+.media-link {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1rem;
+    background: var(--bg-tertiary);
+    border-radius: 8px;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    border: 1px solid var(--border-color);
+}
+
+/*
+    Media link hover state
+
+    Background: Accent purple
+    Transform: Translate X 5px (slide right animation)
+*/
+
+.media-link:hover {
+    background: var(--accent-purple);
+    transform: translateX(5px);
+}
+
+/*
+    Media link icon
+
+    Class: media-link-icon (REQUIRED)
+    Purpose: Display link icon (emoji)
+
+    Font size: 1.5rem
+*/
+
+.media-link-icon {
+    font-size: 1.5rem;
+}
+
+/*
+    Media link text
+
+    Class: media-link-text (REQUIRED)
+    Purpose: Display link text
+
+    Color: Primary text
+    Font weight: 500
+*/
+
+.media-link-text {
+    color: var(--text-primary);
+    font-weight: 500;
+}
+
+/*
+    ========================================
+    UTILITY STYLES
+    ========================================
+
+    No-content state
+
+    Class: no-content (REQUIRED)
+    Purpose: Display message when no entries found
+
+    Color: Secondary text
+    Font style: Italic
+*/
+
+.no-content {
+    color: var(--text-secondary);
+    font-style: italic;
+}
+
+/*
+    ========================================
+    SCROLLBAR STYLING
+    ========================================
+
+    Custom scrollbar for webkit browsers
+    (Chrome, Safari, Edge, Opera)
+
+    Width: 10px
+*/
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/*
+    Scrollbar track
+    Background: Primary color
+*/
+
+::-webkit-scrollbar-track {
+    background: var(--bg-primary);
+}
+
+/*
+    Scrollbar thumb (draggable part)
+    Background: Border color
+    Border radius: 5px (rounded ends)
+*/
+
+::-webkit-scrollbar-thumb {
+    background: var(--border-color);
+    border-radius: 5px;
+}
+
+/*
+    Scrollbar thumb hover state
+    Background: Accent purple (color change)
+*/
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--accent-purple);
+}
+
+/*
+    ========================================
+    PROTOCOL ERROR STYLES
+    ========================================
+
+    Class: protocol-error (REQUIRED)
+    Purpose: Display error when file:// protocol detected
+
+    Background: Gradient from secondary to tertiary
+    Border radius: 15px (heavily rounded)
+    Padding: 3rem on all sides
+    Max width: 600px
+    Margin: 2rem auto (centered with top/bottom spacing)
+    Text align: Center
+    Border: 3px solid accent pink
+*/
+
+.protocol-error {
+    background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%);
+    border-radius: 15px;
+    padding: 3rem;
+    max-width: 600px;
+    margin: 2rem auto;
+    text-align: center;
+    border: 3px solid var(--accent-pink);
+}
+
+/*
+    Error heading
+
+    Color: Accent pink
+    Font size: 2rem
+    Margin bottom: 1.5rem
+*/
+
+.protocol-error h2 {
+    color: var(--accent-pink);
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+/*
+    Error subheading
+
+    Color: Accent teal
+    Margin: 2rem top, 1rem bottom
+    Text align: Left
+*/
+
+.protocol-error h3 {
+    color: var(--accent-teal);
+    margin: 2rem 0 1rem 0;
+    text-align: left;
+}
+
+/*
+    Error paragraph
+
+    Font size: 1.1rem
+    Color: Primary text
+    Margin bottom: 1rem
+*/
+
+.protocol-error p {
+    font-size: 1.1rem;
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+}
+
+/*
+    Error ordered list
+
+    Text align: Left
+    Margin left: 2rem (indentation)
+    Color: Secondary text
+    Line height: 1.8 (readable spacing)
+*/
+
+.protocol-error ol {
+    text-align: left;
+    margin-left: 2rem;
+    color: var(--text-secondary);
+    line-height: 1.8;
+}
+
+/*
+    Error code block
+
+    Background: Primary color
+    Padding: 0.3rem horizontal, 0.6rem vertical
+    Border radius: 4px
+    Color: Accent orange
+    Font family: Monospace
+*/
+
+.protocol-error code {
+    background: var(--bg-primary);
+    padding: 0.3rem 0.6rem;
+    border-radius: 4px;
+    color: var(--accent-orange);
+    font-family: 'Courier New', monospace;
+}
+
+/*
+    ========================================
+    RESPONSIVE DESIGN (OPTIONAL)
+    ========================================
+
+    For mobile/tablet screens, you may want to:
+    - Change layout to vertical stacking
+    - Adjust font sizes
+    - Make filters collapsible
+
+    Example media query for smaller screens:
+*/
+
+@media (max-width: 1024px) {
+    /* Reduce details panel width */
+    #details-panel {
+        width: 350px;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Stack filters on mobile */
+    main {
+        flex-direction: column;
+    }
+
+    #filters {
+        width: 100%;
+        height: auto;
+        max-height: 200px;
+        border-right: none;
+        border-bottom: 2px solid var(--border-color);
+    }
+
+    /* Full width details panel on mobile */
+    #details-panel {
+        width: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 100;
+    }
+}
+
+/*
+    ========================================
+    ADDITIONAL CUSTOMIZATION OPTIONS
+    ========================================
+
+    To customize the appearance:
+
+    1. Change Colors:
+       Modify CSS variables in :root at top of file
+
+    2. Change Fonts:
+       Update font-family on body and specific elements
+
+    3. Change Spacing:
+       Adjust padding and margin values
+
+    4. Change Border Radius:
+       Modify border-radius values
+
+    5. Change Transitions:
+       Adjust transition duration and easing functions
+
+    6. Add Shadows:
+       Add box-shadow for more depth
+
+    7. Change Gradients:
+       Modify linear-gradient() parameters
+
+    ========================================
+    ACCESSIBILITY NOTES
+    ========================================
+
+    Ensure adequate color contrast:
+    - Text on backgrounds should have 4.5:1 contrast ratio
+    - Current theme provides sufficient contrast
+
+    Focus indicators:
+    - Filter dropdowns have focus state with border color change
+    - Add similar focus states to interactive elements if needed
+
+    Text sizing:
+    - Base font size uses browser default (usually 16px)
+    - Use rem units for scalable text
+
+    ========================================
+    PERFORMANCE NOTES
+    ========================================
+
+    Use hardware acceleration:
+    - Transitions on transform (close button, media link)
+    - Transitions on opacity
+    - Avoid transitions on layout properties (width, height) when possible
+
+    Reduce repaints:
+    - Sticky header stays fixed during scroll
+    - Overflow hidden on main container prevents body scroll
+
+    ========================================
+*/

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Site Maintenance Database | Asabaal Ventures</title>
+    <link rel="stylesheet" href="css/maintenance-db.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1 class="header-title">🛠️ Site Maintenance Database</h1>
+            <p>Manage 78 website pages, issues, and screenshots</p>
+        </header>
+
+        <!-- Main Content -->
+        <div id="app-container">
+            <!-- Filter Section -->
+            <div class="filter-section">
+                <h2 class="filter-header">🔍 Filters</h2>
+                
+                <div class="filter-controls">
+                    <div class="filter-group">
+                        <label class="filter-label">Page Type</label>
+                        <select id="filter-page-type" class="filter-select">
+                            <option value="">All Pages</option>
+                            <option value="Content Hub">Content Hub</option>
+                            <option value="Blog Post">Blog Post</option>
+                            <option value="Content Page">Content Page</option>
+                            <option value="Series Episode">Series Episode</option>
+                            <option value="Content Page">Content Page</option>
+                            <option value="Utility Page">Utility Page</option>
+                            <option value="About Page">About Page</option>
+                            <option value="Resume/CV">Resume/CV</option>
+                            <option value="Visualization">Visualization</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label class="filter-label">Mobile Responsive</label>
+                        <select id="filter-mobile" class="filter-select">
+                            <option value="">All Pages</option>
+                            <option value="Yes">Yes</option>
+                            <option value="No">No</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label class="filter-label">Issues</label>
+                        <select id="filter-issues" class="filter-select">
+                            <option value="">All Pages</option>
+                            <option value="has-issues">Has Issues</option>
+                            <option value="no-issues">No Issues</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label class="filter-label">Search</label>
+                        <input type="text" id="search-input" class="filter-input" placeholder="Search pages...">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Table Section -->
+            <div class="table-section">
+                <h2 class="filter-header">📊 Pages (78 total)</h2>
+                
+                <div class="table-header">
+                    <span class="table-header-text">Page Type</span>
+                    <span>Page Title</span>
+                    <span>Links</span>
+                    <span>Issues</span>
+                    <span>Responsive</span>
+                    <span>Date</span>
+                </div>
+                
+                <div class="maintenance-table">
+                    <thead>
+                        <tr class="maintenance-table thead">
+                            <th class="table-cell">Page Type</th>
+                            <th class="table-cell">Page Title</th>
+                            <th class="table-cell">Links</th>
+                            <th class="table-cell">Issues</th>
+                            <th class="table-cell">Responsive</th>
+                            <th class="table-cell">Date</th>
+                        </tr>
+                    </thead>
+                    <tbody id="table-body">
+                        <tr>
+                            <td colspan="5" class="table-cell text-center">
+                                <div class="empty-state">
+                                    <div class="empty-state-icon">📂</div>
+                                    <p>Loading CSV data...</p>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </div>
+            </div>
+        </div>
+
+        <!-- Details Panel -->
+        <div id="details-panel" class="details-panel hidden">
+            <div class="details-header">
+                <h2 class="details-title">Page Details</h2>
+                <button class="details-close" id="close-panel" aria-label="Close details panel">✕</button>
+            </div>
+            
+            <!-- Screenshot Preview -->
+            <div class="screenshot-section">
+                <div class="screenshot-preview" id="screenshot-preview">
+                    <div class="screenshot-error" id="screenshot-error">
+                        <p>Screenshot not found</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Issues List -->
+            <div class="issues-section">
+                <h3>Detected Issues</h3>
+                <ul class="issues-list" id="issues-list">
+                    <li>Click a row in the table to view issues</li>
+                </ul>
+            </div>
+            
+            <!-- Metadata Section -->
+            <div class="metadata-section">
+                <h3>Page Metadata</h3>
+                <div>
+                    <span class="metadata-label">Template Used:</span>
+                    <span class="metadata-value" id="metadata-template">-</span>
+                </div>
+                <div>
+                    <span class="metadata-label">Inbound Links:</span>
+                    <span class="metadata-value" id="metadata-inbound">-</span>
+                </div>
+                <div>
+                    <span class="metadata-label">Outbound Links:</span>
+                    <span class="metadata-value" id="metadata-outbound">-</span>
+                </div>
+                <div>
+                    <span class="metadata-label">Video Embeds:</span>
+                    <span class="metadata-value" id="metadata-video">-</span>
+                </div>
+                <div>
+                    <span class="metadata-label">Audio Embeds:</span>
+                    <span class="metadata-value" id="metadata-audio">-</span>
+                </div>
+                <div>
+                    <span class="metadata-label">Images:</span>
+                    <span class="metadata-value" id="metadata-images">-</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+    <script src="js/maintenance-db.js"></script>
+</body>
+</html>
